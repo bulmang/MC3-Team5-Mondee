@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		078D5F992A602B4B00BD5557 /* StartGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D5F982A602B4B00BD5557 /* StartGame.swift */; };
+		078D5F992A602B4B00BD5557 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D5F982A602B4B00BD5557 /* GameView.swift */; };
 		078D5F9B2A602B6100BD5557 /* ArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D5F9A2A602B6100BD5557 /* ArrowAnimation.swift */; };
+		07D962FC2A6146C400CFDFFC /* BeforeGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D962FB2A6146C400CFDFFC /* BeforeGameView.swift */; };
 		2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */; };
 		2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A7702A5D0099000B6CF6 /* ContentView.swift */; };
 		2919A7732A5D009A000B6CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919A7722A5D009A000B6CF6 /* Assets.xcassets */; };
@@ -49,8 +50,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		078D5F982A602B4B00BD5557 /* StartGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGame.swift; sourceTree = "<group>"; };
+		078D5F982A602B4B00BD5557 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		078D5F9A2A602B6100BD5557 /* ArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowAnimation.swift; sourceTree = "<group>"; };
+		07D962FB2A6146C400CFDFFC /* BeforeGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeGameView.swift; sourceTree = "<group>"; };
 		2919A76B2A5D0099000B6CF6 /* Mondee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mondee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeApp.swift; sourceTree = "<group>"; };
 		2919A7702A5D0099000B6CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,8 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				2919A7822A5D009A000B6CF6 /* ContentView.swift */,
-				078D5F982A602B4B00BD5557 /* StartGame.swift */,
+				078D5F982A602B4B00BD5557 /* GameView.swift */,
 				078D5F9A2A602B6100BD5557 /* ArrowAnimation.swift */,
+				07D962FB2A6146C400CFDFFC /* BeforeGameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,8 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D962FC2A6146C400CFDFFC /* BeforeGameView.swift in Sources */,
 				292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */,
-				078D5F992A602B4B00BD5557 /* StartGame.swift in Sources */,
+				078D5F992A602B4B00BD5557 /* GameView.swift in Sources */,
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
 				292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */,
 				078D5F9B2A602B6100BD5557 /* ArrowAnimation.swift in Sources */,
