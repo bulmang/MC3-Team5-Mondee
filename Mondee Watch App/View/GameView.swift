@@ -34,7 +34,8 @@ struct GameView: View {
                 }
             }
         }
-        
+
+        // TODO: 추후 print 코드 제거 요망
         let _ = print("mondeeScroll : \(mondeeScroll)")
         
         switch gameStatus {
