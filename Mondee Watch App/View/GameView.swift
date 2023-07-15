@@ -8,9 +8,7 @@
 import SwiftUI
 
 enum GameStatus {
-    case beforeGame
-    case playingGame
-    case afterGame
+    case beforeGame, playingGame, afterGame
 }
 
 struct GameView: View {
@@ -24,16 +22,7 @@ struct GameView: View {
     
     var body: some View {
         
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            if mondeeScroll <= bottomScrollLimit {
-                mondeeScroll = gameStartScroll
-                isGuideActive = true
-                WKInterfaceDevice.current().play(.start)
-                if isGuideActive == false {
-                    mondeeScroll = 0
-                }
-            }
-        }
+        startGameOnCharacterReachedBath()
 
         // TODO: 추후 print 코드 제거 요망
         let _ = print("mondeeScroll : \(mondeeScroll)")
@@ -45,6 +34,25 @@ struct GameView: View {
             return AnyView(Text("Playing"))
         case .afterGame:
             return AnyView(GameGuideView().transition(.move(edge: .bottom)))
+        }
+    }
+    
+    // MARK: Fuctions
+    
+    fileprivate func startGameOnCharacterReachedBath() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            if mondeeScroll <= bottomScrollLimit {
+                mondeeScroll = gameStartScroll
+                isGuideActive = true
+                WKInterfaceDevice.current().play(.start)
+                whenCancel()
+            }
+        }
+    }
+    
+    fileprivate func whenCancel() {
+        if isGuideActive == false {
+            mondeeScroll = 0
         }
     }
 }
