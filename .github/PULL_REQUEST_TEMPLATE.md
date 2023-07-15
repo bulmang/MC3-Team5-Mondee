@@ -15,6 +15,14 @@
 
 <br>
 
+## Screenshot
+<!-- img src "이부분에 gif파일 넣어주시면 됩니다" -->
+|기능|스크린샷|
+|:--:|:--:|
+|GIF|<img src = "" width ="250">|
+
+<br>
+
 ## 🗒️ Note (optional)
 <!-- 추가 필요한 사항이나 하고픈 말
      Reviewer 한테 요청하고 싶은 것들
