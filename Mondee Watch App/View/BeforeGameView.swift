@@ -17,6 +17,7 @@ struct BeforeGameView: View {
     private let topScrollLimit = 250
     private let mondeePadding = 100
     private let mondeeFinalLocationRatio = 2.5
+    private let headerHeight = 50
     
     let bottomScrollLimit : CGFloat
     
@@ -70,7 +71,7 @@ struct BeforeGameView: View {
                     .opacity(opacityValue)
                     
                 }
-                .padding(.top,50)
+                .padding(.top,CGFloat(headerHeight))
                 .ignoresSafeArea()
             }
             .sheet(isPresented: $isGuideActive) {
