@@ -1,17 +1,19 @@
+//
 //  GameView.swift
 //  Mondee Watch App
 //
 //  Created by 하명관 on 2023/07/13.
 //
+
 import SwiftUI
 import CoreMotion
 
 enum GameStatus {
-    case beforeGame, playingGame, afterGame
+    case preparation, guide, play, result
 }
 
 struct GameView: View {
-    @State private var gameStatus: GameStatus = .beforeGame
+    @State private var gameStatus: GameStatus = .preparation
     @State private var mondeeScroll: CGFloat = 0.0
     @State private var isGuideActive: Bool = false
     @State private var isGameStartActive: Bool = false
@@ -22,17 +24,19 @@ struct GameView: View {
     var body: some View {
         
         startGameOnCharacterReachedBath()
-
+        
         // TODO: 추후 print 코드 제거 요망
         let _ = print("mondeeScroll : \(mondeeScroll)")
         
         switch gameStatus {
-        case .beforeGame:
-            return AnyView(BeforeGameView(mondeeScroll: $mondeeScroll, isGuideActive: $isGuideActive, bottomScrollLimit: bottomScrollLimit))
-        case .playingGame:
-            return AnyView(Text("Playing"))
-        case .afterGame:
-            return AnyView(GameGuideView().transition(.move(edge: .bottom)))
+        case .preparation:
+            return AnyView(PreparationView(gameStatus: $gameStatus, mondeeScroll: $mondeeScroll, isGuideActive: $isGuideActive, bottomScrollLimit: bottomScrollLimit))
+        case .guide:
+            return AnyView(GuideView(gameStatus: $gameStatus).transition(.move(edge: .bottom)))
+        case .play:
+            return AnyView(PlayView(gameStatus: $gameStatus))
+        case .result:
+            return AnyView(ResultView())
         }
     }
     
@@ -57,29 +61,8 @@ struct GameView: View {
 }
 
 
-struct StartGame_Previews: PreviewProvider {
+struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
     }
 }
-
-struct GamePlayView: View {
-    @StateObject private var movingDetector = MovingDetector()
-    
-    var body: some View {
-        ZStack {
-            movingDetector.isMoving ? Color.red : Color.blue
-            
-            VStack {
-                Text("\(movingDetector.distanceMoved)")
-            }
-        }
-        .onDisappear {
-            movingDetector.stopMotionUpdates()}}}
-
-struct GameGuideView: View {
-    var body: some View{
-        Text("Guide")
-    }
-}
-

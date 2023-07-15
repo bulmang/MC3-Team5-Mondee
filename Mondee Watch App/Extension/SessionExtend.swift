@@ -36,10 +36,10 @@ class SessionExtend: NSObject, ObservableObject, WKExtendedRuntimeSessionDelegat
     }
     
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
-        print("extended runtime session")
+        print("extended runtime session did start")
     }
     
     func extendedRuntimeSessionWillExpire(_ extendedRuntimeSession: WKExtendedRuntimeSession) {
-        print("extended runtime session")
+        print("extended runtime session will expire")
     }
 }

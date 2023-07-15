@@ -6,7 +6,6 @@
 //
 
 import CoreMotion
-import Combine
 
 class MovingDetector: ObservableObject {
     private let motionManager = CMMotionManager()

@@ -1,5 +1,5 @@
 //
-//  BeforeGameView.swift
+//  PreparationView.swift
 //  Mondee Watch App
 //
 //  Created by 하명관 on 2023/07/14.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct BeforeGameView: View {
+struct PreparationView: View {
     
     // MARK: Properties
-    
+    @Binding var gameStatus: GameStatus
     @Binding var mondeeScroll: CGFloat
     @Binding var isGuideActive: Bool
     
@@ -32,7 +32,7 @@ struct BeforeGameView: View {
                     // MARK: MONDEE
                     
                     Mondee(mondeeWidth: mondeeWidth, deviceHeight: deviceHeight, startGame: startGame, mondeeScroll: $mondeeScroll, bottomScrollLimit: bottomScrollLimit)
-
+                    
                     
                     // MARK: BATH IMAGE
                     
@@ -56,7 +56,7 @@ struct BeforeGameView: View {
                 .ignoresSafeArea()
             }
             .sheet(isPresented: $isGuideActive) {
-                GameGuideView()
+                GuideView(gameStatus: $gameStatus)
                     .toolbar(content: {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
