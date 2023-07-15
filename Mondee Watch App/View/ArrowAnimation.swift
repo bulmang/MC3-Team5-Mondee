@@ -28,8 +28,8 @@ struct ArrowAnimation: View {
         }
         .onAppear {
             withAnimation {
-                self.isAnimating = true
-                self.fade = 1.0
+                isAnimating = true
+                fade = 1.0
             }
         }
     }
