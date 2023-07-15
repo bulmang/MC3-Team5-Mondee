@@ -14,9 +14,7 @@ struct BeforeGameView: View {
     @Binding var mondeeScroll: CGFloat
     @Binding var isGuideActive: Bool
     
-    private let topScrollLimit = 250
     private let mondeePadding = 100
-    private let mondeeFinalLocationRatio = 2.5
     private let headerHeight = 50
     
     let bottomScrollLimit : CGFloat
@@ -33,25 +31,8 @@ struct BeforeGameView: View {
                     
                     // MARK: MONDEE
                     
-                    Image("ImageWatchMondee")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: mondeeWidth)
-                        .offset(y: startGame ? deviceHeight/mondeeFinalLocationRatio : -((self.mondeeScroll)/6))
-                        .focusable(isFocusable)
-                        .digitalCrownRotation($mondeeScroll, from: CGFloat(bottomScrollLimit), through:CGFloat(topScrollLimit))
-                    .navigationTitle {
-                        HStack {
-                            Text("Mondee")
-                                .foregroundColor(.mint)
-                                .fontDesign(.rounded)
-                                .fontWeight(.heavy)
-                            Spacer()
-                        }
-                    }
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(.hidden)
-                    .ignoresSafeArea(.all)
+                    Mondee(mondeeWidth: mondeeWidth, deviceHeight: deviceHeight, startGame: startGame, mondeeScroll: $mondeeScroll, bottomScrollLimit: bottomScrollLimit)
+
                     
                     // MARK: BATH IMAGE
                     
@@ -94,13 +75,50 @@ struct BeforeGameView: View {
         return  mondeeScroll <= CGFloat(bottomScrollLimit)
     }
     
-    private var isFocusable: Bool {
-        return mondeeScroll > bottomScrollLimit
-    }
-    
     private var opacityValue: Double {
         return mondeeScroll <= bottomScrollLimit ? 0 : 1
     }
     
 }
 
+struct Mondee: View {
+    
+    // MARK: PROPERTIES
+    
+    var mondeeWidth: CGFloat
+    var deviceHeight: CGFloat
+    var startGame: Bool
+    
+    @Binding var mondeeScroll: CGFloat
+    
+    private let mondeeFinalLocationRatio = 2.5
+    private let topScrollLimit = 250
+    
+    let bottomScrollLimit : CGFloat
+    
+    var body: some View {
+        Image("ImageWatchMondee")
+            .resizable()
+            .scaledToFit()
+            .frame(maxWidth: mondeeWidth)
+            .offset(y: startGame ? deviceHeight / mondeeFinalLocationRatio : -((self.mondeeScroll) / 6))
+            .focusable(isFocusable)
+            .digitalCrownRotation($mondeeScroll, from: CGFloat(bottomScrollLimit), through: CGFloat(topScrollLimit))
+            .navigationTitle {
+                HStack {
+                    Text("Mondee")
+                        .foregroundColor(.mint)
+                        .fontDesign(.rounded)
+                        .fontWeight(.heavy)
+                    Spacer()
+                }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.hidden)
+            .ignoresSafeArea(.all)
+    }
+    
+    private var isFocusable: Bool {
+        return mondeeScroll > bottomScrollLimit
+    }
+}
