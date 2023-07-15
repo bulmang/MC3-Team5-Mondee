@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ArrowAnimation: View {
-    @State var fade: Double = 0
-    @State var isAnimating: Bool = false
+    @State var fade = 0.0
+    @State var isAnimating = false
+    
+    private let chevronCount = 3
     
     var body: some View {
         VStack(spacing: 2) {
-            ForEach(0..<3) { i in
+            ForEach(0..<chevronCount, id: \.self) { i in
                 Image(systemName: "chevron.down")
                     .resizable()
                     .frame(width: 8, height: 6)

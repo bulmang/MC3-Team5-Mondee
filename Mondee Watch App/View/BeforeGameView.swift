@@ -32,15 +32,13 @@ struct BeforeGameView: View {
                     
                     // MARK: MONDEE
                     
-                    VStack() {
-                        Image("ImageWatchMondee")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: mondeeWidth)
-                            .offset(y: startGame ? deviceHeight/mondeeFinalLocationRatio : -((self.mondeeScroll)/6))
-                            .focusable(isFocusable)
-                            .digitalCrownRotation($mondeeScroll, from: CGFloat(bottomScrollLimit), through:CGFloat(topScrollLimit))
-                    }
+                    Image("ImageWatchMondee")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: mondeeWidth)
+                        .offset(y: startGame ? deviceHeight/mondeeFinalLocationRatio : -((self.mondeeScroll)/6))
+                        .focusable(isFocusable)
+                        .digitalCrownRotation($mondeeScroll, from: CGFloat(bottomScrollLimit), through:CGFloat(topScrollLimit))
                     .navigationTitle {
                         HStack {
                             Text("Mondee")
