@@ -9,6 +9,12 @@ import SwiftUI
 
 @main
 struct Mondee_Watch_AppApp: App {
+    let sessionExtend = SessionExtend()
+
+    init() {
+        sessionExtend.startSession()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

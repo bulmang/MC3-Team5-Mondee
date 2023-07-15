@@ -20,6 +20,9 @@
 		292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */; };
 		292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */; };
 		292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */; };
+		7FB07B9B2A5FA11F0064D7FE /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07B9A2A5FA11F0064D7FE /* GameView.swift */; };
+		7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */; };
+		7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07BA32A62A4510064D7FE /* SessionExtend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleModel.swift; sourceTree = "<group>"; };
 		292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleViewModel.swift; sourceTree = "<group>"; };
+		7FB07B9A2A5FA11F0064D7FE /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDetector.swift; sourceTree = "<group>"; };
+		7FB07BA32A62A4510064D7FE /* SessionExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExtend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				2919A7802A5D009A000B6CF6 /* MondeeApp.swift */,
+				7FB07BA22A62A4090064D7FE /* Extension */,
 				292CE6C72A5ECD9500BEE4AF /* Model */,
 				292CE6C82A5ECD9E00BEE4AF /* View */,
 				292CE6C92A5ECDAF00BEE4AF /* ViewModel */,
@@ -177,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				2919A7822A5D009A000B6CF6 /* ContentView.swift */,
+				7FB07B9A2A5FA11F0064D7FE /* GameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,8 +193,17 @@
 			isa = PBXGroup;
 			children = (
 				292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */,
+				7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7FB07BA22A62A4090064D7FE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7FB07BA32A62A4510064D7FE /* SessionExtend.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +323,9 @@
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
 				292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */,
 				2919A7812A5D009A000B6CF6 /* MondeeApp.swift in Sources */,
+				7FB07B9B2A5FA11F0064D7FE /* GameView.swift in Sources */,
+				7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */,
+				7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,9 +457,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
@@ -467,9 +488,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
@@ -499,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
@@ -532,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
