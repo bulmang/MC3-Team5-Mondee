@@ -24,8 +24,10 @@
 		292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */; };
 		292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */; };
 		292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */; };
-		29712AE12A62CA4200A8C602 /* DeviceConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceConnector.swift */; };
-		29712AE22A62CA4200A8C602 /* DeviceConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceConnector.swift */; };
+		293EA05C2A63BBD300C3615F /* MessageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EA05B2A63BBD300C3615F /* MessageKey.swift */; };
+		293EA05D2A63BBD300C3615F /* MessageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EA05B2A63BBD300C3615F /* MessageKey.swift */; };
+		29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
+		29712AE22A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +73,8 @@
 		292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleModel.swift; sourceTree = "<group>"; };
 		292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleViewModel.swift; sourceTree = "<group>"; };
-		29712AE02A62CA4200A8C602 /* DeviceConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceConnector.swift; sourceTree = "<group>"; };
+		293EA05B2A63BBD300C3615F /* MessageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageKey.swift; sourceTree = "<group>"; };
+		29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */,
+				293EA05B2A63BBD300C3615F /* MessageKey.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */,
-				29712AE02A62CA4200A8C602 /* DeviceConnector.swift */,
+				29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -318,8 +322,9 @@
 				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
 				2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */,
 				2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */,
+				293EA05C2A63BBD300C3615F /* MessageKey.swift in Sources */,
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
-				29712AE12A62CA4200A8C602 /* DeviceConnector.swift in Sources */,
+				29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +335,8 @@
 				07D962FC2A6146C400CFDFFC /* BeforeGameView.swift in Sources */,
 				292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */,
 				07D963012A62C5A500CFDFFC /* ArrowAnimation.swift in Sources */,
-				29712AE22A62CA4200A8C602 /* DeviceConnector.swift in Sources */,
+				293EA05D2A63BBD300C3615F /* MessageKey.swift in Sources */,
+				29712AE22A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */,
 				078D5F992A602B4B00BD5557 /* GameView.swift in Sources */,
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
 				292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */,
