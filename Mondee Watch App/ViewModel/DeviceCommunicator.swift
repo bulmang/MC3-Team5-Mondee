@@ -41,7 +41,7 @@ class DeviceCommunicator: NSObject, WCSessionDelegate {
     
     func sessionDidDeactivate(_ session: WCSession) { }
 #endif
-
+    
     /// Handles the received message.
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         guard let dataReceived = self.dataReceived else {
@@ -53,6 +53,8 @@ class DeviceCommunicator: NSObject, WCSessionDelegate {
             message.forEach { key, value in
                 if let messageKey = MessageKey(rawValue: key) {
                     dataReceived(messageKey, value)
+                } else {
+                    print("Received unknown message key: \(key)")
                 }
             }
         }
