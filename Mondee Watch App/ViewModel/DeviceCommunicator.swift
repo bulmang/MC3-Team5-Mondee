@@ -50,7 +50,7 @@ class DeviceCommunicator: NSObject, WCSessionDelegate {
         }
         
         DispatchQueue.main.async {
-            message.forEach { key, value in
+            for (key, value) in message {
                 if let messageKey = MessageKey(rawValue: key) {
                     dataReceived(messageKey, value)
                 } else {
@@ -64,7 +64,7 @@ class DeviceCommunicator: NSObject, WCSessionDelegate {
     /// Sends various types of messages(data) to another device.
     func sendMessage(key: MessageKey, message: Any, _ errorHandler: ((Error) -> Void)?) {
         if session.isReachable {
-            session.sendMessage([key.rawValue : message], replyHandler: nil) { (error) in
+            session.sendMessage([key.rawValue : message], replyHandler: nil) { error in
                 print(error.localizedDescription)
                 if let errorHandler = errorHandler {
                     errorHandler(error)
