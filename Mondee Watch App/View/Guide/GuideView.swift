@@ -9,12 +9,22 @@ import SwiftUI
 
 struct GuideView: View {
     @Binding var gameStatus: GameStatus
+    @State var countDownView = false
     
     var body: some View{
-        Button {
-            gameStatus = .play
-        } label: {
-            Text("게임화면으로 넘어가기")
+        if countDownView {
+            CountDownView(gameStatus: $gameStatus)
+        } else {
+            VStack {
+                Image(systemName: "gamecontroller.fill")
+                    .font(.largeTitle)
+                Text("가이드를 주세영")
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            countDownView = true
+                        }
+                    }
+            }
         }
     }
 }
