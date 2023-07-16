@@ -15,21 +15,31 @@ struct CountDownView: View {
         VStack {
             if count > 0 {
                 Text("\(count)")
-                    .font(.system(size: 100))
+                    .font(.system(size: 150))
+                    .fontWeight(.black)
                     .fontDesign(.rounded)
-                    .bold()
-                    .foregroundColor(.red)
-                    .padding()
+                    .foregroundStyle(
+                        Color.black
+                        .shadow(.inner(color: .pink.opacity(0.5), radius: 4, x: 2, y: 2))
+                        .shadow(.inner(color: .blue, radius: 4, x: -2, y: 0))
+                        .shadow(.inner(color: .yellow.opacity(0.5), radius: 4, x: 1.5, y: -2))
+                        .shadow(.inner(color: .white.opacity(0.5), radius: 4, x: 0, y: 2))
+                    )
                     .onAppear {
                         startCountDown()
                     }
             } else {
                 Text("Go!")
                     .font(.system(size: 100))
+                    .fontWeight(.black)
                     .fontDesign(.rounded)
-                    .bold()
-                    .foregroundColor(.green)
-                    .padding()
+                    .foregroundStyle(
+                        Color.black
+                        .shadow(.inner(color: .pink.opacity(0.5), radius: 4, x: 2, y: 2))
+                        .shadow(.inner(color: .blue, radius: 4, x: -2, y: 0))
+                        .shadow(.inner(color: .yellow.opacity(0.5), radius: 4, x: 1.5, y: -2))
+                        .shadow(.inner(color: .white.opacity(0.5), radius: 4, x: 0, y: 2))
+                    )
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             gameStatus = .play
