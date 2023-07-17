@@ -31,6 +31,8 @@
 		7F06EEDB2A62EAA200946310 /* GameStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06EEDA2A62EAA200946310 /* GameStateManager.swift */; };
 		7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */; };
 		7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07BA32A62A4510064D7FE /* SessionExtend.swift */; };
+		292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */; };
+		29CAC95C2A6511D40038954C /* GameOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAC95B2A6511D40038954C /* GameOptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		7F06EEDA2A62EAA200946310 /* GameStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateManager.swift; sourceTree = "<group>"; };
 		7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDetector.swift; sourceTree = "<group>"; };
 		7FB07BA32A62A4510064D7FE /* SessionExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExtend.swift; sourceTree = "<group>"; };
+		292CE6CC2A5ECDE800BEE4AF /* WatchSampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleViewModel.swift; sourceTree = "<group>"; };
+		29CAC95B2A6511D40038954C /* GameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 				293EA0632A63DB4600C3615F /* CountDown */,
 				7F06EECD2A62D2C500946310 /* Play */,
 				7F06EED22A62DCE600946310 /* Result */,
+				29CAC95B2A6511D40038954C /* GameOptionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,6 +394,8 @@
 				07D963012A62C5A500CFDFFC /* ArrowAnimation.swift in Sources */,
 				078D5F992A602B4B00BD5557 /* GameView.swift in Sources */,
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
+				29CAC95C2A6511D40038954C /* GameOptionView.swift in Sources */,
+				292CE6CD2A5ECDE800BEE4AF /* WatchSampleViewModel.swift in Sources */,
 				2919A7812A5D009A000B6CF6 /* MondeeApp.swift in Sources */,
 				7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */,
 				293EA0652A63DB5E00C3615F /* CountDownView.swift in Sources */,
@@ -535,13 +542,13 @@
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -566,13 +573,13 @@
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -608,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -641,7 +648,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
