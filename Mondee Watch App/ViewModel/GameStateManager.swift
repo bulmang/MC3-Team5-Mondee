@@ -14,7 +14,6 @@ class GameStateManager: ObservableObject {
     private var movingSeconds = 0
     private var timer: Timer?
     
-    @Published var isGameStarted = false
     @Published var heartCount = Constants.initialHeartCount
     @Published var remainingSeconds = Constants.initialSeconds
     @Published var isCharacterClean = true
@@ -22,12 +21,11 @@ class GameStateManager: ObservableObject {
     @Published var isGameFinished = false
     @Published var isGameSuccessful = false
     @Published var isWarning = false
-        
+    
     func playGame() {
         SessionExtend.shared.startSession()
         
         if timer == nil {
-            isGameStarted = true
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
                 if !self.movingDetector.isMoving {
                     self.isCharacterBubbling = false
