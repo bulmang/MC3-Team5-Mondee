@@ -38,13 +38,13 @@ class GameStateManager: ObservableObject {
                     self.motionlessSeconds = 0
                     self.movingSeconds += 1
                 }
-                if self.motionlessSeconds > Constants.motionlessThreshold1 {
+                if self.motionlessSeconds >= Constants.motionlessThreshold1 && self.motionlessSeconds < Constants.motionlessThreshold2 {
                     self.isWarning = true
                     WKInterfaceDevice.current().play(.notification)
                 } else {
                     self.isWarning = false
                 }
-                if self.motionlessSeconds > Constants.motionlessThreshold2 {
+                if self.motionlessSeconds >= Constants.motionlessThreshold2 {
                     self.isCharacterClean = false
                     self.heartCount -= 1
                     self.motionlessSeconds = 0
@@ -52,7 +52,7 @@ class GameStateManager: ObservableObject {
                         self.gameFail()
                     }
                 }
-                if self.movingSeconds > Constants.motionlessThreshold3 {
+                if self.movingSeconds >= Constants.movingThreshold {
                     self.isCharacterClean = true
                 }
                 if self.remainingSeconds > 0 {
