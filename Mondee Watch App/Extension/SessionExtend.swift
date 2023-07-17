@@ -9,6 +9,7 @@ import WatchKit
 
 class SessionExtend: NSObject, ObservableObject, WKExtendedRuntimeSessionDelegate {
     static public let shared = SessionExtend()
+    
     private var session = WKExtendedRuntimeSession()
     
     private func isRunningSession() -> Bool {
