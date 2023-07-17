@@ -57,7 +57,7 @@ struct PreparationView: View {
             }
             .sheet(isPresented: $isGuideActive) {
                 // GuideView(gameStatus: $gameStatus)
-                GameGuideView(isGuideActive: $isGuideActive)
+                GuideView(isGuideActive: $isGuideActive, gameStatus: $gameStatus)
                     .toolbar(content: {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {

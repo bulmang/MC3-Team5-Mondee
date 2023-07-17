@@ -33,7 +33,7 @@ struct GameView: View {
         case .preparation:
             return AnyView(PreparationView(gameStatus: $gameStatus, mondeeScroll: $mondeeScroll, isGuideActive: $isGuideActive, bottomScrollLimit: bottomScrollLimit))
         case .guide:
-            return AnyView(GuideView(gameStatus: $gameStatus).transition(.move(edge: .bottom)))
+            return AnyView(GuideView(isGuideActive: $isGuideActive, gameStatus: $gameStatus).transition(.move(edge: .bottom)))
         case .play:
             return AnyView(PlayView(gameStatus: $gameStatus))
         case .result:
@@ -58,42 +58,6 @@ struct GameView: View {
         if isGuideActive == false {
             mondeeScroll = 0
         }
-    }
-}
-
-struct GameGuideView: View {
-    @State private var showGameCountView = false
-    @Binding var isGuideActive: Bool
-    
-    var body: some View{
-        VStack{
-            if showGameCountView {
-                BeforeGameCountView(isGuideActive: $isGuideActive)
-            } else {
-                HStack{
-                    Image("ImageWatchBubbles")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 27)
-                    Text("청소시간")
-                        .font(.system(size: 20, weight: .semibold))
-                    Image("ImageWatchBubble")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24)
-                }
-                .padding(.bottom, 10)
-                Text("몸을 움직여\n먼지를 씻겨주자")
-                    .font(.system(size: 15, weight: .regular))
-                    .multilineTextAlignment(.center)
-            }
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                showGameCountView = true
-            }
-        }
-        
     }
 }
 
