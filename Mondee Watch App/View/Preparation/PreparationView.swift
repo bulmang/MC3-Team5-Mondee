@@ -56,7 +56,8 @@ struct PreparationView: View {
                 .ignoresSafeArea()
             }
             .sheet(isPresented: $isGuideActive) {
-                GuideView(gameStatus: $gameStatus)
+                // GuideView(gameStatus: $gameStatus)
+                GameGuideView(isGuideActive: $isGuideActive)
                     .toolbar(content: {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {

@@ -32,6 +32,8 @@
 		7F06EEDB2A62EAA200946310 /* GameStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06EEDA2A62EAA200946310 /* GameStateManager.swift */; };
 		7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */; };
 		7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07BA32A62A4510064D7FE /* SessionExtend.swift */; };
+		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		7F06EEDA2A62EAA200946310 /* GameStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateManager.swift; sourceTree = "<group>"; };
 		7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDetector.swift; sourceTree = "<group>"; };
 		7FB07BA32A62A4510064D7FE /* SessionExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExtend.swift; sourceTree = "<group>"; };
+		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
+        
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				07D962FB2A6146C400CFDFFC /* PreparationView.swift */,
 				07D962FE2A62B71600CFDFFC /* Mondee.swift */,
 				07D963002A62C5A500CFDFFC /* ArrowAnimation.swift */,
+				2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */,
 			);
 			path = Preparation;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				7F06EECF2A62D30700946310 /* PlayView.swift in Sources */,
 				07D963012A62C5A500CFDFFC /* ArrowAnimation.swift in Sources */,
 				078D5F992A602B4B00BD5557 /* GameView.swift in Sources */,
+				2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */,
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
 				29CAC95C2A6511D40038954C /* GameOptionView.swift in Sources */,
 				2919A7812A5D009A000B6CF6 /* MondeeApp.swift in Sources */,
