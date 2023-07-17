@@ -13,33 +13,77 @@ struct PlayView: View {
     @Binding var gameStatus: GameStatus
     
     var body: some View {
-        if gameState.isGameStarted {
-            VStack {
-                Text("남은 하트 개수: \(gameState.heartCount)")
-                    .font(.subheadline)
-                if gameState.isGameFinished {
-                    Text(gameState.isGameSuccessful ? "게임 성공" : "게임 실패")
-                        .font(.largeTitle)
-                } else {
-                    Text("\(formatTime(gameState.remainingSeconds))")
-                        .font(.largeTitle)
+        GeometryReader { geo in
+            let deviceWidth = geo.size.width
+            
+            if gameState.isGameStarted {
+                ZStack() {
+                    VStack {
+                        HStack {
+                            ForEach(0..<gameState.heartCount, id: \.self) { number in
+                                Image("Heart-WatchOS")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26)
+                            }
+                            Spacer()
+                        }
+                        Spacer()
+                    }.padding(.all, CGFloat(12))
+                    if gameState.isCharacterClean {
+                        Image("ImgMondeeBasic-WatchOS").resizable()
+                            .frame(width: 120, height: 120)
+                            .padding(.top, CGFloat(40))
+                    } else {
+                        Image("ImgMondeeBlack-WatchOS").resizable()
+                            .frame(width: 120, height: 120)
+                            .padding(.top, CGFloat(40))
+                    }
+                    if gameState.isCharacterBubbling {
+                        VStack {
+                            Spacer()
+                            Image("ImgBathTubBubble-WatchOS")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: deviceWidth)
+                        }
+                    }
+                    VStack {
+                        Spacer()
+                        Image("ImgBathTubTower-WatchOS")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: deviceWidth)
+                            .edgesIgnoringSafeArea(.all)
+                    }
+                    VStack {
+                        Spacer()
+                        if gameState.isGameFinished {
+                            Text(gameState.isGameSuccessful ? "게임 성공" : "게임 실패")
+                                .font(.largeTitle).foregroundColor(.black)
+                        } else {
+                            Text("\(formatTime(gameState.remainingSeconds))")
+                                .font(.largeTitle).foregroundColor(.black)
+                        }
+                    }.padding(.bottom, CGFloat(12))
                 }
-                if gameState.isCharacterBubbling {
-                    Text("씻는 중 🧼").padding().background(Color.green)
-                } else {
-                    Text("안 씻는 중 😭").padding().background(Color.gray)
+                .navigationTitle {
+                    HStack {
+                        Text("남은 하트 개수: \(gameState.heartCount)")
+                            .font(.subheadline)
+                            .foregroundColor(.mint)
+                            .fontDesign(.rounded)
+                            .fontWeight(.heavy)
+                        Spacer()
+                    }
                 }
-                if gameState.isCharacterClean {
-                    Text("캐릭터는 깨끗합니다. ✨").padding().background(Color.yellow)
-                } else {
-                    Text("캐릭터는 더럽습니다. 🪰").padding().background(Color.brown)
+                .ignoresSafeArea()
+            } else {
+                Button {
+                    gameState.playGame()
+                } label: {
+                    Text("게임 시작")
                 }
-            }.background(gameState.isWarning ? Color.red : Color.clear)
-        } else {
-            Button {
-                gameState.playGame()
-            } label: {
-                Text("게임 시작")
             }
         }
     }
