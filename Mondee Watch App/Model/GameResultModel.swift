@@ -1,5 +1,5 @@
 //
-//  MessageKey.swift
+//  GameResultModel.swift
 //  Mondee
 //
 //  Created by hyunjun on 2023/07/16.
