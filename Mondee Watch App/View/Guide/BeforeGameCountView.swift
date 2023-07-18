@@ -47,6 +47,7 @@ struct BeforeGameCountView: View {
                             Text("\(countdown)")
                                 .font(.system(size: 100))
                                 .modifier(BubbleFontModifier())
+                                
                         :
                             Text("Ready")
                                 .font(.system(size: 30))
@@ -68,7 +69,7 @@ struct BeforeGameCountView: View {
                 .font(.system(size: 80))
                 .modifier(BubbleFontModifier())
                 .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         gameStatus = .play
                     }
                 }
