@@ -79,11 +79,7 @@ struct GameOptionView: View {
                         Text("완료했어요")
                     }
 
-                    Button(role: .cancel) {
-                        
-                    } label: {
-                        Text("취소")
-                    }
+                   Button("취소", role: .cancel) {} 
 
                 }
             }
