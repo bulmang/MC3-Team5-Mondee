@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct BeforeGameCountView: View {
-    @State private var progress: CGFloat = 1.0
-    @State private var countdown: Int = 3
+    @State private var progress: CGFloat = 1
+    @State private var countdown = 4
+    @State private var countShow = false
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let countdownDuration: TimeInterval = 3
@@ -21,7 +22,10 @@ struct BeforeGameCountView: View {
             VStack {
                 Circle()
                     .trim(from: 0, to: progress)
-                    .stroke(lineWidth: 10)
+                    .stroke(style: StrokeStyle(
+                        lineWidth: 10,
+                        lineCap: .round
+                    ))
                     .modifier(BubbleFontModifier())
                     .frame(width: 153, height: 153)
                     .rotationEffect(Angle(degrees: -90))
@@ -29,19 +33,34 @@ struct BeforeGameCountView: View {
                     .onAppear {
                         startCountdown()
                     }
+                    .background(
+                        Circle()
+                            .stroke(style: StrokeStyle(
+                                lineWidth: 10,
+                                lineCap: .round
+                            ))
+                            .foregroundColor(.gray.opacity(0.2))
+                    )
                     .overlay(
-                        Text("\(countdown)")
-                            .font(.system(size: 100))
-                            .modifier(BubbleFontModifier())
+                        countShow
+                        ?
+                            Text("\(countdown)")
+                                .font(.system(size: 100))
+                                .modifier(BubbleFontModifier())
+                        :
+                            Text("준비")
+                                .font(.system(size: 50))
+                                .modifier(BubbleFontModifier())
+   
                     )
             }
-            .onAppear{
-                progress -= 1 / CGFloat(countdownDuration)
-            }
+//            .onAppear{
+//                progress -= 1 / CGFloat(countdownDuration)
+//            }
             .onReceive(timer) { _ in
                 withAnimation {
                     if progress > 0 {
-                        progress -= 1 / CGFloat(countdownDuration)
+                        progress -= 0.3333
                     } else {
                         timer.upstream.connect().cancel()
                     }
@@ -61,6 +80,7 @@ struct BeforeGameCountView: View {
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             countdown -= 1
+            countShow = true
             if countdown == 0 {
                 timer.invalidate()
             }
