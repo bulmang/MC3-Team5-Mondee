@@ -54,9 +54,6 @@ struct BeforeGameCountView: View {
    
                     )
             }
-//            .onAppear{
-//                progress -= 1 / CGFloat(countdownDuration)
-//            }
             .onReceive(timer) { _ in
                 withAnimation {
                     if progress > 0 {
