@@ -12,6 +12,7 @@ struct GameOptionView: View {
     
     @State var isPauseButton = true
     @State var gameTerminationAlert = false
+    @State var gameEarlySuccessAlert = false
     
     @Binding var selection: PlayViewSelection
     @Binding var gameStatus: GameStatus
@@ -22,11 +23,7 @@ struct GameOptionView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         WatchButton(SFSymbol: "checkmark", label: "오늘 완료") {
-                            gameState.successGameEarly()
-                            gameStatus = .success
-                            withAnimation() {
-                                selection = .game
-                            }
+                            gameEarlySuccessAlert = true
                         }
                         .disabled(!gameState.isEarlyTerminationPossible)
                         .tint(.blue)
@@ -43,10 +40,6 @@ struct GameOptionView: View {
                     }
                     HStack {
                         WatchButton(SFSymbol: "xmark", label: "오늘 그만") {
-//                            gameState.giveUpGame()
-//                            withAnimation() {
-//                                selection = .game
-//                            }
                             gameTerminationAlert = true
                         }
                         .tint(.red)
@@ -68,6 +61,24 @@ struct GameOptionView: View {
                         }
                     } label: {
                         Text("오늘 그만")
+                    }
+
+                    Button(role: .cancel) {
+                        
+                    } label: {
+                        Text("취소")
+                    }
+
+                }
+                .alert("정말 청소를 완료하셨어요?", isPresented: $gameEarlySuccessAlert) {
+                    Button {
+                        gameState.successGameEarly()
+                        gameStatus = .success
+                        withAnimation() {
+                            selection = .game
+                        }
+                    } label: {
+                        Text("완료했어요")
                     }
 
                     Button(role: .cancel) {

@@ -43,7 +43,7 @@ struct GameView: View {
             if isFinalFail {
                 return AnyView(FinalFailView())
             } else {
-                return AnyView(FailView(isFinalFail: $isFinalFail))
+                return AnyView(FailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus))
             }
         }
     }
