@@ -92,7 +92,7 @@ struct GameOptionView: View {
             .navigationTitle {
                 HStack {
                     Text(isPauseButton ? "게임 중" : "일시정지 됨")
-                        .foregroundColor(isPauseButton ? .green : .yellow)
+                        .foregroundColor(isPauseButton ? .blue : .yellow)
                     Spacer()
                 }
                 .foregroundColor(.green)
