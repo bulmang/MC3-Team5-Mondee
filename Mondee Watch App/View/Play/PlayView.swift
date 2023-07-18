@@ -7,16 +7,21 @@
 
 import SwiftUI
 
+enum PlayViewSelection {
+    case option
+    case game
+}
+
 struct PlayView: View {
     @StateObject private var gameState = GameStateManager()
     
-    @State var selection = "GamePage"
+    @State var selection: PlayViewSelection = .game
     @Binding var gameStatus: GameStatus
     
     var body: some View {
         TabView(selection: $selection) {
-            GameOptionView().environmentObject(gameState)
-                .tag("OptionPage")
+            GameOptionView(selection: $selection).environmentObject(gameState)
+                .tag(PlayViewSelection.option)
             
             GeometryReader { geo in
                 let deviceWidth = geo.size.width
@@ -86,7 +91,7 @@ struct PlayView: View {
                     gameState.playGame()
                 }
             }
-            .tag("GamePage")
+            .tag(PlayViewSelection.game)
         }
     }
     

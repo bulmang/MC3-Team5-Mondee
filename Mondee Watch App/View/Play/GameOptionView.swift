@@ -12,6 +12,8 @@ struct GameOptionView: View {
     
     @State var isPauseButton = true
     
+    @Binding var selection: PlayViewSelection
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
@@ -19,6 +21,9 @@ struct GameOptionView: View {
                     HStack {
                         WatchButton(SFSymbol: "checkmark", label: "오늘 완료") {
                             gameState.successGameEarly()
+                            withAnimation() {
+                                selection = .game
+                            }
                         }
                         .disabled(!gameState.isEarlyTerminationPossible)
                         .tint(.blue)
@@ -36,6 +41,9 @@ struct GameOptionView: View {
                     HStack {
                         WatchButton(SFSymbol: "xmark", label: "오늘 그만") {
                             gameState.giveUpGame()
+                            withAnimation() {
+                                selection = .game
+                            }
                         }
                         .tint(.red)
                         
@@ -51,6 +59,7 @@ struct GameOptionView: View {
             .navigationTitle {
                 HStack {
                     Text(isPauseButton ? "게임 중" : "일시정지 됨")
+                        .foregroundColor(isPauseButton ? .green : .yellow)
                     Spacer()
                 }
                 .foregroundColor(.green)
@@ -81,6 +90,6 @@ struct WatchButton: View {
 
 struct GameOptionView_Previews: PreviewProvider {
     static var previews: some View {
-        GameOptionView()
+        GameOptionView(selection: .constant(.option))
     }
 }
