@@ -13,6 +13,7 @@ class GameStateManager: ObservableObject {
     private var motionlessSeconds = 0
     private var movingSeconds = 0
     private var timer: Timer?
+    private var isPaused = false
     
     @Published var heartCount = Constants.initialHeartCount
     @Published var remainingSeconds = Constants.initialSeconds
@@ -21,12 +22,24 @@ class GameStateManager: ObservableObject {
     @Published var isGameFinished = false
     @Published var isGameSuccessful = false
     @Published var isWarning = false
+    @Published var isEarlyTerminationPossible = false
     
     func playGame() {
         SessionExtend.shared.startSession()
+        movingDetector.startMotionUpdates()
         
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.isGameFinished {
+                    self.stopTimer()
+                    return
+                }
+                if self.isPaused {
+                    return
+                }
+                
+                self.setIsEarlyTerminationPossible()
+                
                 if !self.movingDetector.isMoving {
                     self.isCharacterBubbling = false
                     self.motionlessSeconds += 1
@@ -36,49 +49,77 @@ class GameStateManager: ObservableObject {
                     self.motionlessSeconds = 0
                     self.movingSeconds += 1
                 }
-                if self.motionlessSeconds >= Constants.motionlessThreshold1 && self.motionlessSeconds < Constants.motionlessThreshold2 {
+                if self.motionlessSeconds >= Constants.warningThreshold && self.motionlessSeconds < Constants.dirtThreshold {
                     self.isWarning = true
                     WKInterfaceDevice.current().play(.notification)
                 } else {
                     self.isWarning = false
                 }
-                if self.motionlessSeconds >= Constants.motionlessThreshold2 {
+                if self.motionlessSeconds >= Constants.dirtThreshold {
                     self.isCharacterClean = false
                     self.heartCount -= 1
                     self.motionlessSeconds = 0
                     if (self.heartCount == 0) {
-                        self.gameFail()
+                        self.failGame()
                     }
                 }
-                if self.movingSeconds >= Constants.movingThreshold {
+                if self.movingSeconds >= Constants.cleanThreshold {
                     self.isCharacterClean = true
                 }
                 if self.remainingSeconds > 0 {
                     self.remainingSeconds -= 1
                 } else {
-                    self.gameSuccess()
+                    self.successGame()
                 }
             }
         }
     }
     
-    private func gameSuccess() {
-        isGameSuccessful = true
-        gameStop()
-        print("success")
+    func setIsEarlyTerminationPossible() {
+        if remainingSeconds <= (Constants.initialSeconds - Constants.terminationPossibleSeconds) {
+            isEarlyTerminationPossible = true
+        }
     }
     
-    private func gameFail() {
-        isGameSuccessful = false
-        gameStop()
-        print("fail")
-    }
-    
-    private func gameStop() {
+    func pauseGame() {
+        isPaused = true
         movingDetector.stopMotionUpdates()
+        stopTimer()
+    }
+    
+    func resumeGame() {
+        isPaused = false
+        movingDetector.startMotionUpdates()
+        playGame()
+    }
+    
+    func successGameEarly() {
+        successGame()
+    }
+    
+    func giveUpGame() {
+        failGame()
+    }
+    
+    private func successGame() {
+        isGameSuccessful = true
+        stopGame()
+    }
+    
+    private func failGame() {
+        isGameSuccessful = false
+        stopGame()
+    }
+    
+    private func stopGame() {
+        SessionExtend.shared.stopSession()
+        movingDetector.stopMotionUpdates()
+        isGameFinished = true
+        remainingSeconds = Constants.initialSeconds
+    }
+    
+    private func stopTimer() {
         timer?.invalidate()
         timer = nil
-        remainingSeconds = Constants.initialSeconds
-        isGameFinished = true
     }
 }

@@ -15,11 +15,7 @@ class MovingDetector: ObservableObject {
     @Published var isMoving = false
     @Published var distanceMoved = 0.0
     
-    init() {
-        startMotionUpdates()
-    }
-    
-    private func startMotionUpdates() {
+    func startMotionUpdates() {
         if motionManager.isDeviceMotionAvailable {
             motionManager.deviceMotionUpdateInterval = timeInterval
             motionManager.startDeviceMotionUpdates(to: OperationQueue.main) { motion, error in

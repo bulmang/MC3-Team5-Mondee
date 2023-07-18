@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct GameOptionView: View {
+    @EnvironmentObject var gameState: GameStateManager
     
     @State var isPauseButton = true
+    @State var gameTerminationAlert = false
+    @State var gameEarlySuccessAlert = false
+    
+    @Binding var selection: PlayViewSelection
+    @Binding var gameStatus: GameStatus
     
     var body: some View {
         NavigationStack {
@@ -17,17 +23,24 @@ struct GameOptionView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         WatchButton(SFSymbol: "checkmark", label: "오늘 완료") {
-                            // action here
+                            gameEarlySuccessAlert = true
                         }
+                        .disabled(!gameState.isEarlyTerminationPossible)
                         .tint(.blue)
                         WatchButton(SFSymbol: isPauseButton ? "pause" : "arrow.clockwise", label: isPauseButton ? "일시 정지" : "재개") {
                             isPauseButton.toggle()
+                            if isPauseButton {
+                                gameState.resumeGame()
+                            }
+                            else {
+                                gameState.pauseGame()
+                            }
                         }
                         .tint(.yellow)
                     }
                     HStack {
                         WatchButton(SFSymbol: "xmark", label: "오늘 그만") {
-                            //action here
+                            gameTerminationAlert = true
                         }
                         .tint(.red)
                         
@@ -39,10 +52,31 @@ struct GameOptionView: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .center)
                 .edgesIgnoringSafeArea(.bottom)
+                .alert("게임을 포기하시겠어요?", isPresented: $gameTerminationAlert) {
+                    Button(role: .destructive) {
+                        gameState.giveUpGame()
+                        gameStatus = .fail
+                        selection = .game
+                    } label: {
+                        Text("오늘 그만")
+                    }
+                    Button("취소", role: .cancel) {}
+                }
+                .alert("정말 청소를 완료하셨어요?", isPresented: $gameEarlySuccessAlert) {
+                    Button {
+                        gameState.successGameEarly()
+                        gameStatus = .success
+                        selection = .game
+                    } label: {
+                        Text("완료했어요")
+                    }
+                    Button("취소", role: .cancel) {}
+                }
             }
             .navigationTitle {
                 HStack {
                     Text(isPauseButton ? "게임 중" : "일시정지 됨")
+                        .foregroundColor(isPauseButton ? .blue : .yellow)
                     Spacer()
                 }
                 .foregroundColor(.green)
@@ -73,6 +107,6 @@ struct WatchButton: View {
 
 struct GameOptionView_Previews: PreviewProvider {
     static var previews: some View {
-        GameOptionView()
+        GameOptionView(selection: .constant(.option), gameStatus: .constant(.play))
     }
 }
