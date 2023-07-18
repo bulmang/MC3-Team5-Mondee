@@ -11,6 +11,7 @@ struct GameOptionView: View {
     @EnvironmentObject var gameState: GameStateManager
     
     @State var isPauseButton = true
+    @State var gameTerminationAlert = false
     
     @Binding var selection: PlayViewSelection
     
@@ -40,10 +41,11 @@ struct GameOptionView: View {
                     }
                     HStack {
                         WatchButton(SFSymbol: "xmark", label: "오늘 그만") {
-                            gameState.giveUpGame()
-                            withAnimation() {
-                                selection = .game
-                            }
+//                            gameState.giveUpGame()
+//                            withAnimation() {
+//                                selection = .game
+//                            }
+                            gameTerminationAlert = true
                         }
                         .tint(.red)
                         
@@ -55,6 +57,23 @@ struct GameOptionView: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .center)
                 .edgesIgnoringSafeArea(.bottom)
+                .alert("게임을 포기하시겠어요?", isPresented: $gameTerminationAlert) {
+                    Button(role: .destructive) {
+                        gameState.giveUpGame()
+                        withAnimation() {
+                            selection = .game
+                        }
+                    } label: {
+                        Text("오늘 그만")
+                    }
+
+                    Button(role: .cancel) {
+                        
+                    } label: {
+                        Text("취소")
+                    }
+
+                }
             }
             .navigationTitle {
                 HStack {
