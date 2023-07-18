@@ -74,9 +74,7 @@ struct GameOptionView: View {
                     Button {
                         gameState.successGameEarly()
                         gameStatus = .success
-                        withAnimation() {
-                            selection = .game
-                        }
+                       selection = .game
                     } label: {
                         Text("완료했어요")
                     }
