@@ -26,10 +26,6 @@ struct SuccessView: View {
                     .padding(.top,125)
                 
             }
-            
-            Button("청소 성공"){
-                //action
-            }
         }
     }
 }
