@@ -16,6 +16,7 @@ struct PlayView: View {
     @StateObject private var gameState = GameStateManager()
     
     @State var selection: PlayViewSelection = .game
+    
     @Binding var gameStatus: GameStatus
     
     var body: some View {

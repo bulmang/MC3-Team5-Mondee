@@ -18,6 +18,7 @@ struct GameView: View {
     @State private var isGuideActive: Bool = false
     @State private var isGameStartActive: Bool = false
     @State private var isFinalFail: Bool = false
+    @State private var isGameRestart: Bool = false
     
     
     private let bottomScrollLimit: CGFloat = -270
@@ -40,10 +41,10 @@ struct GameView: View {
         case .success:
             return AnyView(SuccessView())
         case .fail:
-            if isFinalFail {
+            if isFinalFail || isGameRestart {
                 return AnyView(FinalFailView())
             } else {
-                return AnyView(FailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus))
+                return AnyView(FailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus, isGameRestart: $isGameRestart))
             }
         }
     }
