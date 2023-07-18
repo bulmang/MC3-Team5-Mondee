@@ -13,7 +13,7 @@ struct FinalFailView: View {
             Image("ImgFail-WatchOS")
                 .resizable()
                 .frame(width: 76,height: 75)
-            Text("오늘은 끝났어요...")
+            Text("내일은 성공해봐요!")
                 .font(.body)
                 .fontWeight(.medium)
                 .padding(.top,20)
