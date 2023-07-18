@@ -22,6 +22,7 @@ class GameStateManager: ObservableObject {
     @Published var isGameFinished = false
     @Published var isGameSuccessful = false
     @Published var isWarning = false
+    @Published var isEarlyTerminationPossible = false
     
     func playGame() {
         SessionExtend.shared.startSession()
@@ -34,6 +35,8 @@ class GameStateManager: ObservableObject {
                     return
                 }
                 
+                self.setIsEarlyTerminationPossible()
+                
                 if !self.movingDetector.isMoving {
                     self.isCharacterBubbling = false
                     self.motionlessSeconds += 1
@@ -43,29 +46,35 @@ class GameStateManager: ObservableObject {
                     self.motionlessSeconds = 0
                     self.movingSeconds += 1
                 }
-                if self.motionlessSeconds >= Constants.motionlessThreshold1 && self.motionlessSeconds < Constants.motionlessThreshold2 {
+                if self.motionlessSeconds >= Constants.warningThreshold && self.motionlessSeconds < Constants.dirtThreshold {
                     self.isWarning = true
                     WKInterfaceDevice.current().play(.notification)
                 } else {
                     self.isWarning = false
                 }
-                if self.motionlessSeconds >= Constants.motionlessThreshold2 {
+                if self.motionlessSeconds >= Constants.dirtThreshold {
                     self.isCharacterClean = false
                     self.heartCount -= 1
                     self.motionlessSeconds = 0
                     if (self.heartCount == 0) {
-                        self.gameFail()
+                        self.failGame()
                     }
                 }
-                if self.movingSeconds >= Constants.movingThreshold {
+                if self.movingSeconds >= Constants.cleanThreshold {
                     self.isCharacterClean = true
                 }
                 if self.remainingSeconds > 0 {
                     self.remainingSeconds -= 1
                 } else {
-                    self.gameSuccess()
+                    self.successGame()
                 }
             }
+        }
+    }
+    
+    func setIsEarlyTerminationPossible() {
+        if remainingSeconds >= Constants.pausePossibleSeconds {
+            isEarlyTerminationPossible = true
         }
     }
     
@@ -82,19 +91,27 @@ class GameStateManager: ObservableObject {
         playGame()
     }
     
-    private func gameSuccess() {
+    func successGameEarly() {
+        successGame()
+    }
+    
+    func giveUpGame() {
+        failGame()
+    }
+    
+    private func successGame() {
         isGameSuccessful = true
-        gameStop()
+        stopGame()
         print("success")
     }
     
-    private func gameFail() {
+    private func failGame() {
         isGameSuccessful = false
-        gameStop()
+        stopGame()
         print("fail")
     }
     
-    private func gameStop() {
+    private func stopGame() {
         SessionExtend.shared.stopSession()
         movingDetector.stopMotionUpdates()
         timer?.invalidate()

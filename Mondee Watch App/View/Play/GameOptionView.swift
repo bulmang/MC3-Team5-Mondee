@@ -18,8 +18,9 @@ struct GameOptionView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         WatchButton(SFSymbol: "checkmark", label: "오늘 완료") {
-                            // action here
+                            gameState.successGameEarly()
                         }
+                        .disabled(!gameState.isEarlyTerminationPossible)
                         .tint(.blue)
                         WatchButton(SFSymbol: isPauseButton ? "pause" : "arrow.clockwise", label: isPauseButton ? "일시 정지" : "재개") {
                             isPauseButton.toggle()
@@ -34,7 +35,7 @@ struct GameOptionView: View {
                     }
                     HStack {
                         WatchButton(SFSymbol: "xmark", label: "오늘 그만") {
-                            //action here
+                            gameState.giveUpGame()
                         }
                         .tint(.red)
                         
