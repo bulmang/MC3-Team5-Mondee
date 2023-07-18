@@ -10,6 +10,7 @@ import SwiftUI
 struct FailView: View {
     
     @Binding var isFinalFail: Bool
+    @Binding var gameStatus: GameStatus
     
     var body: some View {
         VStack{
@@ -20,8 +21,7 @@ struct FailView: View {
                 .font(.body)
                 .fontWeight(.medium)
             Button("다시 도전"){
-                //action
-                
+                gameStatus = .guide
             }
             .buttonStyle(.borderedProminent)
             .tint(Color(hue: 0.593, saturation: 0.893, brightness: 0.876, opacity: 0.827))
@@ -38,6 +38,6 @@ struct FailView: View {
 
 struct FailView_Previews: PreviewProvider {
     static var previews: some View {
-        FailView(isFinalFail: .constant(false))
+        FailView(isFinalFail: .constant(false), gameStatus: .constant(.fail))
     }
 }
