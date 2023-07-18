@@ -7,16 +7,23 @@
 
 import SwiftUI
 
+enum PlayViewSelection {
+    case option
+    case game
+}
+
 struct PlayView: View {
     @StateObject private var gameState = GameStateManager()
     
-    @State var selection = "GamePage"
+    @State var selection: PlayViewSelection = .game
+    
     @Binding var gameStatus: GameStatus
     
     var body: some View {
         TabView(selection: $selection) {
-            GameOptionView()
-                .tag("OptionPage")
+            GameOptionView(selection: $selection, gameStatus: $gameStatus)
+                .environmentObject(gameState)
+                .tag(PlayViewSelection.option)
             
             GeometryReader { geo in
                 let deviceWidth = geo.size.width
@@ -86,7 +93,13 @@ struct PlayView: View {
                     gameState.playGame()
                 }
             }
-            .tag("GamePage")
+            .tag(PlayViewSelection.game)
+            .onChange(of: gameState.isGameFinished) { isGameFinished in
+                // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
+                if isGameFinished {
+                    gameStatus = gameState.isGameSuccessful ? .success : .fail
+                }
+            }
         }
     }
     
