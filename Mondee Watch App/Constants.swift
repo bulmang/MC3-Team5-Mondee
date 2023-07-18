@@ -5,11 +5,65 @@
 //  Created by Seokmin on 2023/07/15.
 //
 
+enum Environment {
+    case development
+    case release
+}
+
+var currentEnvironment: Environment = .development // Change this to .release when you want to switch
+
 struct Constants {
-    static let initialSeconds = 600
-    static let initialHeartCount = 3
-    static let warningThreshold = 20 // 경고 임계값
-    static let dirtThreshold = 25 // 캐릭터가 더러워지는 임계값
-    static let cleanThreshold = 10 // 캐릭터가 다시 깨끗해지는 임계값
-    static let terminationPossibleSeconds = 20 // 조기 종료 가능 최소시간
+    static var initialSeconds: Int {
+        switch currentEnvironment {
+        case .development:
+            return 120
+        case .release:
+            return 600
+        }
+    }
+    
+    static var initialHeartCount: Int {
+        switch currentEnvironment {
+        case .development:
+            return 3
+        case .release:
+            return 3
+        }
+    }
+    
+    static var warningThreshold: Int {
+        switch currentEnvironment {
+        case .development:
+            return 10
+        case .release:
+            return 20
+        }
+    }
+    
+    static var dirtThreshold: Int {
+        switch currentEnvironment {
+        case .development:
+            return 15
+        case .release:
+            return 25
+        }
+    }
+    
+    static var cleanThreshold: Int {
+        switch currentEnvironment {
+        case .development:
+            return 5
+        case .release:
+            return 10
+        }
+    }
+    
+    static var terminationPossibleSeconds: Int {
+        switch currentEnvironment {
+        case .development:
+            return 20
+        case .release:
+            return 300
+        }
+    }
 }
