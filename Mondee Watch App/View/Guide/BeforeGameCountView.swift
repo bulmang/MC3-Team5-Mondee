@@ -47,6 +47,7 @@ struct BeforeGameCountView: View {
                             Text("\(countdown)")
                                 .font(.system(size: 100))
                                 .modifier(BubbleFontModifier())
+                                
                         :
                             Text("Ready")
                                 .font(.system(size: 30))
