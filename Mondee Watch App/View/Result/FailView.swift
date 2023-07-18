@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct FailView: View {
+    
+    @Binding var isFinalFail: Bool
+    
     var body: some View {
         VStack{
             Image("ImgFail-WatchOS")
@@ -24,17 +27,17 @@ struct FailView: View {
             .tint(Color(hue: 0.593, saturation: 0.893, brightness: 0.876, opacity: 0.827))
             
             Button("오늘은 그만"){
-                //action
+                isFinalFail = true
             }
             
         }
         .padding(.top,20)
-        }
     }
+}
 
 
 struct FailView_Previews: PreviewProvider {
     static var previews: some View {
-        FailView()
+        FailView(isFinalFail: .constant(false))
     }
 }

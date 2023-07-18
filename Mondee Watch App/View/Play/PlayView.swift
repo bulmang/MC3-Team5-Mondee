@@ -20,7 +20,8 @@ struct PlayView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            GameOptionView(selection: $selection).environmentObject(gameState)
+            GameOptionView(selection: $selection, gameStatus: $gameStatus)
+                .environmentObject(gameState)
                 .tag(PlayViewSelection.option)
             
             GeometryReader { geo in

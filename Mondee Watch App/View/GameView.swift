@@ -9,7 +9,7 @@ import SwiftUI
 import CoreMotion
 
 enum GameStatus {
-    case preparation, guide, play, result
+    case preparation, guide, play, success, fail
 }
 
 struct GameView: View {
@@ -17,6 +17,7 @@ struct GameView: View {
     @State private var mondeeScroll: CGFloat = 0.0
     @State private var isGuideActive: Bool = false
     @State private var isGameStartActive: Bool = false
+    @State private var isFinalFail: Bool = false
     
     
     private let bottomScrollLimit: CGFloat = -270
@@ -36,8 +37,14 @@ struct GameView: View {
             return AnyView(GuideView(isGuideActive: $isGuideActive, gameStatus: $gameStatus).transition(.move(edge: .bottom)))
         case .play:
             return AnyView(PlayView(gameStatus: $gameStatus))
-        case .result:
-            return AnyView(ResultView())
+        case .success:
+            return AnyView(SuccessView())
+        case .fail:
+            if isFinalFail {
+                return AnyView(FinalFailView())
+            } else {
+                return AnyView(FailView(isFinalFail: $isFinalFail))
+            }
         }
     }
     

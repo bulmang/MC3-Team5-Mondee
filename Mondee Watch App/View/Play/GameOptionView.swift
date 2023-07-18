@@ -14,6 +14,7 @@ struct GameOptionView: View {
     @State var gameTerminationAlert = false
     
     @Binding var selection: PlayViewSelection
+    @Binding var gameStatus: GameStatus
     
     var body: some View {
         NavigationStack {
@@ -22,6 +23,7 @@ struct GameOptionView: View {
                     HStack {
                         WatchButton(SFSymbol: "checkmark", label: "오늘 완료") {
                             gameState.successGameEarly()
+                            gameStatus = .success
                             withAnimation() {
                                 selection = .game
                             }
@@ -60,6 +62,7 @@ struct GameOptionView: View {
                 .alert("게임을 포기하시겠어요?", isPresented: $gameTerminationAlert) {
                     Button(role: .destructive) {
                         gameState.giveUpGame()
+                        gameStatus = .fail
                         withAnimation() {
                             selection = .game
                         }
@@ -109,6 +112,6 @@ struct WatchButton: View {
 
 struct GameOptionView_Previews: PreviewProvider {
     static var previews: some View {
-        GameOptionView(selection: .constant(.option))
+        GameOptionView(selection: .constant(.option), gameStatus: .constant(.play))
     }
 }
