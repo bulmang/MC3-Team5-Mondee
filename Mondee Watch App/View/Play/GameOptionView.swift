@@ -56,27 +56,21 @@ struct GameOptionView: View {
                     Button(role: .destructive) {
                         gameState.giveUpGame()
                         gameStatus = .fail
-                        withAnimation() {
-                            selection = .game
-                        }
+                        selection = .game
                     } label: {
                         Text("오늘 그만")
                     }
-
-                   Button("취소", role: .cancel) {}    
-
+                    Button("취소", role: .cancel) {}
                 }
                 .alert("정말 청소를 완료하셨어요?", isPresented: $gameEarlySuccessAlert) {
                     Button {
                         gameState.successGameEarly()
                         gameStatus = .success
-                       selection = .game
+                        selection = .game
                     } label: {
                         Text("완료했어요")
                     }
-
-                   Button("취소", role: .cancel) {} 
-
+                    Button("취소", role: .cancel) {}
                 }
             }
             .navigationTitle {
