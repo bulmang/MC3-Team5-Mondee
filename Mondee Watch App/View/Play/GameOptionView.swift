@@ -63,11 +63,7 @@ struct GameOptionView: View {
                         Text("오늘 그만")
                     }
 
-                    Button(role: .cancel) {
-                        
-                    } label: {
-                        Text("취소")
-                    }
+                   Button("취소", role: .cancel) {}    
 
                 }
                 .alert("정말 청소를 완료하셨어요?", isPresented: $gameEarlySuccessAlert) {
