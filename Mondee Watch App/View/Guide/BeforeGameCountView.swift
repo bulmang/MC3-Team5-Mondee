@@ -48,8 +48,8 @@ struct BeforeGameCountView: View {
                                 .font(.system(size: 100))
                                 .modifier(BubbleFontModifier())
                         :
-                            Text("준비")
-                                .font(.system(size: 50))
+                            Text("Ready")
+                                .font(.system(size: 30))
                                 .modifier(BubbleFontModifier())
    
                     )
