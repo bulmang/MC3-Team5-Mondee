@@ -13,6 +13,7 @@ class GameStateManager: ObservableObject {
     private var motionlessSeconds = 0
     private var movingSeconds = 0
     private var timer: Timer?
+    private var isPaused = false
     
     @Published var heartCount = Constants.initialHeartCount
     @Published var remainingSeconds = Constants.initialSeconds
@@ -24,9 +25,15 @@ class GameStateManager: ObservableObject {
     
     func playGame() {
         SessionExtend.shared.startSession()
+        movingDetector.startMotionUpdates()
         
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.isPaused {
+                    // 일시정지 상태에서는 아무 작업도 하지 않음
+                    return
+                }
+                
                 if !self.movingDetector.isMoving {
                     self.isCharacterBubbling = false
                     self.motionlessSeconds += 1
@@ -62,6 +69,19 @@ class GameStateManager: ObservableObject {
         }
     }
     
+    func pauseGame() {
+        isPaused = true
+        movingDetector.stopMotionUpdates()
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func resumeGame() {
+        isPaused = false
+        movingDetector.startMotionUpdates()
+        playGame()
+    }
+    
     private func gameSuccess() {
         isGameSuccessful = true
         gameStop()
@@ -75,6 +95,7 @@ class GameStateManager: ObservableObject {
     }
     
     private func gameStop() {
+        SessionExtend.shared.stopSession()
         movingDetector.stopMotionUpdates()
         timer?.invalidate()
         timer = nil

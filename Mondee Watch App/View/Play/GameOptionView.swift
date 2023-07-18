@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GameOptionView: View {
+    @EnvironmentObject var gameState: GameStateManager
     
     @State var isPauseButton = true
     
@@ -22,6 +23,12 @@ struct GameOptionView: View {
                         .tint(.blue)
                         WatchButton(SFSymbol: isPauseButton ? "pause" : "arrow.clockwise", label: isPauseButton ? "일시 정지" : "재개") {
                             isPauseButton.toggle()
+                            if isPauseButton {
+                                gameState.resumeGame()
+                            }
+                            else {
+                                gameState.pauseGame()
+                            }
                         }
                         .tint(.yellow)
                     }
