@@ -68,6 +68,7 @@ struct PreparationView: View {
                             }
                         }
                     })
+                    .toolbarBackground(.hidden)
             }
         }
     }
