@@ -73,7 +73,7 @@ class GameStateManager: ObservableObject {
     }
     
     func setIsEarlyTerminationPossible() {
-        if remainingSeconds >= Constants.pausePossibleSeconds {
+        if remainingSeconds <= (Constants.initialSeconds - Constants.terminationPossibleSeconds) {
             isEarlyTerminationPossible = true
         }
     }

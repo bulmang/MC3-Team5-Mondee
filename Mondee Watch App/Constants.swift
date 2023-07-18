@@ -11,5 +11,5 @@ struct Constants {
     static let warningThreshold = 20 // 경고 임계값
     static let dirtThreshold = 25 // 캐릭터가 더러워지는 임계값
     static let cleanThreshold = 10 // 캐릭터가 다시 깨끗해지는 임계값
-    static let pausePossibleSeconds = 20 // 조기 종료 가능 최소시간
+    static let terminationPossibleSeconds = 20 // 조기 종료 가능 최소시간
 }
