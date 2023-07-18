@@ -44,7 +44,7 @@ struct GameView: View {
             if isFinalFail || isGameRestart {
                 return AnyView(FinalFailView())
             } else {
-                return AnyView(retryFailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus, isGameRestart: $isGameRestart))
+                return AnyView(RetryFailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus, isGameRestart: $isGameRestart))
             }
         }
     }

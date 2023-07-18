@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct retryFailView: View {
+struct RetryFailView: View {
     
     @Binding var isFinalFail: Bool
     @Binding var gameStatus: GameStatus
@@ -41,6 +41,6 @@ struct retryFailView: View {
 
 struct FailView_Previews: PreviewProvider {
     static var previews: some View {
-        retryFailView(isFinalFail: .constant(false), gameStatus: .constant(.fail), isGameRestart: .constant(false))
+        RetryFailView(isFinalFail: .constant(false), gameStatus: .constant(.fail), isGameRestart: .constant(false))
     }
 }
