@@ -30,8 +30,11 @@ class GameStateManager: ObservableObject {
         
         if timer == nil {
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                if self.isGameFinished {
+                    self.stopTimer()
+                    return
+                }
                 if self.isPaused {
-                    // 일시정지 상태에서는 아무 작업도 하지 않음
                     return
                 }
                 
@@ -81,8 +84,7 @@ class GameStateManager: ObservableObject {
     func pauseGame() {
         isPaused = true
         movingDetector.stopMotionUpdates()
-        timer?.invalidate()
-        timer = nil
+        stopTimer()
     }
     
     func resumeGame() {
@@ -102,21 +104,22 @@ class GameStateManager: ObservableObject {
     private func successGame() {
         isGameSuccessful = true
         stopGame()
-        print("success")
     }
     
     private func failGame() {
         isGameSuccessful = false
         stopGame()
-        print("fail")
     }
     
     private func stopGame() {
         SessionExtend.shared.stopSession()
         movingDetector.stopMotionUpdates()
+        isGameFinished = true
+        remainingSeconds = Constants.initialSeconds
+    }
+    
+    private func stopTimer() {
         timer?.invalidate()
         timer = nil
-        remainingSeconds = Constants.initialSeconds
-        isGameFinished = true
     }
 }
