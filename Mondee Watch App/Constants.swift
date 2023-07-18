@@ -43,7 +43,7 @@ struct Constants {
     static var dirtThreshold: Int {
         switch currentEnvironment {
         case .development:
-            return 15
+            return 10
         case .release:
             return 25
         }
@@ -52,7 +52,7 @@ struct Constants {
     static var cleanThreshold: Int {
         switch currentEnvironment {
         case .development:
-            return 5
+            return 3
         case .release:
             return 10
         }
@@ -61,7 +61,7 @@ struct Constants {
     static var terminationPossibleSeconds: Int {
         switch currentEnvironment {
         case .development:
-            return 20
+            return 10
         case .release:
             return 300
         }
