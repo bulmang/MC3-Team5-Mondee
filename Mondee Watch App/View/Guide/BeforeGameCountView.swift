@@ -8,36 +8,56 @@
 import SwiftUI
 
 struct BeforeGameCountView: View {
+    @State private var progress: CGFloat = 1.0
     @State private var countdown: Int = 3
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let countdownDuration: TimeInterval = 3
     @Binding var isGuideActive: Bool
     @Binding var gameStatus: GameStatus
     
     var body: some View {
-        VStack {
-            if countdown > 0 {
-                Text("\(countdown)")
-                    .font(.system(size: 100))
+        if countdown > 0 {
+            VStack {
+                Circle()
+                    .trim(from: 0, to: progress)
+                    .stroke(lineWidth: 10)
                     .modifier(BubbleFontModifier())
-                    .padding()
+                    .frame(width: 153, height: 153)
+                    .rotationEffect(Angle(degrees: -90))
+                    .animation(.easeInOut, value: progress)
                     .onAppear {
                         startCountdown()
                     }
-            } else {
-                Text("GO!")
-                    .font(.system(size: 80))
-                    .modifier(BubbleFontModifier())
-                    .padding()
-                    .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            gameStatus = .play
-                        }
-                    }
+                    .overlay(
+                        Text("\(countdown)")
+                            .font(.system(size: 100))
+                            .modifier(BubbleFontModifier())
+                    )
             }
-            
+            .onAppear{
+                progress -= 1 / CGFloat(countdownDuration)
+            }
+            .onReceive(timer) { _ in
+                withAnimation {
+                    if progress > 0 {
+                        progress -= 1 / CGFloat(countdownDuration)
+                    } else {
+                        timer.upstream.connect().cancel()
+                    }
+                }
+            }
+        } else {
+            Text("GO!")
+                .font(.system(size: 80))
+                .modifier(BubbleFontModifier())
+                .onAppear{
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        gameStatus = .play
+                    }
+                }
         }
-        
     }
-    
     func startCountdown() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
             countdown -= 1
@@ -46,7 +66,6 @@ struct BeforeGameCountView: View {
             }
         }
     }
-    
 }
 
 
