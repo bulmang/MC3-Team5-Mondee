@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct FinalFailView: View {
+struct FinalFailView: View {    
+    @StateObject private var gameState = GameStateManager()
+    
     var body: some View {
         VStack{
             Image("ImgFail-WatchOS")
@@ -19,6 +21,10 @@ struct FinalFailView: View {
                 .padding(.top,20)
         }
         .padding(.top,20)
+        .onAppear{
+            gameState.isFinalFailActive = true
+            gameState.checkIfNewDay()
+        }
     }
 }
 

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SuccessView: View {
+    @StateObject private var gameState = GameStateManager()
+    
     var body: some View {
         VStack{
             ZStack{
@@ -24,8 +26,11 @@ struct SuccessView: View {
                     .font(.body)
                     .fontWeight(.medium)
                     .padding(.top,125)
-                
             }
+        }
+        .onAppear{
+            gameState.isSuccessActive = true
+            gameState.checkIfNewDay()
         }
     }
 }
