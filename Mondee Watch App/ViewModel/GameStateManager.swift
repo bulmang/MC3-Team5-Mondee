@@ -5,7 +5,6 @@
 //  Created by Seokmin on 2023/07/15.
 //
 
-import Foundation
 import WatchKit
 
 class GameStateManager: ObservableObject {
@@ -32,82 +31,36 @@ class GameStateManager: ObservableObject {
     private var timer: Timer?
     private var isPaused = false
     
+    // MARK: Published Properties
+    
     @Published var heartCount = Constants.initialHeartCount
     @Published var remainingSeconds = Constants.initialSeconds
     @Published var isCharacterClean = true
     @Published var isCharacterBubbling = false
     @Published var isGameFinished = false
     @Published var isGameSuccessful = false
+    @Published var isPreWarning = false
     @Published var isWarning = false
     @Published var isEarlyTerminationPossible = false
+    
+    // MARK: Game Control Methods
     
     func playGame() {
         SessionExtend.shared.startSession()
         movingDetector.startMotionUpdates()
-        
-        if timer == nil {
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                if self.isGameFinished {
-                    self.stopTimer()
-                    return
-                }
-                if self.isPaused {
-                    return
-                }
-                
-                self.setIsEarlyTerminationPossible()
-                
-                if !self.movingDetector.isMoving {
-                    self.isCharacterBubbling = false
-                    self.motionlessSeconds += 1
-                    self.movingSeconds = 0
-                } else {
-                    self.isCharacterBubbling = true
-                    self.motionlessSeconds = 0
-                    self.movingSeconds += 1
-                }
-                if self.motionlessSeconds >= Constants.warningThreshold && self.motionlessSeconds < Constants.dirtThreshold {
-                    self.isWarning = true
-                    WKInterfaceDevice.current().play(.notification)
-                } else {
-                    self.isWarning = false
-                }
-                if self.motionlessSeconds >= Constants.dirtThreshold {
-                    self.isCharacterClean = false
-                    self.heartCount -= 1
-                    self.motionlessSeconds = 0
-                    if (self.heartCount == 0) {
-                        self.failGame()
-                    }
-                }
-                if self.movingSeconds >= Constants.cleanThreshold {
-                    self.isCharacterClean = true
-                }
-                if self.remainingSeconds > 0 {
-                    self.remainingSeconds -= 1
-                } else {
-                    self.successGame()
-                }
-            }
-        }
-    }
-    
-    func setIsEarlyTerminationPossible() {
-        if remainingSeconds <= (Constants.initialSeconds - Constants.terminationPossibleSeconds) {
-            isEarlyTerminationPossible = true
-        }
+        startGameTimer()
     }
     
     func pauseGame() {
         isPaused = true
         movingDetector.stopMotionUpdates()
-        stopTimer()
+        stopGameTimer()
     }
     
     func resumeGame() {
         isPaused = false
         movingDetector.startMotionUpdates()
-        playGame()
+        startGameTimer()
     }
     
     func successGameEarly() {
@@ -116,6 +69,95 @@ class GameStateManager: ObservableObject {
     
     func giveUpGame() {
         failGame()
+    }
+    
+    // MARK: Private Utility Methods
+    
+    private func startGameTimer() {
+        guard timer == nil else { return }
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.updateGame()
+        }
+    }
+    
+    private func stopGameTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func updateGame() {
+        if isGameFinished {
+            stopGame()
+            return
+        }
+        
+        if isPaused {
+            return
+        }
+        
+        setIsEarlyTerminationPossible()
+        
+        if movingDetector.isMoving {
+            handleCharacterBubbling()
+            motionlessSeconds = 0
+            movingSeconds += 1
+        } else {
+            isCharacterBubbling = false
+            motionlessSeconds += 1
+            movingSeconds = 0
+        }
+        
+        isPreWarning = checkIsPreWarning()
+        
+        if checkIsWarning() {
+            isWarning = true
+            WKInterfaceDevice.current().play(.notification)
+        } else {
+            isWarning = false
+        }
+        
+        if checkHeartDecrease() {
+            isCharacterClean = false
+            heartCount -= 1
+            motionlessSeconds = 0
+            if heartCount == 0 {
+                failGame()
+            }
+        }
+        
+        if checkIsCharacterCleanAgain() {
+            isCharacterClean = true
+        }
+        
+        if remainingSeconds > 0 {
+            remainingSeconds -= 1
+        } else {
+            successGame()
+        }
+    }
+    
+    private func setIsEarlyTerminationPossible() {
+        isEarlyTerminationPossible = remainingSeconds <= (Constants.initialSeconds - Constants.terminationPossibleSeconds)
+    }
+    
+    private func handleCharacterBubbling() {
+        isCharacterBubbling = true
+    }
+    
+    private func checkIsPreWarning() -> Bool {
+        return motionlessSeconds >= Constants.semiWarningThreshold && motionlessSeconds < Constants.warningThreshold
+    }
+    
+    private func checkIsWarning() -> Bool {
+        return motionlessSeconds >= Constants.warningThreshold && motionlessSeconds < Constants.dirtThreshold
+    }
+    
+    private func checkHeartDecrease() -> Bool {
+        return motionlessSeconds >= Constants.dirtThreshold
+    }
+    
+    private func checkIsCharacterCleanAgain() -> Bool {
+        return movingSeconds >= Constants.cleanThreshold
     }
     
     private func successGame() {
@@ -133,11 +175,6 @@ class GameStateManager: ObservableObject {
         movingDetector.stopMotionUpdates()
         isGameFinished = true
         remainingSeconds = Constants.initialSeconds
-    }
-    
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
     }
     
     func checkIfNewDay() {
