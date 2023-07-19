@@ -32,13 +32,13 @@ struct PlayView: View {
                     VStack {
                         HStack {
                             ForEach(0..<gameState.heartCount, id: \.self) { number in
-                                Image("Heart-WatchOS")
+                                Image("ImgHeart-WatchOS")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 26)
                             }
                             ForEach(0..<(Constants.initialHeartCount - gameState.heartCount), id: \.self) { number in
-                                Image("HeartClear-WatchOS")
+                                Image("ImgHeartClear-WatchOS")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 26)
