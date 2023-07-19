@@ -57,6 +57,7 @@ struct GameOptionView: View {
                         gameState.giveUpGame()
                         gameStatus = .fail
                         selection = .game
+                        gameState.isFinalFailActive = true
                     } label: {
                         Text("오늘 그만")
                     }
@@ -67,6 +68,7 @@ struct GameOptionView: View {
                         gameState.successGameEarly()
                         gameStatus = .success
                         selection = .game
+                        gameState.isSuccessActive = true
                     } label: {
                         Text("완료했어요")
                     }
@@ -105,8 +107,3 @@ struct WatchButton: View {
     }
 }
 
-struct GameOptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameOptionView(selection: .constant(.option), gameStatus: .constant(.play))
-    }
-}

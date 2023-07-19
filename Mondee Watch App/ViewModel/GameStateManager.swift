@@ -14,6 +14,23 @@ class GameStateManager: ObservableObject {
     private var timer: Timer?
     private var isPaused = false
     
+    private let userDefaults = UserDefaults.standard
+    
+    var isFinalFailActive: Bool {
+        get { userDefaults.bool(forKey: "finalfail") }
+        set { userDefaults.set(newValue, forKey: "finalfail") }
+    }
+    
+    var isSuccessActive: Bool {
+        get { userDefaults.bool(forKey: "success") }
+        set { userDefaults.set(newValue, forKey: "success") }
+    }
+    
+    var lastDate: Int {
+        get { userDefaults.integer(forKey: "lastDate") }
+        set { userDefaults.set(newValue, forKey: "lastDate") }
+    }
+    
     // MARK: Published Properties
     
     @Published var heartCount = Constants.initialHeartCount
@@ -158,5 +175,29 @@ class GameStateManager: ObservableObject {
         movingDetector.stopMotionUpdates()
         isGameFinished = true
         remainingSeconds = Constants.initialSeconds
+    }
+    
+    func checkIfNewDay() {
+        let currentDate = Date()
+        let currentDateTimestamp = Int(currentDate.timeIntervalSince1970)
+        let second = 60
+        let minute = 60
+        let hour = 24
+        let secondsInDay = second * minute * hour
+        
+        if currentDateTimestamp / secondsInDay > lastDate / secondsInDay {
+            // 현재 날짜와 마지막 저장 날짜가 다른 날이면
+            // 하루가 바뀌었으므로 값을 초기화
+            isFinalFailActive = false
+            isSuccessActive = false
+            
+            print("currentDate = \(currentDate)")
+            print("currentDateTimestamp = \(currentDateTimestamp)")
+            
+            // 현재 날짜로 업데이트
+            lastDate = currentDateTimestamp
+            
+            print("lastDate = \(lastDate)")
+        }
     }
 }
