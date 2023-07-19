@@ -63,7 +63,7 @@ struct PlayView: View {
                     gameState.playGame()
                 }
                 
-                if gameState.isSemiWarning {
+                if gameState.isPreWarning {
                     Rectangle()
                         .ignoresSafeArea()
                         .foregroundColor(Color.yellow.opacity(0.2))
@@ -81,9 +81,12 @@ struct PlayView: View {
                             Spacer()
                             VStack {
                                 Spacer()
-                                Text("🚨").font(.system(size: 20))
-                                Text("어서어서").font(.system(size: 20))
-                                Text("움직이라구").font(.system(size: 20))
+                                Group {
+                                    Text("🚨")
+                                    Text("어서어서")
+                                    Text("움직이라구")
+                                }
+                                .font(.title3)
                                 Text("\(Int(warningRemainSeconds + 0.5))")
                                     .font(.system(size: 100))
                                     .modifier(BubbleFontModifier())

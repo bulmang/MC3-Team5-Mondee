@@ -17,7 +17,7 @@ struct MondeeImageView: View {
         case (true, true):
             image = Image("ImgMondeeHappySmile-WatchOS")
         case (true, false):
-            image = gameState.isSemiWarning ? Image("ImgMondeeSad-WatchOS") : Image("ImgMondeeWhite-WatchOS")
+            image = gameState.isPreWarning ? Image("ImgMondeeSad-WatchOS") : Image("ImgMondeeWhite-WatchOS")
         case (false, _):
             image = Image("ImgMondeeBlack-WatchOS")
         }
