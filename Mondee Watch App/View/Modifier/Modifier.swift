@@ -10,6 +10,8 @@ import SwiftUI
 struct BubbleFont: View {
     var body: some View {
         TabView {
+            Text("♥︎")
+                .bubbleFontModifier()
             Text("05:30")
                 .timerFontModifier()
                 .padding()
@@ -31,7 +33,7 @@ struct BubbleFontModifier: ViewModifier {
             .fontDesign(.rounded)
             .foregroundStyle(
                 Color.black
-                    .shadow(.inner(color: .purple.opacity(0.4), radius: 2, x: 2, y: 2))
+                    .shadow(.inner(color: Color(UIColor.magenta).opacity(0.4), radius: 2, x: 2, y: 2))
                     .shadow(.inner(color: .blue, radius: 2, x: -1, y: 1))
                     .shadow(.inner(color: .yellow.opacity(0.4), radius: 4, x: 1.5, y: -1))
                     .shadow(.inner(color: .white.opacity(0.5), radius: 4, x: 0, y: 4))
