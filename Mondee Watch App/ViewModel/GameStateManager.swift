@@ -8,6 +8,12 @@
 import WatchKit
 
 class GameStateManager: ObservableObject {
+    private var movingDetector = MovingDetector()
+    private var motionlessSeconds = 0
+    private var movingSeconds = 0
+    private var timer: Timer?
+    private var isPaused = false
+    
     private let userDefaults = UserDefaults.standard
     
     var isFinalFailActive: Bool {
@@ -24,12 +30,6 @@ class GameStateManager: ObservableObject {
         get { userDefaults.integer(forKey: "lastDate") }
         set { userDefaults.set(newValue, forKey: "lastDate") }
     }
-    
-    private var movingDetector = MovingDetector()
-    private var motionlessSeconds = 0
-    private var movingSeconds = 0
-    private var timer: Timer?
-    private var isPaused = false
     
     // MARK: Published Properties
     
@@ -180,8 +180,12 @@ class GameStateManager: ObservableObject {
     func checkIfNewDay() {
         let currentDate = Date()
         let currentDateTimestamp = Int(currentDate.timeIntervalSince1970)
+        let second = 60
+        let minute = 60
+        let hour = 24
+        let secondsInDay = second * minute * hour
         
-        if currentDateTimestamp / (60 * 60 * 24) > lastDate / (60 * 60 * 24) {
+        if currentDateTimestamp / secondsInDay > lastDate / secondsInDay {
             // 현재 날짜와 마지막 저장 날짜가 다른 날이면
             // 하루가 바뀌었으므로 값을 초기화
             isFinalFailActive = false

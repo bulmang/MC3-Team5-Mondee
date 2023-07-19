@@ -15,11 +15,12 @@ struct Mondee_Watch_AppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if isSuccessActive {
+            switch (isSuccessActive, isFinalFailActive) {
+            case (true, _):
                 SuccessView()
-            } else if isFinalFailActive {
+            case (_, true):
                 FinalFailView()
-            } else {
+            default:
                 ContentView()
             }
         }
