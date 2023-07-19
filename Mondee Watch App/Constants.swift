@@ -31,6 +31,15 @@ struct Constants {
         }
     }
     
+    static var semiWarningThreshold: Int {
+        switch currentEnvironment {
+        case .development:
+            return 5
+        case .release:
+            return 5
+        }
+    }
+    
     static var warningThreshold: Int {
         switch currentEnvironment {
         case .development:
@@ -52,9 +61,9 @@ struct Constants {
     static var cleanThreshold: Int {
         switch currentEnvironment {
         case .development:
-            return 3
+            return 5
         case .release:
-            return 10
+            return 5
         }
     }
     

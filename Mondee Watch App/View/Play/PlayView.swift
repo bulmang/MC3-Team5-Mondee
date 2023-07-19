@@ -16,6 +16,7 @@ struct PlayView: View {
     @StateObject private var gameState = GameStateManager()
     
     @State var selection: PlayViewSelection = .game
+    @State private var warningRemainSeconds = Double(Constants.dirtThreshold - Constants.warningThreshold)
     
     @Binding var gameStatus: GameStatus
     
@@ -52,9 +53,16 @@ struct PlayView: View {
                             .frame(width: 120, height: 120)
                             .padding(.top, CGFloat(40))
                     } else if gameState.isCharacterClean {
-                        Image("ImgMondeeWhite-WatchOS").resizable()
-                            .frame(width: 120, height: 120)
-                            .padding(.top, CGFloat(40))
+                        if gameState.isSemiWarning {
+                            Image("ImgMondeeSad-WatchOS").resizable()
+                                .frame(width: 120, height: 120)
+                                .padding(.top, CGFloat(40))
+                        }
+                        else {
+                            Image("ImgMondeeWhite-WatchOS").resizable()
+                                .frame(width: 120, height: 120)
+                                .padding(.top, CGFloat(40))
+                        }
                     } else {
                         Image("ImgMondeeBlack-WatchOS").resizable()
                             .frame(width: 120, height: 120)
@@ -102,6 +110,40 @@ struct PlayView: View {
                 .onAppear {
                     gameState.playGame()
                 }
+                
+                if gameState.isSemiWarning {
+                    Rectangle()
+                        .ignoresSafeArea()
+                        .foregroundColor(Color.yellow.opacity(0.2))
+                        .blur(radius: 8)
+                }
+                if gameState.isWarning {
+                    ZStack {
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundColor(Color.black)
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundColor(Int(warningRemainSeconds * 2) % 2 == 0 ? Color.red.opacity(0.3) : .clear)
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Spacer()
+                                Text("🚨").font(.system(size: 20))
+                                Text("어서어서").font(.system(size: 20))
+                                Text("움직이라구").font(.system(size: 20))
+                                Text("\(Int(warningRemainSeconds + 0.5))")
+                                    .font(.system(size: 100))
+                                    .modifier(BubbleFontModifier())
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }
+                    .onAppear {
+                        startBlinking()
+                    }
+                }
             }
             .tag(PlayViewSelection.game)
             .onChange(of: gameState.isGameFinished) { isGameFinished in
@@ -109,6 +151,19 @@ struct PlayView: View {
                 if isGameFinished {
                     gameStatus = gameState.isGameSuccessful ? .success : .fail
                 }
+            }
+        }
+    }
+    
+    private func startBlinking() {
+        withAnimation {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                warningRemainSeconds -= 0.5
+                if warningRemainSeconds == 0 {
+                    warningRemainSeconds = Double(Constants.dirtThreshold - Constants.warningThreshold)
+                    return
+                }
+                startBlinking()
             }
         }
     }

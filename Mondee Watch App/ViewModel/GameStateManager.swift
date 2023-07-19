@@ -21,6 +21,7 @@ class GameStateManager: ObservableObject {
     @Published var isCharacterBubbling = false
     @Published var isGameFinished = false
     @Published var isGameSuccessful = false
+    @Published var isSemiWarning = false
     @Published var isWarning = false
     @Published var isEarlyTerminationPossible = false
     
@@ -48,6 +49,11 @@ class GameStateManager: ObservableObject {
                     self.isCharacterBubbling = true
                     self.motionlessSeconds = 0
                     self.movingSeconds += 1
+                }
+                if self.motionlessSeconds >= Constants.semiWarningThreshold && self.motionlessSeconds < Constants.warningThreshold {
+                    self.isSemiWarning = true
+                } else {
+                    self.isSemiWarning = false
                 }
                 if self.motionlessSeconds >= Constants.warningThreshold && self.motionlessSeconds < Constants.dirtThreshold {
                     self.isWarning = true
