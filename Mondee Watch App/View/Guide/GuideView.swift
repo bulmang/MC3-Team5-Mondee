@@ -27,7 +27,7 @@ struct GuideView: View {
                     Image("ImageWatchBubble")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 24)
+                        .frame(width: 20)
                 }
                 .padding(.bottom, 10)
                 Text("몸을 움직여\n먼지를 씻겨주자")

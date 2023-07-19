@@ -75,6 +75,9 @@ struct PlayView: View {
                         } else {
                             Text("\(formatTime(gameState.remainingSeconds))")
                                 .font(.largeTitle).foregroundColor(.black)
+                                .timerFontModifier()
+                                .frame(maxWidth: .infinity)
+                                .monospacedDigit()
                         }
                     }.padding(.bottom, CGFloat(12))
                 }

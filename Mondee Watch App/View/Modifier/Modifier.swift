@@ -18,7 +18,7 @@ struct BubbleFont: View {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                 )
             Text("2")
-                .font(.system(size: 150))
+                .font(.system(size: 100))
                 .bubbleFontModifier()
         }
     }
@@ -31,11 +31,11 @@ struct BubbleFontModifier: ViewModifier {
             .fontDesign(.rounded)
             .foregroundStyle(
                 Color.black
-                    .shadow(.inner(color: .purple.opacity(0.4), radius: 2, x: 4, y: 4))
-                    .shadow(.inner(color: .blue, radius: 2, x: -2, y: 2))
-                    .shadow(.inner(color: .yellow.opacity(0.4), radius: 4, x: 1.5, y: -2))
-                    .shadow(.inner(color: .white.opacity(0.5), radius: 4, x: 0, y: 8))
-                    .shadow(.inner(color: .white, radius: 1))
+                    .shadow(.inner(color: .purple.opacity(0.4), radius: 2, x: 2, y: 2))
+                    .shadow(.inner(color: .blue, radius: 2, x: -1, y: 1))
+                    .shadow(.inner(color: .yellow.opacity(0.4), radius: 4, x: 1.5, y: -1))
+                    .shadow(.inner(color: .white.opacity(0.5), radius: 4, x: 0, y: 4))
+                    .shadow(.inner(color: .white, radius: 0.5))
             )
     }
 }
