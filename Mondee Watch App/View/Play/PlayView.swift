@@ -30,44 +30,10 @@ struct PlayView: View {
                 let deviceWidth = geo.size.width
                 
                 ZStack() {
-                    VStack {
-                        HStack {
-                            ForEach(0..<gameState.heartCount, id: \.self) { number in
-                                Image("ImgHeart-WatchOS")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 26)
-                            }
-                            ForEach(0..<(Constants.initialHeartCount - gameState.heartCount), id: \.self) { number in
-                                Image("ImgHeartClear-WatchOS")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 26)
-                            }
-                            Spacer()
-                        }
-                        Spacer()
-                    }.padding(.all, CGFloat(12))
-                    if gameState.isCharacterClean && gameState.isCharacterBubbling {
-                        Image("ImgMondeeHappySmile-WatchOS").resizable()
-                            .frame(width: 120, height: 120)
-                            .padding(.top, CGFloat(40))
-                    } else if gameState.isCharacterClean {
-                        if gameState.isSemiWarning {
-                            Image("ImgMondeeSad-WatchOS").resizable()
-                                .frame(width: 120, height: 120)
-                                .padding(.top, CGFloat(40))
-                        }
-                        else {
-                            Image("ImgMondeeWhite-WatchOS").resizable()
-                                .frame(width: 120, height: 120)
-                                .padding(.top, CGFloat(40))
-                        }
-                    } else {
-                        Image("ImgMondeeBlack-WatchOS").resizable()
-                            .frame(width: 120, height: 120)
-                            .padding(.top, CGFloat(40))
-                    }
+                    HeartCountView(gameState: gameState)
+                    
+                    MondeeImageView(gameState: gameState)
+                    
                     if gameState.isCharacterBubbling {
                         VStack {
                             Spacer()
@@ -77,6 +43,7 @@ struct PlayView: View {
                                 .frame(maxWidth: deviceWidth)
                         }
                     }
+                    
                     VStack {
                         Spacer()
                         Image("ImgBathTubTower-WatchOS")
@@ -87,24 +54,9 @@ struct PlayView: View {
                     }
                     VStack {
                         Spacer()
-                        if gameState.isGameFinished {
-                            Text(gameState.isGameSuccessful ? "게임 성공" : "게임 실패")
-                                .font(.largeTitle).foregroundColor(.black)
-                        } else {
-                            Text("\(formatTime(gameState.remainingSeconds))")
-                                .font(.largeTitle).foregroundColor(.black)
-                        }
+                        Text("\(formatTime(gameState.remainingSeconds))")
+                            .font(.largeTitle).foregroundColor(.black)
                     }.padding(.bottom, CGFloat(12))
-                }
-                .navigationTitle {
-                    HStack {
-                        Text("남은 하트 개수: \(gameState.heartCount)")
-                            .font(.subheadline)
-                            .foregroundColor(.mint)
-                            .fontDesign(.rounded)
-                            .fontWeight(.heavy)
-                        Spacer()
-                    }
                 }
                 .ignoresSafeArea()
                 .onAppear {
