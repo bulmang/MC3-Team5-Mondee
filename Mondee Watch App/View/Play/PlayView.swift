@@ -37,12 +37,22 @@ struct PlayView: View {
                                     .scaledToFit()
                                     .frame(width: 26)
                             }
+                            ForEach(0..<(Constants.initialHeartCount - gameState.heartCount), id: \.self) { number in
+                                Image("HeartClear-WatchOS")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26)
+                            }
                             Spacer()
                         }
                         Spacer()
                     }.padding(.all, CGFloat(12))
-                    if gameState.isCharacterClean {
-                        Image("ImgMondeeBasic-WatchOS").resizable()
+                    if gameState.isCharacterClean && gameState.isCharacterBubbling {
+                        Image("ImgMondeeHappySmile-WatchOS").resizable()
+                            .frame(width: 120, height: 120)
+                            .padding(.top, CGFloat(40))
+                    } else if gameState.isCharacterClean {
+                        Image("ImgMondeeWhite-WatchOS").resizable()
                             .frame(width: 120, height: 120)
                             .padding(.top, CGFloat(40))
                     } else {
