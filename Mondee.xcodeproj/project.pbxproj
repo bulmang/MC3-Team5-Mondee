@@ -35,6 +35,8 @@
 		7F06EECF2A62D30700946310 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06EECE2A62D30700946310 /* PlayView.swift */; };
 		7F06EED92A62E71A00946310 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06EED82A62E71A00946310 /* Constants.swift */; };
 		7F06EEDB2A62EAA200946310 /* GameStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06EEDA2A62EAA200946310 /* GameStateManager.swift */; };
+		7F9D8D522A676CE7006F04CA /* MondeeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9D8D512A676CE7006F04CA /* MondeeImageView.swift */; };
+		7F9D8D552A676EF3006F04CA /* HeartCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9D8D542A676EF3006F04CA /* HeartCountView.swift */; };
 		7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */; };
 		7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB07BA32A62A4510064D7FE /* SessionExtend.swift */; };
 		A21D8FBC2A60FB6600A19EF5 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */; };
@@ -93,6 +95,8 @@
 		7F06EECE2A62D30700946310 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		7F06EED82A62E71A00946310 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F06EEDA2A62EAA200946310 /* GameStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateManager.swift; sourceTree = "<group>"; };
+		7F9D8D512A676CE7006F04CA /* MondeeImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeImageView.swift; sourceTree = "<group>"; };
+		7F9D8D542A676EF3006F04CA /* HeartCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartCountView.swift; sourceTree = "<group>"; };
 		7FB07B9C2A6294B90064D7FE /* MovingDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingDetector.swift; sourceTree = "<group>"; };
 		7FB07BA32A62A4510064D7FE /* SessionExtend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionExtend.swift; sourceTree = "<group>"; };
 		A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				7F06EECE2A62D30700946310 /* PlayView.swift */,
+				7F9D8D542A676EF3006F04CA /* HeartCountView.swift */,
+				7F9D8D512A676CE7006F04CA /* MondeeImageView.swift */,
 				29CAC95B2A6511D40038954C /* GameOptionView.swift */,
 			);
 			path = Play;
@@ -421,10 +427,12 @@
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
 				A21D8FBC2A60FB6600A19EF5 /* SuccessView.swift in Sources */,
 				A21D8FC02A616D7700A19EF5 /* retryFailView.swift in Sources */,
+				7F9D8D552A676EF3006F04CA /* HeartCountView.swift in Sources */,
 				29D55B672A652B1E00B0AB26 /* GuideView.swift in Sources */,
 				29CAC95C2A6511D40038954C /* GameOptionView.swift in Sources */,
 				29B3E8FB2A666682001A5856 /* FinalFailView.swift in Sources */,
 				2919A7812A5D009A000B6CF6 /* MondeeApp.swift in Sources */,
+				7F9D8D522A676CE7006F04CA /* MondeeImageView.swift in Sources */,
 				7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */,
 				7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */,
 				7F06EEDB2A62EAA200946310 /* GameStateManager.swift in Sources */,
