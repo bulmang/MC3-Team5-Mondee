@@ -21,95 +21,99 @@ struct PlayView: View {
     @Binding var gameStatus: GameStatus
     
     var body: some View {
-        TabView(selection: $selection) {
-            GameOptionView(selection: $selection, gameStatus: $gameStatus)
-                .environmentObject(gameState)
-                .tag(PlayViewSelection.option)
-            
-            GeometryReader { geo in
-                let deviceWidth = geo.size.width
+        NavigationStack {
+            TabView(selection: $selection) {
+                GameOptionView(selection: $selection, gameStatus: $gameStatus)
+                    .environmentObject(gameState)
+                    .tag(PlayViewSelection.option)
                 
-                ZStack() {
-                    HeartCountView(gameState: gameState)
+                GeometryReader { geo in
+                    let deviceWidth = geo.size.width
                     
-                    MondeeImageView(gameState: gameState)
-                    
-                    if gameState.isCharacterBubbling {
+                    ZStack() {
+                        MondeeImageView(gameState: gameState)
+                        
+                        if gameState.isCharacterBubbling {
+                            VStack {
+                                Spacer()
+                                Image("ImgBathTubBubble-WatchOS")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: deviceWidth)
+                            }
+                        }
+                        
                         VStack {
                             Spacer()
-                            Image("ImgBathTubBubble-WatchOS")
+                            Image("ImgBathTubTower-WatchOS")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(maxWidth: deviceWidth)
+                                .edgesIgnoringSafeArea(.all)
                         }
-                    }
-                    
-                    VStack {
-                        Spacer()
-                        Image("ImgBathTubTower-WatchOS")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: deviceWidth)
-                            .edgesIgnoringSafeArea(.all)
-                    }
-                    VStack {
-                        Spacer()
-                        Text("\(formatTime(gameState.remainingSeconds))")
+                        VStack {
+                            Spacer()
+                            Text("\(formatTime(gameState.remainingSeconds))")
                                 .font(.largeTitle).foregroundColor(.black)
                                 .timerFontModifier()
                                 .frame(maxWidth: .infinity)
                                 .monospacedDigit()
-                    }.padding(.bottom, CGFloat(12))
-                }
-                .ignoresSafeArea()
-                .onAppear {
-                    gameState.playGame()
-                }
-                
-                if gameState.isPreWarning {
-                    Rectangle()
-                        .ignoresSafeArea()
-                        .foregroundColor(Color.yellow.opacity(0.2))
-                        .blur(radius: 8)
-                }
-                if gameState.isWarning {
-                    ZStack {
+                        }.padding(.bottom, CGFloat(12))
+                    }
+                    .ignoresSafeArea()
+                    .onAppear {
+                        gameState.playGame()
+                    }
+                    
+                    if gameState.isPreWarning {
                         Rectangle()
                             .ignoresSafeArea()
-                            .foregroundColor(Color.black)
-                        Rectangle()
-                            .ignoresSafeArea()
-                            .foregroundColor(Int(warningRemainSeconds * 2) % 2 == 0 ? Color.red.opacity(0.3) : .clear)
-                        HStack {
-                            Spacer()
-                            VStack {
+                            .foregroundColor(Color.yellow.opacity(0.2))
+                            .blur(radius: 8)
+                    }
+                    if gameState.isWarning {
+                        ZStack {
+                            Rectangle()
+                                .ignoresSafeArea()
+                                .foregroundColor(Color.black)
+                            Rectangle()
+                                .ignoresSafeArea()
+                                .foregroundColor(Int(warningRemainSeconds * 2) % 2 == 0 ? Color.red.opacity(0.3) : .clear)
+                            HStack {
                                 Spacer()
-                                Group {
-                                    Text("🚨")
-                                    Text("어서어서")
-                                    Text("움직이라구")
+                                VStack {
+                                    Spacer()
+                                    Group {
+                                        Text("🚨")
+                                        Text("어서어서")
+                                        Text("움직이라구")
+                                    }
+                                    .font(.title3)
+                                    Text("\(Int(warningRemainSeconds + 0.5))")
+                                        .font(.system(size: 100))
+                                        .modifier(BubbleFontModifier())
+                                    Spacer()
                                 }
-                                .font(.title3)
-                                Text("\(Int(warningRemainSeconds + 0.5))")
-                                    .font(.system(size: 100))
-                                    .modifier(BubbleFontModifier())
                                 Spacer()
                             }
-                            Spacer()
+                        }
+                        .onAppear {
+                            startBlinking()
                         }
                     }
-                    .onAppear {
-                        startBlinking()
+                }
+                .tag(PlayViewSelection.game)
+                .onChange(of: gameState.isGameFinished) { isGameFinished in
+                    // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
+                    if isGameFinished {
+                        gameStatus = gameState.isGameSuccessful ? .success : .fail
                     }
                 }
             }
-            .tag(PlayViewSelection.game)
-            .onChange(of: gameState.isGameFinished) { isGameFinished in
-                // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
-                if isGameFinished {
-                    gameStatus = gameState.isGameSuccessful ? .success : .fail 
-                }
+            .navigationTitle {
+                HeartCountView(gameState: gameState)
             }
+            .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
     

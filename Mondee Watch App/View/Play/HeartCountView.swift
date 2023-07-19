@@ -12,22 +12,16 @@ struct HeartCountView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                ForEach(0..<gameState.heartCount, id: \.self) { number in
-                    Image("ImgHeart-WatchOS")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 26)
-                }
-                ForEach(0..<(Constants.initialHeartCount - gameState.heartCount), id: \.self) { number in
-                    Image("ImgHeartClear-WatchOS")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 26)
+            HStack(spacing: 0) {
+                ForEach(0..<Constants.initialHeartCount, id: \.self) { i in
+                    Text("♥︎")
+                        .font(.title3)
+                        .bubbleFontModifier()
+                        .opacity(i < gameState.heartCount ? 1 : 0.3)
                 }
                 Spacer()
             }
             Spacer()
-        }.padding(.all, CGFloat(12))
+        }
     }
 }
