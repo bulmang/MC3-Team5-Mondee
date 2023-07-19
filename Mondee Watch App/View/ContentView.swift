@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var gameState = GameStateManager()
+    
     var body: some View {
         GameView()
             .onAppear{
