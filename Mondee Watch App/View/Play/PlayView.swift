@@ -16,6 +16,7 @@ struct PlayView: View {
     @StateObject private var gameState = GameStateManager()
     
     @State var selection: PlayViewSelection = .game
+    @State private var warningRemainSeconds = Double(Constants.dirtThreshold - Constants.warningThreshold)
     
     @Binding var gameStatus: GameStatus
     
@@ -29,27 +30,10 @@ struct PlayView: View {
                 let deviceWidth = geo.size.width
                 
                 ZStack() {
-                    VStack {
-                        HStack {
-                            ForEach(0..<gameState.heartCount, id: \.self) { number in
-                                Image("Heart-WatchOS")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 26)
-                            }
-                            Spacer()
-                        }
-                        Spacer()
-                    }.padding(.all, CGFloat(12))
-                    if gameState.isCharacterClean {
-                        Image("ImgMondeeBasic-WatchOS").resizable()
-                            .frame(width: 120, height: 120)
-                            .padding(.top, CGFloat(40))
-                    } else {
-                        Image("ImgMondeeBlack-WatchOS").resizable()
-                            .frame(width: 120, height: 120)
-                            .padding(.top, CGFloat(40))
-                    }
+                    HeartCountView(gameState: gameState)
+                    
+                    MondeeImageView(gameState: gameState)
+                    
                     if gameState.isCharacterBubbling {
                         VStack {
                             Spacer()
@@ -59,6 +43,7 @@ struct PlayView: View {
                                 .frame(maxWidth: deviceWidth)
                         }
                     }
+                    
                     VStack {
                         Spacer()
                         Image("ImgBathTubTower-WatchOS")
@@ -69,31 +54,53 @@ struct PlayView: View {
                     }
                     VStack {
                         Spacer()
-                        if gameState.isGameFinished {
-                            Text(gameState.isGameSuccessful ? "게임 성공" : "게임 실패")
-                                .font(.largeTitle).foregroundColor(.black)
-                        } else {
-                            Text("\(formatTime(gameState.remainingSeconds))")
+                        Text("\(formatTime(gameState.remainingSeconds))")
                                 .font(.largeTitle).foregroundColor(.black)
                                 .timerFontModifier()
                                 .frame(maxWidth: .infinity)
                                 .monospacedDigit()
-                        }
                     }.padding(.bottom, CGFloat(12))
-                }
-                .navigationTitle {
-                    HStack {
-                        Text("남은 하트 개수: \(gameState.heartCount)")
-                            .font(.subheadline)
-                            .foregroundColor(.mint)
-                            .fontDesign(.rounded)
-                            .fontWeight(.heavy)
-                        Spacer()
-                    }
                 }
                 .ignoresSafeArea()
                 .onAppear {
                     gameState.playGame()
+                }
+                
+                if gameState.isPreWarning {
+                    Rectangle()
+                        .ignoresSafeArea()
+                        .foregroundColor(Color.yellow.opacity(0.2))
+                        .blur(radius: 8)
+                }
+                if gameState.isWarning {
+                    ZStack {
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundColor(Color.black)
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundColor(Int(warningRemainSeconds * 2) % 2 == 0 ? Color.red.opacity(0.3) : .clear)
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Spacer()
+                                Group {
+                                    Text("🚨")
+                                    Text("어서어서")
+                                    Text("움직이라구")
+                                }
+                                .font(.title3)
+                                Text("\(Int(warningRemainSeconds + 0.5))")
+                                    .font(.system(size: 100))
+                                    .modifier(BubbleFontModifier())
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }
+                    .onAppear {
+                        startBlinking()
+                    }
                 }
             }
             .tag(PlayViewSelection.game)
@@ -102,6 +109,19 @@ struct PlayView: View {
                 if isGameFinished {
                     gameStatus = gameState.isGameSuccessful ? .success : .fail
                 }
+            }
+        }
+    }
+    
+    private func startBlinking() {
+        withAnimation {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                warningRemainSeconds -= 0.5
+                if warningRemainSeconds == 0 {
+                    warningRemainSeconds = Double(Constants.dirtThreshold - Constants.warningThreshold)
+                    return
+                }
+                startBlinking()
             }
         }
     }
