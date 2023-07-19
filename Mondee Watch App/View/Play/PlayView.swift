@@ -32,7 +32,13 @@ struct PlayView: View {
                     VStack {
                         HStack {
                             ForEach(0..<gameState.heartCount, id: \.self) { number in
-                                Image("Heart-WatchOS")
+                                Image("ImgHeart-WatchOS")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 26)
+                            }
+                            ForEach(0..<(Constants.initialHeartCount - gameState.heartCount), id: \.self) { number in
+                                Image("ImgHeartClear-WatchOS")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 26)
@@ -41,8 +47,12 @@ struct PlayView: View {
                         }
                         Spacer()
                     }.padding(.all, CGFloat(12))
-                    if gameState.isCharacterClean {
-                        Image("ImgMondeeBasic-WatchOS").resizable()
+                    if gameState.isCharacterClean && gameState.isCharacterBubbling {
+                        Image("ImgMondeeHappySmile-WatchOS").resizable()
+                            .frame(width: 120, height: 120)
+                            .padding(.top, CGFloat(40))
+                    } else if gameState.isCharacterClean {
+                        Image("ImgMondeeWhite-WatchOS").resizable()
                             .frame(width: 120, height: 120)
                             .padding(.top, CGFloat(40))
                     } else {

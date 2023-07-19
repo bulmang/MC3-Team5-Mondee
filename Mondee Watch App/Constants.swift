@@ -43,7 +43,7 @@ struct Constants {
     static var dirtThreshold: Int {
         switch currentEnvironment {
         case .development:
-            return 10
+            return 15
         case .release:
             return 25
         }
