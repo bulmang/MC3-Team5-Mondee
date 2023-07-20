@@ -26,12 +26,13 @@ struct CustomTabView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
             CustomTabBar(selectedTab: $selectedTab)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .edgesIgnoringSafeArea(.bottom)
         }
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
-struct CustomㅅTabView_Previews: PreviewProvider {
+struct CustomTabView_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabView()
     }

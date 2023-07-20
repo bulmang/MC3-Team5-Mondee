@@ -14,6 +14,12 @@ struct TabItem: Identifiable {
     var tab: Tab
 }
 
+var tabItems = [
+    TabItem(text: "투데이", icon: "house", tab: .today),
+    TabItem(text: "기록", icon: "note.text", tab: .record),
+    TabItem(text: "멸균실", icon: "bubbles.and.sparkles", tab: .cleanRoom)
+]
+
 enum Tab: String {
     case today
     case record
