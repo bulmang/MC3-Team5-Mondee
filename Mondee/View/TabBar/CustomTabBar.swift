@@ -40,7 +40,6 @@ struct CustomTabBar: View {
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             isTabPressed = false
-                            
                         }
                     }
                     .frame(maxWidth: .infinity)
@@ -48,7 +47,7 @@ struct CustomTabBar: View {
                 }
             }
             .padding(.top, 13)
-            .padding(.bottom, 27)
+            .padding(.bottom, 30)
             .background(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
                     .foregroundStyle(.ultraThinMaterial)
@@ -56,21 +55,6 @@ struct CustomTabBar: View {
         }
     }
 }
-
-
-struct TabItem: Identifiable {
-    var id = UUID()
-    var text: String
-    var icon: String
-    var tab: Tab
-}
-
-enum Tab: String {
-    case today
-    case record
-    case cleanRoom
-}
-
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {

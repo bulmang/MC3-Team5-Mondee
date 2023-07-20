@@ -29,8 +29,8 @@
 		29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB42A6941DC00B4B380 /* TodayView.swift */; };
 		29623FB72A6941F100B4B380 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB62A6941F100B4B380 /* RecordView.swift */; };
 		29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB82A69420D00B4B380 /* CleanRoomView.swift */; };
-		29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
+		298F913F2A69605C002D36B3 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F913E2A69605C002D36B3 /* TabModel.swift */; };
 		29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */; };
 		29B3E8FB2A666682001A5856 /* FinalFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3E8FA2A666682001A5856 /* FinalFailView.swift */; };
 		29B943072A68E4C10028DDAE /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
@@ -100,6 +100,7 @@
 		29623FB82A69420D00B4B380 /* CleanRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomView.swift; sourceTree = "<group>"; };
 		29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCommunicator.swift; sourceTree = "<group>"; };
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
+		298F913E2A69605C002D36B3 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataSampleView.swift; sourceTree = "<group>"; };
 		29B3E8FA2A666682001A5856 /* FinalFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalFailView.swift; sourceTree = "<group>"; };
 		29CAC95B2A6511D40038954C /* GameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionView.swift; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */,
+				298F913E2A69605C002D36B3 /* TabModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,6 +466,7 @@
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
+				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
 				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
