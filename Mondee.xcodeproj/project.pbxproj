@@ -24,6 +24,11 @@
 		292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */; };
 		292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */; };
 		293EA05D2A63BBD300C3615F /* GameResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EA05B2A63BBD300C3615F /* GameResultModel.swift */; };
+		29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FAC2A69278300B4B380 /* CustomTabBar.swift */; };
+		29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FAE2A69307500B4B380 /* CustomTabView.swift */; };
+		29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB42A6941DC00B4B380 /* TodayView.swift */; };
+		29623FB72A6941F100B4B380 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB62A6941F100B4B380 /* RecordView.swift */; };
+		29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB82A69420D00B4B380 /* CleanRoomView.swift */; };
 		29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
 		29B3E8FB2A666682001A5856 /* FinalFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3E8FA2A666682001A5856 /* FinalFailView.swift */; };
@@ -86,6 +91,11 @@
 		292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleModel.swift; sourceTree = "<group>"; };
 		293EA05B2A63BBD300C3615F /* GameResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultModel.swift; sourceTree = "<group>"; };
+		29623FAC2A69278300B4B380 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		29623FAE2A69307500B4B380 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		29623FB42A6941DC00B4B380 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		29623FB62A6941F100B4B380 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		29623FB82A69420D00B4B380 /* CleanRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomView.swift; sourceTree = "<group>"; };
 		29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCommunicator.swift; sourceTree = "<group>"; };
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
 		29B3E8FA2A666682001A5856 /* FinalFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalFailView.swift; sourceTree = "<group>"; };
@@ -205,6 +215,11 @@
 			isa = PBXGroup;
 			children = (
 				2919A7702A5D0099000B6CF6 /* ContentView.swift */,
+				29623FAE2A69307500B4B380 /* CustomTabView.swift */,
+				29623FB02A69307D00B4B380 /* TabBar */,
+				29623FB12A69419500B4B380 /* TodayView */,
+				29623FB22A6941AA00B4B380 /* RecordView */,
+				29623FB32A6941C300B4B380 /* CleanRoomView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +263,38 @@
 				7F06EEDA2A62EAA200946310 /* GameStateManager.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29623FB02A69307D00B4B380 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				29623FAC2A69278300B4B380 /* CustomTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		29623FB12A69419500B4B380 /* TodayView */ = {
+			isa = PBXGroup;
+			children = (
+				29623FB42A6941DC00B4B380 /* TodayView.swift */,
+			);
+			path = TodayView;
+			sourceTree = "<group>";
+		};
+		29623FB22A6941AA00B4B380 /* RecordView */ = {
+			isa = PBXGroup;
+			children = (
+				29623FB62A6941F100B4B380 /* RecordView.swift */,
+			);
+			path = RecordView;
+			sourceTree = "<group>";
+		};
+		29623FB32A6941C300B4B380 /* CleanRoomView */ = {
+			isa = PBXGroup;
+			children = (
+				29623FB82A69420D00B4B380 /* CleanRoomView.swift */,
+			);
+			path = CleanRoomView;
 			sourceTree = "<group>";
 		};
 		29DFB3F92A6627FF00C4DBD2 /* Modifier */ = {
@@ -404,9 +451,14 @@
 			files = (
 				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
 				2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */,
+				29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */,
+				29623FB72A6941F100B4B380 /* RecordView.swift in Sources */,
+				29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */,
+				29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */,
 				2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */,
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
+				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
 				29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
