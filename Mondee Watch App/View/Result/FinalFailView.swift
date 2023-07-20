@@ -9,7 +9,10 @@ import SwiftUI
 
 struct FinalFailView: View {    
     @StateObject private var gameState = GameStateManager()
+    @StateObject private var movingDetector = MovingDetector()
     
+    private let deviceCommunicator = DeviceCommunicator()
+        
     var body: some View {
         VStack{
             Image("ImgFail-WatchOS")
@@ -24,7 +27,18 @@ struct FinalFailView: View {
         .onAppear{
             gameState.isFinalFailActive = true
             gameState.checkIfNewDay()
+            
+            // 데이터를 보냅니다
+            sendData()
         }
+    }
+    
+    fileprivate func sendData() {
+        deviceCommunicator.sendMessage(key: .isSuccess, message: false) { error in }
+        deviceCommunicator.sendMessage(key: .gamePlayDate, message: Date()) { error in }
+        
+        deviceCommunicator.sendMessage(key: .isRetry, message: gameState.isRetry) { error in }
+        deviceCommunicator.sendMessage(key: .totalDistanceMoved, message: movingDetector.totalDistanceMoved) { error in }
     }
 }
 

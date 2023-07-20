@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Mondee_Watch_AppApp: App {
+    
     @AppStorage("finalfail") var isFinalFailActive = false
     @AppStorage("success") var isSuccessActive = false
     @AppStorage("lastDate") var lastDate: Int = 0
+    @AppStorage("isRetry") var isRetry: Bool = false
 
     var body: some Scene {
         WindowGroup {

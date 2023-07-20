@@ -9,18 +9,27 @@ import Foundation
 
 struct GameResultData {
     var isSuccess: Bool
-    var retryCount: Int
-    var remainingHeartCount: Int
     var gamePlayDate: Date
+    
+    var gameStart: Bool
+    var gamePause: Bool
+    
+    var isRetry: Bool
+    var remainingHeartCount: Int
     var gamePlayTime: Int
     var totalDistanceMoved: Double
 }
 
 enum MessageKey: String {
     case isSuccess = "isSuccess"
-    case retryCount = "retryCount"
-    case remainingHeartCount = "remainingHeartCount"
     case gamePlayDate = "gamePlayDate"
+    
+    case gameStart = "gameStart"
+    case gamePause = "gamePause"
+
+    case isRetry = "isRetry"
+    case remainingHeartCount = "remainingHeartCount"
     case gamePlayTime = "gamePlayTime"
     case totalDistanceMoved = "totalDistanceMoved"
 }
+
