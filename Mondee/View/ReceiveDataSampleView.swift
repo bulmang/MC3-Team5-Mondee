@@ -25,6 +25,7 @@ struct ReceiveDataSampleView: View {
     var body: some View {
         NavigationStack {
             List {
+                
                 Section("중요 데이터") {
                     Text("success : \(success.description)")
                     Text("gameDate : \(gameDate.formatted(date: .abbreviated, time: .standard))")
@@ -49,6 +50,7 @@ struct ReceiveDataSampleView: View {
         }
     }
     
+    /// MessageKey enum 케이스 별로 알맞은 타입 값으로 변경
     fileprivate func processReceivedData(key: MessageKey, value: Any) {
         switch key {
         case .isSuccess:

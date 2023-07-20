@@ -188,6 +188,7 @@ class GameStateManager: ObservableObject {
         sendData() // 게임 종료 시 데이터를 보냄
     }
 
+    /// 남은 하트 갯수, 총 게임시간 수신
     private func sendData() {
         deviceCommunicator.sendMessage(key: .remainingHeartCount, message: heartCount) { error in }
         deviceCommunicator.sendMessage(key: .gamePlayTime, message: gamePlayTime) { error in }
