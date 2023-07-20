@@ -9,10 +9,11 @@ import SwiftUI
 
 struct RetryFailView: View {
     
+    @StateObject private var gameState = GameStateManager()
+    
     @Binding var isFinalFail: Bool
     @Binding var gameStatus: GameStatus
     @Binding var isGameRestart: Bool
-    
     
     var body: some View {
         VStack{
@@ -27,6 +28,7 @@ struct RetryFailView: View {
             Button("다시 도전"){
                 gameStatus = .guide
                 isGameRestart = true
+                gameState.isRetry = true
             }
             .buttonStyle(.borderedProminent)
             .tint(Color(hue: 0.593, saturation: 0.893, brightness: 0.876, opacity: 0.827))
