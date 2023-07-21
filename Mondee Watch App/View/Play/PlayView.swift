@@ -64,42 +64,11 @@ struct PlayView: View {
                     .onAppear {
                         gameState.playGame()
                     }
-                    
                     if gameState.isPreWarning {
                         Rectangle()
                             .ignoresSafeArea()
                             .foregroundColor(Color.yellow.opacity(0.2))
                             .blur(radius: 8)
-                    }
-                    if gameState.isWarning {
-                        ZStack {
-                            Rectangle()
-                                .ignoresSafeArea()
-                                .foregroundColor(Color.black)
-                            Rectangle()
-                                .ignoresSafeArea()
-                                .foregroundColor(Int(warningRemainSeconds * 2) % 2 == 0 ? Color.red.opacity(0.3) : .clear)
-                            HStack {
-                                Spacer()
-                                VStack {
-                                    Spacer()
-                                    Group {
-                                        Text("🚨")
-                                        Text("어서어서")
-                                        Text("움직이라구")
-                                    }
-                                    .font(.title3)
-                                    Text("\(Int(warningRemainSeconds + 0.5))")
-                                        .font(.system(size: 100))
-                                        .modifier(BubbleFontModifier())
-                                    Spacer()
-                                }
-                                Spacer()
-                            }
-                        }
-                        .onAppear {
-                            startBlinking()
-                        }
                     }
                 }
                 .tag(PlayViewSelection.game)
@@ -107,6 +76,38 @@ struct PlayView: View {
                     // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
                     if isGameFinished {
                         gameStatus = gameState.isGameSuccessful ? .success : .fail
+                    }
+                }
+            }
+            .overlay {
+                if gameState.isWarning {
+                    ZStack {
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundColor(Color.black)
+                        Rectangle()
+                            .ignoresSafeArea()
+                            .foregroundColor(Int(warningRemainSeconds * 2) % 2 == 0 ? Color.red.opacity(0.3) : .clear)
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Spacer()
+                                Group {
+                                    Text("🚨")
+                                    Text("어서어서")
+                                    Text("움직이라구")
+                                }
+                                .font(.title3)
+                                Text("\(Int(warningRemainSeconds + 0.5))")
+                                    .font(.system(size: 100))
+                                    .modifier(BubbleFontModifier())
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                    }
+                    .onAppear {
+                        startBlinking()
                     }
                 }
             }
@@ -121,7 +122,7 @@ struct PlayView: View {
         withAnimation {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 warningRemainSeconds -= 0.5
-                if warningRemainSeconds == 0 {
+                if warningRemainSeconds <= 0 {
                     warningRemainSeconds = Double(Constants.dirtThreshold - Constants.warningThreshold)
                     return
                 }
