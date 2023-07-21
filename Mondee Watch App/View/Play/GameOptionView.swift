@@ -22,7 +22,7 @@ struct GameOptionView: View {
             GeometryReader { geo in
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
-                        WatchButton(SFSymbol: "checkmark", label: "오늘 완료") {
+                        WatchButton(SFSymbol: "checkmark", label: "청소 완료") {
                             gameEarlySuccessAlert = true
                         }
                         .disabled(!gameState.isEarlyTerminationPossible)
@@ -39,7 +39,7 @@ struct GameOptionView: View {
                         .tint(.yellow)
                     }
                     HStack {
-                        WatchButton(SFSymbol: "xmark", label: "오늘 그만") {
+                        WatchButton(SFSymbol: "xmark", label: "청소 포기") {
                             gameTerminationAlert = true
                         }
                         .tint(.red)
@@ -59,7 +59,7 @@ struct GameOptionView: View {
                         selection = .game
                         gameState.isFinalFailActive = true
                     } label: {
-                        Text("오늘 그만")
+                        Text("청소 포기")
                     }
                     Button("취소", role: .cancel) {}
                 }
