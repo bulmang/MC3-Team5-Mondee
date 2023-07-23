@@ -9,7 +9,19 @@ import SwiftUI
 
 struct RecordView: View {
     var body: some View {
-        Text("Here is Record View")
+        ZStack{
+            Color("ColorBgLight")
+            VStack{
+                RoundedRectangle(cornerRadius: 22)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 200)
+                    .foregroundColor(.white)
+                    .overlay(
+                        Text("연속 성공 3일차🎉")
+                    )
+            }
+        }
+        .ignoresSafeArea()
     }
 }
 
