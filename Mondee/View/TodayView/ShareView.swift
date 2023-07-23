@@ -127,25 +127,25 @@ struct SaveView: View {
 /// 뷰를 위한 NavigationStack 입니다. 실제는 ShareView 만 가져다쓰면 됩니다.
 struct ShareView_Previews: PreviewProvider {
     static var previews: some View {
-//        NavigationStack {
-//            NavigationLink {
+        NavigationStack {
+            NavigationLink {
                 ShareView()
-//            } label: {
-//                HStack {
-//                    Text("오늘의 먼디 자랑하기")
-//                    Spacer()
-//                    Image(systemName: "chevron.right")
-//                }
-//                .padding()
-//            }
-//            .buttonStyle(.plain)
-//            .background(
-//                Capsule()
-//                    .foregroundStyle(.thinMaterial)
-//            )
-//            .padding()
-//            .navigationTitle("")
-//        }
-//        .tint(.gray)
+            } label: {
+                HStack {
+                    Text("오늘의 먼디 자랑하기")
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }
+                .padding()
+            }
+            .buttonStyle(.plain)
+            .background(
+                Capsule()
+                    .foregroundStyle(.thinMaterial)
+            )
+            .padding()
+            .navigationTitle("")
+        }
+        .tint(.blue)
     }
 }
