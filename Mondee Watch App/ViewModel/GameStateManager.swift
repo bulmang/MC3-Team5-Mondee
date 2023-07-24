@@ -15,6 +15,7 @@ class GameStateManager: ObservableObject {
     private var isPaused = false
     
     private let userDefaults = UserDefaults.standard
+    private let deviceCommunicator = DeviceCommunicator()
     
     var isFinalFailActive: Bool {
         get { userDefaults.bool(forKey: "finalfail") }
@@ -24,6 +25,11 @@ class GameStateManager: ObservableObject {
     var isSuccessActive: Bool {
         get { userDefaults.bool(forKey: "success") }
         set { userDefaults.set(newValue, forKey: "success") }
+    }
+    
+    var isRetry: Bool {
+        get { userDefaults.bool(forKey: "isRetry") }
+        set { userDefaults.set(newValue, forKey: "isRetry") }
     }
     
     var lastDate: Int {
@@ -41,7 +47,8 @@ class GameStateManager: ObservableObject {
     @Published var isGameSuccessful = false
     @Published var isPreWarning = false
     @Published var isWarning = false
-    @Published var isEarlyTerminationPossible = false
+    @Published var isEarlyTerminationPossible = false    
+    @Published var gamePlayTime = 0
     
     // MARK: Game Control Methods
     
@@ -49,18 +56,21 @@ class GameStateManager: ObservableObject {
         SessionExtend.shared.startSession()
         movingDetector.startMotionUpdates()
         startGameTimer()
+        deviceCommunicator.sendMessage(key: .gameStart, message: true) { error in }
     }
     
     func pauseGame() {
         isPaused = true
         movingDetector.stopMotionUpdates()
         stopGameTimer()
+        deviceCommunicator.sendMessage(key: .gamePause, message: true) { error in }
     }
     
     func resumeGame() {
         isPaused = false
         movingDetector.startMotionUpdates()
         startGameTimer()
+        deviceCommunicator.sendMessage(key: .gamePause, message: false) { error in }
     }
     
     func successGameEarly() {
@@ -174,7 +184,14 @@ class GameStateManager: ObservableObject {
         SessionExtend.shared.stopSession()
         movingDetector.stopMotionUpdates()
         isGameFinished = true
-        remainingSeconds = Constants.initialSeconds
+        gamePlayTime = Constants.initialSeconds - remainingSeconds
+        sendData() // 게임 종료 시 데이터를 보냄
+    }
+
+    /// 남은 하트 갯수, 총 게임시간 수신
+    private func sendData() {
+        deviceCommunicator.sendMessage(key: .remainingHeartCount, message: heartCount) { error in }
+        deviceCommunicator.sendMessage(key: .gamePlayTime, message: gamePlayTime) { error in }
     }
     
     func checkIfNewDay() {
@@ -190,6 +207,7 @@ class GameStateManager: ObservableObject {
             // 하루가 바뀌었으므로 값을 초기화
             isFinalFailActive = false
             isSuccessActive = false
+            isRetry = false
             
             print("currentDate = \(currentDate)")
             print("currentDateTimestamp = \(currentDateTimestamp)")

@@ -9,14 +9,33 @@ import SwiftUI
 
 struct SuccessView: View {
     @StateObject private var gameState = GameStateManager()
+    @StateObject private var movingDetector = MovingDetector()
+    
+    private let deviceCommunicator = DeviceCommunicator()
+    @State private var counter: Int = 0
+    
     
     var body: some View {
-        VStack{
+        VStack(spacing: 0) {
+            Text("청소 성공")
+                .font(.title3)
+                .bold()
+                .offset(y: 20)
+                .padding(.bottom, 10)
             ZStack{
+                ConfettiCannon(counter: $counter, colors: [.blue, .teal, .blue, .red, .yellow], repetitions: 4, repetitionInterval: 0.3)
                 Image("ImgSuccess-WatchOS")
                     .resizable()
                     .frame(width: 130, height: 130)
-                    .padding(.bottom,40)
+                    .padding(.bottom, 40)
+                    .overlay {
+                        Text("?")
+                            .font(.system(size: 60))
+                            .fontDesign(.rounded)
+                            .fontWeight(.bold)
+                            .padding(.bottom, 40)
+                            .bubbleFontModifier()
+                    }
                 Text("오늘의 먼지")
                     .font(.body)
                     .fontWeight(.medium)
@@ -29,9 +48,21 @@ struct SuccessView: View {
             }
         }
         .onAppear{
+            WKInterfaceDevice.current().play(.success)
             gameState.isSuccessActive = true
             gameState.checkIfNewDay()
+            counter += 1
+            // 데이터를 보냅니다
+            sendData()
         }
+    }
+    
+    fileprivate func sendData() {
+        deviceCommunicator.sendMessage(key: .isSuccess, message: true) { error in }
+        deviceCommunicator.sendMessage(key: .gamePlayDate, message: Date()) { error in }
+        
+        deviceCommunicator.sendMessage(key: .isRetry, message: gameState.isRetry) { error in }
+        deviceCommunicator.sendMessage(key: .totalDistanceMoved, message: movingDetector.totalDistanceMoved) { error in }
     }
 }
 

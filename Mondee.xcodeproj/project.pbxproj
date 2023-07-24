@@ -11,6 +11,16 @@
 		07D962FC2A6146C400CFDFFC /* PreparationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D962FB2A6146C400CFDFFC /* PreparationView.swift */; };
 		07D962FF2A62B71600CFDFFC /* Mondee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D962FE2A62B71600CFDFFC /* Mondee.swift */; };
 		07D963012A62C5A500CFDFFC /* ArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D963002A62C5A500CFDFFC /* ArrowAnimation.swift */; };
+		2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */; };
+		2900B1162A6986E100B7AEFD /* ConfettiCannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */; };
+		2900B1182A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1172A6986E700B7AEFD /* ConfettiSwiftUI.swift */; };
+		2900B1192A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1172A6986E700B7AEFD /* ConfettiSwiftUI.swift */; };
+		2900B11B2A6986EE00B7AEFD /* RoundedCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */; };
+		2900B11C2A6986EE00B7AEFD /* RoundedCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */; };
+		2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */; };
+		2900B11F2A6986F500B7AEFD /* SlimRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */; };
+		2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1202A6986FC00B7AEFD /* Triangle.swift */; };
+		2900B1222A6986FC00B7AEFD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1202A6986FC00B7AEFD /* Triangle.swift */; };
 		2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */; };
 		2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A7702A5D0099000B6CF6 /* ContentView.swift */; };
 		2919A7732A5D009A000B6CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919A7722A5D009A000B6CF6 /* Assets.xcassets */; };
@@ -24,12 +34,19 @@
 		292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */; };
 		292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */; };
 		293EA05D2A63BBD300C3615F /* GameResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EA05B2A63BBD300C3615F /* GameResultModel.swift */; };
-		29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
+		29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FAC2A69278300B4B380 /* CustomTabBar.swift */; };
+		29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FAE2A69307500B4B380 /* CustomTabView.swift */; };
+		29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB42A6941DC00B4B380 /* TodayView.swift */; };
+		29623FB72A6941F100B4B380 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB62A6941F100B4B380 /* RecordView.swift */; };
+		29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB82A69420D00B4B380 /* CleanRoomView.swift */; };
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
+		298F913F2A69605C002D36B3 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F913E2A69605C002D36B3 /* TabModel.swift */; };
+		29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */; };
 		29B3E8FB2A666682001A5856 /* FinalFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3E8FA2A666682001A5856 /* FinalFailView.swift */; };
+		29B943072A68E4C10028DDAE /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
+		29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
 		29CAC95C2A6511D40038954C /* GameOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CAC95B2A6511D40038954C /* GameOptionView.swift */; };
 		29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EA05B2A63BBD300C3615F /* GameResultModel.swift */; };
-		29D1D3552A66DF2000A1A3BE /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
 		29D55B672A652B1E00B0AB26 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D55B662A652B1E00B0AB26 /* GuideView.swift */; };
 		29DFB3FB2A66282000C4DBD2 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFB3FA2A66282000C4DBD2 /* Modifier.swift */; };
 		7F06EECF2A62D30700946310 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06EECE2A62D30700946310 /* PlayView.swift */; };
@@ -42,6 +59,9 @@
 		A21D8FBC2A60FB6600A19EF5 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */; };
 		A21D8FC02A616D7700A19EF5 /* RetryFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */; };
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
+		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
+		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
+        
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +93,11 @@
 		07D962FB2A6146C400CFDFFC /* PreparationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationView.swift; sourceTree = "<group>"; };
 		07D962FE2A62B71600CFDFFC /* Mondee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mondee.swift; sourceTree = "<group>"; };
 		07D963002A62C5A500CFDFFC /* ArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowAnimation.swift; sourceTree = "<group>"; };
+		2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiCannon.swift; sourceTree = "<group>"; };
+		2900B1172A6986E700B7AEFD /* ConfettiSwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiSwiftUI.swift; sourceTree = "<group>"; };
+		2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCross.swift; sourceTree = "<group>"; };
+		2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimRectangle.swift; sourceTree = "<group>"; };
+		2900B1202A6986FC00B7AEFD /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		2919A76B2A5D0099000B6CF6 /* Mondee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mondee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeApp.swift; sourceTree = "<group>"; };
 		2919A7702A5D0099000B6CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,8 +112,15 @@
 		292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		292CE6CA2A5ECDDB00BEE4AF /* WatchSampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSampleModel.swift; sourceTree = "<group>"; };
 		293EA05B2A63BBD300C3615F /* GameResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultModel.swift; sourceTree = "<group>"; };
+		29623FAC2A69278300B4B380 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		29623FAE2A69307500B4B380 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		29623FB42A6941DC00B4B380 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		29623FB62A6941F100B4B380 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		29623FB82A69420D00B4B380 /* CleanRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomView.swift; sourceTree = "<group>"; };
 		29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCommunicator.swift; sourceTree = "<group>"; };
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
+		298F913E2A69605C002D36B3 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
+		29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataSampleView.swift; sourceTree = "<group>"; };
 		29B3E8FA2A666682001A5856 /* FinalFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalFailView.swift; sourceTree = "<group>"; };
 		29CAC95B2A6511D40038954C /* GameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionView.swift; sourceTree = "<group>"; };
 		29D55B662A652B1E00B0AB26 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
@@ -103,6 +135,8 @@
 		A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryFailView.swift; sourceTree = "<group>"; };
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
+		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +165,18 @@
 				07D963002A62C5A500CFDFFC /* ArrowAnimation.swift */,
 			);
 			path = Preparation;
+			sourceTree = "<group>";
+		};
+		2900B1132A6986CE00B7AEFD /* Confetti */ = {
+			isa = PBXGroup;
+			children = (
+				2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */,
+				2900B1172A6986E700B7AEFD /* ConfettiSwiftUI.swift */,
+				2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */,
+				2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */,
+				2900B1202A6986FC00B7AEFD /* Triangle.swift */,
+			);
+			path = Confetti;
 			sourceTree = "<group>";
 		};
 		2919A7622A5D0098000B6CF6 = {
@@ -199,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */,
+				298F913E2A69605C002D36B3 /* TabModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,8 +253,15 @@
 		292CE6C12A5ECD0D00BEE4AF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F0527A382A6E41D4001923F7 /* DesignSystem */,
 				2919A7702A5D0099000B6CF6 /* ContentView.swift */,
 				BEBF14842A68EA8B006F52CE /* OnboardingView.swift */,
+				29623FAE2A69307500B4B380 /* CustomTabView.swift */,
+				29623FB02A69307D00B4B380 /* TabBar */,
+				29623FB12A69419500B4B380 /* TodayView */,
+				29623FB22A6941AA00B4B380 /* RecordView */,
+				29623FB32A6941C300B4B380 /* CleanRoomView */,
+				29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,6 +307,38 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		29623FB02A69307D00B4B380 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				29623FAC2A69278300B4B380 /* CustomTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		29623FB12A69419500B4B380 /* TodayView */ = {
+			isa = PBXGroup;
+			children = (
+				29623FB42A6941DC00B4B380 /* TodayView.swift */,
+			);
+			path = TodayView;
+			sourceTree = "<group>";
+		};
+		29623FB22A6941AA00B4B380 /* RecordView */ = {
+			isa = PBXGroup;
+			children = (
+				29623FB62A6941F100B4B380 /* RecordView.swift */,
+			);
+			path = RecordView;
+			sourceTree = "<group>";
+		};
+		29623FB32A6941C300B4B380 /* CleanRoomView */ = {
+			isa = PBXGroup;
+			children = (
+				29623FB82A69420D00B4B380 /* CleanRoomView.swift */,
+			);
+			path = CleanRoomView;
+			sourceTree = "<group>";
+		};
 		29DFB3F92A6627FF00C4DBD2 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +361,7 @@
 		7F06EED22A62DCE600946310 /* Result */ = {
 			isa = PBXGroup;
 			children = (
+				2900B1132A6986CE00B7AEFD /* Confetti */,
 				A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */,
 				A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */,
 				29B3E8FA2A666682001A5856 /* FinalFailView.swift */,
@@ -297,6 +384,15 @@
 				7FB07BA32A62A4510064D7FE /* SessionExtend.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F0527A382A6E41D4001923F7 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				F0527A392A6E41F8001923F7 /* ColorSystem.swift */,
+				F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,13 +501,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */,
 				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
+				29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */,
 				2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */,
+				2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */,
+				2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
+				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
+				29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */,
+				29623FB72A6941F100B4B380 /* RecordView.swift in Sources */,
+				29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */,
+				29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */,
 				2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */,
+				2900B11B2A6986EE00B7AEFD /* RoundedCross.swift in Sources */,
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
 				29712AE12A62CA4200A8C602 /* DeviceCommunicator.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
+				2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */,
+				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
+				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
+				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
+				2900B1182A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,21 +533,26 @@
 				07D962FC2A6146C400CFDFFC /* PreparationView.swift in Sources */,
 				292CE6CB2A5ECDDB00BEE4AF /* WatchSampleModel.swift in Sources */,
 				29DFB3FB2A66282000C4DBD2 /* Modifier.swift in Sources */,
+				29B943072A68E4C10028DDAE /* DeviceCommunicator.swift in Sources */,
 				7F06EECF2A62D30700946310 /* PlayView.swift in Sources */,
 				07D963012A62C5A500CFDFFC /* ArrowAnimation.swift in Sources */,
 				293EA05D2A63BBD300C3615F /* GameResultModel.swift in Sources */,
-				29D1D3552A66DF2000A1A3BE /* DeviceCommunicator.swift in Sources */,
 				078D5F992A602B4B00BD5557 /* GameView.swift in Sources */,
+				2900B1162A6986E100B7AEFD /* ConfettiCannon.swift in Sources */,
 				2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */,
 				2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */,
 				A21D8FBC2A60FB6600A19EF5 /* SuccessView.swift in Sources */,
 				A21D8FC02A616D7700A19EF5 /* RetryFailView.swift in Sources */,
 				7F9D8D552A676EF3006F04CA /* HeartCountView.swift in Sources */,
+				2900B11F2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
 				29D55B672A652B1E00B0AB26 /* GuideView.swift in Sources */,
 				29CAC95C2A6511D40038954C /* GameOptionView.swift in Sources */,
 				29B3E8FB2A666682001A5856 /* FinalFailView.swift in Sources */,
 				2919A7812A5D009A000B6CF6 /* MondeeApp.swift in Sources */,
+				2900B1222A6986FC00B7AEFD /* Triangle.swift in Sources */,
 				7F9D8D522A676CE7006F04CA /* MondeeImageView.swift in Sources */,
+				2900B1192A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */,
+				2900B11C2A6986EE00B7AEFD /* RoundedCross.swift in Sources */,
 				7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */,
 				7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */,
 				7F06EEDB2A62EAA200946310 /* GameStateManager.swift in Sources */,
@@ -579,13 +695,13 @@
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -610,13 +726,13 @@
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -652,7 +768,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -685,7 +801,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

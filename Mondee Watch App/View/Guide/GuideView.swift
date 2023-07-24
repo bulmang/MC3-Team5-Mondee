@@ -18,16 +18,19 @@ struct GuideView: View {
                 BeforeGameCountView(isGuideActive: $isGuideActive, gameStatus: $gameStatus)
             } else {
                 HStack{
-                    Image("ImageWatchBubbles")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 27)
+                    ZStack(alignment: .bottom) {
+                        Text("●")
+                            .bubbleFontModifier()
+                        Text("●")
+                            .font(.system(size: 10))
+                            .bubbleFontModifier()
+                            .padding(.leading, 14)
+                    }
                     Text("청소시간")
                         .font(.system(size: 20, weight: .semibold))
-                    Image("ImageWatchBubble")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20)
+                    Text("●")
+                        .font(.title3)
+                        .bubbleFontModifier()
                 }
                 .padding(.bottom, 10)
                 Text("몸을 움직여\n먼지를 씻겨주자")
@@ -36,7 +39,7 @@ struct GuideView: View {
             }
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 showGameCountView = true
             }
         }
