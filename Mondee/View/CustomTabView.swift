@@ -13,6 +13,7 @@ struct CustomTabView: View {
     
     var body: some View {
         ZStack (alignment: .bottom) {
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             Group {
                 switch selectedTab {
                 case .today:
