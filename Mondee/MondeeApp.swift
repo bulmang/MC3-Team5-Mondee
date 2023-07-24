@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MondeeApp: App {
+    @State var date = Date()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecordCalendarView(currentDate: $date)
         }
     }
 }
+
