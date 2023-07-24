@@ -66,7 +66,7 @@ struct MondeeButtonStyle: ButtonStyle {
                     .fill(color)
             )
             .opacity(configuration.isPressed ? 0.9 : 1.0)
-            .scaleEffect(configuration.isPressed ? 0.99 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
     }
 }
 
