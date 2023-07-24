@@ -75,13 +75,11 @@ struct RecordCalendarView: View {
             LazyVGrid(columns: columns, spacing: 15) {
                 ForEach(extractDate()){ value in
                     CardView(value: value)
+                        .font(isSameDay(date1: value.date, date2: Date()) ? .system(size: 20, weight: .bold) : .system(size: 20, weight: .regular))
+                        .foregroundColor(isSameDay(date1: value.date, date2: Date()) ? .blue : .black)
                 }
             }
-            
-            
             Spacer()
-            
-            
         }
         // 월 변경시 새로운 월 업데이트
         .onChange(of: currentMonth){newValue in
@@ -95,7 +93,7 @@ struct RecordCalendarView: View {
         VStack{
             if value.day != -1 {
                 Text("\(value.day)")
-                    .font(.system(size: 20, weight: .regular))
+                    //.font(.system(size: 20, weight: .regular))
             }
         }
         .padding(.vertical, 8)
@@ -143,11 +141,11 @@ struct RecordCalendarView: View {
 //    }
 
     //MARK: 날짜 확인 코드
-//    private func isSameDay(date1: Date, date2: Date) -> Bool{
-//        let calendar = Calendar.current
-//
-//        return calendar.isDate(date1, inSameDayAs: date2)
-//    }
+    private func isSameDay(date1: Date, date2: Date) -> Bool{
+        let calendar = Calendar.current
+
+        return calendar.isDate(date1, inSameDayAs: date2)
+    }
     
     
     //MARK: YYYY MMMM 형태로 날짜 형식 바꾸는 함수
