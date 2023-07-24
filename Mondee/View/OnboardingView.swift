@@ -7,138 +7,140 @@
 
 import SwiftUI
 
+
+
 struct OnboardingView: View {
+    
     @AppStorage("isOnboarding") var isOnboarding: Bool?
+    @State private var show: Bool = false
     
     var body: some View {
-        
-        VStack {
-            Spacer().frame(height: 1)
-            
-            ScrollView {
-                LazyVStack {
-                    
-                    Group {
-                        Spacer()
-                            .frame(height: 250)
-                        VStack {
-                            Text("먼디를 구해줘!")
-                                .foregroundColor(.black)
-                                .font(.largeTitle)
-                                .bold()
-                                .padding()
-                            Text("글.그림 먼디를 만든 사람들")
-                                .foregroundColor(.black)
-                                .font(.subheadline)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding()
-                        }
-                    }
-                    Group {
-                        Spacer()
-                            .frame(height: 100)
-                        VStack {
-                            VStack(spacing: 5) {
-                                Text("앗! 방청소를 너무 미룬 나머지")
-                                Text("먼디가 원래 모습을 잃어버렸어요..")
-                            }
-                            .foregroundColor(.black)
-                            .font(.system(size: 22))
-                            .padding(.vertical, 30)
-                            .frame(maxWidth: .infinity)
-                            .border(.black)
-                            Spacer()
-                                .frame(height: 60)
-                            Image("ImgOnboarding1-iOS")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                        .padding()
-                    }
-                    Group {
-                        Spacer()
-                            .frame(height: 120)
-                        VStack {
-                            HStack {
-                                VStack {
-                                    Text("그 때!")
-                                    Text("애플워치를 차고")
-                                    Text("방청소를 시작했더니...")
-                                }
-                                .foregroundColor(.black)
-                                .font(.system(size: 22))
-                                .padding(30)
-                                //                            .frame(maxWidth: 280)
-                                .border(.black)
-                                Spacer()
-                            }
-                            .padding(.leading, 40)
-                            Image("ImgOnboarding2-iOS")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    Group {
-                        Spacer()
-                            .frame(height: 120)
-                        VStack {
-                            HStack {
-                                Spacer()
-                                VStack {
-                                    Text("드디어 먼지 더미에서")
-                                    Text("해방된 우리의 먼디!!")
-                                }
-                                .foregroundColor(.black)
-                                .font(.system(size: 22))
-                                .padding(30)
-                                //                            .frame(maxWidth: 250)
-                                .border(.black)
-                            }
-                            .padding(.trailing)
-                            Image("ImgOnboarding3-iOS")
-                                .resizable()
-                                .scaledToFit()
-                        }
-                    }
-                    .padding()
-                    Group {
-                        Spacer()
-                            .frame(height: 120)
-                        VStack {
-                            VStack {
-                                Text("방청소를 하며")
-                                Text("매일 새로운 먼디를 만나보세요!")
-                            }
-                            .foregroundColor(.black)
-                            .font(.system(size: 22))
-                            .padding(.vertical, 30)
-                            .frame(maxWidth: .infinity)
-                            .border(.black)
-                            Spacer()
-                                .frame(height: 50)
-                            Image("ImgOnboarding4-iOS")
-                                .resizable()
-                                .scaledToFit()
-                                .padding()
-                        }
-                        Spacer()
-                            .frame(height: 50)
-                    }
-                    .padding()
-                    
-                    Button(action: {
-                        isOnboarding = false
-                    }) {
-                        Text("시작하기")
-                    }
-                    
-                }
+        ScrollView {
+            LazyVStack {
+                title()
+                    .padding(.top,250)
                 
-                Spacer()
+                imageScene1()
+                
+                imageScene2()
+                
+                imageScene3()
+                
+                imageScene4()
+                
+                MondeeBlueButton(label: "시작하기") {
+                    withAnimation(.spring()){
+                        isOnboarding = false
+                    }
+                }
+                .padding(.horizontal,22)
+                .padding(.top, 50)
             }
         }
         .background(.white)
+    }
+    
+    @ViewBuilder
+    private func title () -> some View {
+        VStack {
+            Text("먼디를 구해줘!")
+                .foregroundColor(.black)
+                .font(.system(size: 40))
+                .bold()
+                .padding()
+            Text("글.그림 먼디를 만든 사람들")
+                .foregroundColor(.black)
+                .font(.system(size: 18))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding()
+        }
+    }
+    
+    @ViewBuilder
+    private func imageScene1() -> some View{
         
+        Spacer()
+            .frame(height: 100)
+        
+        VStack(spacing: 0) {
+            
+            Text("앗! 방청소를 너무 미룬 나머지\n먼디가 원래 모습을 잃어버렸어요..")
+                .multilineTextAlignment(.center)
+                .lineSpacing(5)
+                .foregroundColor(.black)
+                .font(.system(size: 22))
+                .padding(.vertical, 30)
+                .frame(maxWidth: .infinity)
+                .border(.black)
+            
+            Image("ImgOnboarding1-iOS")
+                .resizable()
+                .scaledToFit()
+                .padding(.top,60)
+        }
+        .padding()
+        
+    }
+    
+    @ViewBuilder
+    private func imageScene2() -> some View{
+        
+        VStack(alignment: .leading) {
+            Image("ImgOnboarding2-iOS")
+                .resizable()
+                .scaledToFit()
+                .overlay(alignment: .topLeading){
+                    Text("그 때!\n애플워치를 차고\n방청소를 시작했더니...")
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(5)
+                        .foregroundColor(.black)
+                        .font(.system(size: 22))
+                        .padding(30)
+                        .border(.black)
+                        .padding(.leading, 40)
+                        .offset(y:-20)
+                }
+        }
+        .padding(.top,120)
+    }
+    
+    @ViewBuilder
+    private func imageScene3() -> some View{
+        VStack(alignment: .trailing) {
+            Text("드디어 먼지 더미에서\n해방된 우리의 먼디!!")
+                .multilineTextAlignment(.center)
+                .lineSpacing(5)
+                .foregroundColor(.black)
+                .font(.system(size: 22))
+                .padding(30)
+                .border(.black)
+                .padding(.trailing, 30)
+            Image("ImgOnboarding3-iOS")
+                .resizable()
+                .scaledToFit()
+        }
+        .padding(.top, 120)
+        .padding()
+    }
+    
+    @ViewBuilder
+    private func imageScene4() -> some View {
+        
+        VStack(spacing: 50) {
+            Text("방청소를 하며\n매일 새로운 먼디를 만나보세요!")
+                .multilineTextAlignment(.center)
+                .lineSpacing(5)
+                .foregroundColor(.black)
+                .font(.system(size: 22))
+                .padding(.vertical, 30)
+                .frame(maxWidth: .infinity)
+                .border(.black)
+            Image("ImgOnboarding4-iOS")
+                .resizable()
+                .scaledToFit()
+        }
+        .padding(.top, 120)
+        .padding()
     }
 }
 
