@@ -11,7 +11,7 @@ import SwiftUI
 struct MondeeApp: App {
     var body: some Scene {
         WindowGroup {
-            ReceiveDataSampleView()
+            ContentView()
         }
     }
 }
