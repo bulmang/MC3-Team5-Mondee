@@ -25,26 +25,6 @@ extension Date {
     }
     
     //MARK: 현재 월, 일을 알기위한 위한 Extension
-//    func getAllDates()->[Date] {
-//
-//        let calendar = Calendar.current
-//
-//        // getting start Date
-//        let startDate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
-//
-//
-//        let range = calendar.range(of: .day, in: .month, for: startDate)!
-//
-//        // getting date
-//        return range.compactMap{ day -> Date in
-//
-//            return calendar.date(byAdding: .day, value: day - 1, to: startDate)!
-//        }
-//    }
-}
-
- //현재 월/일 Month, Dates 가져오기
-extension Date {
     func getAllDates()->[Date]{
         let calendar = Calendar.current
         
@@ -61,3 +41,5 @@ extension Date {
         }
     }
 }
+
+

@@ -18,7 +18,11 @@ struct RecordCalendarView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: 7) //달력 틀
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("청소 캘린더")
+                .font(.system(size: 20, weight: .bold))
+                .padding(.leading)
+                
             // 월, 년도, 좌화살표, 우화살표 포함 Stack
             HStack(spacing: 20){
                 // 월, 년도 Stack
@@ -77,6 +81,9 @@ struct RecordCalendarView: View {
                     CardView(value: value)
                         .font(isSameDay(date1: value.date, date2: Date()) ? .system(size: 20, weight: .bold) : .system(size: 20, weight: .regular))
                         .foregroundColor(isSameDay(date1: value.date, date2: Date()) ? .blue : .black)
+//                        .background(
+//                            Image("bubbles")
+//                        )
                 }
             }
             Spacer()

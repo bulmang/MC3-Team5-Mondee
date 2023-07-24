@@ -12,14 +12,9 @@ struct RecordView: View {
         ZStack{
             Color("ColorBgLight")
             VStack{
-                RoundedRectangle(cornerRadius: 22)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 200)
-                    .foregroundColor(.white)
-                    .overlay(
-                        Text("연속 성공 3일차🎉")
-                    )
+                RecordTitleArea()
             }
+            
         }
         .ignoresSafeArea()
     }
