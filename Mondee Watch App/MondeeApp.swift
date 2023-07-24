@@ -20,6 +20,9 @@ struct Mondee_Watch_AppApp: App {
             switch (isSuccessActive, isFinalFailActive) {
             case (true, _):
                 SuccessView()
+                    .onAppear{
+                        isSuccessActive = false
+                    }
             case (_, true):
                 FinalFailView()
             default:

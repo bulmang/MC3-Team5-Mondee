@@ -15,9 +15,8 @@ struct GameResultData {
     var gamePause: Bool
     
     var isRetry: Bool
-    var remainingHeartCount: Int
     var gamePlayTime: Int
-    var totalDistanceMoved: Double
+    var remainingHeartCount: Int
 }
 
 enum MessageKey: String {
@@ -28,8 +27,7 @@ enum MessageKey: String {
     case gamePause = "gamePause"
 
     case isRetry = "isRetry"
-    case remainingHeartCount = "remainingHeartCount"
     case gamePlayTime = "gamePlayTime"
-    case totalDistanceMoved = "totalDistanceMoved"
+    case remainingHeartCount = "remainingHeartCount"
 }
 
