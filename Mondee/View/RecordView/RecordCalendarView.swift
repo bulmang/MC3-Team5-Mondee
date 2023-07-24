@@ -18,11 +18,7 @@ struct RecordCalendarView: View {
     let columns = Array(repeating: GridItem(.flexible()), count: 7) //달력 틀
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("청소 캘린더")
-                .font(.system(size: 20, weight: .bold))
-                .padding(.leading)
-                
+        VStack(spacing: 10) {
             // 월, 년도, 좌화살표, 우화살표 포함 Stack
             HStack(spacing: 20){
                 // 월, 년도 Stack
@@ -58,11 +54,11 @@ struct RecordCalendarView: View {
                         .foregroundColor(Color("ColorGray"))
                 }
             }
-            .padding(.horizontal, 16)
-            .padding(.bottom)
+            .padding(.bottom, 13)
+
             
             // 상단 요일 Stack
-            HStack(spacing: 0){
+            HStack(spacing: 14){
                 ForEach(days,id: \.self){day in
                     Text(day)
                         .font(.system(size: 13, weight: .semibold))
@@ -70,7 +66,7 @@ struct RecordCalendarView: View {
                         .foregroundColor(Color("ColorGray"))
                 }
             }
-            .padding(.horizontal, 2)
+           // .padding(.horizontal, 2)
             
             // Dates....
             // Lazy Grid..
@@ -217,5 +213,3 @@ struct RecordCalendarView_Previews: PreviewProvider {
         }
     }
 }
-
-
