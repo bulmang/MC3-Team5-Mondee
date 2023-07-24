@@ -14,7 +14,7 @@ extension Color {
     
     static let mondeeBlue = Color("mondeeBlue")
     static let mondeeMint = Color("mondeeMint")
-    static let mondeeGrey = Color(" mondeeGrey")
+    static let mondeeGrey = Color("mondeeGrey")
     
     // MARK: 먼디 시스템 컬러
 
