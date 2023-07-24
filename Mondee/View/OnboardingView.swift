@@ -49,7 +49,7 @@ struct OnboardingView: View {
                             .border(.black)
                             Spacer()
                                 .frame(height: 60)
-                            Image("onboarding-cut-1")
+                            Image("ImgOnboarding1-iOS")
                                 .resizable()
                                 .scaledToFit()
                         }
@@ -73,7 +73,7 @@ struct OnboardingView: View {
                                 Spacer()
                             }
                             .padding(.leading, 40)
-                            Image("onboarding-cut-2")
+                            Image("ImgOnboarding2-iOS")
                                 .resizable()
                                 .scaledToFit()
                         }
@@ -95,7 +95,7 @@ struct OnboardingView: View {
                                 .border(.black)
                             }
                             .padding(.trailing)
-                            Image("onboarding-cut-3")
+                            Image("ImgOnboarding3-iOS")
                                 .resizable()
                                 .scaledToFit()
                         }
@@ -116,7 +116,7 @@ struct OnboardingView: View {
                             .border(.black)
                             Spacer()
                                 .frame(height: 50)
-                            Image("onboarding-cut-4")
+                            Image("ImgOnboarding4-iOS")
                                 .resizable()
                                 .scaledToFit()
                                 .padding()
