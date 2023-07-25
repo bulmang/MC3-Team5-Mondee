@@ -48,7 +48,7 @@ struct FinalFailView: View {
         deviceCommunicator.sendMessage(key: .gamePlayDate, message: Date()) { error in }
         
         deviceCommunicator.sendMessage(key: .isRetry, message: gameState.isRetry) { error in }
-        deviceCommunicator.sendMessage(key: .totalDistanceMoved, message: movingDetector.totalDistanceMoved) { error in }
+        deviceCommunicator.sendMessage(key: .remainingHeartCount, message: movingDetector.totalDistanceMoved) { error in }
     }
     
     fileprivate struct Raining: View {
