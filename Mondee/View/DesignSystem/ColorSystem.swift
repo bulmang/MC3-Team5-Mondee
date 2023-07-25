@@ -24,4 +24,6 @@ extension Color {
     static let mondeeBoxBackground = Color("mondeeBoxBackground")
     /// 먼디 캐릭터 클릭 시 나오는 말풍선 색상
     static let mondeeSpeechBubble = Color("mondeeSpeechBubble")
+
+    static let mondeeDarkGrey = Color("mondeeDarkGrey")
 }
