@@ -16,13 +16,15 @@ struct CleanRoomView: View {
             Color.mondeeBoxBackground.ignoresSafeArea()
             ScrollView {
                 ZStack {
-                    Color.gray
+                    Color.gray.ignoresSafeArea()
                     VStack {
-                        Header
-                            .opacity(1 - Double(-scrollViewOffset) / 100)
-                            .onScrollViewOffsetChanged { value in
-                                self.scrollViewOffset = value
-                            }
+                        ZStack {
+                            Header
+                                .opacity(1 - Double(-scrollViewOffset) / 90)
+                                .onScrollViewOffsetChanged { value in
+                                    self.scrollViewOffset = value
+                                }
+                        }
                         Rectangle()
                             .frame(height: 400)
                             .foregroundColor(.white)
@@ -30,10 +32,11 @@ struct CleanRoomView: View {
                         Rectangle()
                             .frame(height: 400)
                             .foregroundColor(.white)
-                        
+                            .padding(.horizontal)
                         Rectangle()
                             .frame(height: 400)
                             .foregroundColor(.white)
+                            .padding(.horizontal)
                     }
                 }
             }
@@ -72,7 +75,13 @@ extension CleanRoomView {
             Text("획득한 먼지들을 확인해보세요")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(30)
+        .padding(.horizontal, 30)
+        .background(
+            Rectangle()
+                .fill(Color.mondeeBoxBackground)
+                .frame(maxWidth: .infinity)
+        )
+        .padding(.bottom, 30)
         .background(
             RoundedRectangle(cornerRadius: 22, style: .continuous)
                 .fill(Color.mondeeBoxBackground)
