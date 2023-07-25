@@ -12,6 +12,7 @@ import SwiftUI
 struct OnboardingView: View {
     
     @AppStorage("isOnboarding") var isOnboarding: Bool?
+    
     @State private var show: Bool = false
     
     var body: some View {
@@ -57,13 +58,9 @@ struct OnboardingView: View {
     }
     
     @ViewBuilder
-    private func imageScene1() -> some View{
-        
-        Spacer()
-            .frame(height: 100)
+    private func imageScene1() -> some View {
         
         VStack(spacing: 0) {
-            
             Text("앗! 방청소를 너무 미룬 나머지\n먼디가 원래 모습을 잃어버렸어요..")
                 .multilineTextAlignment(.center)
                 .lineSpacing(5)
@@ -72,18 +69,18 @@ struct OnboardingView: View {
                 .padding(.vertical, 30)
                 .frame(maxWidth: .infinity)
                 .border(.black)
-            
             Image("ImgOnboarding1-iOS")
                 .resizable()
                 .scaledToFit()
                 .padding(.top,60)
         }
+        .padding(.top, 100)
         .padding()
         
     }
     
     @ViewBuilder
-    private func imageScene2() -> some View{
+    private func imageScene2() -> some View {
         
         VStack(alignment: .leading) {
             Image("ImgOnboarding2-iOS")
@@ -105,7 +102,8 @@ struct OnboardingView: View {
     }
     
     @ViewBuilder
-    private func imageScene3() -> some View{
+    private func imageScene3() -> some View {
+        
         VStack(alignment: .trailing) {
             Text("드디어 먼지 더미에서\n해방된 우리의 먼디!!")
                 .multilineTextAlignment(.center)

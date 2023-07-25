@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     var body: some View {
         Group{
             if isOnboarding {
@@ -22,8 +24,6 @@ struct ContentView: View {
     }
 }
 
-
-let namespace = Namespace()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
