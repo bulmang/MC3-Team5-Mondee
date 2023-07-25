@@ -15,9 +15,12 @@ struct CleanRoomView: View {
         ScrollView {
             LargeNavigationTitle(scrollViewOffset: $scrollViewOffset)
             
+            LatestCollectedMondeeView()
+            
+            CollectedMondeeGridView()
         }
         .edgesIgnoringSafeArea(.top)
-//        .overlay (Text("\(scrollViewOffset)"))
+        //      .overlay (Text("\(scrollViewOffset)"))
         .overlay(alignment: .top) {
             InlineNavigationTitle(scrollViewOffset: scrollViewOffset)
         }
@@ -37,12 +40,13 @@ struct LargeNavigationTitle: View {
             Text("획득한 먼지들을 확인해보세요")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .ignoresSafeArea()
         .opacity(1 - Double(-scrollViewOffset) / 60)
         .padding(EdgeInsets(top: 75, leading: 40, bottom: 20, trailing: 40))
         .background(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(Color.mondeeBoxBackground)
-                .ignoresSafeArea()
+                .shadow(color: .black.opacity(0.05), radius: 4, y: 4)
         )
         .onScrollViewOffsetChanged { value in
             scrollViewOffset = value
@@ -65,9 +69,10 @@ struct InlineNavigationTitle: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .padding(.vertical, 15)
         .background(
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(Color.mondeeBoxBackground)
-                .ignoresSafeArea()
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(Color.mondeeBoxBackground.opacity(0.9))
+                .edgesIgnoringSafeArea(.top)
+                .shadow(color: .black.opacity(0.05), radius: 4, y: 4)
         )
         .opacity(scrollViewOffset < -55 ? 1 : 0)
     }
@@ -75,6 +80,9 @@ struct InlineNavigationTitle: View {
 
 struct CleanRoomView_Previews: PreviewProvider {
     static var previews: some View {
-        CleanRoomView().background(Color.mondeeBackgroundGrey)
+        ZStack {
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
+            CleanRoomView()
+        }
     }
 }

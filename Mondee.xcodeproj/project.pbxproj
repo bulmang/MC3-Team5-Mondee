@@ -64,6 +64,8 @@
 		A21D8FC02A616D7700A19EF5 /* RetryFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */; };
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
 		F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */; };
+		F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */; };
+		F00DEB902A702AF800FF0FCF /* CollectedMondeeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */; };
 		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
 		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
 /* End PBXBuildFile section */
@@ -144,6 +146,8 @@
 		A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryFailView.swift; sourceTree = "<group>"; };
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanViewModel.swift; sourceTree = "<group>"; };
+		F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectedMondeeView.swift; sourceTree = "<group>"; };
+		F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeGridView.swift; sourceTree = "<group>"; };
 		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -349,6 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				29623FB82A69420D00B4B380 /* CleanRoomView.swift */,
+				F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */,
+				F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */,
 			);
 			path = CleanRoomView;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 				29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */,
 				7FB8E5892A6F5F9900522CE6 /* TodayViewModel.swift in Sources */,
 				29623FB72A6941F100B4B380 /* RecordView.swift in Sources */,
+				F00DEB902A702AF800FF0FCF /* CollectedMondeeGridView.swift in Sources */,
 				29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */,
 				29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */,
 				2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */,
@@ -534,6 +541,7 @@
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
 				7FB8E58D2A6F621700522CE6 /* MondeeLevelView.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
+				F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
 				2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */,
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
