@@ -11,13 +11,10 @@ struct MondeeLevelView: View {
     @ObservedObject var viewModel: TodayViewModel
     
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text("\(viewModel.currentLevel.name)")
-                    .font(.title)
-                    .fontWeight(.bold)
-                Spacer()
-            }
+        VStack(alignment:.leading, spacing: 0) {
+            Text("\(viewModel.currentLevel.name)")
+                .font(.title)
+                .fontWeight(.bold)
             .padding(.bottom, 8)
             HStack(alignment: .lastTextBaseline) {
                 VStack(alignment: .leading) {
