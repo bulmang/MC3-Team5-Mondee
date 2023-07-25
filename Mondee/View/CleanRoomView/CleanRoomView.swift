@@ -10,41 +10,36 @@ import SwiftUI
 struct CleanRoomView: View {
     
     @State private var scrollViewOffset: CGFloat = 0
+    @State private var isDetailCardPopUp = false
+    @State private var test = 1
     
     var body: some View {
-        ScrollView {
-            LargeNavigationTitle(scrollViewOffset: $scrollViewOffset)
-            
-            LatestCollectedMondeeView()
-            
-            CollectedMondeeGridView()
+        ZStack(alignment: .top) {
+            Color.mondeeBoxBackground.ignoresSafeArea()
+                .frame(height: scrollViewOffset > 0 ? scrollViewOffset : 0)
+            ScrollView {
+                VStack {
+                    LargeNavigationTitle(scrollViewOffset: $scrollViewOffset)
+                    
+                    LatestCollectedMondeeView()
+                    
+                    CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, test: $test)
+                }
+            }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }
+            .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
+            .overlay(alignment: .top) {
+                InlineNavigationTitle(scrollViewOffset: scrollViewOffset)
+            }
+            .blur(radius: isDetailCardPopUp ? 2 : 0)
+//            .sheet(isPresented: $isDetailCardPopUp) {
+//                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp)
+//            }
+            if isDetailCardPopUp {
+                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp, test: test)
+                    .transition(.opacity)
+            }
         }
-        
-//        .safeAreaInset(edge: .top) {
-//            Color.clear
-//                .frame(height: 75)
-//        }
-        .edgesIgnoringSafeArea(.top)
-        //      .overlay (Text("\(scrollViewOffset)"))
-        .overlay(alignment: .top) {
-            InlineNavigationTitle(scrollViewOffset: scrollViewOffset)
-        }
-    }
-}
-
-struct BlurView: UIViewRepresentable {
-    var style: UIBlurEffect.Style = .systemUltraThinMaterial
-    func makeUIView(context: Context) -> UIVisualEffectView {
-        return UIVisualEffectView(effect: UIBlurEffect(style: style))
-    }
-    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
-        uiView.effect = UIBlurEffect(style: style)
-    }
-}
-
-extension View {
-    func backgroundBlurEffect() -> some View {
-        self.background(BlurView())
     }
 }
 
@@ -61,18 +56,17 @@ struct LargeNavigationTitle: View {
             Text("획득한 먼지들을 확인해보세요")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .ignoresSafeArea()
-        .opacity(1 - Double(-scrollViewOffset) / 60)
-        .padding(EdgeInsets(top: 75, leading: 40, bottom: 20, trailing: 40))
+        .opacity(Double(scrollViewOffset / 40 - 0.65))
+        .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(Color.mondeeBoxBackground)
+                .edgesIgnoringSafeArea(.top)
                 .shadow(color: .black.opacity(0.05), radius: 4, y: 4)
         )
         .onScrollViewOffsetChanged { value in
             scrollViewOffset = value
         }
-        .opacity(scrollViewOffset < -55 ? 0 : 1)
     }
 }
 
@@ -95,7 +89,7 @@ struct InlineNavigationTitle: View {
                 .edgesIgnoringSafeArea(.top)
                 .shadow(color: .black.opacity(0.15), radius: 4, y: 4)
         )
-        .opacity(scrollViewOffset < -55 ? 1 : 0)
+        .opacity(scrollViewOffset < 23 ? 1 : 0)
     }
 }
 

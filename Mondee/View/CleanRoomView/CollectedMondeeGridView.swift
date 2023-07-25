@@ -8,20 +8,30 @@
 import SwiftUI
 
 struct CollectedMondeeGridView: View {
+    @Binding var isDetailCardPopUp: Bool
+    @Binding var test: Int
     
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 20) {
             ForEach(0..<30) { i in
-                ZStack {
-                    Circle()
-                        .frame(width: 86)
-                        .foregroundColor(Color(.systemGray6))
-                    Image(systemName: "lock.fill")
-                        .font(.system(.largeTitle, weight: .bold))
-                        .foregroundColor(.mondeeGrey)
+                Button {
+                    withAnimation() {
+                        isDetailCardPopUp = true
+                    }
+                    test = i
+                } label: {
+                    ZStack {
+                        Circle()
+                            .frame(width: 86)
+                            .foregroundColor(Color(.systemGray6))
+                        Image(systemName: "lock.fill")
+                            .font(.system(.largeTitle, weight: .bold))
+                            .foregroundColor(.mondeeGrey)
+                    }
                 }
+                .buttonStyle(MondeeButtonClickStyle())
             }
         }
         .padding(.vertical, 8)
@@ -32,6 +42,7 @@ struct CollectedMondeeGridView: View {
                 .fill(Color.mondeeBoxBackground)
         )
         .padding(.top, 5)
+        .padding(.bottom, 24)
         .padding(.horizontal, 19)
     }
 }
@@ -41,7 +52,7 @@ struct CollectedMondeeGridView_Previews: PreviewProvider {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
             ScrollView {
-                CollectedMondeeGridView()
+                CollectedMondeeGridView(isDetailCardPopUp: .constant(false), test: .constant(1))
             }
         }
     }

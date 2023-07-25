@@ -70,6 +70,14 @@ struct MondeeButtonStyle: ButtonStyle {
     }
 }
 
+struct MondeeButtonClickStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .opacity(configuration.isPressed ? 0.9 : 1.0)
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
+    }
+}
+
 struct ButtonSystem_Previews: PreviewProvider {
     static var previews: some View {
         ButtonSystem()
