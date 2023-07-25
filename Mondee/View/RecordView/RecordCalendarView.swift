@@ -54,7 +54,7 @@ struct RecordCalendarView: View {
                         .foregroundColor(Color("ColorGray"))
                 }
             }
-            .padding(.bottom, 13)
+            .padding(.bottom, 40)
 
             
             // 상단 요일 Stack
@@ -96,7 +96,6 @@ struct RecordCalendarView: View {
         VStack{
             if value.day != -1 {
                 Text("\(value.day)")
-                    //.font(.system(size: 20, weight: .regular))
             }
         }
         .padding(.vertical, 8)

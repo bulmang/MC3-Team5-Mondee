@@ -13,15 +13,12 @@ struct RecordCalendarArea: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
-            .frame(height: 450)
+            .frame(height: 440)
             .foregroundColor(.white)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading){
-                    Text("청소 캘린더")
-                        .font(.system(size: 20, weight: .bold))
-                        .padding(.bottom, 11)
-                        .padding(.top, 27)
                     RecordCalendarView(currentDate: $currentDate)
+                        .padding(.top, 25)
                 }
                 .padding(.horizontal, 17)
                
