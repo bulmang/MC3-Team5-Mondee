@@ -129,6 +129,7 @@ class GameStateManager: ObservableObject {
         if checkHeartDecrease() {
             isCharacterClean = false
             heartCount -= 1
+            deviceCommunicator.sendMessage(key: .remainingHeartCount, message: heartCount) { error in }
             motionlessSeconds = 0
             if heartCount == 0 {
                 failGame()
@@ -190,7 +191,6 @@ class GameStateManager: ObservableObject {
 
     /// 남은 하트 갯수, 총 게임시간 수신
     private func sendData() {
-        deviceCommunicator.sendMessage(key: .remainingHeartCount, message: heartCount) { error in }
         deviceCommunicator.sendMessage(key: .gamePlayTime, message: gamePlayTime) { error in }
     }
     
