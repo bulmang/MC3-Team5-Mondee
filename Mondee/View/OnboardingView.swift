@@ -13,8 +13,6 @@ struct OnboardingView: View {
     
     @AppStorage("isOnboarding") var isOnboarding: Bool?
     
-    @State private var show: Bool = false
-    
     var body: some View {
         ScrollView {
             LazyVStack {
