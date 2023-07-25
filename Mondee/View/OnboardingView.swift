@@ -17,7 +17,7 @@ struct OnboardingView: View {
         ScrollView {
             LazyVStack {
                 title()
-                    .padding(.top,250)
+                    .padding(.top, 150)
                 
                 imageScene1()
                 
@@ -28,11 +28,11 @@ struct OnboardingView: View {
                 imageScene4()
                 
                 MondeeBlueButton(label: "시작하기") {
-                    withAnimation(.spring()){
+                    withAnimation(.spring()) {
                         isOnboarding = false
                     }
                 }
-                .padding(.horizontal,22)
+                .padding(.horizontal, 22)
                 .padding(.top, 50)
             }
         }
@@ -70,7 +70,7 @@ struct OnboardingView: View {
             Image("ImgOnboarding1-iOS")
                 .resizable()
                 .scaledToFit()
-                .padding(.top,60)
+                .padding(.top, 60)
         }
         .padding(.top, 100)
         .padding()
@@ -84,7 +84,7 @@ struct OnboardingView: View {
             Image("ImgOnboarding2-iOS")
                 .resizable()
                 .scaledToFit()
-                .overlay(alignment: .topLeading){
+                .overlay(alignment: .topLeading) {
                     Text("그 때!\n애플워치를 차고\n방청소를 시작했더니...")
                         .multilineTextAlignment(.center)
                         .lineSpacing(5)
@@ -93,10 +93,10 @@ struct OnboardingView: View {
                         .padding(30)
                         .border(.black)
                         .padding(.leading, 40)
-                        .offset(y:-20)
+                        .offset(y: -20)
                 }
         }
-        .padding(.top,120)
+        .padding(.top, 120)
     }
     
     @ViewBuilder
