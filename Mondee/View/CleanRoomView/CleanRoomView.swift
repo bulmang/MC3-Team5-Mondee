@@ -19,11 +19,32 @@ struct CleanRoomView: View {
             
             CollectedMondeeGridView()
         }
+        
+//        .safeAreaInset(edge: .top) {
+//            Color.clear
+//                .frame(height: 75)
+//        }
         .edgesIgnoringSafeArea(.top)
         //      .overlay (Text("\(scrollViewOffset)"))
         .overlay(alignment: .top) {
             InlineNavigationTitle(scrollViewOffset: scrollViewOffset)
         }
+    }
+}
+
+struct BlurView: UIViewRepresentable {
+    var style: UIBlurEffect.Style = .systemUltraThinMaterial
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        return UIVisualEffectView(effect: UIBlurEffect(style: style))
+    }
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.effect = UIBlurEffect(style: style)
+    }
+}
+
+extension View {
+    func backgroundBlurEffect() -> some View {
+        self.background(BlurView())
     }
 }
 
@@ -70,9 +91,9 @@ struct InlineNavigationTitle: View {
         .padding(.vertical, 15)
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .fill(Color.mondeeBoxBackground.opacity(0.9))
+                .fill(.ultraThinMaterial)
                 .edgesIgnoringSafeArea(.top)
-                .shadow(color: .black.opacity(0.05), radius: 4, y: 4)
+                .shadow(color: .black.opacity(0.15), radius: 4, y: 4)
         )
         .opacity(scrollViewOffset < -55 ? 1 : 0)
     }
