@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecordStatisticsArea: View {
+struct TotalStatistics: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
@@ -16,7 +16,7 @@ struct RecordStatisticsArea: View {
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
                     Spacer()
-                    Text("나의 기록")
+                    Text("전체 기록")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom, 9)
                         .padding(.leading, 27)
@@ -24,7 +24,7 @@ struct RecordStatisticsArea: View {
                         VStack(spacing: 0){
                             Image("ImgStatisticsMonth")
                                 .padding(.bottom, 5)
-                            Text("이번달 성공횟수")
+                            Text("총 도전 횟수")
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color("ColorMondeeGrey"))
                                 .padding(.bottom,2)
@@ -47,7 +47,7 @@ struct RecordStatisticsArea: View {
                         VStack(spacing: 0){
                             Image("ImgStatisticsRate")
                                 .padding(.bottom, 5)
-                            Text("도전대비 성공률")
+                            Text("총 플레이 시간")
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color("ColorMondeeGrey"))
                                 .padding(.bottom,2)
@@ -55,7 +55,7 @@ struct RecordStatisticsArea: View {
                                 Text("80")
                                     .font(.system(size: 24, weight: .semibold))
                                     .foregroundColor(Color("ColorMondeeBlue"))
-                                Text("%")
+                                Text("M")
                                     .font(.system(size: 10, weight: .semibold))
                                     .foregroundColor(Color("ColorMondeeBlue"))
                                     .padding(.bottom, 3)
@@ -71,11 +71,11 @@ struct RecordStatisticsArea: View {
     }
 }
 
-struct RecordStatisticsArea_Previews: PreviewProvider {
+struct TotalStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color("ColorBgLight")
-            RecordStatisticsArea()
+            TotalStatistics()
         }
     }
 }
