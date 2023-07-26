@@ -14,33 +14,39 @@ struct CollectedMondeeDetailCardView: View {
     
     var body: some View {
         ZStack {
-            Color.mondeeDarkGrey.opacity(0.3).ignoresSafeArea()
+            Color.mondeeDarkGrey.opacity(0.5).ignoresSafeArea()
                 .onTapGesture {
                     isDetailCardPopUp = false
                 }
             VStack {
                 HStack(alignment: .top) {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 4) {
                         Text("사탕먼디 \(test)")
-                            .font(.title2)
+                            .font(.system(size: 24, weight: .bold))
                             .fontWeight(.semibold)
                         Text("잡은 날짜 23.07.06")
-                            .font(.footnote)
+                            .font(.system(size: 15))
                     }
+                    .padding(30)
                     Spacer()
                     Button {
                         isDetailCardPopUp = false
                     } label: {
-                        Image(systemName: "xmark.circle.fill")
+                        Image(systemName: "xmark")
                             .font(.title2)
-                            .opacity(0.5)
+                            .bold()
+                            .opacity(0.6)
+                            .offset(x: -10, y: -30)
                     }
                     .buttonStyle(MondeeButtonClickStyle())
                 }
                 .foregroundColor(.white)
-                .padding(30)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                Spacer()
+                Rectangle()
+                    .frame(height: 1)
+                    .padding(.top, -20)
+                    .foregroundColor(.white)
+                
                 Image("ImgCollectedMondee001-IOS")
                     .resizable()
                     .scaledToFit()
@@ -48,12 +54,12 @@ struct CollectedMondeeDetailCardView: View {
                     .padding(.bottom, 15)
                 Spacer()
                 Text("푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!")
-                    .font(.footnote)
+                    .font(.system(size: 15))
+                    .lineSpacing(5)
                     .foregroundColor(.white)
                 Spacer()
                 Text("MonDee")
-                    .font(.callout)
-                    .fontWeight(.bold)
+                    .font(.system(.body, design: .rounded, weight: .bold))
                     .foregroundColor(.mondeeMint)
                 Spacer()
                 
@@ -62,11 +68,12 @@ struct CollectedMondeeDetailCardView: View {
             .frame(maxWidth: .infinity)
             .background(
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .foregroundColor(.mondeeBlue).opacity(0.5)
+                    .foregroundColor(.mondeeDarkBlue).opacity(0.5)
                     .backgroundBlurEffect().cornerRadius(20)
                     .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 8)
             )
             .padding(.horizontal, 24)
+            .padding(.bottom)
         }
     }
 }
