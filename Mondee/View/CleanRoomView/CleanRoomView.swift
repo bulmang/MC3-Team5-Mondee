@@ -13,6 +13,8 @@ struct CleanRoomView: View {
     @State private var isDetailCardPopUp = false
     @State private var test = 1
     
+    @StateObject private var collectedModel = collectedMondeeModel()
+    
     var body: some View {
         ZStack(alignment: .top) {
             Color.mondeeBoxBackground.ignoresSafeArea()
@@ -21,9 +23,9 @@ struct CleanRoomView: View {
                 VStack {
                     LargeNavigationTitle(scrollViewOffset: $scrollViewOffset)
                     
-                    LatestCollectedMondeeView()
+                    LatestCollectedMondeeView(collectedModel: collectedModel)
                     
-                    CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, test: $test)
+                    CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, test: $test, collectedModel: collectedModel)
                 }
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }

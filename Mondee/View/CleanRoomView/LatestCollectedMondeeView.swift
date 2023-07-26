@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LatestCollectedMondeeView: View {
+    @ObservedObject var collectedModel: collectedMondeeModel
+    
     var body: some View {
         VStack(spacing: 2) {
             ZStack {
@@ -38,11 +40,11 @@ struct LatestCollectedMondeeView: View {
     }
 }
 
-struct LatestCollectedMondeeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.mondeeBackgroundGrey.ignoresSafeArea()
-            LatestCollectedMondeeView()
-        }
-    }
-}
+//struct LatestCollectedMondeeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ZStack {
+//            Color.mondeeBackgroundGrey.ignoresSafeArea()
+//            LatestCollectedMondeeView()
+//        }
+//    }
+//}
