@@ -10,7 +10,7 @@ import SwiftUI
 struct CollectedMondeeDetailCardView: View {
     
     @Binding var isDetailCardPopUp: Bool
-    var test: Int = 0
+    @Binding var collected: CollectedMondee
     
     var body: some View {
         ZStack {
@@ -21,10 +21,10 @@ struct CollectedMondeeDetailCardView: View {
             VStack {
                 HStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("사탕먼디 \(test)")
+                        Text(collected.collectedMondeeName)
                             .font(.system(size: 24, weight: .bold))
                             .fontWeight(.semibold)
-                        Text("잡은 날짜 23.07.06")
+                        Text("\(collected.collectedMondeeDate.formatted(date: .abbreviated, time: .omitted))")
                             .font(.system(size: 15))
                     }
                     .padding(30)
@@ -47,13 +47,13 @@ struct CollectedMondeeDetailCardView: View {
                     .padding(.top, -20)
                     .foregroundColor(.white)
                 
-                Image("ImgCollectedMondee001-IOS")
+                Image(collected.collectedMondeeImg)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200)
                     .padding(.bottom, 15)
                 Spacer()
-                Text("푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!")
+                Text(collected.collectedMondeeDescription)
                     .font(.system(size: 15))
                     .lineSpacing(5)
                     .foregroundColor(.white)
@@ -78,11 +78,11 @@ struct CollectedMondeeDetailCardView: View {
     }
 }
 
-struct CollectedMondeeDetailCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Color.mondeeBackgroundGrey.ignoresSafeArea()
-            CollectedMondeeDetailCardView(isDetailCardPopUp: .constant(true))
-        }
-    }
-}
+//struct CollectedMondeeDetailCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ZStack {
+//            Color.mondeeBackgroundGrey.ignoresSafeArea()
+//            CollectedMondeeDetailCardView(isDetailCardPopUp: .constant(true))
+//        }
+//    }
+//}

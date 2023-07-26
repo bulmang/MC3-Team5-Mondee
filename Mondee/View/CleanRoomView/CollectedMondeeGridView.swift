@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CollectedMondeeGridView: View {
     @Binding var isDetailCardPopUp: Bool
-    @Binding var test: Int
+    @Binding var collected: CollectedMondee
     
     @ObservedObject var collectedModel: collectedMondeeModel
     
@@ -17,20 +17,20 @@ struct CollectedMondeeGridView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 20) {
-            ForEach(0..<30) { i in
+            ForEach(collectedModel.collectedMondees) { collectedMondee in
                 Button {
+                    collected = collectedMondee
                     withAnimation() {
                         isDetailCardPopUp = true
                     }
-                    test = i
                 } label: {
                     VStack{
                         ZStack {
                             Circle()
                                 .frame(width: 86)
                                 .foregroundColor(Color(.systemGray6))
-                            if collectedModel.collectedMondees[i].isCollected == true {
-                                Image(collectedModel.collectedMondees[i].collectedMondeeImg)
+                            if collectedMondee.isCollected == true {
+                                Image(collectedMondee.collectedMondeeImg)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 55, height: 55)
@@ -42,11 +42,12 @@ struct CollectedMondeeGridView: View {
                         }
                         .padding(.bottom, 10)
                         
-                        Text("\(collectedModel.collectedMondees[i].collectedMondeeName)")
+                        Text("\(collectedMondee.collectedMondeeName)")
                             .font(.system(size: 12, weight: .regular))
                     }
                 }
                 .buttonStyle(MondeeButtonClickStyle())
+                .disabled(!collectedMondee.isCollected)
             }
         }
         .padding(.vertical, 8)
@@ -63,18 +64,15 @@ struct CollectedMondeeGridView: View {
 }
 
 //struct CollectedMondeeGridView_Previews: PreviewProvider {
+//
 //    static var previews: some View {
 //        ZStack {
 //            Color.mondeeBackgroundGrey.ignoresSafeArea()
 //            ScrollView {
-//                CollectedMondeeGridView(isDetailCardPopUp: .constant(false), test: .constant(1), collectedMondeeModel: .constant(collectedMondees[0]))
+//                CollectedMondeeGridView(isDetailCardPopUp: .constant(false), collectedModel: <#collectedMondeeModel#>)
 //            }
 //        }
 //    }
 //}
 
-struct Previews_CollectedMondeeGridView_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}
+

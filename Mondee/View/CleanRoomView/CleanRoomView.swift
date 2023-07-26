@@ -11,7 +11,9 @@ struct CleanRoomView: View {
     
     @State private var scrollViewOffset: CGFloat = 0
     @State private var isDetailCardPopUp = false
-    @State private var test = 1
+    @State private var collectedMondeeName = ""
+    
+    @State private var collectedMondee: CollectedMondee = CollectedMondee(index: 0, collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
     
     @StateObject private var collectedModel = collectedMondeeModel()
     
@@ -25,7 +27,7 @@ struct CleanRoomView: View {
                     
                     LatestCollectedMondeeView(collectedModel: collectedModel)
                     
-                    CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, test: $test, collectedModel: collectedModel)
+                    CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee, collectedModel: collectedModel)
                 }
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }
@@ -38,7 +40,7 @@ struct CleanRoomView: View {
 //                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp)
 //            }
             if isDetailCardPopUp {
-                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp, test: test)
+                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee)
                     .transition(.opacity)
             }
         }
