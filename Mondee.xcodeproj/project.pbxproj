@@ -21,6 +21,7 @@
 		2900B11F2A6986F500B7AEFD /* SlimRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */; };
 		2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1202A6986FC00B7AEFD /* Triangle.swift */; };
 		2900B1222A6986FC00B7AEFD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1202A6986FC00B7AEFD /* Triangle.swift */; };
+		290DC0B92A70AF76005D5150 /* CleanRoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */; };
 		2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */; };
 		2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A7702A5D0099000B6CF6 /* ContentView.swift */; };
 		2919A7732A5D009A000B6CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919A7722A5D009A000B6CF6 /* Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCross.swift; sourceTree = "<group>"; };
 		2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimRectangle.swift; sourceTree = "<group>"; };
 		2900B1202A6986FC00B7AEFD /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomModel.swift; sourceTree = "<group>"; };
 		2919A76B2A5D0099000B6CF6 /* Mondee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mondee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeApp.swift; sourceTree = "<group>"; };
 		2919A7702A5D0099000B6CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */,
 				298F913E2A69605C002D36B3 /* TabModel.swift */,
 				7FB8E58A2A6F601500522CE6 /* TodayModel.swift */,
+				290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
 				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
 				F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */,
+				290DC0B92A70AF76005D5150 /* CleanRoomModel.swift in Sources */,
 				29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */,
 				7FB8E5892A6F5F9900522CE6 /* TodayViewModel.swift in Sources */,
 				29623FB72A6941F100B4B380 /* RecordView.swift in Sources */,
