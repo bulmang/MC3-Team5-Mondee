@@ -15,14 +15,15 @@ struct MonthStatistics: View {
             .foregroundColor(.white)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
-                    Spacer()
                     Text("이번달 기록")
                         .font(.system(size: 20, weight: .bold))
-                        .padding(.bottom, 9)
+                        .padding(.top, 21)
                         .padding(.leading, 27)
                     HStack(spacing: 40){
                         VStack(spacing: 0){
                             Image("ImgStatisticsMonth")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .padding(.bottom, 5)
                             Text("도전 횟수")
                                 .font(.system(size: 11, weight: .regular))
@@ -33,8 +34,11 @@ struct MonthStatistics: View {
                                 .foregroundColor(Color("ColorMondeeBlue"))
                                
                         }
+
                         VStack(spacing: 0){
                             Image("ImgStatisticsTotal")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .padding(.bottom, 5)
                             Text("성공 횟수")
                                 .font(.system(size: 11, weight: .regular))
@@ -46,6 +50,8 @@ struct MonthStatistics: View {
                         }
                         VStack(spacing: 0){
                             Image("ImgStatisticsRate")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .padding(.bottom, 5)
                             Text("플레이 시간")
                                 .font(.system(size: 11, weight: .regular))
@@ -55,16 +61,16 @@ struct MonthStatistics: View {
                                 Text("80")
                                     .font(.system(size: 24, weight: .semibold))
                                     .foregroundColor(Color("ColorMondeeBlue"))
-                                Text("m")
+                                Text("M")
                                     .font(.system(size: 10, weight: .semibold))
                                     .foregroundColor(Color("ColorMondeeBlue"))
                                     .padding(.bottom, 3)
                             }
                         }
                     }
-                    .padding(.leading,52)
-                    .padding(.bottom, 22)
-                    //.border(.green)
+                    .padding(.top, 9)
+                    .padding(.horizontal, 53)
+                    Spacer()
                 }
                 
             }

@@ -23,6 +23,8 @@ struct TotalStatistics: View {
                     HStack(spacing: 40){
                         VStack(spacing: 0){
                             Image("ImgStatisticsMonth")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .padding(.bottom, 5)
                             Text("총 도전 횟수")
                                 .font(.system(size: 11, weight: .regular))
@@ -35,6 +37,8 @@ struct TotalStatistics: View {
                         }
                         VStack(spacing: 0){
                             Image("ImgStatisticsTotal")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .padding(.bottom, 5)
                             Text("총 성공 횟수")
                                 .font(.system(size: 11, weight: .regular))
@@ -46,6 +50,8 @@ struct TotalStatistics: View {
                         }
                         VStack(spacing: 0){
                             Image("ImgStatisticsRate")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .padding(.bottom, 5)
                             Text("총 플레이 시간")
                                 .font(.system(size: 11, weight: .regular))
@@ -62,7 +68,7 @@ struct TotalStatistics: View {
                             }
                         }
                     }
-                    .padding(.leading,52)
+                    .padding(.horizontal,48)
                     .padding(.bottom, 22)
                     //.border(.green)
                 }

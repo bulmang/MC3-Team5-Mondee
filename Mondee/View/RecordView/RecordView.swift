@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct RecordView: View {
+    
+    @State var currentDate = Date()
+    
     var body: some View {
+        
         ZStack{
-            Color("ColorBgLight")
-            VStack{
-                RecordTitleArea()
+            ScrollView{
+                VStack(spacing: 15){
+                    RecordTitleArea()
+                    VStack(spacing: 15){
+                        RecordCalendarArea(currentDate: $currentDate)
+                        MonthStatistics()
+                        TotalStatistics()
+                    }
+                    .padding(.horizontal, 13)
+                }
             }
-            
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 100)
+            }
         }
-        .ignoresSafeArea()
+        .background(Color("ColorBgLight"))
+        .edgesIgnoringSafeArea(.all)
+
     }
 }
 

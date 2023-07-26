@@ -13,6 +13,7 @@ struct RecordTitleArea: View {
             .frame(maxWidth: .infinity)
             .frame(height: 163)
             .foregroundColor(.white)
+            .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 4)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
                     Spacer()
@@ -27,6 +28,7 @@ struct RecordTitleArea: View {
                 .padding(.leading, 42)
                 
             }
+            
     }
 }
 
