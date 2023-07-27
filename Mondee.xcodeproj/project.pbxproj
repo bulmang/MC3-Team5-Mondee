@@ -70,8 +70,6 @@
 		7FB8E58F2A6F623A00522CE6 /* MondeeBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8E58E2A6F623A00522CE6 /* MondeeBoxView.swift */; };
 		A21D8FBC2A60FB6600A19EF5 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */; };
 		A21D8FC02A616D7700A19EF5 /* RetryFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */; };
-		F0A48FA72A6BD16800A8E74E /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A48FA62A6BD16800A8E74E /* ShareView.swift */; };
-		F0A48FA82A6BDE0A00A8E74E /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFB3FA2A66282000C4DBD2 /* Modifier.swift */; };
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
 		F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */; };
 		F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */; };
@@ -79,6 +77,10 @@
 		F00DEB922A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */; };
 		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
 		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
+		F09EB5AA2A72A55F00D0EA5E /* SharingCard02.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09EB5A92A72A55F00D0EA5E /* SharingCard02.swift */; };
+		F09EB5AD2A72AFB800D0EA5E /* SharingCard01.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09EB5AC2A72AFB800D0EA5E /* SharingCard01.swift */; };
+		F0A48FA72A6BD16800A8E74E /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A48FA62A6BD16800A8E74E /* ShareView.swift */; };
+		F0A48FA82A6BDE0A00A8E74E /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFB3FA2A66282000C4DBD2 /* Modifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,7 +165,6 @@
 		7FB8E58E2A6F623A00522CE6 /* MondeeBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeBoxView.swift; sourceTree = "<group>"; };
 		A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryFailView.swift; sourceTree = "<group>"; };
-		F0A48FA62A6BD16800A8E74E /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanViewModel.swift; sourceTree = "<group>"; };
 		F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectedMondeeView.swift; sourceTree = "<group>"; };
@@ -171,6 +172,9 @@
 		F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeDetailCardView.swift; sourceTree = "<group>"; };
 		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
+		F09EB5A92A72A55F00D0EA5E /* SharingCard02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingCard02.swift; sourceTree = "<group>"; };
+		F09EB5AC2A72AFB800D0EA5E /* SharingCard01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingCard01.swift; sourceTree = "<group>"; };
+		F0A48FA62A6BD16800A8E74E /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,9 +361,10 @@
 			isa = PBXGroup;
 			children = (
 				29623FB42A6941DC00B4B380 /* TodayView.swift */,
-				F0A48FA62A6BD16800A8E74E /* ShareView.swift */,
 				7FB8E58C2A6F621700522CE6 /* MondeeLevelView.swift */,
 				7FB8E58E2A6F623A00522CE6 /* MondeeBoxView.swift */,
+				F0A48FA62A6BD16800A8E74E /* ShareView.swift */,
+				F09EB5AB2A72A56600D0EA5E /* SharingCards */,
 			);
 			path = TodayView;
 			sourceTree = "<group>";
@@ -373,7 +378,6 @@
 				29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */,
 				29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */,
 				29AAE3882A6F9895008913C2 /* TotalStatistics.swift */,
-				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 				29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */,
 				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 			);
@@ -445,6 +449,15 @@
 				F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */,
 			);
 			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		F09EB5AB2A72A56600D0EA5E /* SharingCards */ = {
+			isa = PBXGroup;
+			children = (
+				F09EB5AC2A72AFB800D0EA5E /* SharingCard01.swift */,
+				F09EB5A92A72A55F00D0EA5E /* SharingCard02.swift */,
+			);
+			path = SharingCards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -566,6 +579,7 @@
 				29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */,
 				29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */,
 				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
+				F09EB5AA2A72A55F00D0EA5E /* SharingCard02.swift in Sources */,
 				F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */,
 				290DC0B92A70AF76005D5150 /* CleanRoomModel.swift in Sources */,
 				29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */,
@@ -587,6 +601,7 @@
 				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
 				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
 				F0A48FA72A6BD16800A8E74E /* ShareView.swift in Sources */,
+				F09EB5AD2A72AFB800D0EA5E /* SharingCard01.swift in Sources */,
 				29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */,
 				29AAE3852A6EDBF6008913C2 /* RecordCalendarArea.swift in Sources */,
 				7FB8E58F2A6F623A00522CE6 /* MondeeBoxView.swift in Sources */,
