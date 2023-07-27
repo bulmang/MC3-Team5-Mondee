@@ -24,7 +24,7 @@ extension Date {
         return date
     }
     
-    //MARK: 현재 월,일을 통한 
+    //MARK: 현재 월,일을 통한 당 월의 일자 구하는 func
     func getAllDates()->[Date]{
         let calendar = Calendar.current
         
