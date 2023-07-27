@@ -21,6 +21,7 @@
 		2900B11F2A6986F500B7AEFD /* SlimRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */; };
 		2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1202A6986FC00B7AEFD /* Triangle.swift */; };
 		2900B1222A6986FC00B7AEFD /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1202A6986FC00B7AEFD /* Triangle.swift */; };
+		290DC0B92A70AF76005D5150 /* CleanRoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */; };
 		2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */; };
 		2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A7702A5D0099000B6CF6 /* ContentView.swift */; };
 		2919A7732A5D009A000B6CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919A7722A5D009A000B6CF6 /* Assets.xcassets */; };
@@ -72,6 +73,10 @@
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
 		F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */; };
 		F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */; };
+		F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */; };
+		F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */; };
+		F00DEB902A702AF800FF0FCF /* CollectedMondeeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */; };
+		F00DEB922A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */; };
 		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
 		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +115,7 @@
 		2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCross.swift; sourceTree = "<group>"; };
 		2900B11D2A6986F500B7AEFD /* SlimRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlimRectangle.swift; sourceTree = "<group>"; };
 		2900B1202A6986FC00B7AEFD /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomModel.swift; sourceTree = "<group>"; };
 		2919A76B2A5D0099000B6CF6 /* Mondee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mondee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2919A76E2A5D0099000B6CF6 /* MondeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeApp.swift; sourceTree = "<group>"; };
 		2919A7702A5D0099000B6CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawTestView.swift; sourceTree = "<group>"; };
 		F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawModel.swift; sourceTree = "<group>"; };
+		F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanViewModel.swift; sourceTree = "<group>"; };
+		F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectedMondeeView.swift; sourceTree = "<group>"; };
+		F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeGridView.swift; sourceTree = "<group>"; };
+		F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeDetailCardView.swift; sourceTree = "<group>"; };
 		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +282,7 @@
 				292CE6C52A5ECD8F00BEE4AF /* SampleModel.swift */,
 				298F913E2A69605C002D36B3 /* TabModel.swift */,
 				7FB8E58A2A6F601500522CE6 /* TodayModel.swift */,
+				290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +310,7 @@
 				7FB8E5882A6F5F9900522CE6 /* TodayViewModel.swift */,
 				F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */,
 				F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */,
+				F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -374,6 +386,9 @@
 			isa = PBXGroup;
 			children = (
 				29623FB82A69420D00B4B380 /* CleanRoomView.swift */,
+				F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */,
+				F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */,
+				F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */,
 			);
 			path = CleanRoomView;
 			sourceTree = "<group>";
@@ -553,9 +568,12 @@
 				29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */,
 				29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */,
 				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
+				F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */,
+				290DC0B92A70AF76005D5150 /* CleanRoomModel.swift in Sources */,
 				29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */,
 				7FB8E5892A6F5F9900522CE6 /* TodayViewModel.swift in Sources */,
 				29623FB72A6941F100B4B380 /* RecordView.swift in Sources */,
+				F00DEB902A702AF800FF0FCF /* CollectedMondeeGridView.swift in Sources */,
 				29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */,
 				29623FB52A6941DC00B4B380 /* TodayView.swift in Sources */,
 				2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */,
@@ -563,9 +581,11 @@
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
 				7FB8E58D2A6F621700522CE6 /* MondeeLevelView.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
+				F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */,
+				F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
 				2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */,
-				F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */,
+				F00DEB922A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift in Sources */,
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
 				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
 				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
