@@ -26,4 +26,7 @@ extension Color {
     static let mondeeSpeechBubble = Color("mondeeSpeechBubble")
 
     static let mondeeDarkGrey = Color("mondeeDarkGrey")
+    
+    static let mondeeDarkBlue = Color("mondeeDarkBlue")
+
 }
