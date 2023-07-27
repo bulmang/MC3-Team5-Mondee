@@ -43,8 +43,8 @@ struct CustomTabBar: View {
             .padding(.top, 13)
             .padding(.bottom, 30)
             .background(
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .foregroundStyle(.ultraThinMaterial)
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .foregroundColor(.mondeeBoxBackground)
             )
         }
     }
@@ -52,6 +52,9 @@ struct CustomTabBar: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar(selectedTab: .constant(.today))
+        ZStack {
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
+            CustomTabBar(selectedTab: .constant(.today))
+        }
     }
 }
