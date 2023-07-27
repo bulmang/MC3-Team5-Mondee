@@ -63,7 +63,7 @@
 		A21D8FBC2A60FB6600A19EF5 /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */; };
 		A21D8FC02A616D7700A19EF5 /* RetryFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */; };
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
-		F00DEB962A70BD4100FF0FCF /* MondeeDrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB952A70BD4100FF0FCF /* MondeeDrawView.swift */; };
+		F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */; };
 		F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */; };
 		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
 		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
@@ -144,7 +144,7 @@
 		A21D8FBB2A60FB6600A19EF5 /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryFailView.swift; sourceTree = "<group>"; };
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		F00DEB952A70BD4100FF0FCF /* MondeeDrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawView.swift; sourceTree = "<group>"; };
+		F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawTestView.swift; sourceTree = "<group>"; };
 		F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawModel.swift; sourceTree = "<group>"; };
 		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 			children = (
 				292CE6C32A5ECD8000BEE4AF /* SampleViewModel.swift */,
 				7FB8E5882A6F5F9900522CE6 /* TodayViewModel.swift */,
-				F00DEB952A70BD4100FF0FCF /* MondeeDrawView.swift */,
+				F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */,
 				F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */,
 			);
 			path = ViewModel;
@@ -539,7 +539,7 @@
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
 				2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */,
-				F00DEB962A70BD4100FF0FCF /* MondeeDrawView.swift in Sources */,
+				F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */,
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
 				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
 				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
