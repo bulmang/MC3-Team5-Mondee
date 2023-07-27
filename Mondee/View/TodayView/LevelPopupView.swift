@@ -20,6 +20,7 @@ struct LevelPopupView: View {
     var body: some View {
         ZStack {
             Color("mondeeBackgroundGrey")
+                .ignoresSafeArea()
 
             VStack(spacing: 0.0) {
                 
@@ -55,9 +56,11 @@ struct LevelPopupView: View {
                 }
                
             }
-            .frame(width: 358.0, height: 600.0)
+            .frame(height: 600.0)
             .background()
             .cornerRadius(25)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal)
         }
     }
 }

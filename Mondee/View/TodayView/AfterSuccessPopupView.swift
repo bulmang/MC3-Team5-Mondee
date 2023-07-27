@@ -11,6 +11,7 @@ struct AfterSuccessPopupView: View {
     var body: some View {
         ZStack{
             Color("mondeeBackgroundGrey")
+                .ignoresSafeArea()
             VStack{
                 Text("청소 성공!")
                     .font(.largeTitle)
@@ -41,9 +42,11 @@ struct AfterSuccessPopupView: View {
                 .padding(.top,30)
                 
             }
-            .frame(width: 350.0, height: 600.0)
+            .frame(height: 600.0)
+            .frame(maxWidth: .infinity)
             .background()
             .cornerRadius(25)
+            .padding(.horizontal)
         }
     }
 }
