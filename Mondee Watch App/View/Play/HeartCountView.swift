@@ -17,8 +17,6 @@ struct HeartCountView: View {
                     Text("♥︎")
                         .font(.title3)
                         .bubbleFontModifier()
-//                        .opacity(i < gameState.heartCount ? 1 : 0.3)
-//                        .animation(.easeIn, value: gameState.heartCount)
                         .opacity(i < gameState.watchDataModel.remainHeart ? 1 : 0.3)
                         .animation(.easeIn, value: gameState.watchDataModel.remainHeart)
                 }

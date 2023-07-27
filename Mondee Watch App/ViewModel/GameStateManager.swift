@@ -170,13 +170,11 @@ class GameStateManager: ObservableObject {
     }
     
     func successGame() {
-//        isGameSuccessful = true
         watchDataModel.isSuccess = true
         stopGame()
     }
     
     private func failGame() {
-//        isGameSuccessful = false
         stopGame()
     }
     
@@ -186,6 +184,15 @@ class GameStateManager: ObservableObject {
         isGameFinished = true
         watchDataModel.gamePlayTime = Constants.initialSeconds - remainingSeconds
     }
+    
+    private func notRetryGame() {
+        SessionExtend.shared.stopSession()
+        movingDetector.stopMotionUpdates()
+
+        watchDataModel.gamePlayTime = Constants.initialSeconds - remainingSeconds
+    }
+    
+    
     
     func checkIfNewDay() {
         let currentDate = Date()

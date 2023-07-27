@@ -43,7 +43,6 @@
 		29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB82A69420D00B4B380 /* CleanRoomView.swift */; };
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
 		298F913F2A69605C002D36B3 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F913E2A69605C002D36B3 /* TabModel.swift */; };
-		29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */; };
 		29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */; };
 		29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */; };
 		29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */; };
@@ -135,7 +134,6 @@
 		29623FB82A69420D00B4B380 /* CleanRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomView.swift; sourceTree = "<group>"; };
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
 		298F913E2A69605C002D36B3 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
-		29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataSampleView.swift; sourceTree = "<group>"; };
 		29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTitleArea.swift; sourceTree = "<group>"; };
 		29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarView.swift; sourceTree = "<group>"; };
 		29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
@@ -187,7 +185,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07D962FD2A62B6E400CFDFFC /* Preparation */ = {
+            07D962FD2A62B6E400CFDFFC /* Preparation */ = {
 			isa = PBXGroup;
 			children = (
 				07D962FB2A6146C400CFDFFC /* PreparationView.swift */,
@@ -215,6 +213,7 @@
 				2919A76D2A5D0099000B6CF6 /* Mondee */,
 				2919A77F2A5D009A000B6CF6 /* Mondee Watch App */,
 				2919A76C2A5D0099000B6CF6 /* Products */,
+				07030F892A72D30A00F0BA9C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -367,7 +366,6 @@
 				29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */,
 				29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */,
 				29AAE3882A6F9895008913C2 /* TotalStatistics.swift */,
-				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 				29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */,
 				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 			);
@@ -551,7 +549,6 @@
 				7FB8E58B2A6F601500522CE6 /* TodayModel.swift in Sources */,
 				F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */,
 				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
-				29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */,
 				29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */,
 				2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */,
 				2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */,
@@ -579,7 +576,6 @@
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
 				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
 				076E2FDF2A721E8400109D7B /* UserDataModel.swift in Sources */,
-				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
 				29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */,
 				29AAE3852A6EDBF6008913C2 /* RecordCalendarArea.swift in Sources */,
 				7FB8E58F2A6F623A00522CE6 /* MondeeBoxView.swift in Sources */,
@@ -752,19 +748,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 5T5ZCS2643;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -783,19 +779,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 5T5ZCS2643;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = hyunjun.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -816,7 +812,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 5T5ZCS2643;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
@@ -831,7 +827,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -849,7 +845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 77745NX67K;
+				DEVELOPMENT_TEAM = 5T5ZCS2643;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
@@ -864,7 +860,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hyunjun.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

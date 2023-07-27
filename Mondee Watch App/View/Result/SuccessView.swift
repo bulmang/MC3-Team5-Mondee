@@ -51,10 +51,6 @@ struct SuccessView: View {
             gameState.isSuccessActive = true
             gameState.checkIfNewDay()
             counter += 1
-            // 데이터를 보냅니다
-//            sendData()
-            gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
-            print("성공 데이터 전송")
         }
     }
 }

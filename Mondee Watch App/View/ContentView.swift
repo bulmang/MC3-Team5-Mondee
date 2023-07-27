@@ -15,10 +15,6 @@ struct ContentView: View {
             .onAppear{
                 gameState.checkIfNewDay()
             }
-//        Button("Send to Phone") {
-//            gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
-//            print("눌림")
-//        } .foregroundColor(.blue)
     }
 }
 

@@ -17,6 +17,7 @@ struct GameOptionView: View {
     @Binding var selection: PlayViewSelection
     @Binding var gameStatus: GameStatus
     
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geo in
@@ -56,7 +57,9 @@ struct GameOptionView: View {
                     Button(role: .destructive) {
                         gameState.giveUpGame()
                         gameStatus = .fail
-                        gameState.isFinalFailActive = true
+                        gameState.isGameFinished = true
+                        
+                        
                     } label: {
                         Text("청소 포기")
                     }
@@ -64,9 +67,10 @@ struct GameOptionView: View {
                 }
                 .alert("정말 청소를 완료하셨어요?", isPresented: $gameEarlySuccessAlert) {
                     Button {
-                        gameState.successGameEarly()
-                        gameStatus = .success
-                        gameState.watchDataModel.isSuccess = true
+                        DispatchQueue.main.async {
+                            gameState.successGameEarly()
+                            gameState.isGameFinished = true
+                        }
                     } label: {
                         Text("완료했어요")
                     }

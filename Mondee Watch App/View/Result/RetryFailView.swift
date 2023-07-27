@@ -9,11 +9,11 @@ import SwiftUI
 
 struct RetryFailView: View {
     
-    @StateObject private var gameState = GameStateManager()
+    @ObservedObject var gameState = GameStateManager()
     
     @Binding var isFinalFail: Bool
     @Binding var gameStatus: GameStatus
-    @Binding var isGameRestart: Bool
+    
     
     var body: some View {
         VStack{
@@ -27,8 +27,6 @@ struct RetryFailView: View {
                 .fontWeight(.medium)
             Button("다시 도전"){
                 gameStatus = .guide
-                isGameRestart = true
-//                gameState.isRetry = true
                 gameState.watchDataModel.isRetry = true
                 gameState.watchDataModel.remainHeart = 3
             }
@@ -37,6 +35,9 @@ struct RetryFailView: View {
             
             Button("오늘은 그만"){
                 isFinalFail = true
+                gameState.watchDataModel.isFail = true
+                gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
+                print("데이터 전송")
             }
             .buttonStyle(.borderedProminent)
             
@@ -47,6 +48,6 @@ struct RetryFailView: View {
 
 struct FailView_Previews: PreviewProvider {
     static var previews: some View {
-        RetryFailView(isFinalFail: .constant(false), gameStatus: .constant(.fail), isGameRestart: .constant(false))
+        RetryFailView(isFinalFail: .constant(false), gameStatus: .constant(.fail))
     }
 }
