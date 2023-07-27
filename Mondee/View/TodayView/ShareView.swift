@@ -16,18 +16,20 @@ struct ShareView: View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
             VStack {
-                Text("오늘 획득한 먼디를 자랑해보세요!")
-                    .font(.title3)
-                SaveView()
-                    .padding()
-                    .onAppear {
-                        let renderer = ImageRenderer(content: SaveView())
-                        renderer.scale = 3
-                        
-                        if let image = renderer.cgImage {
-                            renderedImage = Image(decorative: image, scale: 1.0)
+                VStack(alignment: .center) {
+                    Text("오늘 획득한 먼디를 자랑해보세요!")
+                        .font(.title3)
+                    SaveView()
+                        .onAppear {
+                            let renderer = ImageRenderer(content: SaveView())
+                            renderer.scale = 3
+                            
+                            if let image = renderer.cgImage {
+                                renderedImage = Image(decorative: image, scale: 1.0)
+                            }
                         }
-                    }
+                }
+                .padding(.horizontal, 30)
                 
                 HStack(spacing: 20) {
                     Button {
@@ -51,18 +53,6 @@ struct ShareView: View {
                                 .frame(width: 44)
                                 .opacity(0.5)
                             Text("☁️")
-                                .bold()
-                        }
-                    }
-                    Button {
-                        
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .foregroundColor(.green)
-                                .frame(width: 44)
-                                .opacity(0.5)
-                            Text("👽")
                                 .bold()
                         }
                     }
