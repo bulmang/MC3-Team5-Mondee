@@ -19,8 +19,7 @@ struct ReceiveDataSampleView: View {
     
     @State var isRetry = false
     @State var gamePlayTime = 0
-    @State var remainingHeartCount = 0
-    @State var totalDistanceMoved = 0
+    @State var remainingHeartCount = 3
         
     var body: some View {
         NavigationStack {
@@ -33,14 +32,14 @@ struct ReceiveDataSampleView: View {
                 
                 Section("라이브 액티비티") {
                     Text("start : \(start.description)")
+                    Text("remainingHeartCount : \(remainingHeartCount)")
                     Text("pause : \(pause.description)")
                 }
                 
                 Section("기타 데이터") {
                     Text("isRetry : \(isRetry.description)")
                     Text("gamePlayTime : \(gamePlayTime)")
-                    Text("remainingHeartCount : \(remainingHeartCount)")
-                    Text("totalDistanceMoved : \(totalDistanceMoved)")
+                    
                 }
                 .navigationTitle("Data Receive")
             }
@@ -65,17 +64,13 @@ struct ReceiveDataSampleView: View {
             if let boolValue = value as? Bool {
                 isRetry = boolValue
             }
-        case .remainingHeartCount:
-            if let intValue = value as? Int {
-                remainingHeartCount = intValue
-            }
         case .gamePlayTime:
             if let intValue = value as? Int {
                 gamePlayTime = intValue
             }
-        case .totalDistanceMoved:
+        case .remainingHeartCount:
             if let intValue = value as? Int {
-                totalDistanceMoved = intValue
+                remainingHeartCount = intValue
             }
         case .gameStart:
             if let boolValue = value as? Bool {

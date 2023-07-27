@@ -62,7 +62,6 @@ struct SuccessView: View {
         deviceCommunicator.sendMessage(key: .gamePlayDate, message: Date()) { error in }
         
         deviceCommunicator.sendMessage(key: .isRetry, message: gameState.isRetry) { error in }
-        deviceCommunicator.sendMessage(key: .totalDistanceMoved, message: movingDetector.totalDistanceMoved) { error in }
     }
 }
 

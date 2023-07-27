@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
     var body: some View {
-        CustomTabView()
+        Group{
+            if isOnboarding {
+                OnboardingView()
+            } else {
+                CustomTabView()
+                    .transition(.move(edge: .trailing))
+            }
+        }
+        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
