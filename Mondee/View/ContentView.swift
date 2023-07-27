@@ -13,23 +13,23 @@ struct ContentView: View {
     @StateObject var data = PhoneDataModel.shared
     
     var body: some View {
-        // TODO: TEST CODE 삭제 바람
-//        Group{
-//            if isOnboarding {
-//                OnboardingView()
-//            } else {
-//                CustomTabView()
-//                    .transition(.move(edge: .trailing))
-//            }
-//        }
-//        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
-        ScrollView{
-            VStack{
-                Text("async : \(data.description)")
-                Divider()
-                Text("userDefaults : \(data.userData.userdata.description)")
+        Group{
+            if isOnboarding {
+                OnboardingView()
+            } else {
+                CustomTabView()
+                    .transition(.move(edge: .trailing))
             }
         }
+        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
+        // TODO: TEST CODE 삭제 바람
+//        ScrollView{
+//            VStack{
+//                Text("async : \(data.description)")
+//                Divider()
+//                Text("userDefaults : \(data.userData.userdata.description)")
+//            }
+//        }
     }
 }
 
