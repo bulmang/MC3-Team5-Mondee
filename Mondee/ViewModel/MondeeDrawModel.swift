@@ -13,7 +13,9 @@ let probabilities = [
     3 : 30,
     4 : 35,
     5 : 5,
-    6 : 10
+    6 : 10,
+    7 : 10,
+    8 : 10
 ]
 
 func randomWithProbability(distribution: [Int : Int]) -> Int {
