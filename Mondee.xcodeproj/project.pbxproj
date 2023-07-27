@@ -43,6 +43,13 @@
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
 		298F913F2A69605C002D36B3 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F913E2A69605C002D36B3 /* TabModel.swift */; };
 		29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */; };
+		29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */; };
+		29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */; };
+		29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */; };
+		29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */; };
+		29AAE3852A6EDBF6008913C2 /* RecordCalendarArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AAE3842A6EDBF6008913C2 /* RecordCalendarArea.swift */; };
+		29AAE3872A6F3DA5008913C2 /* MonthStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */; };
+		29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AAE3882A6F9895008913C2 /* TotalStatistics.swift */; };
 		29B3E8FB2A666682001A5856 /* FinalFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B3E8FA2A666682001A5856 /* FinalFailView.swift */; };
 		29B943072A68E4C10028DDAE /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
 		29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29712AE02A62CA4200A8C602 /* DeviceCommunicator.swift */; };
@@ -130,6 +137,13 @@
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
 		298F913E2A69605C002D36B3 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		29A0E5942A68BB82009FFBD1 /* ReceiveDataSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveDataSampleView.swift; sourceTree = "<group>"; };
+		29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTitleArea.swift; sourceTree = "<group>"; };
+		29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarView.swift; sourceTree = "<group>"; };
+		29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
+		29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		29AAE3842A6EDBF6008913C2 /* RecordCalendarArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarArea.swift; sourceTree = "<group>"; };
+		29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStatistics.swift; sourceTree = "<group>"; };
+		29AAE3882A6F9895008913C2 /* TotalStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalStatistics.swift; sourceTree = "<group>"; };
 		29B3E8FA2A666682001A5856 /* FinalFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalFailView.swift; sourceTree = "<group>"; };
 		29CAC95B2A6511D40038954C /* GameOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionView.swift; sourceTree = "<group>"; };
 		29D55B662A652B1E00B0AB26 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
@@ -350,6 +364,14 @@
 			isa = PBXGroup;
 			children = (
 				29623FB62A6941F100B4B380 /* RecordView.swift */,
+				29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */,
+				29AAE3842A6EDBF6008913C2 /* RecordCalendarArea.swift */,
+				29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */,
+				29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */,
+				29AAE3882A6F9895008913C2 /* TotalStatistics.swift */,
+				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
+				29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */,
+				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 			);
 			path = RecordView;
 			sourceTree = "<group>";
@@ -527,13 +549,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29AAE3872A6F3DA5008913C2 /* MonthStatistics.swift in Sources */,
 				7FB8E58B2A6F601500522CE6 /* TodayModel.swift in Sources */,
 				F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */,
 				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
 				29A0E5952A68BB82009FFBD1 /* ReceiveDataSampleView.swift in Sources */,
+				29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */,
 				2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */,
 				2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */,
 				2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
+				29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */,
+				29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */,
 				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
 				F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */,
 				290DC0B92A70AF76005D5150 /* CleanRoomModel.swift in Sources */,
@@ -555,8 +581,11 @@
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,
 				298F913F2A69605C002D36B3 /* TabModel.swift in Sources */,
 				29B943082A68E4C20028DDAE /* DeviceCommunicator.swift in Sources */,
+				29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */,
+				29AAE3852A6EDBF6008913C2 /* RecordCalendarArea.swift in Sources */,
 				7FB8E58F2A6F623A00522CE6 /* MondeeBoxView.swift in Sources */,
 				2900B1182A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */,
+				29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +827,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -831,7 +860,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
