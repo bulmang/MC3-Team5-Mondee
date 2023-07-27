@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SharingCardView: View {
-    @Binding var selection: Int
+    let selection: Int
     
     var body: some View {
         ZStack {
@@ -36,7 +36,7 @@ struct SharingCardView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            SharingCardView(selection: .constant(0))
+            SharingCardView(selection: 0)
         }
     }
 }

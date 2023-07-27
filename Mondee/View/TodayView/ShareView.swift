@@ -10,7 +10,6 @@ import SwiftUI
 struct ShareView: View {
     
     @State private var renderedImage = Image(systemName: "photo")
-    @State private var r: Image?
     
     @State private var selection = 0
     @State private var toastAnimation = false
@@ -26,12 +25,12 @@ struct ShareView: View {
                     Text("오늘 획득한 먼디를 자랑해보세요!")
                         .font(.title3)
                         .fontWeight(.medium)
-                    SharingCardView(selection: $selection)
+                    SharingCardView(selection: selection)
                         .onAppear {
-                            let renderer = ImageRenderer(content: SharingCardView(selection: $selection))
-                            renderer.scale = 3
+                            let renderer0 = ImageRenderer(content: SharingCardView(selection: selection))
+                            renderer0.scale = 3
                             
-                            if let image = renderer.cgImage {
+                            if let image = renderer0.cgImage {
                                 renderedImage = Image(decorative: image, scale: 1.0)
                             }
                         }
@@ -46,6 +45,13 @@ struct ShareView: View {
                         withAnimation() {
                             selection = 0
                         }
+                        let renderer1 = ImageRenderer(content: SharingCardView(selection: 0))
+                        renderer1.scale = 3
+                        
+                        if let image = renderer1.cgImage {
+                            renderedImage = Image(decorative: image, scale: 1.0)
+                        }
+
                     } label: {
                         ZStack {
                             Circle()
@@ -69,6 +75,12 @@ struct ShareView: View {
                     Button {
                         withAnimation() {
                             selection = 1
+                        }
+                        let renderer2 = ImageRenderer(content: SharingCardView(selection: 1))
+                        renderer2.scale = 3
+                        
+                        if let image = renderer2.cgImage {
+                            renderedImage = Image(decorative: image, scale: 1.0)
                         }
                     } label: {
                         ZStack {
@@ -94,7 +106,7 @@ struct ShareView: View {
                 Spacer()
                 HStack(spacing: 12) {
                     Button {
-                        let ren = ImageRenderer(content: SharingCardView(selection: $selection))
+                        let ren = ImageRenderer(content: SharingCardView(selection: selection))
                         ren.scale = 3
                         if let image = ren.uiImage {
                             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
