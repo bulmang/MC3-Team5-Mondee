@@ -9,7 +9,7 @@ import SwiftUI
 
 class collectedMondeeModel: ObservableObject {
     @Published var collectedMondees: [CollectedMondee] = [
-        CollectedMondee(index: 1, collectedMondeeName: "푸딩먼디", collectedMondeeDate: Date() - 10000000000, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee001-IOS", isCollected: true),
+        CollectedMondee(index: 1, collectedMondeeName: "푸딩먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee001-IOS", isCollected: true),
         CollectedMondee(index: 2, collectedMondeeName: "사탕먼디", collectedMondeeDate: nil, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee002-IOS", isCollected: true),
         CollectedMondee(index: 3, collectedMondeeName: "선디", collectedMondeeDate: Date() - 10000000000000000, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgMondeeLevel1-IOS", isCollected: false),
         CollectedMondee(index: 4, collectedMondeeName: "오너먼트먼디", collectedMondeeDate: nil, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee003-IOS", isCollected: true),

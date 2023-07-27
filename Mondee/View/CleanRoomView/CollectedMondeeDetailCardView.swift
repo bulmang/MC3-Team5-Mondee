@@ -24,8 +24,10 @@ struct CollectedMondeeDetailCardView: View {
                         Text(collected.collectedMondeeName)
                             .font(.system(size: 24, weight: .bold))
                             .fontWeight(.semibold)
-                        Text("\(collected.collectedMondeeDate?.formatted(date: .abbreviated, time: .omitted) ?? "")")
-                            .font(.system(size: 15))
+                        if let date = collected.collectedMondeeDate {
+                        Text("잡은날짜 \(formatDateDot(date: date))")
+                            .font(.system (size: 15))
+                        }
                     }
                     .padding(30)
                     Spacer()
@@ -76,6 +78,13 @@ struct CollectedMondeeDetailCardView: View {
             .padding(.bottom)
         }
     }
+    
+    func formatDateDot(date: Date) -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yy.MM.d" // 이 형식에 따라 월일이 표시됩니다.
+            return dateFormatter.string(from: date)
+    }
+    
 }
 
 //struct CollectedMondeeDetailCardView_Previews: PreviewProvider {
