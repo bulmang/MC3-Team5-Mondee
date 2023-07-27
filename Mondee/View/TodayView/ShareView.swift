@@ -27,12 +27,7 @@ struct ShareView: View {
                         .fontWeight(.medium)
                     SharingCardView(selection: selection)
                         .onAppear {
-                            let renderer0 = ImageRenderer(content: SharingCardView(selection: selection))
-                            renderer0.scale = 3
-                            
-                            if let image = renderer0.cgImage {
-                                renderedImage = Image(decorative: image, scale: 1.0)
-                            }
+                            renderedImage = renderImage(for: selection)
                         }
                         .cornerRadius(20)
                         .shadow(radius: 4, y: 4)
@@ -45,13 +40,8 @@ struct ShareView: View {
                         withAnimation() {
                             selection = 0
                         }
-                        let renderer1 = ImageRenderer(content: SharingCardView(selection: 0))
-                        renderer1.scale = 3
+                        renderedImage = renderImage(for: 0)
                         
-                        if let image = renderer1.cgImage {
-                            renderedImage = Image(decorative: image, scale: 1.0)
-                        }
-
                     } label: {
                         ZStack {
                             Circle()
@@ -69,19 +59,13 @@ struct ShareView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 23)
-                                .bold()
                         }
                     }
                     Button {
                         withAnimation() {
                             selection = 1
                         }
-                        let renderer2 = ImageRenderer(content: SharingCardView(selection: 1))
-                        renderer2.scale = 3
-                        
-                        if let image = renderer2.cgImage {
-                            renderedImage = Image(decorative: image, scale: 1.0)
-                        }
+                        renderedImage = renderImage(for: 1)
                     } label: {
                         ZStack {
                             Circle()
@@ -105,7 +89,7 @@ struct ShareView: View {
                 Spacer()
                 Spacer()
                 HStack(spacing: 12) {
-                    Button {
+                    MondeeGreyButton(label: "사진 저장하기") {
                         let ren = ImageRenderer(content: SharingCardView(selection: selection))
                         ren.scale = 3
                         if let image = ren.uiImage {
@@ -114,32 +98,19 @@ struct ShareView: View {
                         withAnimation(.easeInOut(duration: 0.8)) {
                             toastAnimation = true
                         }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                withAnimation(.easeInOut(duration: 2)) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation(.easeInOut(duration: 2)) {
                                 toastAnimation = false
                             }
                         }
-                    } label: {
-                        Text("사진 저장하기")
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 18)
-                            .background(
-                                Capsule()
-                                    .foregroundColor(.mondeeGrey)
-                            )
                     }
-                    .buttonStyle(MondeeButtonClickStyle())
                     
                     ShareLink(item: renderedImage, preview: SharePreview(Text("먼디를 자랑해 보세요!"), image: renderedImage)) {
                         Text("공유하기")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 18)
-                            .background(
-                                Capsule()
-                                    .foregroundColor(.mondeeBlue)
-                            )
+                            .padding()
+                            .background(Capsule().foregroundColor(.mondeeBlue))
                     }
                     .buttonStyle(MondeeButtonClickStyle())
                 }
@@ -166,24 +137,23 @@ struct ShareView: View {
                     .shadow(radius: 2)
             )
     }
-}
-
-struct Toast: View {
-    let text: String
     
-    var body: some View {
-        Text(text)
-            .padding()
-            .background(
-                Capsule().foregroundColor(.mondeeBackgroundGrey)
-                    .shadow(radius: 2)
-            )
+    @MainActor
+    private func renderImage(for selection: Int) -> Image {
+        let renderer = ImageRenderer(content: SharingCardView(selection: selection))
+        renderer.scale = 3
+        
+        if let image = renderer.cgImage {
+            return Image(decorative: image, scale: 1.0)
+        } else {
+            // 기본 이미지를 반환하거나 필요에 따라 오류 상황을 처리합니다.
+            return Image(systemName: "photo")
+        }
     }
 }
 
-/// 뷰를 위한 NavigationStack 입니다. 실제는 ShareView 만 가져다쓰면 됩니다.
 struct ShareView_Previews: PreviewProvider {
     static var previews: some View {
-                ShareView()
+        ShareView()
     }
 }
