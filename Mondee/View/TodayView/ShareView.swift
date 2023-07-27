@@ -14,9 +14,10 @@ struct ShareView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 0.95, green: 0.95, blue: 0.98).ignoresSafeArea()
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             VStack {
                 Text("오늘 획득한 먼디를 자랑해보세요!")
+                    .font(.title3)
                 SaveView()
                     .padding()
                     .onAppear {
@@ -127,25 +128,6 @@ struct SaveView: View {
 /// 뷰를 위한 NavigationStack 입니다. 실제는 ShareView 만 가져다쓰면 됩니다.
 struct ShareView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            NavigationLink {
                 ShareView()
-            } label: {
-                HStack {
-                    Text("오늘의 먼디 자랑하기")
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                }
-                .padding()
-            }
-            .buttonStyle(.plain)
-            .background(
-                Capsule()
-                    .foregroundStyle(.thinMaterial)
-            )
-            .padding()
-            .navigationTitle("")
-        }
-        .tint(.blue)
     }
 }

@@ -54,19 +54,26 @@ struct TitleSection: View {
 
 struct ShareButtonSection: View {
     var body: some View {
-        HStack {
-            Text("오늘의 먼디 자랑하기")
-            Spacer()
-            Image(systemName: "chevron.right")
-                .font(.title2)
-                .foregroundColor(.mondeeGrey)
-                .onTapGesture {
-                    print("Hi")
-                }
+        NavigationLink {
+            ShareView()
+        } label: {
+            HStack {
+                Text("오늘의 먼디 자랑하기")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .padding(.leading, 10)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.title3)
+                    .foregroundColor(.mondeeGrey)
+            }
+            .padding(20)
         }
-        .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 24))
-        .background(Color.mondeeBoxBackground)
-        .cornerRadius(29)
+        .background(
+            Capsule()
+                .foregroundColor(.mondeeBoxBackground)
+        )
+        .navigationTitle("")
     }
 }
 
