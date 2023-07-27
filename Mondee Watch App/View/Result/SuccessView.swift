@@ -11,6 +11,8 @@ struct SuccessView: View {
     @StateObject private var gameState = GameStateManager()
     @StateObject private var movingDetector = MovingDetector()
     
+    @ObservedObject var watchLiveDataModel = WatchLiveDataModel()
+    
     @State private var counter: Int = 0
     
     
@@ -51,6 +53,9 @@ struct SuccessView: View {
             gameState.isSuccessActive = true
             gameState.checkIfNewDay()
             counter += 1
+            
+            watchLiveDataModel.gameEnd = true
+            watchLiveDataModel.session.transferUserInfo(["GameEnd":watchLiveDataModel.gameEnd])
         }
     }
 }

@@ -9,6 +9,7 @@ import WatchKit
 
 class GameStateManager: ObservableObject {
     var watchDataModel = WatchDataModel.shared
+    var watchLiveDataModel = WatchLiveDataModel.shared
     
     private var movingDetector = MovingDetector()
     private var motionlessSeconds = 0
@@ -128,6 +129,8 @@ class GameStateManager: ObservableObject {
         if checkHeartDecrease() {
             isCharacterClean = false
             watchDataModel.remainHeart -= 1
+            watchLiveDataModel.remainHeartCount -= 1
+            watchLiveDataModel.session.transferUserInfo(["RemainingHeartCount":watchLiveDataModel.remainHeartCount])
             motionlessSeconds = 0
             if watchDataModel.remainHeart == 0{
                 failGame()

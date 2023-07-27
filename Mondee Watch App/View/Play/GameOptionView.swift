@@ -17,6 +17,7 @@ struct GameOptionView: View {
     @Binding var selection: PlayViewSelection
     @Binding var gameStatus: GameStatus
     
+    @ObservedObject var watchLiveDataModel = WatchLiveDataModel()
     
     var body: some View {
         NavigationStack {
@@ -35,6 +36,8 @@ struct GameOptionView: View {
                             }
                             else {
                                 gameState.pauseGame()
+                                watchLiveDataModel.gamePause = true
+                                watchLiveDataModel.session.transferUserInfo(["GamePause":watchLiveDataModel.gamePause])
                             }
                         }
                         .tint(.yellow)

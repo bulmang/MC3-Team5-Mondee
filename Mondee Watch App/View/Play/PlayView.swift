@@ -20,6 +20,8 @@ struct PlayView: View {
     
     @Binding var gameStatus: GameStatus
     
+    @ObservedObject var watchLiveDataModel = WatchLiveDataModel()
+    
     var body: some View {
         NavigationStack {
             TabView(selection: $selection) {
@@ -63,6 +65,8 @@ struct PlayView: View {
                     .ignoresSafeArea()
                     .onAppear {
                         gameState.playGame()
+                        watchLiveDataModel.gameStart = true
+                        watchLiveDataModel.session.transferUserInfo(["GameStart":watchLiveDataModel.gameStart])
                     }
                     if gameState.isPreWarning {
                         Rectangle()
