@@ -14,7 +14,6 @@ struct RecordView: View {
             VStack{
                 RecordTitleArea()
             }
-            
         }
         .ignoresSafeArea()
     }

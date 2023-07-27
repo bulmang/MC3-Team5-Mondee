@@ -56,7 +56,6 @@ struct RecordCalendarView: View {
             }
             .padding(.bottom, 40)
 
-            
             // 상단 요일 Stack
             HStack(spacing: 14){
                 ForEach(days,id: \.self){day in
@@ -144,14 +143,11 @@ struct RecordCalendarView: View {
         
         //현재 월 반환
         let currentMonth = getCurrentMonth()
-        
         var days =  currentMonth.getAllDates().compactMap{
             date -> DateValue in
-            
-            //날짜 반환
-            let day = calendar.component(.day, from: date)
-            
-            return DateValue(day: day, date: date)
+        //날짜 반환
+        let day = calendar.component(.day, from: date)
+        return DateValue(day: day, date: date)
         }
         
         let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
@@ -159,10 +155,8 @@ struct RecordCalendarView: View {
         for _ in 0..<firstWeekday - 1{
             days.insert(DateValue(day: -1, date: Date()), at: 0)
         }
-        
         return days
     }
-    
 }
 
 struct RecordCalendarView_Previews: PreviewProvider {

@@ -13,7 +13,7 @@ struct MondeeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RecordCalendarView(currentDate: $date)
+            ContentView()
         }
     }
 }
