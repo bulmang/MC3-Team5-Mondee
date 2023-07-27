@@ -24,7 +24,7 @@ struct CollectedMondeeDetailCardView: View {
                         Text(collected.collectedMondeeName)
                             .font(.system(size: 24, weight: .bold))
                             .fontWeight(.semibold)
-                        Text("\(collected.collectedMondeeDate.formatted(date: .abbreviated, time: .omitted))")
+                        Text("\(collected.collectedMondeeDate?.formatted(date: .abbreviated, time: .omitted) ?? "")")
                             .font(.system(size: 15))
                     }
                     .padding(30)
