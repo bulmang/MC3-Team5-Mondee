@@ -102,46 +102,7 @@ struct RecordCalendarView: View {
         .frame(height: 36, alignment: .top)
         
     }
-//    func CardView(value: DateValue)->some View{
-//        // 날짜 하루 + 수면 계획 성공 여부 Stack
-//        VStack{
-//            // 수면 계획 성공한 날짜 코드
-//            if value.day != -1{
-//                if let record = dateModel.records[value.key]{
-//                    if record.type == .success{
-//                        Text("\(value.day)")
-//                            .foregroundColor(.systemBlack)
-//                            .frame(maxWidth: .infinity)
-//
-//                        Spacer()
-//
-//                        Circle()
-//                            .fill(Color(hex: 0x0F0094))
-//                            .frame(width: 8, height: 8)
-//                    }else{
-//                        Text("\(value.day)")
-//                            .foregroundColor(.systemBlack)
-//                            .frame(maxWidth: .infinity)
-//
-//                        Spacer()
-//                    }
-//
-//                }
-//                // 수면 계획 실패 + 미래 날짜 코드
-//                else{
-//                    Text("\(value.day)")
-//                        .foregroundColor(.systemBlack)
-//                        .frame(maxWidth: .infinity)
-//
-//                    Spacer()
-//
-//                }
-//            }
-//        }
-//        .padding(.vertical, 8)
-//        .frame(height: 36, alignment: .top)
-//    }
-
+    
     //MARK: 날짜 확인 코드
     private func isSameDay(date1: Date, date2: Date) -> Bool{
         let calendar = Calendar.current
