@@ -26,7 +26,6 @@ struct RecordTitleArea: View {
                         .padding(.bottom, 25)
                 }
                 .padding(.leading, 42)
-                
             }
             
     }

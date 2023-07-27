@@ -21,8 +21,6 @@ struct RecordCalendarArea: View {
                         .padding(.top, 25)
                 }
                 .padding(.horizontal, 17)
-               
-                
             }
     }
 }

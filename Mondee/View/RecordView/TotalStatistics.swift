@@ -70,7 +70,6 @@ struct TotalStatistics: View {
                     }
                     .padding(.horizontal,48)
                     .padding(.bottom, 22)
-                    //.border(.green)
                 }
                 
             }

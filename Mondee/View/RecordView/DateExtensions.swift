@@ -10,10 +10,10 @@ extension Date {
     func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
-//        dateFormatter.timeZone = TimeZone(identifier: "UTC")
         dateFormatter.locale = Locale(identifier: "ko_KR")
         return dateFormatter.string(from: self)
     }
+    
     static var now:String{
         let currentDate = Date() // 현재 날짜와 시간을 가져옴
         let dateFormatter = DateFormatter()
@@ -24,20 +24,17 @@ extension Date {
         return date
     }
     
-    //MARK: 현재 월, 일을 알기위한 위한 Extension
+    //MARK: 현재 월,일을 통한 당 월의 일자 구하는 func
     func getAllDates()->[Date]{
         let calendar = Calendar.current
         
         //getting start date
         let startdate = calendar.date(from: Calendar.current.dateComponents([.year, .month], from: self))!
-        
-        var range = calendar.range(of: .day, in: .month, for: startdate)!
+        let range = calendar.range(of: .day, in: .month, for: startdate)!
         
         // getting date...
         return range.compactMap { day -> Date in
-            
             return calendar.date(byAdding: .day, value: day - 1, to: startdate)!
-            
         }
     }
 }

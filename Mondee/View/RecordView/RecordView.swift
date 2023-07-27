@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RecordView: View {
-    
     @State var currentDate = Date()
     
     var body: some View {

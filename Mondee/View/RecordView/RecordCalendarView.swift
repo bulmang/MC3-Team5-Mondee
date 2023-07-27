@@ -56,7 +56,6 @@ struct RecordCalendarView: View {
             }
             .padding(.bottom, 40)
 
-            
             // 상단 요일 Stack
             HStack(spacing: 14){
                 ForEach(days,id: \.self){day in
@@ -66,10 +65,7 @@ struct RecordCalendarView: View {
                         .foregroundColor(Color("ColorGray"))
                 }
             }
-           // .padding(.horizontal, 2)
-            
-            // Dates....
-            // Lazy Grid..
+
             let columns = Array(repeating: GridItem(.flexible()), count: 7)
             
             LazyVGrid(columns: columns, spacing: 15) {
@@ -77,9 +73,6 @@ struct RecordCalendarView: View {
                     CardView(value: value)
                         .font(isSameDay(date1: value.date, date2: Date()) ? .system(size: 20, weight: .bold) : .system(size: 20, weight: .regular))
                         .foregroundColor(isSameDay(date1: value.date, date2: Date()) ? .blue : .black)
-//                        .background(
-//                            Image("bubbles")
-//                        )
                 }
             }
             Spacer()
@@ -102,7 +95,6 @@ struct RecordCalendarView: View {
         .frame(height: 36, alignment: .top)
         
     }
-    
     //MARK: 날짜 확인 코드
     private func isSameDay(date1: Date, date2: Date) -> Bool{
         let calendar = Calendar.current
@@ -144,14 +136,11 @@ struct RecordCalendarView: View {
         
         //현재 월 반환
         let currentMonth = getCurrentMonth()
-        
         var days =  currentMonth.getAllDates().compactMap{
             date -> DateValue in
-            
-            //날짜 반환
-            let day = calendar.component(.day, from: date)
-            
-            return DateValue(day: day, date: date)
+        //날짜 반환
+        let day = calendar.component(.day, from: date)
+        return DateValue(day: day, date: date)
         }
         
         let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
@@ -159,10 +148,8 @@ struct RecordCalendarView: View {
         for _ in 0..<firstWeekday - 1{
             days.insert(DateValue(day: -1, date: Date()), at: 0)
         }
-        
         return days
     }
-    
 }
 
 struct RecordCalendarView_Previews: PreviewProvider {

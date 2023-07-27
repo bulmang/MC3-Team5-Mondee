@@ -46,7 +46,6 @@
 		29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */; };
 		29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */; };
 		29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */; };
-		29A8A3A82A6EB01B007C24A5 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A3A72A6EB01B007C24A5 /* Task.swift */; };
 		29AAE3852A6EDBF6008913C2 /* RecordCalendarArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AAE3842A6EDBF6008913C2 /* RecordCalendarArea.swift */; };
 		29AAE3872A6F3DA5008913C2 /* MonthStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */; };
 		29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AAE3882A6F9895008913C2 /* TotalStatistics.swift */; };
@@ -129,7 +128,6 @@
 		29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarView.swift; sourceTree = "<group>"; };
 		29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		29A8A3A72A6EB01B007C24A5 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		29AAE3842A6EDBF6008913C2 /* RecordCalendarArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarArea.swift; sourceTree = "<group>"; };
 		29AAE3862A6F3DA5008913C2 /* MonthStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStatistics.swift; sourceTree = "<group>"; };
 		29AAE3882A6F9895008913C2 /* TotalStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalStatistics.swift; sourceTree = "<group>"; };
@@ -341,7 +339,7 @@
 				29AAE3882A6F9895008913C2 /* TotalStatistics.swift */,
 				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 				29A8A3A52A6D8CE2007C24A5 /* DateExtensions.swift */,
-				29A8A3A72A6EB01B007C24A5 /* Task.swift */,
+				29A8A3A32A6D8C17007C24A5 /* DateViewModel.swift */,
 			);
 			path = RecordView;
 			sourceTree = "<group>";
@@ -513,7 +511,6 @@
 				29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */,
 				2919A7712A5D0099000B6CF6 /* ContentView.swift in Sources */,
 				2900B1212A6986FC00B7AEFD /* Triangle.swift in Sources */,
-				29A8A3A82A6EB01B007C24A5 /* Task.swift in Sources */,
 				2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
 				29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */,
 				29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */,

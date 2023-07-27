@@ -21,20 +21,3 @@ struct DateValue: Identifiable{
         return str
     }
 }
-
-//MARK: Date Struct
-struct DateMetaData: Identifiable{
-    var id = UUID().uuidString
-    var date: Date
-}
-
-struct DateVM{
-    //MARK: 날짜 가져오기 함수
-    func getSimpleDate(offset: Int)->Date{
-        let calendar = Calendar.current
-        
-        let date = calendar.date(byAdding: .day, value: offset, to: Date())
-        
-        return date ?? Date()
-    }
-}
