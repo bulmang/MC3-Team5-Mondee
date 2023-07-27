@@ -9,6 +9,7 @@ import Foundation
 
 class TodayViewModel: ObservableObject {
     @Published var successCount: Int = 8
+    @Published var gameStatus: GameStatus = .finishedSuccess
     
     private let levelList = [
         Level(name: "청응애", startNumber: 0, endNumber: 3, mondeeImg: "ImgMondeeLevel1-IOS", nextLevelMessage: "청린이가 되기까기"),
