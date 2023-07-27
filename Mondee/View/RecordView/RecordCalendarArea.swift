@@ -14,7 +14,7 @@ struct RecordCalendarArea: View {
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
             .frame(height: 440)
-            .foregroundColor(.white)
+            .foregroundColor(Color.mondeeBoxBackground)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading){
                     RecordCalendarView(currentDate: $currentDate)

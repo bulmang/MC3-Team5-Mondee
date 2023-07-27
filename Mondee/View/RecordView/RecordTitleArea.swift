@@ -12,7 +12,7 @@ struct RecordTitleArea: View {
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
             .frame(height: 163)
-            .foregroundColor(.white)
+            .foregroundColor(Color.mondeeBoxBackground)
             .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 4)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
