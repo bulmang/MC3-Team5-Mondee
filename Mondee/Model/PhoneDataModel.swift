@@ -16,17 +16,17 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
     let userData = UserData()
     
     @Published var gameSuccess : Bool = false
+    @Published var gameFail : Bool = false
     @Published var gamePlayTime : Int = 0
     @Published var gamePlayDate : Date = Date()
     @Published var remainingHeartCount : Int = 3
     @Published var gameRetry : Bool = false
-    @Published var gamePause : Bool = false
     
-    @Published var WatchGameUserData: [String] = []
+    
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyy-MM-dd HH"
         return formatter
     }()
     
@@ -57,8 +57,8 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
               let newPlayTime = userInfo["GamePlayTime"] as? Int,
               let newDate = userInfo["GameDate"] as? Date,
               let newRemainHeart = userInfo["RemainHeart"] as? Int,
-              let newRetry = userInfo["GameRetry"] as? Bool,
-              let newPause = userInfo["GamePause"] as? Bool
+              let newFail = userInfo["GameFail"] as? Bool,
+              let newRetry = userInfo["GameRetry"] as? Bool
                 
         else{
             print("ERROR: unknown data received from Watch")
@@ -66,22 +66,16 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
         }
         DispatchQueue.main.async { [self] in
             self.gameSuccess = newSuccess
+            self.gameFail = newFail
             self.gamePlayTime = newPlayTime
-            self.gamePlayDate = newDate
+            self.gamePlayDate = newDate + 32400
             self.remainingHeartCount = newRemainHeart
             self.gameRetry = newRetry
-            self.gamePause = newPause
             
-            let dateString = self.dateFormatter.string(from: newDate) // 날짜를 문자열로 변환
+//            let dateString = self.dateFormatter.string(from: newDate) // 날짜를 문자열로 변환
             
-            self.WatchGameUserData.append(String(newSuccess))
-            self.WatchGameUserData.append(String(newPlayTime))
-            self.WatchGameUserData.append(dateString)
-            self.WatchGameUserData.append(String(newRemainHeart))
-            self.WatchGameUserData.append(String(newRetry))
-            self.WatchGameUserData.append(String(newPause))
             
-            userData.save(WatchGameUserData)
+            userData.save(gameSuccess, gameFail, gamePlayTime, gamePlayDate, remainingHeartCount, gameRetry)
 
         }
     }

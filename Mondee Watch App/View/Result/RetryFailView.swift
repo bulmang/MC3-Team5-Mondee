@@ -28,7 +28,9 @@ struct RetryFailView: View {
             Button("다시 도전"){
                 gameStatus = .guide
                 isGameRestart = true
-                gameState.isRetry = true
+//                gameState.isRetry = true
+                gameState.watchDataModel.isRetry = true
+                gameState.watchDataModel.remainHeart = 3
             }
             .buttonStyle(.borderedProminent)
             .tint(Color(hue: 0.593, saturation: 0.893, brightness: 0.876, opacity: 0.827))

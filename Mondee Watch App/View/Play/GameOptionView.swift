@@ -56,7 +56,6 @@ struct GameOptionView: View {
                     Button(role: .destructive) {
                         gameState.giveUpGame()
                         gameStatus = .fail
-                        selection = .game
                         gameState.isFinalFailActive = true
                     } label: {
                         Text("청소 포기")
@@ -67,8 +66,7 @@ struct GameOptionView: View {
                     Button {
                         gameState.successGameEarly()
                         gameStatus = .success
-                        selection = .game
-                        gameState.isSuccessActive = true
+                        gameState.watchDataModel.isSuccess = true
                     } label: {
                         Text("완료했어요")
                     }

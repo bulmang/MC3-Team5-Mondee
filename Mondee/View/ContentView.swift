@@ -23,10 +23,12 @@ struct ContentView: View {
 //            }
 //        }
 //        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
-        VStack{
-            Text("async : \(data.WatchGameUserData.description)")
-            Divider()
-            Text("userDefaults : \(data.userData.userdata.description)")
+        ScrollView{
+            VStack{
+                Text("async : \(data.description)")
+                Divider()
+                Text("userDefaults : \(data.userData.userdata.description)")
+            }
         }
     }
 }

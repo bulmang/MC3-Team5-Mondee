@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var gameState = GameStateManager()
-    
-    @ObservedObject var data = WatchDataModel.shared
+    @ObservedObject var gameState = GameStateManager()
     
     var body: some View {
-//        GameView()
-//            .onAppear{
-//                gameState.checkIfNewDay()
-//            }
-        Button("Send to Phone") {
-            data.session.transferUserInfo(["GameSuccess":data.isSuccess, "GamePlayTime":data.gamePlayTime, "GameDate":data.gameDate, "RemainHeart":data.remainHeart, "GameRetry":data.isRetry, "GamePause": data.isPause])
-        } .foregroundColor(.blue)
+        GameView()
+            .onAppear{
+                gameState.checkIfNewDay()
+            }
+//        Button("Send to Phone") {
+//            gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
+//            print("눌림")
+//        } .foregroundColor(.blue)
     }
 }
 

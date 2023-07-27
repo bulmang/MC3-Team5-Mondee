@@ -13,7 +13,14 @@ import SwiftUI
 /// User 구조체 생성
 struct User: Codable, Identifiable {
     var id = UUID()
-    var gameData: [String]
+//    var gameData: [String]
+    var gameSuccess: Bool
+    var gameFail: Bool
+    var gamePlayTime: Int
+    var gamePlayDate: Date
+    var remainingHeartCount: Int
+    var gameRetry: Bool
+    
 }
 
 /// 클래스 생성
@@ -27,8 +34,8 @@ class UserData: ObservableObject {
     }
 
     /// 데이터 save
-    func save(_ gameData: [String]) {
-        let newData = User(gameData: gameData)
+    func save(_ gameSuccess: Bool, _ gameFail: Bool, _ gamePlayTime: Int, _ gamePlayDate: Date, _ remainingHeartCount : Int, _ gameRetry : Bool) {
+        let newData = User(gameSuccess: gameSuccess, gameFail: gameFail, gamePlayTime: gamePlayTime, gamePlayDate: gamePlayDate, remainingHeartCount: remainingHeartCount, gameRetry: gameRetry)
         userdata.append(newData)
         saveData()
     }

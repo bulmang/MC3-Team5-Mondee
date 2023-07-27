@@ -1,4 +1,4 @@
-//
+
 //  GameStateManager.swift
 //  Mondee Watch App
 //
@@ -8,6 +8,8 @@
 import WatchKit
 
 class GameStateManager: ObservableObject {
+    var watchDataModel = WatchDataModel.shared
+    
     private var movingDetector = MovingDetector()
     private var motionlessSeconds = 0
     private var movingSeconds = 0
@@ -15,7 +17,6 @@ class GameStateManager: ObservableObject {
     private var isPaused = false
     
     private let userDefaults = UserDefaults.standard
-    private let deviceCommunicator = DeviceCommunicator()
     
     var isFinalFailActive: Bool {
         get { userDefaults.bool(forKey: "finalfail") }
@@ -56,21 +57,18 @@ class GameStateManager: ObservableObject {
         SessionExtend.shared.startSession()
         movingDetector.startMotionUpdates()
         startGameTimer()
-        deviceCommunicator.sendMessage(key: .gameStart, message: true) { error in }
     }
     
     func pauseGame() {
         isPaused = true
         movingDetector.stopMotionUpdates()
         stopGameTimer()
-        deviceCommunicator.sendMessage(key: .gamePause, message: true) { error in }
     }
     
     func resumeGame() {
         isPaused = false
         movingDetector.startMotionUpdates()
         startGameTimer()
-        deviceCommunicator.sendMessage(key: .gamePause, message: false) { error in }
     }
     
     func successGameEarly() {
@@ -78,6 +76,7 @@ class GameStateManager: ObservableObject {
     }
     
     func giveUpGame() {
+        watchDataModel.isFail = true
         failGame()
     }
     
@@ -128,10 +127,9 @@ class GameStateManager: ObservableObject {
         
         if checkHeartDecrease() {
             isCharacterClean = false
-            heartCount -= 1
-            deviceCommunicator.sendMessage(key: .remainingHeartCount, message: heartCount) { error in }
+            watchDataModel.remainHeart -= 1
             motionlessSeconds = 0
-            if heartCount == 0 {
+            if watchDataModel.remainHeart == 0{
                 failGame()
             }
         }
@@ -171,13 +169,14 @@ class GameStateManager: ObservableObject {
         return movingSeconds >= Constants.cleanThreshold
     }
     
-    private func successGame() {
-        isGameSuccessful = true
+    func successGame() {
+//        isGameSuccessful = true
+        watchDataModel.isSuccess = true
         stopGame()
     }
     
     private func failGame() {
-        isGameSuccessful = false
+//        isGameSuccessful = false
         stopGame()
     }
     
@@ -185,13 +184,7 @@ class GameStateManager: ObservableObject {
         SessionExtend.shared.stopSession()
         movingDetector.stopMotionUpdates()
         isGameFinished = true
-        gamePlayTime = Constants.initialSeconds - remainingSeconds
-        sendData() // 게임 종료 시 데이터를 보냄
-    }
-
-    /// 남은 하트 갯수, 총 게임시간 수신
-    private func sendData() {
-        deviceCommunicator.sendMessage(key: .gamePlayTime, message: gamePlayTime) { error in }
+        watchDataModel.gamePlayTime = Constants.initialSeconds - remainingSeconds
     }
     
     func checkIfNewDay() {

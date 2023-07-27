@@ -75,7 +75,7 @@ struct PlayView: View {
                 .onChange(of: gameState.isGameFinished) { isGameFinished in
                     // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
                     if isGameFinished {
-                        gameStatus = gameState.isGameSuccessful ? .success : .fail
+                        gameStatus = gameState.watchDataModel.isSuccess ? .success : .fail
                     }
                 }
             }

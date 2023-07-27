@@ -13,12 +13,14 @@ struct HeartCountView: View {
     var body: some View {
         VStack {
             HStack(spacing: 0) {
-                ForEach(0..<Constants.initialHeartCount, id: \.self) { i in
+                ForEach(0..<gameState.watchDataModel.remainHeart, id: \.self) { i in
                     Text("♥︎")
                         .font(.title3)
                         .bubbleFontModifier()
-                        .opacity(i < gameState.heartCount ? 1 : 0.3)
-                        .animation(.easeIn, value: gameState.heartCount)
+//                        .opacity(i < gameState.heartCount ? 1 : 0.3)
+//                        .animation(.easeIn, value: gameState.heartCount)
+                        .opacity(i < gameState.watchDataModel.remainHeart ? 1 : 0.3)
+                        .animation(.easeIn, value: gameState.watchDataModel.remainHeart)
                 }
                 Spacer()
             }
