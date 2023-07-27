@@ -24,6 +24,7 @@ struct MondeeLevelView: View {
                         .padding(.bottom, 4)
                     ProgressView(value: CGFloat(viewModel.successCount), total: CGFloat(viewModel.currentLevel.endNumber))
                         .progressViewStyle(LinearProgressViewStyle(tint: .mondeeBlue))
+                        .scaleEffect(y: 1.5)
                 }
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
                     Text("\(viewModel.successCount)")
