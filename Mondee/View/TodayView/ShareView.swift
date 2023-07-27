@@ -12,106 +12,160 @@ struct ShareView: View {
     @State private var renderedImage = Image(systemName: "photo")
     @State private var r: Image?
     
+    @State private var selection = 0
+    @State private var toastAnimation = false
+    
+    @Namespace private var namespace
+    
     var body: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
             VStack {
+                Spacer()
                 VStack(alignment: .center) {
                     Text("오늘 획득한 먼디를 자랑해보세요!")
                         .font(.title3)
-                    SaveView()
+                        .fontWeight(.medium)
+                    SharingCardView(selection: $selection)
                         .onAppear {
-                            let renderer = ImageRenderer(content: SaveView())
+                            let renderer = ImageRenderer(content: SharingCardView(selection: $selection))
                             renderer.scale = 3
                             
                             if let image = renderer.cgImage {
                                 renderedImage = Image(decorative: image, scale: 1.0)
                             }
                         }
+                        .cornerRadius(20)
+                        .shadow(radius: 4, y: 4)
                 }
                 .padding(.horizontal, 30)
+                .padding(.bottom, 20)
                 
                 HStack(spacing: 20) {
                     Button {
-                        
+                        withAnimation() {
+                            selection = 0
+                        }
                     } label: {
                         ZStack {
                             Circle()
-                                .foregroundColor(.white)
+                                .foregroundColor(.mondeeBlue)
                                 .frame(width: 44)
-                            Text("🫧")
+                                .opacity(0.2)
+                            if selection == 0 {
+                                Circle()
+                                    .foregroundColor(.mondeeBlue)
+                                    .frame(width: 44)
+                                    .opacity(0.7)
+                                    .matchedGeometryEffect(id: "shareTab", in: namespace)
+                            }
+                            Image("sharingCardBubbleButton")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 23)
                                 .bold()
                         }
                     }
-                    
                     Button {
-                        
+                        withAnimation() {
+                            selection = 1
+                        }
                     } label: {
                         ZStack {
                             Circle()
-                                .foregroundColor(.blue)
+                                .foregroundColor(.mondeeBlue)
                                 .frame(width: 44)
-                                .opacity(0.5)
-                            Text("☁️")
-                                .bold()
+                                .opacity(0.2)
+                            if selection == 1 {
+                                Circle()
+                                    .foregroundColor(.mondeeBlue)
+                                    .frame(width: 44)
+                                    .opacity(0.7)
+                                    .matchedGeometryEffect(id: "shareTab", in: namespace)
+                            }
+                            Image("sharingCardCloudButton")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 26)
                         }
                     }
                 }
                 Spacer()
-                HStack {
+                Spacer()
+                HStack(spacing: 12) {
                     Button {
-                        let ren = ImageRenderer(content: SaveView())
+                        let ren = ImageRenderer(content: SharingCardView(selection: $selection))
                         ren.scale = 3
                         if let image = ren.uiImage {
                             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                        }
+                        withAnimation(.easeInOut(duration: 0.8)) {
+                            toastAnimation = true
+                        }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                withAnimation(.easeInOut(duration: 2)) {
+                                toastAnimation = false
+                            }
                         }
                     } label: {
                         Text("사진 저장하기")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical)
+                            .padding(.vertical, 18)
                             .background(
                                 Capsule()
+                                    .foregroundColor(.mondeeGrey)
                             )
-                            .tint(.gray)
                     }
+                    .buttonStyle(MondeeButtonClickStyle())
+                    
                     ShareLink(item: renderedImage, preview: SharePreview(Text("먼디를 자랑해 보세요!"), image: renderedImage)) {
                         Text("공유하기")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical)
+                            .padding(.vertical, 18)
                             .background(
                                 Capsule()
+                                    .foregroundColor(.mondeeBlue)
                             )
-                            .tint(.blue)
                     }
+                    .buttonStyle(MondeeButtonClickStyle())
                 }
+                .padding(.vertical, 5)
             }
             .padding()
         }
+        .overlay {
+            if toastAnimation {
+                toastBox(text: "사진이 저장되었습니다")
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .transition(.move(edge: .top))
+                    .offset(y: -30)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func toastBox(text: String) -> some View {
+        Text(text)
+            .padding()
+            .background(
+                Capsule().foregroundColor(.mondeeBackgroundGrey)
+                    .shadow(radius: 2)
+            )
     }
 }
 
-struct SaveView: View {
+struct Toast: View {
+    let text: String
+    
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .foregroundStyle(.white)
-                .frame(height: 400)
-            VStack {
-                VStack(alignment: .leading) {
-                    Text("외계 먼지")
-                        .font(.title2)
-                    Text("오늘의 획득 먼지")
-                }
-                .padding()
-                Circle()
-                    .frame(width: 100)
-                Text("청소성공")
-                    .padding()
-            }
-            .frame(height: 400)
-        }
+        Text(text)
+            .padding()
+            .background(
+                Capsule().foregroundColor(.mondeeBackgroundGrey)
+                    .shadow(radius: 2)
+            )
     }
 }
 
