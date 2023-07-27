@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
     
+    @StateObject var data = PhoneDataModel.shared
+    
     var body: some View {
-        Group{
-            if isOnboarding {
-                OnboardingView()
-            } else {
-                CustomTabView()
-                    .transition(.move(edge: .trailing))
-            }
+        // TODO: TEST CODE 삭제 바람
+//        Group{
+//            if isOnboarding {
+//                OnboardingView()
+//            } else {
+//                CustomTabView()
+//                    .transition(.move(edge: .trailing))
+//            }
+//        }
+//        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
+        VStack{
+            Text("async : \(data.WatchGameUserData.description)")
+            Divider()
+            Text("userDefaults : \(data.userData.userdata.description)")
         }
-        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
     }
 }
 

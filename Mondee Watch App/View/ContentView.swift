@@ -10,11 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var gameState = GameStateManager()
     
+    @ObservedObject var data = WatchDataModel.shared
+    
     var body: some View {
-        GameView()
-            .onAppear{
-                gameState.checkIfNewDay()
-            }
+//        GameView()
+//            .onAppear{
+//                gameState.checkIfNewDay()
+//            }
+        Button("Send to Phone") {
+            data.session.transferUserInfo(["GameSuccess":data.isSuccess, "GamePlayTime":data.gamePlayTime, "GameDate":data.gameDate, "RemainHeart":data.remainHeart, "GameRetry":data.isRetry, "GamePause": data.isPause])
+        } .foregroundColor(.blue)
     }
 }
 
