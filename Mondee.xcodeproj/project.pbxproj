@@ -64,6 +64,7 @@
 		A21D8FC02A616D7700A19EF5 /* RetryFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */; };
 		A2A44CBF2A6F7D0500ED8234 /* LevelPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CBE2A6F7D0500ED8234 /* LevelPopupViewModel.swift */; };
 		A2A44CC12A6F7DFB00ED8234 /* LevelPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */; };
+		A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */; };
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
 		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
 		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
@@ -145,6 +146,7 @@
 		A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryFailView.swift; sourceTree = "<group>"; };
 		A2A44CBE2A6F7D0500ED8234 /* LevelPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopupViewModel.swift; sourceTree = "<group>"; };
 		A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopupView.swift; sourceTree = "<group>"; };
+		A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterSuccessPopupView.swift; sourceTree = "<group>"; };
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 		292CE6C22A5ECD1900BEE4AF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A2A44CBE2A6F7D0500ED8234 /* LevelPopupViewModel.swift */,
 				292CE6C32A5ECD8000BEE4AF /* SampleViewModel.swift */,
 				7FB8E5882A6F5F9900522CE6 /* TodayViewModel.swift */,
 			);
@@ -334,8 +337,8 @@
 				29623FB42A6941DC00B4B380 /* TodayView.swift */,
 				7FB8E58C2A6F621700522CE6 /* MondeeLevelView.swift */,
 				7FB8E58E2A6F623A00522CE6 /* MondeeBoxView.swift */,
-				A2A44CBE2A6F7D0500ED8234 /* LevelPopupViewModel.swift */,
 				A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */,
+				A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */,
 			);
 			path = TodayView;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				292CE6C62A5ECD8F00BEE4AF /* SampleModel.swift in Sources */,
 				7FB8E58D2A6F621700522CE6 /* MondeeLevelView.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
+				A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
 				2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */,
 				29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */,

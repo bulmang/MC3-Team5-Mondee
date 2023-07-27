@@ -18,25 +18,46 @@ struct LevelPopupView: View {
     ]
 
     var body: some View {
-        VStack(spacing: 0) {
-            ForEach(LevelMondee) { level in
-               
-                HStack{
-                    Image(level.mondeeImg)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 60)
-                        .padding()
-                    VStack(alignment: .leading){
-                        Text(level.mondeeTitle)
-                            .font(.title3)
-                            .fontWeight(.bold)
-                           
-                        Text(level.mondeeContents)
+        ZStack {
+            Color("mondeeBackgroundGrey")
+
+            VStack(spacing: 0.0) {
+                
+                Text("청소 장인")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("청소 성공 횟수에 따라")
+                Text("레벨이 올라가요!")
+                    .padding(.bottom,20)
+                Rectangle()
+                    .frame(height: 1.0)
+                    .opacity(/*@START_MENU_TOKEN@*/0.2/*@END_MENU_TOKEN@*/)
+                
+                 
+                
+                ForEach(LevelMondee) { level in
+                   
+                    HStack{
+                        Image(level.mondeeImg)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 60)
+                            .padding()
+                        VStack(alignment: .leading){
+                            Text(level.mondeeTitle)
+                                .font(.title3)
+                                .fontWeight(.bold)
+                               
+                            Text(level.mondeeContents)
+                        }
                     }
+                    .padding(.trailing,100)
                 }
-                .padding(.trailing,100)
+               
             }
+            .frame(width: 358.0, height: 600.0)
+            .background()
+            .cornerRadius(25)
         }
     }
 }
