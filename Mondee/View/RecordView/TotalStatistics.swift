@@ -28,11 +28,11 @@ struct TotalStatistics: View {
                                 .padding(.bottom, 5)
                             Text("총 도전 횟수")
                                 .font(.system(size: 11, weight: .regular))
-                                .foregroundColor(Color("ColorMondeeGrey"))
+                                .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             Text("9")
                                 .font(.system(size: 24, weight: .semibold))
-                                .foregroundColor(Color("ColorMondeeBlue"))
+                                .foregroundColor(Color.mondeeBlue)
                                
                         }
                         VStack(spacing: 0){
@@ -42,11 +42,11 @@ struct TotalStatistics: View {
                                 .padding(.bottom, 5)
                             Text("총 성공 횟수")
                                 .font(.system(size: 11, weight: .regular))
-                                .foregroundColor(Color("ColorMondeeGrey"))
+                                .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             Text("14")
                                 .font(.system(size: 24, weight: .semibold))
-                                .foregroundColor(Color("ColorMondeeBlue"))
+                                .foregroundColor(Color.mondeeBlue)
                         }
                         VStack(spacing: 0){
                             Image("ImgStatisticsRate")
@@ -55,15 +55,15 @@ struct TotalStatistics: View {
                                 .padding(.bottom, 5)
                             Text("총 플레이 시간")
                                 .font(.system(size: 11, weight: .regular))
-                                .foregroundColor(Color("ColorMondeeGrey"))
+                                .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             HStack(alignment: .bottom, spacing:0){
                                 Text("80")
                                     .font(.system(size: 24, weight: .semibold))
-                                    .foregroundColor(Color("ColorMondeeBlue"))
+                                    .foregroundColor(Color.mondeeBlue)
                                 Text("M")
                                     .font(.system(size: 10, weight: .semibold))
-                                    .foregroundColor(Color("ColorMondeeBlue"))
+                                    .foregroundColor(Color.mondeeBlue)
                                     .padding(.bottom, 3)
                             }
                         }

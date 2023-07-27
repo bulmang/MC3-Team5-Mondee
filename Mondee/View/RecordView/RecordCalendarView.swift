@@ -26,12 +26,12 @@ struct RecordCalendarView: View {
                     // 월 Text (ex. May)
                     Text(extraDate()[1])
                         .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(Color("ColorGray"))
+                        .foregroundColor(Color.mondeeGrey)
                     
                     // 년도 Text (ex. 2023)
                     Text(extraDate()[0])
                         .font(.system(size: 17, weight: .semibold))
-                        .foregroundColor(Color("ColorGray"))
+                        .foregroundColor(Color.mondeeGrey)
                 }
                 Spacer(minLength: 0)
                 
@@ -42,7 +42,7 @@ struct RecordCalendarView: View {
                 } label: {
                     Image(systemName: "chevron.left")
                         .font(.title2)
-                        .foregroundColor(Color("ColorGray"))
+                        .foregroundColor(Color.mondeeGrey)
                 }
                 
                 // 우화살표 버튼
@@ -51,7 +51,7 @@ struct RecordCalendarView: View {
                 } label: {
                     Image(systemName: "chevron.right")
                         .font(.title2)
-                        .foregroundColor(Color("ColorGray"))
+                        .foregroundColor(Color.mondeeGrey)
                 }
             }
             .padding(.bottom, 40)
@@ -62,7 +62,7 @@ struct RecordCalendarView: View {
                     Text(day)
                         .font(.system(size: 13, weight: .semibold))
                         .frame(maxWidth: .infinity)
-                        .foregroundColor(Color("ColorGray"))
+                        .foregroundColor(Color.mondeeGrey)
                 }
             }
 
@@ -72,7 +72,7 @@ struct RecordCalendarView: View {
                 ForEach(extractDate()){ value in
                     CardView(value: value)
                         .font(isSameDay(date1: value.date, date2: Date()) ? .system(size: 20, weight: .bold) : .system(size: 20, weight: .regular))
-                        .foregroundColor(isSameDay(date1: value.date, date2: Date()) ? .blue : .black)
+                        .foregroundColor(isSameDay(date1: value.date, date2: Date()) ? .mondeeBlue : .primary)
                 }
             }
             Spacer()

@@ -22,7 +22,7 @@ struct RecordTitleArea: View {
                         .padding(.bottom,7)
                     Text("성공 버블을 모아보세요")
                         .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(Color("ColorFontGray"))
+                        .foregroundColor(Color.mondeeGrey)
                         .padding(.bottom, 25)
                 }
                 .padding(.leading, 42)

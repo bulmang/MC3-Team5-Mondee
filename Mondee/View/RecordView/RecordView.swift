@@ -28,7 +28,7 @@ struct RecordView: View {
                 Color.clear.frame(height: 100)
             }
         }
-        .background(Color("ColorBgLight"))
+        .background(Color.mondeeBackgroundGrey)
         .edgesIgnoringSafeArea(.all)
 
     }
