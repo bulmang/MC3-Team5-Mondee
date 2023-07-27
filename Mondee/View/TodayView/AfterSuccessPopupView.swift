@@ -21,7 +21,7 @@ struct AfterSuccessPopupView: View {
                 
                 Text("메인화면에서")
                     .font(.title2)
-//
+
                 HStack{
                     Text("바뀐 먼디를 확인")
                         .font(.title2)

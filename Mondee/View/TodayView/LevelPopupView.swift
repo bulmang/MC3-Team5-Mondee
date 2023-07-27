@@ -31,7 +31,7 @@ struct LevelPopupView: View {
                     .padding(.bottom,20)
                 Rectangle()
                     .frame(height: 1.0)
-                    .opacity(/*@START_MENU_TOKEN@*/0.2/*@END_MENU_TOKEN@*/)
+                    .opacity(0.2)
                 
                  
                 
