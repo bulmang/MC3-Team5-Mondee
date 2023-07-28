@@ -10,6 +10,9 @@ import SwiftUI
 struct TotalStatistics: View {
     
     @StateObject var userData = UserData()
+    private var challengeCount: Int { userData.countGameSuccess() + userData.countGameFail() }
+    private var successCount: Int { userData.countGameSuccess() }
+    private var totalPlayTime: Int { userData.totalGamePlayTime() }
     
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
@@ -33,7 +36,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("\(userData.countGameSuccess() + userData.countGameFail())")
+                            Text("\(challengeCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                                
@@ -47,7 +50,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("\(userData.countGameSuccess())")
+                            Text("\(successCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
@@ -61,7 +64,7 @@ struct TotalStatistics: View {
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             HStack(alignment: .bottom, spacing:0){
-                                Text("\(userData.totalGamePlayTime() / 60)")
+                                Text("\(totalPlayTime / 60)")
                                     .font(.system(size: 24, weight: .semibold))
                                     .foregroundColor(Color.mondeeBlue)
                                 Text("M")

@@ -10,6 +10,9 @@ import SwiftUI
 struct MonthStatistics: View {
     
     @StateObject var userData = UserData()
+    private var challengeCount: Int { userData.countGameSuccessThisMonth() + userData.countGameFailThisMonth() }
+    private var successCount: Int { userData.countGameSuccessThisMonth() }
+    private var totalPlayTime: Int { userData.gamePlayTimeThisMonth() }
     
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
@@ -32,7 +35,7 @@ struct MonthStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("\(userData.countGameSuccessThisMonth() + userData.countGameFailThisMonth())")
+                            Text("\(challengeCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
@@ -45,7 +48,7 @@ struct MonthStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("\(userData.countGameSuccessThisMonth())")
+                            Text("\(successCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
@@ -59,7 +62,7 @@ struct MonthStatistics: View {
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             HStack(alignment: .bottom, spacing:0){
-                                Text("\(userData.gamePlayTimeThisMonth() / 60)")
+                                Text("\(totalPlayTime / 60)")
                                     .font(.system(size: 24, weight: .semibold))
                                     .foregroundColor(Color.mondeeBlue)
                                 Text("M")
