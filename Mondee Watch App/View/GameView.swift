@@ -18,10 +18,11 @@ struct GameView: View {
     @State private var isGuideActive: Bool = false
     @State private var isGameStartActive: Bool = false
     @State private var isFinalFail: Bool = false
-    @State private var isGameRestart: Bool = false
     
     private let bottomScrollLimit: CGFloat = -270
     private let gameStartScroll: CGFloat = -280
+    
+    @ObservedObject var gameState = GameStateManager()
     
     var body: some View {
         
@@ -40,10 +41,10 @@ struct GameView: View {
         case .success:
             return AnyView(SuccessView())
         case .fail:
-            if isFinalFail || isGameRestart {
+            if isFinalFail || gameState.watchDataModel.isFail || gameState.watchDataModel.isRetry {
                 return AnyView(FinalFailView())
             } else {
-                return AnyView(RetryFailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus, isGameRestart: $isGameRestart))
+                return AnyView(RetryFailView(isFinalFail: $isFinalFail, gameStatus: $gameStatus))
             }
         }
     }

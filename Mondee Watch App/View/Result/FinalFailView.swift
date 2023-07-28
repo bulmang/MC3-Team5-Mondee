@@ -10,9 +10,8 @@ import SwiftUI
 struct FinalFailView: View {    
     @StateObject private var gameState = GameStateManager()
     @StateObject private var movingDetector = MovingDetector()
-    @State private var counter: Int = 0
     
-    private let deviceCommunicator = DeviceCommunicator()
+    @State private var counter: Int = 0
         
     var body: some View {
         ZStack {
@@ -38,17 +37,7 @@ struct FinalFailView: View {
             WKInterfaceDevice.current().play(.failure)
             gameState.isFinalFailActive = true
             gameState.checkIfNewDay()
-            // 데이터를 보냅니다
-            sendData()
         }
-    }
-    
-    fileprivate func sendData() {
-        deviceCommunicator.sendMessage(key: .isSuccess, message: false) { error in }
-        deviceCommunicator.sendMessage(key: .gamePlayDate, message: Date()) { error in }
-        
-        deviceCommunicator.sendMessage(key: .isRetry, message: gameState.isRetry) { error in }
-        deviceCommunicator.sendMessage(key: .remainingHeartCount, message: movingDetector.totalDistanceMoved) { error in }
     }
     
     fileprivate struct Raining: View {

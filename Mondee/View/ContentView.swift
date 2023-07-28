@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @AppStorage("isOnboarding") var isOnboarding: Bool = true
+    
+    @StateObject var data = PhoneDataModel.shared
     
     var body: some View {
         Group{

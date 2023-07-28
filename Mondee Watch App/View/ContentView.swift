@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var gameState = GameStateManager()
+    @ObservedObject var gameState = GameStateManager()
     
     var body: some View {
         GameView()
