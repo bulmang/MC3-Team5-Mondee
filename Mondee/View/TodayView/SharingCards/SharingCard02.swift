@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SharingCard02: View {
+    
     var body: some View {
         ZStack {
             Image("sharingCard02")

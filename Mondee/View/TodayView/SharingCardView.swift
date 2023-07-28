@@ -22,12 +22,6 @@ struct SharingCardView: View {
                 .scaledToFit()
                 .frame(width: 200)
                 .padding(.top)
-            if selection == 0 {
-                Image("sharingCard01_Bubble")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 230)
-            }
         }
     }
 }
