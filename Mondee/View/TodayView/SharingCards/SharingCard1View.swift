@@ -1,5 +1,5 @@
 //
-//  SharingCard01.swift
+//  SharingCard1View.swift
 //  Mondee
 //
 //  Created by Hyunjun Kim on 2023/07/27.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SharingCard01: View {
+struct SharingCard1View: View {
     
     private var isSuceess = true
     
@@ -50,11 +50,11 @@ struct SharingCard01: View {
     }
 }
 
-struct SharingCard01_Previews: PreviewProvider {
+struct SharingCard1View_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            SharingCard01()
+            SharingCard1View()
         }
     }
 }

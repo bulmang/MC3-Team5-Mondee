@@ -13,9 +13,9 @@ struct SharingCardView: View {
     var body: some View {
         ZStack {
             if selection == 0 {
-                SharingCard01()
+                SharingCard1View()
             } else if selection == 1 {
-                SharingCard02()
+                SharingCard2View()
             }
             Image("ImgMondeeLevel1-IOS")
                 .resizable()
