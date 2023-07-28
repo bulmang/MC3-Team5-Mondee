@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 class TodayViewModel: ObservableObject {
-    @Published var successCount: Int = 8
+    @Published var successCount: Int = 0
+    @Published var todayMondee: Mondee?
     @Published var newMondee: Bool = false
     @Published var gameStatus: GameStatus = .noStatus {
         didSet {
@@ -19,12 +20,15 @@ class TodayViewModel: ObservableObject {
         }
     }
     
-    private var lastRecord: User?
-    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
         setupSubscriptions()
+    }
+    
+    func saveTodayMondee(mondee: Mondee) {
+        let today = Date()
+        PhoneDataModel.shared.mondeeLogData.save(mondee, today)
     }
     
     private func setupSubscriptions() {
@@ -33,15 +37,33 @@ class TodayViewModel: ObservableObject {
                 self?.handleUserArrayUpdate(users)
             }
             .store(in: &cancellables)
+        
+        PhoneDataModel.shared.mondeeLogData.$mondeeLog
+            .sink { [weak self] mondeeLogList in
+                self?.handleMondeeLogUpdate(mondeeLogList)
+            }
+            .store(in: &cancellables)
     }
     
     private func handleUserArrayUpdate(_ users: [User]) {
-        lastRecord = users.last
+        successCount = users.filter { $0.gameSuccess == true }.count
         
-        if let lastRecord = lastRecord, isDateToday(lastRecord.gamePlayDate) {
-            gameStatus = lastRecord.gameSuccess ? .finishedSuccess : .finishedFail
+        let hasSuccessToday = users.contains { user in
+            isDateToday(user.gamePlayDate) && user.gameSuccess
+        }
+        
+        if hasSuccessToday {
+            gameStatus = .finishedSuccess
         } else {
             gameStatus = .notStarted
+        }
+    }
+    
+    private func handleMondeeLogUpdate(_ mondeeLogList: [MondeeLog]) {
+        if let todayMondeeLog = mondeeLogList.first(where: { isDateToday($0.date) }) {
+            todayMondee = todayMondeeLog.mondee
+        } else {
+            todayMondee = nil
         }
     }
     
