@@ -34,7 +34,7 @@ struct RecordTitleArea: View {
 struct RecordTitleArea_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             RecordTitleArea()
         }
     }

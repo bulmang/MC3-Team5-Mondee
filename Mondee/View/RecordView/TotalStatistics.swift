@@ -79,7 +79,7 @@ struct TotalStatistics: View {
 struct TotalStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             TotalStatistics()
         }
     }

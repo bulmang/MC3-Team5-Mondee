@@ -77,7 +77,7 @@ struct MonthStatistics: View {
 struct MonthStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             MonthStatistics()
         }
     }

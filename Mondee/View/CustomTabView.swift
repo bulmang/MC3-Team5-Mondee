@@ -12,23 +12,25 @@ struct CustomTabView: View {
     @State var selectedTab: Tab = .today
     
     var body: some View {
-        ZStack (alignment: .bottom) {
-            Color.mondeeBackgroundGrey.ignoresSafeArea()
-            Group {
-                switch selectedTab {
-                case .today:
-                    TodayView()
-                case .record:
-                    RecordView()
-                case .cleanRoom:
-                    CleanRoomView()
+        NavigationStack {
+            ZStack (alignment: .bottom) {
+                Color.mondeeBackgroundGrey.ignoresSafeArea()
+                Group {
+                    switch selectedTab {
+                    case .today:
+                        TodayView()
+                    case .record:
+                        RecordView()
+                    case .cleanRoom:
+                        CleanRoomView()
+                    }
                 }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-            CustomTabBar(selectedTab: $selectedTab)
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .edgesIgnoringSafeArea(.bottom)
+                CustomTabBar(selectedTab: $selectedTab)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .edgesIgnoringSafeArea(.bottom)
+            }
         }
     }
 }
