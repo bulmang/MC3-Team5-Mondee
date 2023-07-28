@@ -14,6 +14,7 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
     
     let session = WCSession.default
     let userData = UserData()
+    let mondeeLogData = MondeeLogData()
     
     @Published var gameSuccess : Bool = false
     @Published var gameFail : Bool = false

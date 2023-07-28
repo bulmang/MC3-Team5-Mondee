@@ -65,3 +65,44 @@ class UserData: ObservableObject {
     }
 }
 
+struct MondeeLog: Codable {
+    let mondee: Mondee
+    let date: Date
+}
+
+class MondeeLogData: ObservableObject {
+    @Published var mondeeLog: [MondeeLog] = []
+
+    /// 데이터 업로드
+    init() {
+        loadData()
+    }
+
+    /// 데이터 save
+    func save(_ mondee: Mondee, _ date: Date) {
+        let newData = MondeeLog(mondee: mondee, date: date)
+        mondeeLog.append(newData)
+        saveData()
+    }
+    
+    /// 데이터 delete
+    func delete(at index: Int) {
+        mondeeLog.remove(at: index)
+        saveData()
+    }
+
+    private func saveData() {
+        if let encodedData = try? JSONEncoder().encode(mondeeLog) {
+            UserDefaults.standard.set(encodedData, forKey: "mondeeLogData")
+            loadData()
+        }
+    }
+    
+    func loadData() {
+        if let data = UserDefaults.standard.data(forKey: "mondeeLogData") {
+            if let decodedData = try? JSONDecoder().decode([MondeeLog].self, from: data) {
+                mondeeLog = decodedData
+            }
+        }
+    }
+}
