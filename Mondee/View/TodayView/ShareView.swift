@@ -16,6 +16,10 @@ struct ShareView: View {
     
     @Namespace private var namespace
     
+    /// 입혀야 할 데이터
+    @State var imageName = "ImgMondeeLevel1-IOS"
+    @State var cleaningTime = 240
+    
     var body: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
@@ -25,7 +29,7 @@ struct ShareView: View {
                     Text("오늘 획득한 먼디를 자랑해보세요!")
                         .font(.title3)
                         .fontWeight(.medium)
-                    SharingCardView(selection: selection)
+                    SharingCardView(selection: selection, imageName: imageName, cleaningTime: cleaningTime)
                         .onAppear {
                             renderedImage = renderImage(for: selection)
                         }
@@ -90,7 +94,7 @@ struct ShareView: View {
                 Spacer()
                 HStack(spacing: 12) {
                     MondeeGreyButton(label: "사진 저장하기") {
-                        let ren = ImageRenderer(content: SharingCardView(selection: selection))
+                        let ren = ImageRenderer(content: SharingCardView(selection: selection, imageName: imageName, cleaningTime: cleaningTime))
                         ren.scale = 3
                         if let image = ren.uiImage {
                             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -143,7 +147,7 @@ struct ShareView: View {
     
     @MainActor
     private func renderImage(for selection: Int) -> Image {
-        let renderer = ImageRenderer(content: SharingCardView(selection: selection))
+        let renderer = ImageRenderer(content: SharingCardView(selection: selection, imageName: imageName, cleaningTime: cleaningTime))
         renderer.scale = 3
         
         if let image = renderer.cgImage {

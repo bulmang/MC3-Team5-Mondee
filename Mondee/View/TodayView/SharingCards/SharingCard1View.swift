@@ -9,7 +9,14 @@ import SwiftUI
 
 struct SharingCard1View: View {
     
-    private var isSuceess = true
+    let cleaningTime: Int
+    let isSuceess = true
+    
+    var formattedCleaningTime: String {
+        let minutes = cleaningTime / 60
+        let seconds = cleaningTime % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -29,7 +36,10 @@ struct SharingCard1View: View {
             }
             .padding(20)
             if isSuceess {
-                Text("Cleaning Time\n09:38")
+                VStack(alignment: .leading) {
+                    Text("Cleaning Time")
+                    Text(formattedCleaningTime)
+                }
                     .font(.system(size: 14))
                     .bold()
                     .offset(x: 45, y: -15)
@@ -54,7 +64,7 @@ struct SharingCard1View_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            SharingCard1View()
+            SharingCard1View(cleaningTime: 120)
         }
     }
 }
