@@ -11,7 +11,6 @@ struct SuccessView: View {
     @StateObject private var gameState = GameStateManager()
     @StateObject private var movingDetector = MovingDetector()
     
-    private let deviceCommunicator = DeviceCommunicator()
     @State private var counter: Int = 0
     
     
@@ -52,16 +51,7 @@ struct SuccessView: View {
             gameState.isSuccessActive = true
             gameState.checkIfNewDay()
             counter += 1
-            // 데이터를 보냅니다
-            sendData()
         }
-    }
-    
-    fileprivate func sendData() {
-        deviceCommunicator.sendMessage(key: .isSuccess, message: true) { error in }
-        deviceCommunicator.sendMessage(key: .gamePlayDate, message: Date()) { error in }
-        
-        deviceCommunicator.sendMessage(key: .isRetry, message: gameState.isRetry) { error in }
     }
 }
 

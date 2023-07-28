@@ -75,7 +75,8 @@ struct PlayView: View {
                 .onChange(of: gameState.isGameFinished) { isGameFinished in
                     // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
                     if isGameFinished {
-                        gameStatus = gameState.isGameSuccessful ? .success : .fail
+                        gameState.watchDataModel.isRetry || gameState.watchDataModel.isSuccess || gameState.watchDataModel.isFail ? sendData() : nil
+                        gameStatus = gameState.watchDataModel.isSuccess ? .success : .fail
                     }
                 }
             }
@@ -116,6 +117,10 @@ struct PlayView: View {
             }
             .toolbarBackground(.hidden, for: .navigationBar)
         }
+    }
+    private func sendData() {
+        gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
+        print("데이터 전송")
     }
     
     private func startBlinking() {
