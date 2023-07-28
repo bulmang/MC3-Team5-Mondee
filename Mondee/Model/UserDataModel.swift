@@ -20,7 +20,6 @@ struct User: Codable, Identifiable {
     var gamePlayDate: Date
     var remainingHeartCount: Int
     var gameRetry: Bool
-    
 }
 
 /// 클래스 생성
