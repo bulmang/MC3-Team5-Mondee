@@ -26,7 +26,7 @@ struct TotalStatistics: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom, 9)
                         .padding(.leading, 27)
-                    HStack(spacing: 40){
+                    HStack(spacing: 30){
                         VStack(spacing: 0){
                             Image("ImgStatisticsMonth")
                                 .resizable()
