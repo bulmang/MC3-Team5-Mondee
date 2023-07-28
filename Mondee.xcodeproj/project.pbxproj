@@ -71,6 +71,8 @@
 		A2A44CC12A6F7DFB00ED8234 /* LevelPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */; };
 		A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */; };
 		BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBF14842A68EA8B006F52CE /* OnboardingView.swift */; };
+		F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */; };
+		F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */; };
 		F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */; };
 		F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */; };
 		F00DEB902A702AF800FF0FCF /* CollectedMondeeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */; };
@@ -163,6 +165,8 @@
 		A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopupView.swift; sourceTree = "<group>"; };
 		A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterSuccessPopupView.swift; sourceTree = "<group>"; };
 		BEBF14842A68EA8B006F52CE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawTestView.swift; sourceTree = "<group>"; };
+		F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawModel.swift; sourceTree = "<group>"; };
 		F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanViewModel.swift; sourceTree = "<group>"; };
 		F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectedMondeeView.swift; sourceTree = "<group>"; };
 		F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeGridView.swift; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 			children = (
 				292CE6C32A5ECD8000BEE4AF /* SampleViewModel.swift */,
 				7FB8E5882A6F5F9900522CE6 /* TodayViewModel.swift */,
+				F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */,
+				F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */,
 				F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */,
 			);
 			path = ViewModel;
@@ -553,6 +559,7 @@
 				29AAE3872A6F3DA5008913C2 /* MonthStatistics.swift in Sources */,
 				7FB8E58B2A6F601500522CE6 /* TodayModel.swift in Sources */,
 				F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */,
+				F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */,
 				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
 				A2A44CC12A6F7DFB00ED8234 /* LevelPopupView.swift in Sources */,
 				29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */,
@@ -575,6 +582,7 @@
 				2900B11B2A6986EE00B7AEFD /* RoundedCross.swift in Sources */,
 				7FB8E58D2A6F621700522CE6 /* MondeeLevelView.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
+				F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */,
 				A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */,
 				F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
