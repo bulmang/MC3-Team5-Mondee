@@ -8,14 +8,26 @@
 import Foundation
 
 let probabilities = [
-    1 : 10,
-    2 : 20,
-    3 : 30,
-    4 : 35,
+    0 : 5,
+    1 : 5,
+    2 : 5,
+    3 : 5,
+    4 : 5,
     5 : 5,
-    6 : 10,
-    7 : 10,
-    8 : 10
+    6 : 5,
+    7 : 5,
+    8 : 5,
+    9 : 5,
+    10 : 5,
+    11 : 5,
+    12 : 5,
+    13 : 5,
+    14 : 5,
+    15 : 5,
+    16 : 5,
+    17 : 5,
+    18 : 5,
+    19 : 5,
 ]
 
 func randomWithProbability(distribution: [Int : Int]) -> Int {
