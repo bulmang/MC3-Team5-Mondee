@@ -15,7 +15,7 @@ struct SharingCard01: View {
         ZStack(alignment: .topLeading) {
             Rectangle()
                 .foregroundColor(Color.mondeeBoxBackground)
-                .frame(width: 300, height: 477.5)
+                .frame(width: 320, height: 320)
             VStack(alignment: .leading, spacing: 5) {
                 if isSuceess {
                     Text("Today's\ncleaning success!")
@@ -35,7 +35,7 @@ struct SharingCard01: View {
                     .offset(x: 45, y: -15)
                     .foregroundColor(.mondeeBlue)
                     .rotationEffect(Angle(degrees: 270))
-                    .frame(width: 300, height: 477.5, alignment: .bottomLeading)
+                    .frame(width: 320, height: 320, alignment: .bottomLeading)
             }
             VStack(spacing: -10) {
                 Image("sharingCardMondeeText")
@@ -44,7 +44,7 @@ struct SharingCard01: View {
                     .frame(width: 210)
             }
             .padding(.trailing, 10)
-            .frame(width: 300, height: 477.5, alignment: .bottomTrailing)
+            .frame(width: 320, height: 320, alignment: .bottomTrailing)
             
         }
     }

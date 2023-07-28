@@ -115,6 +115,7 @@ struct ShareView: View {
                     .buttonStyle(MondeeButtonClickStyle())
                 }
                 .padding(.vertical, 5)
+                .padding(.horizontal)
             }
             .padding()
         }
@@ -131,9 +132,11 @@ struct ShareView: View {
     @ViewBuilder
     private func toastBox(text: String) -> some View {
         Text(text)
+            .font(.system(size: 14))
             .padding()
             .background(
-                Capsule().foregroundColor(.mondeeBackgroundGrey)
+                Capsule()
+                    .foregroundStyle(.thinMaterial)
                     .shadow(radius: 2)
             )
     }

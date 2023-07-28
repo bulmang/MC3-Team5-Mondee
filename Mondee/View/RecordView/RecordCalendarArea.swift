@@ -28,7 +28,7 @@ struct RecordCalendarArea: View {
 struct RecordCalendarArea_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             RecordCalendarArea(currentDate: .constant(Date()))
         }
     }

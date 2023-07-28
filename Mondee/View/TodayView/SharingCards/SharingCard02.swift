@@ -14,7 +14,7 @@ struct SharingCard02: View {
             Image("sharingCard02")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 300)
+                .frame(width: 320)
         }
         
     }
