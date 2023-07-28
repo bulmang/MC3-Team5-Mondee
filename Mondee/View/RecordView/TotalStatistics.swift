@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TotalStatistics: View {
+    
+    @StateObject var userData = UserData()
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
@@ -30,7 +33,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("9")
+                            Text("\(userData.countGameSuccess() + userData.countGameFail())")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                                
@@ -44,7 +47,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("14")
+                            Text("\(userData.countGameSuccess())")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
@@ -58,7 +61,7 @@ struct TotalStatistics: View {
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             HStack(alignment: .bottom, spacing:0){
-                                Text("80")
+                                Text("\(userData.totalGamePlayTime() / 60)")
                                     .font(.system(size: 24, weight: .semibold))
                                     .foregroundColor(Color.mondeeBlue)
                                 Text("M")
