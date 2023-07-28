@@ -24,7 +24,8 @@ struct MonthStatistics: View {
             .foregroundColor(Color.mondeeBoxBackground)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
-                    Text("\(extraMonthNumber(for: currentMonth))월 기록")
+                    Text("\(calendarMonthNumber(for: currentMonth))월 기록")
+                        .monospacedDigit()
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top, 21)
                         .padding(.leading, 27)
@@ -82,7 +83,10 @@ struct MonthStatistics: View {
             }
     }
     
-    private func extraMonthNumber(for monthOffset: Int) -> Int {
+    /// 캘린더에 해당하는 월의 숫자를 표시해 주는 함수
+    /// - Parameter monthOffset: currentMonth를 받아옵니다. currentMonth의 경우 이번 달은 0으로 표시 지난 달을 -1, 다음달은 +1 형식으로 표시하는 Int 변수입니다.
+    /// - Returns: 해당 개월의 숫자를 표시합니다.
+    private func calendarMonthNumber(for monthOffset: Int) -> Int {
         let calendar = Calendar.current
         let currentDate = Date()
         guard let targetDate = calendar.date(byAdding: .month, value: monthOffset, to: currentDate) else {
