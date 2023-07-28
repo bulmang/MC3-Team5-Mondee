@@ -11,7 +11,7 @@ struct RecordCalendarView: View {
     let dateFormatter = DateFormatter()
     
     @Binding var currentDate : Date //현재 날짜
-    @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
+    @Binding var currentMonth : Int // 화살표 클릭으로 인한 월 세는 변수
         
     //MARK: Database
     let days: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
@@ -171,7 +171,7 @@ struct RecordCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            RecordCalendarView(currentDate: .constant(Date()))
+            RecordCalendarView(currentDate: .constant(Date()), currentMonth: .constant(0))
         }
     }
 }

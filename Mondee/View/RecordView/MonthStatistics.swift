@@ -10,9 +10,12 @@ import SwiftUI
 struct MonthStatistics: View {
     
     @StateObject var userData = UserData()
-    private var challengeCount: Int { userData.countGameSuccessThisMonth() + userData.countGameFailThisMonth() }
-    private var successCount: Int { userData.countGameSuccessThisMonth() }
-    private var totalPlayTime: Int { userData.gamePlayTimeThisMonth() }
+    
+    @Binding var currentMonth : Int
+    
+    private var challengeCount: Int { userData.countGameFail(inMonth: currentMonth) + userData.countGameSuccess(inMonth: currentMonth) }
+    private var successCount: Int { userData.countGameSuccess(inMonth: currentMonth) }
+    private var totalPlayTime: Int { userData.totalGamePlayTime(inMonth: currentMonth) }
     
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
@@ -21,7 +24,7 @@ struct MonthStatistics: View {
             .foregroundColor(Color.mondeeBoxBackground)
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
-                    Text("이번달 기록")
+                    Text("\(extraMonthNumber(for: currentMonth))월 기록")
                         .font(.system(size: 20, weight: .bold))
                         .padding(.top, 21)
                         .padding(.leading, 27)
@@ -78,13 +81,23 @@ struct MonthStatistics: View {
                 }
             }
     }
+    
+    private func extraMonthNumber(for monthOffset: Int) -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        guard let targetDate = calendar.date(byAdding: .month, value: monthOffset, to: currentDate) else {
+            return 0
+        }
+        let monthNumber = calendar.component(.month, from: targetDate)
+        return monthNumber
+    }
 }
 
 struct MonthStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            MonthStatistics()
+            MonthStatistics(currentMonth: .constant(0))
         }
     }
 }

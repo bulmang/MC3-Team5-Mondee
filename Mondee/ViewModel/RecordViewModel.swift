@@ -22,6 +22,46 @@ extension UserData {
             return count + (user.gameFail ? 1 : 0)
         }
     }
+    
+    func countGameSuccess(inMonth monthOffset: Int) -> Int {
+        let currentDate = Date()
+        let targetDate = Calendar.current.date(byAdding: .month, value: monthOffset, to: currentDate) ?? currentDate
+        
+        let successCount = userdata.reduce(0) { count, user in
+            let calendar = Calendar.current
+            let isTargetMonth = calendar.isDate(user.gamePlayDate, equalTo: targetDate, toGranularity: .month)
+            return count + (user.gameSuccess && isTargetMonth ? 1 : 0)
+        }
+        
+        return successCount
+    }
+
+    func countGameFail(inMonth monthOffset: Int) -> Int {
+        let currentDate = Date()
+        let targetDate = Calendar.current.date(byAdding: .month, value: monthOffset, to: currentDate) ?? currentDate
+        
+        let failCount = userdata.reduce(0) { count, user in
+            let calendar = Calendar.current
+            let isTargetMonth = calendar.isDate(user.gamePlayDate, equalTo: targetDate, toGranularity: .month)
+            return count + (user.gameFail && isTargetMonth ? 1 : 0)
+        }
+        
+        return failCount
+    }
+    
+    func totalGamePlayTime(inMonth monthOffset: Int) -> Int {
+        let currentDate = Date()
+        let targetDate = Calendar.current.date(byAdding: .month, value: monthOffset, to: currentDate) ?? currentDate
+        
+        let totalPlayTime = userdata.reduce(0) { totalPlayTime, user in
+            let calendar = Calendar.current
+            let isTargetMonth = calendar.isDate(user.gamePlayDate, equalTo: targetDate, toGranularity: .month)
+            return totalPlayTime + (isTargetMonth ? user.gamePlayTime : 0)
+        }
+        
+        return totalPlayTime
+    }
+
 
     /// 이번 달의 게임 성공 횟수를 가져옴
     func countGameSuccessThisMonth() -> Int {

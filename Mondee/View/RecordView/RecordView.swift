@@ -11,6 +11,8 @@ struct RecordView: View {
     @State var currentDate = Date()
     @State private var scrollViewOffset: CGFloat = 0
     
+    @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
+    
     var body: some View {
         
         ZStack{
@@ -24,8 +26,8 @@ struct RecordView: View {
                     VStack(spacing: 15){
                         RecordTitleArea()
                         VStack(spacing: 15){
-                            RecordCalendarArea(currentDate: $currentDate)
-                            MonthStatistics()
+                            RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)
+                            MonthStatistics(currentMonth: $currentMonth)
                             TotalStatistics()
                         }
                         .padding(.horizontal, 13)
