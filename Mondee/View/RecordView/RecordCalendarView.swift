@@ -155,7 +155,7 @@ struct RecordCalendarView: View {
 struct RecordCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
             RecordCalendarView(currentDate: .constant(Date()))
         }
     }

@@ -39,6 +39,11 @@ struct AfterSuccessPopupView: View {
                 
                 
                 MondeeBlueButton(label: "확인하러가기") {
+                    let todayMondee = mondeeList[
+                        randomWithProbability(distribution: probabilities)
+                    ]
+                    viewModel.todayMondee = todayMondee
+                    viewModel.saveTodayMondee(mondee: todayMondee)
                     viewModel.newMondee = false
                 }
                 .padding(.horizontal,30)
