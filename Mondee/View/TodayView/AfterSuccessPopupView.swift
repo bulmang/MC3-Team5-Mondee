@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AfterSuccessPopupView: View {
+    @ObservedObject var viewModel: TodayViewModel
+    
     var body: some View {
         ZStack{
             Color("mondeeBackgroundGrey")
@@ -18,11 +20,11 @@ struct AfterSuccessPopupView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color("mondeeBlue"))
                     .padding(.bottom,1)
-                    
+                
                 
                 Text("메인화면에서")
                     .font(.title2)
-
+                
                 HStack{
                     Text("바뀐 먼디를 확인")
                         .font(.title2)
@@ -34,9 +36,10 @@ struct AfterSuccessPopupView: View {
                 Image("ImgAfterSucessPopup-iOS")
                     .resizable()
                     .frame(width: 273,height: 251)
-                 
+                
                 
                 MondeeBlueButton(label: "확인하러가기") {
+                    viewModel.newMondee = false
                 }
                 .padding(.horizontal,30)
                 .padding(.top,30)
@@ -48,11 +51,5 @@ struct AfterSuccessPopupView: View {
             .cornerRadius(25)
             .padding(.horizontal)
         }
-    }
-}
-
-struct AfterSuccessPopupView_Previews: PreviewProvider {
-    static var previews: some View {
-        AfterSuccessPopupView()
     }
 }
