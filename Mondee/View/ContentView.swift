@@ -22,14 +22,6 @@ struct ContentView: View {
             }
         }
         .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
-        // TODO: TEST CODE 삭제 바람
-//        ScrollView{
-//            VStack{
-//                Text("async : \(data.description)")
-//                Divider()
-//                Text("userDefaults : \(data.userData.userdata.description)")
-//            }
-//        }
     }
 }
 

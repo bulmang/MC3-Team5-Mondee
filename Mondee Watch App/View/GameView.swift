@@ -13,12 +13,11 @@ enum GameStatus {
 }
 
 struct GameView: View {
-    @State private var gameStatus: GameStatus = .play
+    @State private var gameStatus: GameStatus = .preparation
     @State private var mondeeScroll: CGFloat = 0.0
     @State private var isGuideActive: Bool = false
     @State private var isGameStartActive: Bool = false
     @State private var isFinalFail: Bool = false
-    
     
     private let bottomScrollLimit: CGFloat = -270
     private let gameStartScroll: CGFloat = -280

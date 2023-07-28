@@ -189,7 +189,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-            07D962FD2A62B6E400CFDFFC /* Preparation */ = {
+		07D962FD2A62B6E400CFDFFC /* Preparation */ = {
 			isa = PBXGroup;
 			children = (
 				07D962FB2A6146C400CFDFFC /* PreparationView.swift */,
@@ -217,7 +217,6 @@
 				2919A76D2A5D0099000B6CF6 /* Mondee */,
 				2919A77F2A5D009A000B6CF6 /* Mondee Watch App */,
 				2919A76C2A5D0099000B6CF6 /* Products */,
-				07030F892A72D30A00F0BA9C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -756,7 +755,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
@@ -787,7 +786,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
@@ -820,7 +819,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
@@ -853,7 +852,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = 4C4PBP93YJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
