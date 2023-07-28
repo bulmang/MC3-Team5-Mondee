@@ -26,10 +26,15 @@ struct TodayView: View {
                         Spacer()
                     }
                 }.padding(.all, 24.0)
-            }.blur(radius: isLevelInfoPopup ? 2 : 0)
+            }.blur(radius: (isLevelInfoPopup || viewModel.newMondee) ? 2 : 0)
             
             if isLevelInfoPopup {
                 LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
+                    .transition(.opacity)
+            }
+            
+            if viewModel.newMondee {
+                AfterSuccessPopupView(viewModel: viewModel)
                     .transition(.opacity)
             }
         }
