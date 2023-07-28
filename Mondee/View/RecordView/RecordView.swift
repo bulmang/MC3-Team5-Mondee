@@ -15,7 +15,7 @@ struct RecordView: View {
     
     var body: some View {
         
-        ZStack{
+        ZStack(alignment: .top){
             VStack {
                 Color.mondeeBoxBackground
                 Color.mondeeBackgroundGrey
@@ -37,6 +37,8 @@ struct RecordView: View {
             .safeAreaInset(edge: .bottom) {
                 Color.clear.frame(height: 100)
             }
+            Rectangle().frame(height: 60)
+                .foregroundColor(.mondeeBoxBackground)
         }
         .edgesIgnoringSafeArea(.all)
 
