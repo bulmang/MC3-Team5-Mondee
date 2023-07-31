@@ -15,8 +15,7 @@ class CollectedMondeeModel: ObservableObject {
     init() {
         let mondeeList = mondeeList
         
-        let mondeeLogData = data.mondeeLogData
-        let mondeeLogList = mondeeLogData.mondeeLog
+        let mondeeLogList = data.mondeeLogData.mondeeLog
         
         self.collectedMondees = mondeeList.map { mondee in
             let isCollected = mondeeLogList.contains { $0.mondee.name == mondee.name }

@@ -89,7 +89,7 @@ extension UserData {
     /// 게임 성공 날짜가 있는지 판별하는 함수
     /// - Parameter date: 판별할 날짜
     /// - Returns: 게임 성공 여부에 따라 true, false 값을 반환합니다.
-    func isSuccessfulDate(date: Date) -> Bool {
+    func isSuccessfullDate(date: Date) -> Bool {
         let successfulDates = userdata.filter { $0.gameSuccess }.map { $0.gamePlayDate }
         return successfulDates.contains { successfulDate in
             Calendar.current.isDate(successfulDate, inSameDayAs: date)
