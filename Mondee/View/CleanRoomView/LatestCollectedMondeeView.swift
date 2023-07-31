@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LatestCollectedMondeeView: View {
-    @ObservedObject var collectedModel: collectedMondeeModel
+    @ObservedObject var collectedModel: CollectedMondeeModel
     
     var body: some View {
         VStack(spacing: 2) {

@@ -11,7 +11,7 @@ struct CollectedMondeeGridView: View {
     @Binding var isDetailCardPopUp: Bool
     @Binding var collected: CollectedMondee
     
-    @ObservedObject var collectedModel: collectedMondeeModel
+    @ObservedObject var collectedModel: CollectedMondeeModel
     
     let columns = Array(repeating: GridItem(.flexible()), count: 3)
     
