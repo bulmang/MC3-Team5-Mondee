@@ -4,11 +4,11 @@
 //
 //  Created by woozu on 2023/07/31.
 //
-
+import AVFoundation
 import SwiftUI
 
 struct SplashScreen: View {
-    
+        
     var body: some View {
         VStack {
             ZStack {
@@ -28,6 +28,9 @@ struct SplashScreen: View {
         }
     }
 }
+
+
+
 struct SplashScreen_Previews: PreviewProvider {
     static var previews: some View {
         SplashScreen()
