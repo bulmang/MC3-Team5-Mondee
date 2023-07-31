@@ -9,9 +9,12 @@ import SwiftUI
 
 struct CustomTabView: View {
     
+    @StateObject private var viewModel = TodayViewModel()
+    
     @State var selectedTab: Tab = .today
     @State private var isRulePopup = false
     @State private var isLevelInfoPopup = false
+    @State var experiencePointAnimation = false
     
     var body: some View {
         NavigationStack {
@@ -21,7 +24,7 @@ struct CustomTabView: View {
                     Group {
                         switch selectedTab {
                         case .today:
-                            TodayView(isRulePopup: $isRulePopup, isLevelInfoPopup: $isLevelInfoPopup)
+                            TodayView(viewModel: viewModel, isRulePopup: $isRulePopup, isLevelInfoPopup: $isLevelInfoPopup, experiencePointAnimation: $experiencePointAnimation)
                         case .record:
                             RecordView()
                         case .cleanRoom:
@@ -45,6 +48,10 @@ struct CustomTabView: View {
                     LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
                         .transition(.opacity)
                 }
+            }
+            .fullScreenCover(isPresented: $viewModel.newMondee) {
+                AfterSuccessPopupView(viewModel: viewModel, experiencePointAnimation: $experiencePointAnimation)
+                    .transition(.opacity)
             }
         }
     }
