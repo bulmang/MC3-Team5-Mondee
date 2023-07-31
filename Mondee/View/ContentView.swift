@@ -15,26 +15,27 @@ struct ContentView: View {
     @State var splashActive:Bool = true
     
     var body: some View {
-        Group{
-            if splashActive {
-                SplashScreen()
-            } else {
-                if isOnboarding {
-                    OnboardingView()
-                } else {
-                    CustomTabView()
-                        .transition(.opacity)
-                }
-            }
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                withAnimation {
-                    self.splashActive = false
-                }
-            }
-        }
-        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
+//        Group{
+//            if splashActive {
+//                SplashScreen()
+//            } else {
+//                if isOnboarding {
+//                    OnboardingView()
+//                } else {
+//                    CustomTabView()
+//                        .transition(.opacity)
+//                }
+//            }
+//        }
+//        .onAppear {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                withAnimation {
+//                    self.splashActive = false
+//                }
+//            }
+//        }
+//        .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
+        Text(data.userData.userdata.description)
     }
 }
 

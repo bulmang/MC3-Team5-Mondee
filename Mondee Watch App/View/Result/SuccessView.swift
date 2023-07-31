@@ -11,8 +11,6 @@ struct SuccessView: View {
     @StateObject private var gameState = GameStateManager()
     @StateObject private var movingDetector = MovingDetector()
     
-    @ObservedObject var watchLiveDataModel = WatchLiveDataModel()
-    
     @State private var counter: Int = 0
     
     
