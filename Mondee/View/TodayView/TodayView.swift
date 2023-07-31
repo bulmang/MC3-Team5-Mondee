@@ -12,6 +12,8 @@ struct TodayView: View {
     @Binding var isRulePopup: Bool
     @Binding var isLevelInfoPopup: Bool
     
+    @State var experiencePointAnimation = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -20,7 +22,7 @@ struct TodayView: View {
                     VStack(spacing: 16) {
                         InfoIconSection(isRulePopup: $isRulePopup)
                         TitleSection()
-                        MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup)
+                        MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup, experiencePointAnimation: $experiencePointAnimation)
                         MondeeBoxView(viewModel: viewModel)
                         ShareButtonSection(viewModel: viewModel)
                         Spacer()
@@ -29,7 +31,7 @@ struct TodayView: View {
             }
         }
         .fullScreenCover(isPresented: $viewModel.newMondee) {
-            AfterSuccessPopupView(viewModel: viewModel)
+            AfterSuccessPopupView(viewModel: viewModel, experiencePointAnimation: $experiencePointAnimation)
                 .transition(.opacity)
         }
     }
