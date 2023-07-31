@@ -35,7 +35,7 @@ struct FinalFailView: View {
         .onAppear{
             counter += 1
             WKInterfaceDevice.current().play(.failure)
-            gameState.isFinalFailActive = true
+//            gameState.isFinalFailActive = true
             gameState.checkIfNewDay()
         }
     }
