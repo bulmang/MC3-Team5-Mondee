@@ -32,13 +32,11 @@ struct RecordView: View {
                             MonthStatistics(userData: userData, currentMonth: $currentMonth)
                             TotalStatistics(userData: userData)
                         }
-                        .padding(.horizontal, 13)
+                        .padding(.horizontal, 16)
                     }
                 }
             }
-            .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 100)
-            }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }
             Rectangle().frame(height: 60)
                 .foregroundColor(.mondeeBoxBackground)
         }

@@ -59,7 +59,7 @@ struct CollectedMondeeGridView: View {
         )
         .padding(.top, 5)
         .padding(.bottom, 24)
-        .padding(.horizontal, 19)
+        .padding(.horizontal, 16)
     }
 }
 

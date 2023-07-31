@@ -25,7 +25,7 @@ struct TodayView: View {
                         ShareButtonSection(viewModel: viewModel)
                         Spacer()
                     }
-                }.padding(.all, 24.0)
+                }.padding(.all, 16)
             }.blur(radius: (isLevelInfoPopup || viewModel.newMondee || isRulePopup) ? 2 : 0)
             
             if isRulePopup {

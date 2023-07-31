@@ -53,7 +53,7 @@ struct LatestCollectedMondeeView: View {
                 .fill(Color.mondeeBoxBackground)
         )
         .padding(.top, 5)
-        .padding(.horizontal, 19)
+        .padding(.horizontal, 16)
     }
     
     func findLatelyDateItems(in items: [CollectedMondee]) -> CollectedMondee? {
