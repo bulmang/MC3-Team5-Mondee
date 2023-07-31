@@ -33,8 +33,11 @@ struct LatestCollectedMondeeView: View {
             } else {
                 Text("?")
                     .font(.system(size: 100))
-                    .bubbleFontModifier()
-                    .padding(.bottom, 10)
+                    .iOSbubbleFontModifier()
+                    .background (
+                        Circle().foregroundColor(.mondeeBackgroundGrey)
+                            .frame(width: 100)
+                    )
                 Text("최근 획득한 먼디")
                     .font(.callout)
                     .padding(.bottom, 4)
@@ -80,12 +83,3 @@ struct LatestCollectedMondeeView: View {
     
     
 }
-
-//struct LatestCollectedMondeeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZStack {
-//            Color.mondeeBackgroundGrey.ignoresSafeArea()
-//            LatestCollectedMondeeView()
-//        }
-//    }
-//}

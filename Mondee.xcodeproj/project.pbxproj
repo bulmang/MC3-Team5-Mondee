@@ -42,6 +42,7 @@
 		29623FB72A6941F100B4B380 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB62A6941F100B4B380 /* RecordView.swift */; };
 		29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB82A69420D00B4B380 /* CleanRoomView.swift */; };
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
+		298CEC492A77DB3E00BA475F /* iOSFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CEC482A77DB3E00BA475F /* iOSFontModifier.swift */; };
 		298F913F2A69605C002D36B3 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F913E2A69605C002D36B3 /* TabModel.swift */; };
 		29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */; };
 		29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */; };
@@ -150,6 +151,7 @@
 		29623FB62A6941F100B4B380 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		29623FB82A69420D00B4B380 /* CleanRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomView.swift; sourceTree = "<group>"; };
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
+		298CEC482A77DB3E00BA475F /* iOSFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSFontModifier.swift; sourceTree = "<group>"; };
 		298F913E2A69605C002D36B3 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTitleArea.swift; sourceTree = "<group>"; };
 		29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarView.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 			children = (
 				F0527A392A6E41F8001923F7 /* ColorSystem.swift */,
 				F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */,
+				298CEC482A77DB3E00BA475F /* iOSFontModifier.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
 				29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */,
 				29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */,
+				298CEC492A77DB3E00BA475F /* iOSFontModifier.swift in Sources */,
 				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
 				F09EB5AA2A72A55F00D0EA5E /* SharingCard2View.swift in Sources */,
 				F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */,

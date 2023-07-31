@@ -63,16 +63,3 @@ struct CollectedMondeeGridView: View {
     }
 }
 
-//struct CollectedMondeeGridView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        ZStack {
-//            Color.mondeeBackgroundGrey.ignoresSafeArea()
-//            ScrollView {
-//                CollectedMondeeGridView(isDetailCardPopUp: .constant(false), collectedModel: <#collectedMondeeModel#>)
-//            }
-//        }
-//    }
-//}
-
-

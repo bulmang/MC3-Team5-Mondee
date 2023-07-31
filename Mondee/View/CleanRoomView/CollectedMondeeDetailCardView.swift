@@ -84,14 +84,4 @@ struct CollectedMondeeDetailCardView: View {
             dateFormatter.dateFormat = "yy.MM.d" // 이 형식에 따라 월일이 표시됩니다.
             return dateFormatter.string(from: date)
     }
-    
 }
-
-//struct CollectedMondeeDetailCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZStack {
-//            Color.mondeeBackgroundGrey.ignoresSafeArea()
-//            CollectedMondeeDetailCardView(isDetailCardPopUp: .constant(true))
-//        }
-//    }
-//}
