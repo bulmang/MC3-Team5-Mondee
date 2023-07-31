@@ -13,9 +13,9 @@ struct CleanRoomView: View {
     @State private var isDetailCardPopUp = false
     @State private var collectedMondeeName = ""
     
-    @State private var collectedMondee: CollectedMondee = CollectedMondee(index: 0, collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
+    @State private var collectedMondee: CollectedMondee = CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
     
-    @StateObject private var collectedModel = collectedMondeeModel()
+    @StateObject private var collectedModel = CollectedMondeeModel()
     
     var body: some View {
         ZStack(alignment: .top) {
