@@ -8,41 +8,35 @@
 import SwiftUI
 
 struct RecordTitleArea: View {
+    @Binding var scrollViewOffset: CGFloat
     
     @ObservedObject var userData: UserData
-
+    
     var body: some View {
         
         /// 최대 연속 횟수 확인 maxConsecutiveSuccessCount 사용
         let (recentConsecutiveSuccessCount, _) = userData.consecutiveSuccessCounts()
         
-        RoundedRectangle(cornerRadius: 20)
-            .frame(maxWidth: .infinity)
-            .frame(height: 164)
-            .foregroundColor(Color.mondeeBoxBackground)
-            .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 4)
-            .overlay(alignment: .leading){
-                VStack(alignment: .leading, spacing: 0){
-                    Spacer()
-                    Text("연속 성공 \(recentConsecutiveSuccessCount)일차🎉")
-                        .font(.system(size: 27, weight: .bold))
-                        .padding(.bottom,7)
-                    Text("성공 버블을 모아보세요")
-                        .font(.system(size: 16, weight: .regular))
-                        .foregroundColor(Color.mondeeGrey)
-                        .padding(.bottom, 20)
-                }
-                .padding(.leading, 40)
-            }
-            
-    }
-}
-
-struct RecordTitleArea_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack{
-            Color.mondeeBackgroundGrey.ignoresSafeArea()
-            RecordTitleArea(userData: UserData())
+        
+        VStack(alignment: .leading, spacing: 5) {
+            Text("연속 성공 \(recentConsecutiveSuccessCount)일차🎉")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(.black)
+            Text("성공 버블을 모아보세요")
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .opacity(Double(scrollViewOffset / 40 - 0.65))
+        .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
+        .background(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(Color.mondeeBoxBackground)
+                .edgesIgnoringSafeArea(.top)
+                .shadow(color: .black.opacity(0.05), radius: 4, y: 4)
+        )
+        .onScrollViewOffsetChanged { value in
+            scrollViewOffset = value
         }
     }
 }
+
