@@ -22,7 +22,7 @@ struct TodayView: View {
                         TitleSection()
                         MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup)
                         MondeeBoxView(viewModel: viewModel)
-                        ShareButtonSection()
+                        ShareButtonSection(viewModel: viewModel)
                         Spacer()
                     }
                 }.padding(.all, 24.0)
@@ -76,9 +76,11 @@ struct TitleSection: View {
 }
 
 struct ShareButtonSection: View {
+    @ObservedObject var viewModel: TodayViewModel
+    
     var body: some View {
         NavigationLink {
-            ShareView()
+            ShareView(viewModel: viewModel)
         } label: {
             HStack {
                 Text("오늘의 먼디 자랑하기")

@@ -13,7 +13,8 @@ struct RecordTitleArea: View {
 
     var body: some View {
         
-        let (recentConsecutiveSuccessCount, maxConsecutiveSuccessCount) = userData.consecutiveSuccessCounts()
+        /// 최대 연속 횟수 확인 maxConsecutiveSuccessCount 사용
+        let (recentConsecutiveSuccessCount, _) = userData.consecutiveSuccessCounts()
         
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
