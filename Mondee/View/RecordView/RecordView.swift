@@ -23,7 +23,6 @@ struct RecordView: View {
                 .frame(height: scrollViewOffset > 0 ? scrollViewOffset : 0)
             
             ScrollView{
-                
                 VStack(spacing: 15){
                     RecordTitleArea(scrollViewOffset: $scrollViewOffset, userData: userData)
                     VStack(spacing: 15){
@@ -32,11 +31,12 @@ struct RecordView: View {
                         TotalStatistics(userData: userData)
                     }
                     .padding(.horizontal, 16)
+                    .padding(.bottom, 24)
                 }
                 
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
-            .safeAreaInset(edge: .top) { Color.clear.frame(height: 0) }
+            .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
             .overlay(alignment: .top) {
                 InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "기록실")
             }

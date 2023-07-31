@@ -18,6 +18,7 @@ struct ContentView: View {
         Group{
             if splashActive {
                 SplashScreen()
+                    .offset(x: 5)
             } else {
                 if isOnboarding {
                     OnboardingView()

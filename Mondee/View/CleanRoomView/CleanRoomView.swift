@@ -31,7 +31,7 @@ struct CleanRoomView: View {
                 }
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
-            .safeAreaInset(edge: .top) { Color.clear.frame(height: 0) }
+            .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
             .overlay(alignment: .top) {
                 InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "멸균실")
             }
@@ -60,7 +60,7 @@ struct LargeNavigationTitle: View {
             Text(subTitle)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .opacity(Double(scrollViewOffset / 40 - 0.65))
+        .opacity(Double(scrollViewOffset / 30 - 0.83))
         .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)
