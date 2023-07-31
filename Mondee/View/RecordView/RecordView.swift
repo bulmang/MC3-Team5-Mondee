@@ -12,36 +12,35 @@ struct RecordView: View {
     @State private var scrollViewOffset: CGFloat = 0
     
     @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
-        
-    @StateObject var userData = UserData()
+    
+    @ObservedObject var userData = UserData()
+    
     
     var body: some View {
         
         ZStack(alignment: .top){
-            VStack {
-                Color.mondeeBoxBackground
-                Color.mondeeBackgroundGrey
-            }
+            Color.mondeeBoxBackground.ignoresSafeArea()
+                .frame(height: scrollViewOffset > 0 ? scrollViewOffset : 0)
+            
             ScrollView{
-                ZStack {
-                    Color.mondeeBackgroundGrey.padding(.top, 25)
-                    VStack(spacing: 13){
-                        RecordTitleArea(userData: userData)
-                        VStack(spacing: 15){
-                            RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)
-                            MonthStatistics(userData: userData, currentMonth: $currentMonth)
-                            TotalStatistics(userData: userData)
-                        }
-                        .padding(.horizontal, 16)
+                
+                VStack(spacing: 15){
+                    RecordTitleArea(scrollViewOffset: $scrollViewOffset, userData: userData)
+                    VStack(spacing: 15){
+                        RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)
+                        MonthStatistics(userData: userData, currentMonth: $currentMonth)
+                        TotalStatistics(userData: userData)
                     }
+                    .padding(.horizontal, 16)
                 }
+                
             }
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }
-            Rectangle().frame(height: 60)
-                .foregroundColor(.mondeeBoxBackground)
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
+            .safeAreaInset(edge: .top) { Color.clear.frame(height: 0) }
+            .overlay(alignment: .top) {
+                InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "기록실")
+            }
         }
-        .edgesIgnoringSafeArea(.all)
-
     }
 }
 
