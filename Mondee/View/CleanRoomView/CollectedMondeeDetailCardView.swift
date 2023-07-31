@@ -36,7 +36,6 @@ struct CollectedMondeeDetailCardView: View {
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title2)
-                            .bold()
                             .opacity(0.6)
                             .offset(x: -10, y: -30)
                     }
