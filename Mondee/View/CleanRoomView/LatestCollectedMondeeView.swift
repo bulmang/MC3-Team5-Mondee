@@ -26,21 +26,19 @@ struct LatestCollectedMondeeView: View {
                 .padding(.bottom, 10)
                 Text("최근 획득한 먼디")
                     .font(.callout)
+                    .padding(.bottom, 4)
                 Text("\(formatDateKorean(date: mostRecentRow.collectedMondeeDate!))에 먼디를 획득했어요")
                     .font(.footnote)
                     .foregroundColor(.mondeeGrey)
             } else {
-                ZStack {
-                    Circle()
-                        .frame(width: 168)
-                        .foregroundColor(Color(.systemGray6))
-                    Text("없다 이녀석아")
-                        .padding(.bottom, 15)
-                }
-                .padding(.bottom, 10)
+                Text("?")
+                    .font(.system(size: 100))
+                    .bubbleFontModifier()
+                    .padding(.bottom, 10)
                 Text("최근 획득한 먼디")
                     .font(.callout)
-                Text("먼디 획득하러 얼른 고고!")
+                    .padding(.bottom, 4)
+                Text("얼른 먼디를 획득하러 가요!")
                     .font(.footnote)
                     .foregroundColor(.mondeeGrey)
             }
