@@ -80,6 +80,7 @@
 		F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */; };
 		F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */; };
 		F040CFE12A72D11A00805728 /* SharingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F040CFE02A72D11A00805728 /* SharingCardView.swift */; };
+		F0430AC92A736FE2003104D0 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0430AC82A736FE2003104D0 /* RecordViewModel.swift */; };
 		F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A392A6E41F8001923F7 /* ColorSystem.swift */; };
 		F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */; };
 		F09EB5AA2A72A55F00D0EA5E /* SharingCard2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09EB5A92A72A55F00D0EA5E /* SharingCard2View.swift */; };
@@ -181,6 +182,7 @@
 		F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawTestView.swift; sourceTree = "<group>"; };
 		F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawModel.swift; sourceTree = "<group>"; };
 		F040CFE02A72D11A00805728 /* SharingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingCardView.swift; sourceTree = "<group>"; };
+		F0430AC82A736FE2003104D0 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
 		F0527A392A6E41F8001923F7 /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSystem.swift; sourceTree = "<group>"; };
 		F09EB5A92A72A55F00D0EA5E /* SharingCard2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingCard2View.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */,
 				F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */,
 				F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */,
+				F0430AC82A736FE2003104D0 /* RecordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				2919A76F2A5D0099000B6CF6 /* MondeeApp.swift in Sources */,
 				2900B11B2A6986EE00B7AEFD /* RoundedCross.swift in Sources */,
 				7FB8E58D2A6F621700522CE6 /* MondeeLevelView.swift in Sources */,
+				F0430AC92A736FE2003104D0 /* RecordViewModel.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
 				F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */,
 				A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */,
