@@ -20,6 +20,8 @@ struct PlayView: View {
     
     @Binding var gameStatus: GameStatus
     
+    @ObservedObject var watchLiveDataModel = WatchLiveDataModel.shared
+    
     var body: some View {
         NavigationStack {
             TabView(selection: $selection) {
@@ -63,6 +65,8 @@ struct PlayView: View {
                     .ignoresSafeArea()
                     .onAppear {
                         gameState.playGame()
+                        watchLiveDataModel.gameStart = true
+                        liveSendData()
                     }
                     if gameState.isPreWarning {
                         Rectangle()
@@ -140,6 +144,12 @@ struct PlayView: View {
         let minutes = seconds / 60
         let formattedSeconds = String(format: "%02d", seconds % 60)
         return "\(minutes):\(formattedSeconds)"
+    }
+    
+    private func liveSendData() {
+        watchLiveDataModel.session.transferUserInfo(
+            ["GameStart":watchLiveDataModel.gameStart,"GamePause":watchLiveDataModel.gamePause,"RemainHeartCount":gameState.watchLiveDataModel.remainHeartCount]
+        )
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07030F8B2A73028500F0BA9C /* WatchLiveDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07030F8A2A73028500F0BA9C /* WatchLiveDataModel.swift */; };
+		07030F8D2A73058600F0BA9C /* PhoneLiveDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07030F8C2A73058600F0BA9C /* PhoneLiveDataModel.swift */; };
 		076E2FDF2A721E8400109D7B /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E2FDE2A721E8400109D7B /* UserDataModel.swift */; };
 		076E2FE12A721ECB00109D7B /* PhoneDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E2FE02A721ECB00109D7B /* PhoneDataModel.swift */; };
 		076E2FE32A7220C500109D7B /* WatchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E2FE22A7220C500109D7B /* WatchDataModel.swift */; };
@@ -119,6 +121,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07030F8A2A73028500F0BA9C /* WatchLiveDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLiveDataModel.swift; sourceTree = "<group>"; };
+		07030F8C2A73058600F0BA9C /* PhoneLiveDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLiveDataModel.swift; sourceTree = "<group>"; };
 		076E2FDE2A721E8400109D7B /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		076E2FE02A721ECB00109D7B /* PhoneDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataModel.swift; sourceTree = "<group>"; };
 		076E2FE22A7220C500109D7B /* WatchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDataModel.swift; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 				076E2FDE2A721E8400109D7B /* UserDataModel.swift */,
 				076E2FE02A721ECB00109D7B /* PhoneDataModel.swift */,
 				290DC0B82A70AF76005D5150 /* CleanRoomModel.swift */,
+				07030F8C2A73058600F0BA9C /* PhoneLiveDataModel.swift */,
 				7F163DF02A735D6D003F7009 /* MondeeModel.swift */,
 			);
 			path = Model;
@@ -351,6 +356,7 @@
 			children = (
 				293EA05B2A63BBD300C3615F /* GameResultModel.swift */,
 				076E2FE22A7220C500109D7B /* WatchDataModel.swift */,
+				07030F8A2A73028500F0BA9C /* WatchLiveDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 				29A8A3A42A6D8C17007C24A5 /* DateViewModel.swift in Sources */,
 				29AAE3852A6EDBF6008913C2 /* RecordCalendarArea.swift in Sources */,
 				7FB8E58F2A6F623A00522CE6 /* MondeeBoxView.swift in Sources */,
+				07030F8D2A73058600F0BA9C /* PhoneLiveDataModel.swift in Sources */,
 				2900B1182A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */,
 				29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */,
 				BE398DB12A773DE200573930 /* GameRulePopupView.swift in Sources */,
@@ -684,6 +691,7 @@
 				7F9D8D522A676CE7006F04CA /* MondeeImageView.swift in Sources */,
 				2900B1192A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */,
 				2900B11C2A6986EE00B7AEFD /* RoundedCross.swift in Sources */,
+				07030F8B2A73028500F0BA9C /* WatchLiveDataModel.swift in Sources */,
 				7FB07B9D2A6294B90064D7FE /* MovingDetector.swift in Sources */,
 				7FB07BA42A62A4510064D7FE /* SessionExtend.swift in Sources */,
 				7F06EEDB2A62EAA200946310 /* GameStateManager.swift in Sources */,
