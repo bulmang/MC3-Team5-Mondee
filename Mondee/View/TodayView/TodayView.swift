@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TodayView: View {
     @StateObject private var viewModel = TodayViewModel()
-    @State private var isRulePopup = false
-    @State private var isLevelInfoPopup = false
+    @Binding var isRulePopup: Bool
+    @Binding var isLevelInfoPopup: Bool
     
     var body: some View {
         ZStack {
@@ -26,22 +26,7 @@ struct TodayView: View {
                         Spacer()
                     }
                 }.padding(.all, 16)
-            }.blur(radius: (isLevelInfoPopup || viewModel.newMondee || isRulePopup) ? 2 : 0)
-            
-            if isRulePopup {
-                GameRulePopupView(isRulePopup: $isRulePopup)
-                    .transition(.opacity)
             }
-            
-            if isLevelInfoPopup {
-                LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
-                    .transition(.opacity)
-            }
-//            
-//            if viewModel.newMondee {
-//                AfterSuccessPopupView(viewModel: viewModel)
-//                    .transition(.opacity)
-//            }
         }
         .fullScreenCover(isPresented: $viewModel.newMondee) {
             AfterSuccessPopupView(viewModel: viewModel)
@@ -108,6 +93,6 @@ struct ShareButtonSection: View {
 
 struct TodayView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayView().background(Color.mondeeBackgroundGrey)
+        TodayView(isRulePopup: .constant(false), isLevelInfoPopup: .constant(false)).background(Color.mondeeBackgroundGrey)
     }
 }
