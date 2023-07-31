@@ -46,15 +46,18 @@ struct AfterSuccessPopupView: View {
                     viewModel.saveTodayMondee(mondee: todayMondee)
                     viewModel.newMondee = false
                 }
-                .padding(.horizontal,30)
+                .padding(.horizontal,50)
                 .padding(.top,30)
                 
             }
-            .frame(height: 600.0)
-            .frame(maxWidth: .infinity)
-            .background()
-            .cornerRadius(25)
-            .padding(.horizontal)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
         }
+    }
+}
+
+struct AfterSuccessPopupView_Previews: PreviewProvider {
+    static var previews: some View {
+        AfterSuccessPopupView(viewModel: TodayViewModel())
     }
 }

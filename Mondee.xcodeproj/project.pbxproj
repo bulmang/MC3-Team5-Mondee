@@ -44,6 +44,7 @@
 		29623FB72A6941F100B4B380 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB62A6941F100B4B380 /* RecordView.swift */; };
 		29623FB92A69420D00B4B380 /* CleanRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FB82A69420D00B4B380 /* CleanRoomView.swift */; };
 		2978810C2A64E21C00EEC328 /* BeforeGameCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */; };
+		298CEC492A77DB3E00BA475F /* iOSFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CEC482A77DB3E00BA475F /* iOSFontModifier.swift */; };
 		298F913F2A69605C002D36B3 /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298F913E2A69605C002D36B3 /* TabModel.swift */; };
 		29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */; };
 		29A8A3A02A6D80ED007C24A5 /* RecordCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */; };
@@ -74,7 +75,6 @@
 		A28331E62A774D0F00582AD6 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28331E52A774D0F00582AD6 /* SplashScreen.swift */; };
 		A28331E82A774D1D00582AD6 /* Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28331E72A774D1D00582AD6 /* Lottie.swift */; };
 		A28331EB2A774EBA00582AD6 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A28331EA2A774EBA00582AD6 /* Lottie */; };
-		A28331F72A77596900582AD6 /* MonDee.Mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A28331F62A77596900582AD6 /* MonDee.Mp3 */; };
 		A28331F92A7763BA00582AD6 /* SplashScreenMondee.json in Resources */ = {isa = PBXBuildFile; fileRef = A28331F82A7763BA00582AD6 /* SplashScreenMondee.json */; };
 		A2A44CC12A6F7DFB00ED8234 /* LevelPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */; };
 		A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */; };
@@ -154,6 +154,7 @@
 		29623FB62A6941F100B4B380 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		29623FB82A69420D00B4B380 /* CleanRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanRoomView.swift; sourceTree = "<group>"; };
 		2978810B2A64E21C00EEC328 /* BeforeGameCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeGameCountView.swift; sourceTree = "<group>"; };
+		298CEC482A77DB3E00BA475F /* iOSFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSFontModifier.swift; sourceTree = "<group>"; };
 		298F913E2A69605C002D36B3 /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		29A8A39B2A6D7E70007C24A5 /* RecordTitleArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTitleArea.swift; sourceTree = "<group>"; };
 		29A8A39F2A6D80ED007C24A5 /* RecordCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCalendarView.swift; sourceTree = "<group>"; };
@@ -183,7 +184,6 @@
 		A21D8FBF2A616D7700A19EF5 /* RetryFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryFailView.swift; sourceTree = "<group>"; };
 		A28331E52A774D0F00582AD6 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		A28331E72A774D1D00582AD6 /* Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottie.swift; sourceTree = "<group>"; };
-		A28331F62A77596900582AD6 /* MonDee.Mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MonDee.Mp3; sourceTree = "<group>"; };
 		A28331F82A7763BA00582AD6 /* SplashScreenMondee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SplashScreenMondee.json; sourceTree = "<group>"; };
 		A2A44CC02A6F7DFB00ED8234 /* LevelPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelPopupView.swift; sourceTree = "<group>"; };
 		A2A44CC22A71665800ED8234 /* AfterSuccessPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterSuccessPopupView.swift; sourceTree = "<group>"; };
@@ -272,7 +272,6 @@
 				292CE6C12A5ECD0D00BEE4AF /* View */,
 				292CE6C22A5ECD1900BEE4AF /* ViewModel */,
 				2919A7722A5D009A000B6CF6 /* Assets.xcassets */,
-				A28331F62A77596900582AD6 /* MonDee.Mp3 */,
 				2919A7742A5D009A000B6CF6 /* Preview Content */,
 			);
 			path = Mondee;
@@ -489,6 +488,7 @@
 			children = (
 				F0527A392A6E41F8001923F7 /* ColorSystem.swift */,
 				F0527A3B2A6E5596001923F7 /* ButtonSystem.swift */,
+				298CEC482A77DB3E00BA475F /* iOSFontModifier.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -589,7 +589,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A28331F72A77596900582AD6 /* MonDee.Mp3 in Resources */,
 				2919A7762A5D009A000B6CF6 /* Preview Assets.xcassets in Resources */,
 				A28331F92A7763BA00582AD6 /* SplashScreenMondee.json in Resources */,
 				2919A7732A5D009A000B6CF6 /* Assets.xcassets in Resources */,
@@ -627,6 +626,7 @@
 				2900B11E2A6986F500B7AEFD /* SlimRectangle.swift in Sources */,
 				29A8A3A62A6D8CE2007C24A5 /* DateExtensions.swift in Sources */,
 				29A8A39C2A6D7E70007C24A5 /* RecordTitleArea.swift in Sources */,
+				298CEC492A77DB3E00BA475F /* iOSFontModifier.swift in Sources */,
 				F0527A3C2A6E5596001923F7 /* ButtonSystem.swift in Sources */,
 				F09EB5AA2A72A55F00D0EA5E /* SharingCard2View.swift in Sources */,
 				F00DEB8C2A7013C300FF0FCF /* CleanViewModel.swift in Sources */,

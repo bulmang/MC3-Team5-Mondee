@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ShareView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var renderedImage = Image(systemName: "photo")
     
     @State private var selection = 0
@@ -20,7 +22,7 @@ struct ShareView: View {
     @State var cleaningTime = 240
     
     @ObservedObject var viewModel: TodayViewModel
-    
+
     var body: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
@@ -100,11 +102,11 @@ struct ShareView: View {
                         if let image = ren.uiImage {
                             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
                         }
-                        withAnimation(.easeInOut(duration: 0.8)) {
+                        withAnimation(.easeInOut(duration: 0.4)) {
                             toastAnimation = true
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            withAnimation(.easeInOut(duration: 2)) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                            withAnimation(.easeInOut(duration: 1.8)) {
                                 toastAnimation = false
                             }
                         }
@@ -123,6 +125,19 @@ struct ShareView: View {
                 .padding(.horizontal)
             }
             .padding()
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading, content: {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.mondeeGrey)
+                        .padding(.leading, 5)
+                }
+
+            })
         }
         .overlay {
             if toastAnimation {

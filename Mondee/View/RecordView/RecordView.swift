@@ -25,20 +25,18 @@ struct RecordView: View {
             ScrollView{
                 ZStack {
                     Color.mondeeBackgroundGrey.padding(.top, 25)
-                    VStack(spacing: 15){
+                    VStack(spacing: 13){
                         RecordTitleArea(userData: userData)
                         VStack(spacing: 15){
                             RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)
                             MonthStatistics(userData: userData, currentMonth: $currentMonth)
                             TotalStatistics(userData: userData)
                         }
-                        .padding(.horizontal, 13)
+                        .padding(.horizontal, 16)
                     }
                 }
             }
-            .safeAreaInset(edge: .bottom) {
-                Color.clear.frame(height: 100)
-            }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }
             Rectangle().frame(height: 60)
                 .foregroundColor(.mondeeBoxBackground)
         }

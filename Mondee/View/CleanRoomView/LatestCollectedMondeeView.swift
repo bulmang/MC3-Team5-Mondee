@@ -33,7 +33,13 @@ struct LatestCollectedMondeeView: View {
             } else {
                 Text("?")
                     .font(.system(size: 100))
-                    .bubbleFontModifier()
+                    .iOSbubbleFontModifier()
+                    .background (
+                        Circle()
+                            .foregroundColor(Color(.systemGray6))
+                            .frame(width: 120)
+                            .shadow(radius: 1)
+                    )
                     .padding(.bottom, 10)
                 Text("최근 획득한 먼디")
                     .font(.callout)
@@ -46,11 +52,11 @@ struct LatestCollectedMondeeView: View {
         .padding(24)
         .frame(maxWidth: .infinity)
         .background(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
+            RoundedRectangle(cornerRadius: 20)
                 .fill(Color.mondeeBoxBackground)
         )
         .padding(.top, 5)
-        .padding(.horizontal, 19)
+        .padding(.horizontal, 16)
     }
     
     func findLatelyDateItems(in items: [CollectedMondee]) -> CollectedMondee? {
@@ -80,12 +86,3 @@ struct LatestCollectedMondeeView: View {
     
     
 }
-
-//struct LatestCollectedMondeeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZStack {
-//            Color.mondeeBackgroundGrey.ignoresSafeArea()
-//            LatestCollectedMondeeView()
-//        }
-//    }
-//}

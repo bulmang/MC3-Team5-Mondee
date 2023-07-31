@@ -59,20 +59,7 @@ struct CollectedMondeeGridView: View {
         )
         .padding(.top, 5)
         .padding(.bottom, 24)
-        .padding(.horizontal, 19)
+        .padding(.horizontal, 16)
     }
 }
-
-//struct CollectedMondeeGridView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        ZStack {
-//            Color.mondeeBackgroundGrey.ignoresSafeArea()
-//            ScrollView {
-//                CollectedMondeeGridView(isDetailCardPopUp: .constant(false), collectedModel: <#collectedMondeeModel#>)
-//            }
-//        }
-//    }
-//}
-
 

@@ -10,26 +10,41 @@ import SwiftUI
 struct CustomTabView: View {
     
     @State var selectedTab: Tab = .today
+    @State private var isRulePopup = false
+    @State private var isLevelInfoPopup = false
     
     var body: some View {
         NavigationStack {
-            ZStack (alignment: .bottom) {
-                Color.mondeeBackgroundGrey.ignoresSafeArea()
-                Group {
-                    switch selectedTab {
-                    case .today:
-                        TodayView()
-                    case .record:
-                        RecordView()
-                    case .cleanRoom:
-                        CleanRoomView()
+            ZStack {
+                ZStack (alignment: .bottom) {
+                    Color.mondeeBackgroundGrey.ignoresSafeArea()
+                    Group {
+                        switch selectedTab {
+                        case .today:
+                            TodayView(isRulePopup: $isRulePopup, isLevelInfoPopup: $isLevelInfoPopup)
+                        case .record:
+                            RecordView()
+                        case .cleanRoom:
+                            CleanRoomView()
+                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    CustomTabBar(selectedTab: $selectedTab)
+                        .frame(maxHeight: .infinity, alignment: .bottom)
+                        .edgesIgnoringSafeArea(.bottom)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .blur(radius: (isLevelInfoPopup || isRulePopup) ? 2 : 0)
+
+                if isRulePopup {
+                    GameRulePopupView(isRulePopup: $isRulePopup)
+                        .transition(.opacity)
+                }
                 
-                CustomTabBar(selectedTab: $selectedTab)
-                    .frame(maxHeight: .infinity, alignment: .bottom)
-                    .edgesIgnoringSafeArea(.bottom)
+                if isLevelInfoPopup {
+                    LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
+                        .transition(.opacity)
+                }
             }
         }
     }

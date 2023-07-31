@@ -36,9 +36,7 @@ struct CleanRoomView: View {
                 InlineNavigationTitle(scrollViewOffset: scrollViewOffset)
             }
             .blur(radius: isDetailCardPopUp ? 2 : 0)
-//            .sheet(isPresented: $isDetailCardPopUp) {
-//                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp)
-//            }
+            
             if isDetailCardPopUp {
                 CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee)
                     .transition(.opacity)

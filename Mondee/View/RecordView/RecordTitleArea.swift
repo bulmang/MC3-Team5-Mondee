@@ -16,9 +16,9 @@ struct RecordTitleArea: View {
         /// 최대 연속 횟수 확인 maxConsecutiveSuccessCount 사용
         let (recentConsecutiveSuccessCount, _) = userData.consecutiveSuccessCounts()
         
-        RoundedRectangle(cornerRadius: 22)
+        RoundedRectangle(cornerRadius: 20)
             .frame(maxWidth: .infinity)
-            .frame(height: 163)
+            .frame(height: 164)
             .foregroundColor(Color.mondeeBoxBackground)
             .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 4)
             .overlay(alignment: .leading){
@@ -30,9 +30,9 @@ struct RecordTitleArea: View {
                     Text("성공 버블을 모아보세요")
                         .font(.system(size: 16, weight: .regular))
                         .foregroundColor(Color.mondeeGrey)
-                        .padding(.bottom, 25)
+                        .padding(.bottom, 20)
                 }
-                .padding(.leading, 42)
+                .padding(.leading, 40)
             }
             
     }

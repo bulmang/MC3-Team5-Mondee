@@ -18,7 +18,7 @@ struct MonthStatistics: View {
     private var totalPlayTime: Int { userData.totalGamePlayTime(inMonth: currentMonth) }
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 22)
+        RoundedRectangle(cornerRadius: 20)
             .frame(maxWidth: .infinity)
             .frame(height: 198)
             .foregroundColor(Color.mondeeBoxBackground)
