@@ -20,6 +20,7 @@ struct GameRuleView: View {
     @State private var selectedImageIndex = 0
     
     let gameRuleDescriptions = [
+        "청소를 하기 전에\n애플워치를 착용해주세요",
         "크라운을 돌려\n먼디를 욕조에 넣어서\n씻을 준비를 시켜주세요",
         "청소할 때 발생하는\n움직임으로\n먼디가 깨끗해져요",
         "25초 동안 움직임이 없으면\n버블 하트 하나가 사라지고\n먼디는 더러워져요",
@@ -28,38 +29,41 @@ struct GameRuleView: View {
     ]
     
     var body: some View {
-        ZStack {
+        ZStack(alignment:.top){
             Color.mondeeDarkGrey.opacity(0.5)
                 .ignoresSafeArea()
                 .onTapGesture {
                     isRulePopup = false
                 }
             ZStack(alignment: .topTrailing) {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color("mondeeBoxBackground"))
+                    .frame(height: 530)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal,16)
+                    
+                
                 Button {
                     isRulePopup = false
                 } label: {
                     Image(systemName: "xmark")
                         .font(.title2)
                         .foregroundColor(.white)
-                        .offset(x: -28, y: -18)
+                        .offset(x: -28, y: -28)
                 }
                 .buttonStyle(MondeeButtonClickStyle())
                 
                 VStack(spacing: 0) {
                     Text("플레이 방법")
-                        .font(.title)
+                        .font(.title2)
                         .bold()
-                        .padding(.top, 60)
+                        .padding(.top,40)
+                        
                     GameRuleImageSection(selectedImageIndex: $selectedImageIndex)
                     GameRuleDescriptionSection(gameRuleDescription: gameRuleDescriptions[selectedImageIndex])
-                        .padding(.bottom, 60)
                 }
-                
-                .frame(maxWidth: .infinity)
-                .background()
-                .cornerRadius(25)
-                .padding()
             }
+            .padding(.top, 120)
         }
     }
 }
@@ -68,6 +72,7 @@ struct GameRuleImageSection: View {
     
     @Binding var selectedImageIndex: Int
     @State private var gameRuleImages = [
+        "ImgGameRule0-iOS",
         "ImgGameRule1-iOS",
         "ImgGameRule2-iOS",
         "ImgGameRule3-iOS",
@@ -76,17 +81,18 @@ struct GameRuleImageSection: View {
     ]
     
     var body: some View {
-        VStack {
+        VStack(spacing:0) {
             TabView(selection: $selectedImageIndex) {
                 ForEach(gameRuleImages.indices, id: \.self) { gameRuleImage in
                     GameRuleWatchImage(gameRuleImage: gameRuleImages[gameRuleImage])
                 }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
             .onAppear {
                 setupAppearance()
             }
-            .frame(height: 400)
+            .frame(height: 330)
+            
         }
     }
     
@@ -104,8 +110,9 @@ struct GameRuleWatchImage: View {
     var body: some View {
         Image(gameRuleImage)
             .resizable()
-            .frame(maxWidth: 330)
-            .padding()
+            .scaledToFit()
+            .frame(height: 250)
+            
     }
 }
 

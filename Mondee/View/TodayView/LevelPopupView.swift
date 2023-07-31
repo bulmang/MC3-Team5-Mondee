@@ -20,41 +20,46 @@ struct LevelPopupView: View {
     ]
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top){
             Color.mondeeDarkGrey.opacity(0.5)
                 .ignoresSafeArea()
                 .onTapGesture {
                     isLevelInfoPopup = false
                 }
             
-            VStack(spacing: 12.0) {
-                HStack(alignment: .top) {
-                    Spacer()
-                    Button {
-                        isLevelInfoPopup = false
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .offset(x: -8)
-                    }
-                    .buttonStyle(MondeeButtonClickStyle())
-                }
+            ZStack(alignment: .topTrailing) {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color("mondeeBoxBackground"))
+                    .frame(height: 600)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal,16)
                 
-                VStack(spacing: 0.0) {
-                    
+                Button {
+                    isLevelInfoPopup = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .offset(x: -28, y: -28)
+                }
+                .buttonStyle(MondeeButtonClickStyle())
+                
+                VStack(spacing: 0) {
                     Text("청소 장인")
                         .font(.title)
                         .fontWeight(.bold)
+                        .padding(.top,20)
+                    
                     Text("청소 성공 횟수에 따라")
+                    
                     Text("레벨이 올라가요!")
                         .padding(.bottom,20)
+                    
                     Rectangle()
                         .frame(height: 1.0)
                         .opacity(0.2)
                     
                     ForEach(LevelMondee) { level in
-                        
                         HStack{
                             Image(level.mondeeImg)
                                 .resizable()
@@ -71,12 +76,13 @@ struct LevelPopupView: View {
                         }
                         .padding(.trailing,100)
                     }
+                    
                 }
-                .frame(height: 600.0)
-                .background()
-                .cornerRadius(25)
-                .frame(maxWidth: .infinity)
-            }.padding(.horizontal)
+            }
+            .padding(.top,120)
         }
+        
     }
 }
+
+
