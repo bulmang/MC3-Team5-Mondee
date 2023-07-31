@@ -18,14 +18,10 @@ struct MondeeBoxView: View {
     
     var mondeeImage: Image {
         switch viewModel.gameStatus {
-        case .notStarted, .finishedFail:
-            return Image(viewModel.currentLevel.mondeeImg)
-        case .finishedSuccess:
-            return Image("ImgMondeePudding-IOS")
         case .inProgress:
             return Image("ImgMondeeCaution-IOS")
         default:
-            return Image(viewModel.currentLevel.mondeeImg)
+            return Image(viewModel.todayMondee?.mondeeImg ?? viewModel.currentLevel.mondeeImg)
         }
     }
     

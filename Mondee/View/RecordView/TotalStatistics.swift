@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct TotalStatistics: View {
+    
+    @ObservedObject var userData: UserData
+    
+    private var challengeCount: Int { userData.countGameSuccess() + userData.countGameFail() }
+    private var successCount: Int { userData.countGameSuccess() }
+    private var totalPlayTime: Int { userData.totalGamePlayTime() }
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
@@ -20,7 +27,7 @@ struct TotalStatistics: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom, 9)
                         .padding(.leading, 27)
-                    HStack(spacing: 40){
+                    HStack(spacing: 30){
                         VStack(spacing: 0){
                             Image("ImgStatisticsMonth")
                                 .resizable()
@@ -30,7 +37,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("9")
+                            Text("\(challengeCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                                
@@ -44,7 +51,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 11, weight: .regular))
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
-                            Text("14")
+                            Text("\(successCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
@@ -58,7 +65,7 @@ struct TotalStatistics: View {
                                 .foregroundColor(Color.mondeeGrey)
                                 .padding(.bottom,2)
                             HStack(alignment: .bottom, spacing:0){
-                                Text("80")
+                                Text("\(totalPlayTime / 60)")
                                     .font(.system(size: 24, weight: .semibold))
                                     .foregroundColor(Color.mondeeBlue)
                                 Text("M")
@@ -79,8 +86,8 @@ struct TotalStatistics: View {
 struct TotalStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
-            TotalStatistics()
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
+            TotalStatistics(userData: UserData())
         }
     }
 }

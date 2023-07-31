@@ -19,7 +19,6 @@ struct GameView: View {
     @State private var isGameStartActive: Bool = false
     @State private var isFinalFail: Bool = false
     
-    
     private let bottomScrollLimit: CGFloat = -270
     private let gameStartScroll: CGFloat = -280
     

@@ -9,34 +9,57 @@ import SwiftUI
 
 struct TodayView: View {
     @StateObject private var viewModel = TodayViewModel()
+    @State private var isRulePopup = false
+    @State private var isLevelInfoPopup = false
     
     var body: some View {
-        VStack {
-            Spacer().frame(height: 1)
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 16) {
-                    InfoIconSection()
-                    TitleSection()
-                    MondeeLevelView(viewModel: viewModel)
-                    MondeeBoxView(viewModel: viewModel)
-                    ShareButtonSection()
-                    Spacer()
-                }
-            }.padding(.all, 24.0)
+        ZStack {
+            VStack {
+                Spacer().frame(height: 1)
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 16) {
+                        InfoIconSection(isRulePopup: $isRulePopup)
+                        TitleSection()
+                        MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup)
+                        MondeeBoxView(viewModel: viewModel)
+                        ShareButtonSection(viewModel: viewModel)
+                        Spacer()
+                    }
+                }.padding(.all, 24.0)
+            }.blur(radius: (isLevelInfoPopup || viewModel.newMondee || isRulePopup) ? 2 : 0)
+            
+            if isRulePopup {
+                GameRulePopupView(isRulePopup: $isRulePopup)
+                    .transition(.opacity)
+            }
+            
+            if isLevelInfoPopup {
+                LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
+                    .transition(.opacity)
+            }
+            
+            if viewModel.newMondee {
+                AfterSuccessPopupView(viewModel: viewModel)
+                    .transition(.opacity)
+            }
         }
     }
 }
 
 struct InfoIconSection: View {
+    @Binding var isRulePopup: Bool
+    
     var body: some View {
         HStack {
             Spacer()
-            Image(systemName: "info.circle.fill")
-                .font(.title2)
-                .foregroundColor(.mondeeDarkGrey)
-                .onTapGesture {
-                    print("Tap Info Button")
-                }
+            Button {
+                isRulePopup = true
+            } label: {
+                Image(systemName: "info.circle.fill")
+                    .font(.title2)
+                    .foregroundColor(.mondeeDarkGrey)
+            }
+            .buttonStyle(MondeeButtonClickStyle())
         }
     }
 }
@@ -53,20 +76,29 @@ struct TitleSection: View {
 }
 
 struct ShareButtonSection: View {
+    @ObservedObject var viewModel: TodayViewModel
+    
     var body: some View {
-        HStack {
-            Text("오늘의 먼디 자랑하기")
-            Spacer()
-            Image(systemName: "chevron.right")
-                .font(.title2)
-                .foregroundColor(.mondeeGrey)
-                .onTapGesture {
-                    print("Hi")
-                }
+        NavigationLink {
+            ShareView(viewModel: viewModel)
+        } label: {
+            HStack {
+                Text("오늘의 먼디 자랑하기")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .padding(.leading, 10)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.title3)
+                    .foregroundColor(.mondeeGrey)
+            }
+            .padding(20)
         }
-        .padding(EdgeInsets(top: 16, leading: 32, bottom: 16, trailing: 24))
-        .background(Color.mondeeBoxBackground)
-        .cornerRadius(29)
+        .background(
+            Capsule()
+                .foregroundColor(.mondeeBoxBackground)
+        )
+        .navigationTitle("")
     }
 }
 

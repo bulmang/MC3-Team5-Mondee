@@ -12,24 +12,29 @@ struct ContentView: View {
     
     @StateObject var data = PhoneDataModel.shared
     
+    @State var splashActive:Bool = true
+    
     var body: some View {
         Group{
-            if isOnboarding {
-                OnboardingView()
+            if splashActive {
+                SplashScreen()
             } else {
-                CustomTabView()
-                    .transition(.move(edge: .trailing))
+                if isOnboarding {
+                    OnboardingView()
+                } else {
+                    CustomTabView()
+                        .transition(.opacity)
+                }
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                withAnimation {
+                    self.splashActive = false
+                }
             }
         }
         .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
-        // TODO: TEST CODE 삭제 바람
-//        ScrollView{
-//            VStack{
-//                Text("async : \(data.description)")
-//                Divider()
-//                Text("userDefaults : \(data.userData.userdata.description)")
-//            }
-//        }
     }
 }
 

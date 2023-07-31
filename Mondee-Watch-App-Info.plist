@@ -4,6 +4,11 @@
 <dict>
 	<key>UIBackgroundModes</key>
 	<array/>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>mondeeBlue</string>
+	</dict>
 	<key>WKBackgroundModes</key>
 	<array>
 		<string>alarm</string>

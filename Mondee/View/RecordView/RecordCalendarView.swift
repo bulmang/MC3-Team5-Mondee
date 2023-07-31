@@ -11,8 +11,8 @@ struct RecordCalendarView: View {
     let dateFormatter = DateFormatter()
     
     @Binding var currentDate : Date //현재 날짜
-    @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
-    
+    @Binding var currentMonth : Int // 화살표 클릭으로 인한 월 세는 변수
+        
     //MARK: Database
     let days: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     let columns = Array(repeating: GridItem(.flexible()), count: 7) //달력 틀
@@ -55,7 +55,7 @@ struct RecordCalendarView: View {
                 }
             }
             .padding(.bottom, 40)
-
+            
             // 상단 요일 Stack
             HStack(spacing: 14){
                 ForEach(days,id: \.self){day in
@@ -65,7 +65,7 @@ struct RecordCalendarView: View {
                         .foregroundColor(Color.mondeeGrey)
                 }
             }
-
+            
             let columns = Array(repeating: GridItem(.flexible()), count: 7)
             
             LazyVGrid(columns: columns, spacing: 15) {
@@ -86,6 +86,20 @@ struct RecordCalendarView: View {
     // 달력 각각 날짜 뷰
     @ViewBuilder
     func CardView(value: DateValue)->some View{
+        ZStack {
+            if UserData().isSuccessfullDate(date: value.date) && value.day != -1 {
+                Circle()
+                    .frame(width: 40)
+                    .foregroundStyle(
+                        Color.mondeeBoxBackground.opacity(0.7)
+                            .shadow(.inner(color: Color(UIColor.magenta).opacity(0.7), radius: 4, x: 2, y: 2))
+                            .shadow(.inner(color: .blue, radius: 4, x: -1, y: 1))
+                            .shadow(.inner(color: .yellow.opacity(0.5), radius: 6, x: 1.5, y: -1))
+                            .shadow(.inner(color: .white.opacity(0.8), radius: 8, x: 0, y: 4))
+                            .shadow(.inner(color: .white, radius: 0.7))
+                    )
+                    .offset(y: 2)
+            }
         VStack{
             if value.day != -1 {
                 Text("\(value.day)")
@@ -93,12 +107,13 @@ struct RecordCalendarView: View {
         }
         .padding(.vertical, 8)
         .frame(height: 36, alignment: .top)
+    }
         
     }
     //MARK: 날짜 확인 코드
     private func isSameDay(date1: Date, date2: Date) -> Bool{
         let calendar = Calendar.current
-
+        
         return calendar.isDate(date1, inSameDayAs: date2)
     }
     
@@ -138,9 +153,9 @@ struct RecordCalendarView: View {
         let currentMonth = getCurrentMonth()
         var days =  currentMonth.getAllDates().compactMap{
             date -> DateValue in
-        //날짜 반환
-        let day = calendar.component(.day, from: date)
-        return DateValue(day: day, date: date)
+            //날짜 반환
+            let day = calendar.component(.day, from: date)
+            return DateValue(day: day, date: date)
         }
         
         let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
@@ -155,8 +170,8 @@ struct RecordCalendarView: View {
 struct RecordCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
-            RecordCalendarView(currentDate: .constant(Date()))
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
+            RecordCalendarView(currentDate: .constant(Date()), currentMonth: .constant(0))
         }
     }
 }

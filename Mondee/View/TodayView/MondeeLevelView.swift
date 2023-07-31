@@ -9,6 +9,12 @@ import SwiftUI
 
 struct MondeeLevelView: View {
     @ObservedObject var viewModel: TodayViewModel
+    @Binding var isLevelInfoPopup: Bool
+    
+    private var currentProgress: Int {
+        let maxCount = 16
+        return viewModel.successCount >= maxCount ? 4 : viewModel.successCount % 4
+    }
     
     var body: some View {
         VStack(alignment:.leading, spacing: 0) {
@@ -22,15 +28,15 @@ struct MondeeLevelView: View {
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .padding(.bottom, 4)
-                    ProgressView(value: CGFloat(viewModel.successCount), total: CGFloat(viewModel.currentLevel.endNumber))
+                    ProgressView(value: CGFloat(currentProgress), total: 4)
                         .progressViewStyle(LinearProgressViewStyle(tint: .mondeeBlue))
                         .scaleEffect(y: 1.5)
                 }
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
-                    Text("\(viewModel.successCount)")
+                    Text("\(currentProgress)")
                         .font(.title)
                         .fontWeight(.bold)
-                    Text(" / \(viewModel.currentLevel.endNumber)")
+                    Text(" / 4")
                         .font(.title3)
                         .foregroundColor(.gray)
                 }
@@ -39,5 +45,8 @@ struct MondeeLevelView: View {
         .padding(.all, 20)
         .background(Color.mondeeBoxBackground)
         .cornerRadius(20)
+        .onTapGesture {
+            isLevelInfoPopup = true
+        }
     }
 }

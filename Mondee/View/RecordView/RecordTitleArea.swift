@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct RecordTitleArea: View {
+    
+    @ObservedObject var userData: UserData
+
     var body: some View {
+        
+        /// 최대 연속 횟수 확인 maxConsecutiveSuccessCount 사용
+        let (recentConsecutiveSuccessCount, _) = userData.consecutiveSuccessCounts()
+        
         RoundedRectangle(cornerRadius: 22)
             .frame(maxWidth: .infinity)
             .frame(height: 163)
@@ -17,7 +24,7 @@ struct RecordTitleArea: View {
             .overlay(alignment: .leading){
                 VStack(alignment: .leading, spacing: 0){
                     Spacer()
-                    Text("연속 성공 3일차🎉")
+                    Text("연속 성공 \(recentConsecutiveSuccessCount)일차🎉")
                         .font(.system(size: 27, weight: .bold))
                         .padding(.bottom,7)
                     Text("성공 버블을 모아보세요")
@@ -34,8 +41,8 @@ struct RecordTitleArea: View {
 struct RecordTitleArea_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
-            Color("ColorBgLight")
-            RecordTitleArea()
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
+            RecordTitleArea(userData: UserData())
         }
     }
 }

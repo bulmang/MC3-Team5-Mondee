@@ -7,29 +7,26 @@
 
 import SwiftUI
 
-class collectedMondeeModel: ObservableObject {
-    @Published var collectedMondees: [CollectedMondee] = [
-        CollectedMondee(index: 1, collectedMondeeName: "푸딩먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee001-IOS", isCollected: true),
-        CollectedMondee(index: 2, collectedMondeeName: "사탕먼디", collectedMondeeDate: nil, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee002-IOS", isCollected: true),
-        CollectedMondee(index: 3, collectedMondeeName: "선디", collectedMondeeDate: Date() - 10000000000000000, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgMondeeLevel1-IOS", isCollected: false),
-        CollectedMondee(index: 4, collectedMondeeName: "오너먼트먼디", collectedMondeeDate: nil, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee003-IOS", isCollected: true),
-        CollectedMondee(index: 5, collectedMondeeName: "화분먼디", collectedMondeeDate: Date() - 1000000000, collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee005-IOS", isCollected: false),
-        CollectedMondee(index: 6, collectedMondeeName: "시즈먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgMondeeLevel1-IOS", isCollected: false),
-        CollectedMondee(index: 7, collectedMondeeName: "핑크먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee004-IOS", isCollected: true),
-        CollectedMondee(index: 8, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 9, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 10, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 11, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 12, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 13, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 14, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 15, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 16, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 17, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 18, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 19, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true),
-        CollectedMondee(index: 20, collectedMondeeName: "실버먼디", collectedMondeeDate: Date(), collectedMondeeDescription: "푸딩 먼디는 냉장고 속 검은봉투에 있었어요.\n청소한 덕분에 깨끗한 녹색을 되찾았답니다!", collectedMondeeImg: "ImgCollectedMondee006-IOS", isCollected: true)
-    ]
+class CollectedMondeeModel: ObservableObject {
+    @StateObject var data = PhoneDataModel.shared
+    
+    @Published var collectedMondees: [CollectedMondee] = []
+    
+    init() {
+        let mondeeList = mondeeList
+        
+        let mondeeLogList = data.mondeeLogData.mondeeLog
+        
+        self.collectedMondees = mondeeList.map { mondee in
+            let isCollected = mondeeLogList.contains { $0.mondee.name == mondee.name }
+            
+            return CollectedMondee(collectedMondeeName: mondee.name,
+                                   collectedMondeeDate: mondeeLogList.first { $0.mondee.name == mondee.name }?.date,
+                                   collectedMondeeDescription: mondee.description,
+                                   collectedMondeeImg: mondee.mondeeImg,
+                                   isCollected: isCollected)
+        }
+    }
 }
 
 struct ScrollViewOffsetPreferenceKey: PreferenceKey {

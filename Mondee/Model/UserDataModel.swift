@@ -20,7 +20,6 @@ struct User: Codable, Identifiable {
     var gamePlayDate: Date
     var remainingHeartCount: Int
     var gameRetry: Bool
-    
 }
 
 struct Live: Codable, Identifiable {
@@ -28,6 +27,11 @@ struct Live: Codable, Identifiable {
     var gameStart: Bool
     var gamePause: Bool
     var remainHeartCount: Int
+}
+
+struct MondeeLog: Codable {
+    let mondee: Mondee
+    let date: Date
 }
 
 /// 클래스 생성
@@ -73,7 +77,7 @@ class UserData: ObservableObject {
 }
 
 class LiveData: ObservableObject {
-    
+
     @Published var dataArray: [Live] = []
 
     /// 데이터 업로드
@@ -87,7 +91,7 @@ class LiveData: ObservableObject {
         dataArray.append(newData)
         saveData()
     }
-    
+
     /// 데이터 delete
     func delete(at index: Int) {
         dataArray.remove(at: index)
@@ -102,7 +106,7 @@ class LiveData: ObservableObject {
             loadData()
         }
     }
-    
+
     /// UserDefaults에서 "userData"라는 키를 사용하여 데이터를 로드하고, 이를 JSON 디코딩하여 User 타입의 객체 배열로 디코딩
     private func loadData() {
         if let data = UserDefaults.standard.data(forKey: "liveData") {
@@ -113,3 +117,39 @@ class LiveData: ObservableObject {
     }
 }
 
+class MondeeLogData: ObservableObject {
+    @Published var mondeeLog: [MondeeLog] = []
+
+    /// 데이터 업로드
+    init() {
+        loadData()
+    }
+
+    /// 데이터 save
+    func save(_ mondee: Mondee, _ date: Date) {
+        let newData = MondeeLog(mondee: mondee, date: date)
+        mondeeLog.append(newData)
+        saveData()
+    }
+    
+    /// 데이터 delete
+    func delete(at index: Int) {
+        mondeeLog.remove(at: index)
+        saveData()
+    }
+
+    private func saveData() {
+        if let encodedData = try? JSONEncoder().encode(mondeeLog) {
+            UserDefaults.standard.set(encodedData, forKey: "mondeeLogData")
+            loadData()
+        }
+    }
+    
+    func loadData() {
+        if let data = UserDefaults.standard.data(forKey: "mondeeLogData") {
+            if let decodedData = try? JSONDecoder().decode([MondeeLog].self, from: data) {
+                mondeeLog = decodedData
+            }
+        }
+    }
+}
