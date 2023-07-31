@@ -12,7 +12,7 @@ struct RecordView: View {
     @State private var scrollViewOffset: CGFloat = 0
     
     @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
-    
+        
     var body: some View {
         
         ZStack(alignment: .top){

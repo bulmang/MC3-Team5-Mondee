@@ -136,3 +136,37 @@ extension UserData {
     }
 }
 
+
+//MARK: 연속 성공 횟수를 가져오는 함수
+
+extension UserData {
+    private var maxConsecutiveSuccessCountKey: String { "maxConsecutiveSuccessCount" }
+    
+    // UserDefaults를 사용하여 최대 연속 성공횟수를 저장
+    private var maxConsecutiveSuccessCount: Int {
+        get { UserDefaults.standard.integer(forKey: maxConsecutiveSuccessCountKey) }
+        set { UserDefaults.standard.set(newValue, forKey: maxConsecutiveSuccessCountKey) }
+    }
+    
+    /// 최근 연속 성공횟수와 최대 연속 성공횟수를 반환하는 함수
+    /// - Returns: (최근 연속 성공횟수, 최대 연속 성공횟수)
+    func consecutiveSuccessCounts() -> (recent: Int, max: Int) {
+        var consecutiveCount = 0
+        var maxConsecutiveCount = maxConsecutiveSuccessCount
+        
+        for user in userdata {
+            if user.gameSuccess {
+                consecutiveCount += 1
+                maxConsecutiveCount = max(maxConsecutiveCount, consecutiveCount)
+            } else {
+                consecutiveCount = 0
+            }
+        }
+        
+        // 최대 연속 성공횟수를 UserDefaults에 저장합니다.
+        maxConsecutiveSuccessCount = maxConsecutiveCount
+        
+        return (recent: consecutiveCount, max: maxConsecutiveCount)
+    }
+}
+
