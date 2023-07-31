@@ -11,9 +11,13 @@ struct RecordView: View {
     @State var currentDate = Date()
     @State private var scrollViewOffset: CGFloat = 0
     
+    @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
+        
+    @StateObject var userData = UserData()
+    
     var body: some View {
         
-        ZStack{
+        ZStack(alignment: .top){
             VStack {
                 Color.mondeeBoxBackground
                 Color.mondeeBackgroundGrey
@@ -22,11 +26,11 @@ struct RecordView: View {
                 ZStack {
                     Color.mondeeBackgroundGrey.padding(.top, 25)
                     VStack(spacing: 15){
-                        RecordTitleArea()
+                        RecordTitleArea(userData: userData)
                         VStack(spacing: 15){
-                            RecordCalendarArea(currentDate: $currentDate)
-                            MonthStatistics()
-                            TotalStatistics()
+                            RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)
+                            MonthStatistics(userData: userData, currentMonth: $currentMonth)
+                            TotalStatistics(userData: userData)
                         }
                         .padding(.horizontal, 13)
                     }
@@ -35,6 +39,8 @@ struct RecordView: View {
             .safeAreaInset(edge: .bottom) {
                 Color.clear.frame(height: 100)
             }
+            Rectangle().frame(height: 60)
+                .foregroundColor(.mondeeBoxBackground)
         }
         .edgesIgnoringSafeArea(.all)
 

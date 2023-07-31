@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TodayView: View {
     @StateObject private var viewModel = TodayViewModel()
-    
+    @State private var isRulePopup = false
     @State private var isLevelInfoPopup = false
     
     var body: some View {
@@ -18,7 +18,7 @@ struct TodayView: View {
                 Spacer().frame(height: 1)
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 16) {
-                        InfoIconSection(isLevelInfoPopup: $isLevelInfoPopup)
+                        InfoIconSection(isRulePopup: $isRulePopup)
                         TitleSection()
                         MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup)
                         MondeeBoxView(viewModel: viewModel)
@@ -26,7 +26,12 @@ struct TodayView: View {
                         Spacer()
                     }
                 }.padding(.all, 24.0)
-            }.blur(radius: (isLevelInfoPopup || viewModel.newMondee) ? 2 : 0)
+            }.blur(radius: (isLevelInfoPopup || viewModel.newMondee || isRulePopup) ? 2 : 0)
+            
+            if isRulePopup {
+                GameRulePopupView(isRulePopup: $isRulePopup)
+                    .transition(.opacity)
+            }
             
             if isLevelInfoPopup {
                 LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
@@ -42,13 +47,13 @@ struct TodayView: View {
 }
 
 struct InfoIconSection: View {
-    @Binding var isLevelInfoPopup: Bool
+    @Binding var isRulePopup: Bool
     
     var body: some View {
         HStack {
             Spacer()
             Button {
-                isLevelInfoPopup = true
+                isRulePopup = true
             } label: {
                 Image(systemName: "info.circle.fill")
                     .font(.title2)
