@@ -60,7 +60,7 @@ struct LargeNavigationTitle: View {
             Text(subTitle)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .opacity(Double(scrollViewOffset / 40 - 0.65))
+        .opacity(Double(scrollViewOffset / 30 - 0.83))
         .padding(EdgeInsets(top: 0, leading: 40, bottom: 20, trailing: 40))
         .background(
             RoundedRectangle(cornerRadius: 20, style: .continuous)

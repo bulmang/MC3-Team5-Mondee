@@ -32,6 +32,7 @@ struct CustomTabView: View {
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.bottom, 50)
                     
                     CustomTabBar(selectedTab: $selectedTab)
                         .frame(maxHeight: .infinity, alignment: .bottom)
