@@ -87,16 +87,16 @@ struct RecordCalendarView: View {
     @ViewBuilder
     func CardView(value: DateValue)->some View{
         ZStack {
-            if UserData().isSuccessfulDate(date: value.date) && value.day != -1 {
+            if !UserData().isSuccessfulDate(date: value.date) && value.day != -1 {
                 Circle()
                     .frame(width: 40)
                     .foregroundStyle(
                         Color.mondeeBoxBackground.opacity(0.7)
-                            .shadow(.inner(color: Color(UIColor.magenta).opacity(0.4), radius: 2, x: 2, y: 2))
-                            .shadow(.inner(color: .blue, radius: 2, x: -1, y: 1))
-                            .shadow(.inner(color: .yellow.opacity(0.4), radius: 4, x: 1.5, y: -1))
-                            .shadow(.inner(color: .white.opacity(0.5), radius: 4, x: 0, y: 4))
-                            .shadow(.inner(color: .white, radius: 0.5))
+                            .shadow(.inner(color: Color(UIColor.magenta).opacity(0.7), radius: 4, x: 2, y: 2))
+                            .shadow(.inner(color: .blue, radius: 4, x: -1, y: 1))
+                            .shadow(.inner(color: .yellow.opacity(0.5), radius: 6, x: 1.5, y: -1))
+                            .shadow(.inner(color: .white.opacity(0.8), radius: 8, x: 0, y: 4))
+                            .shadow(.inner(color: .white, radius: 0.7))
                     )
                     .offset(y: 2)
             }
