@@ -37,11 +37,15 @@ struct TodayView: View {
                 LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
                     .transition(.opacity)
             }
-            
-            if viewModel.newMondee {
-                AfterSuccessPopupView(viewModel: viewModel)
-                    .transition(.opacity)
-            }
+//            
+//            if viewModel.newMondee {
+//                AfterSuccessPopupView(viewModel: viewModel)
+//                    .transition(.opacity)
+//            }
+        }
+        .fullScreenCover(isPresented: $viewModel.newMondee) {
+            AfterSuccessPopupView(viewModel: viewModel)
+                .transition(.opacity)
         }
     }
 }

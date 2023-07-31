@@ -25,7 +25,7 @@ struct RecordView: View {
             ScrollView{
                 ZStack {
                     Color.mondeeBackgroundGrey.padding(.top, 25)
-                    VStack(spacing: 15){
+                    VStack(spacing: 13){
                         RecordTitleArea(userData: userData)
                         VStack(spacing: 15){
                             RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)

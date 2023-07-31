@@ -13,7 +13,7 @@ struct RecordCalendarArea: View {
 
     
     var body: some View {
-        RoundedRectangle(cornerRadius: 22)
+        RoundedRectangle(cornerRadius: 20)
             .frame(maxWidth: .infinity)
             .frame(height: 440)
             .foregroundColor(Color.mondeeBoxBackground)

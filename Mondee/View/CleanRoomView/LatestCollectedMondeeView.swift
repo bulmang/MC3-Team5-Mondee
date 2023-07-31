@@ -49,7 +49,7 @@ struct LatestCollectedMondeeView: View {
         .padding(24)
         .frame(maxWidth: .infinity)
         .background(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
+            RoundedRectangle(cornerRadius: 20)
                 .fill(Color.mondeeBoxBackground)
         )
         .padding(.top, 5)

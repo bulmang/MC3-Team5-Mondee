@@ -11,7 +11,7 @@ struct SharingCard2View: View {
     
     var body: some View {
         ZStack {
-            Image("sharingCard02")
+            Image("sharingCardBackground")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 320)
