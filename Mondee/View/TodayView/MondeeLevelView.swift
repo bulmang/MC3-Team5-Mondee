@@ -46,7 +46,9 @@ struct MondeeLevelView: View {
         .background(Color.mondeeBoxBackground)
         .cornerRadius(20)
         .onTapGesture {
-            isLevelInfoPopup = true
+            withAnimation() {
+                isLevelInfoPopup = true
+            }
         }
     }
 }

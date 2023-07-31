@@ -134,8 +134,6 @@ struct ShareView: View {
                 } label: {
                     Image(systemName: "chevron.left")
                         .foregroundColor(.mondeeGrey)
-                        .fontWeight(.semibold)
-                        .font(.system(size: 20))
                         .padding(.leading, 5)
                 }
 

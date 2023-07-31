@@ -42,7 +42,9 @@ struct InfoIconSection: View {
         HStack {
             Spacer()
             Button {
-                isRulePopup = true
+                withAnimation() {
+                    isRulePopup = true
+                }
             } label: {
                 Image(systemName: "info.circle.fill")
                     .font(.title2)
