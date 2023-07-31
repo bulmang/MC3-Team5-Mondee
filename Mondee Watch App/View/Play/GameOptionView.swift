@@ -10,14 +10,14 @@ import SwiftUI
 struct GameOptionView: View {
     @EnvironmentObject var gameState: GameStateManager
     
+    @ObservedObject var watchLiveDataModel = WatchLiveDataModel.shared
+    
     @State var isPauseButton = true
     @State var gameTerminationAlert = false
     @State var gameEarlySuccessAlert = false
     
     @Binding var selection: PlayViewSelection
     @Binding var gameStatus: GameStatus
-    
-    @ObservedObject var watchLiveDataModel = WatchLiveDataModel()
     
     var body: some View {
         NavigationStack {
@@ -33,11 +33,13 @@ struct GameOptionView: View {
                             isPauseButton.toggle()
                             if isPauseButton {
                                 gameState.resumeGame()
+                                watchLiveDataModel.gamePause = false
+                                liveSendData()
                             }
                             else {
                                 gameState.pauseGame()
                                 watchLiveDataModel.gamePause = true
-                                watchLiveDataModel.session.transferUserInfo(["GamePause":watchLiveDataModel.gamePause])
+                                liveSendData()
                             }
                         }
                         .tint(.yellow)
@@ -89,6 +91,11 @@ struct GameOptionView: View {
                 .foregroundColor(.green)
             }
         }
+    }
+    private func liveSendData() {
+        watchLiveDataModel.session.transferUserInfo(
+            ["GameStart":watchLiveDataModel.gameStart,"GamePause":watchLiveDataModel.gamePause,"RemainHeartCount":gameState.watchLiveDataModel.remainHeartCount]
+        )
     }
 }
 

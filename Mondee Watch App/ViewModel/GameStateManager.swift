@@ -129,9 +129,9 @@ class GameStateManager: ObservableObject {
         if checkHeartDecrease() {
             isCharacterClean = false
             watchDataModel.remainHeart -= 1
-            watchLiveDataModel.remainHeartCount -= 1
-            watchLiveDataModel.session.transferUserInfo(["RemainingHeartCount":watchLiveDataModel.remainHeartCount])
             motionlessSeconds = 0
+            watchLiveDataModel.remainHeartCount -= 1
+            liveSendData()
             if watchDataModel.remainHeart == 0{
                 failGame()
             }
@@ -195,7 +195,11 @@ class GameStateManager: ObservableObject {
         watchDataModel.gamePlayTime = Constants.initialSeconds - remainingSeconds
     }
     
-    
+    private func liveSendData() {
+        watchLiveDataModel.session.transferUserInfo(
+            ["GameStart":watchLiveDataModel.gameStart,"GamePause":watchLiveDataModel.gamePause,"RemainHeartCount":watchLiveDataModel.remainHeartCount]
+        )
+    }
     
     func checkIfNewDay() {
         let currentDate = Date()

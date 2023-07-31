@@ -53,9 +53,6 @@ struct SuccessView: View {
             gameState.isSuccessActive = true
             gameState.checkIfNewDay()
             counter += 1
-            
-            watchLiveDataModel.gameEnd = true
-            watchLiveDataModel.session.transferUserInfo(["GameEnd":watchLiveDataModel.gameEnd])
         }
     }
 }

@@ -13,11 +13,10 @@ class PhoneLiveDataModel : NSObject, WCSessionDelegate, ObservableObject {
     static let shared = PhoneLiveDataModel()
     
     let session = WCSession.default
-    let userData = UserData()
+    let data = LiveData()
     
     @Published var gameStart : Bool = false
     @Published var gamePause : Bool = false
-    @Published var gameEnd : Bool = false
     @Published var remainHeartCount : Int = 3
     
     
@@ -45,9 +44,8 @@ class PhoneLiveDataModel : NSObject, WCSessionDelegate, ObservableObject {
     }
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
         guard let newStart = userInfo["GameStart"] as? Bool,
-              let newRemainingHeart = userInfo["RemainingHeartCount"] as? Int,
-              let newEnd = userInfo["GameEnd"] as? Bool,
-              let newPause = userInfo["GamePause"] as? Bool
+              let newPause = userInfo["GamePause"] as? Bool,
+              let newRemainHeartCount = userInfo["RemainHeartCount"] as? Int
                 
         else{
             print("ERROR: unknown data received from Watch")
@@ -56,8 +54,9 @@ class PhoneLiveDataModel : NSObject, WCSessionDelegate, ObservableObject {
         DispatchQueue.main.async { [self] in
             self.gameStart = newStart
             self.gamePause = newPause
-            self.gameEnd = newEnd
-            self.remainHeartCount = newRemainingHeart
+            self.remainHeartCount = newRemainHeartCount
+            
+            data.save(gameStart, gamePause, remainHeartCount)
         }
     }
 }

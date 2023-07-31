@@ -35,14 +35,18 @@ struct RetryFailView: View {
             
             Button("오늘은 그만"){
                 isFinalFail = true
-                gameState.watchDataModel.isFail = true
-                gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
-                print("데이터 전송")
+                sendData()
             }
             .buttonStyle(.borderedProminent)
-            
         }
     }
+    
+    private func sendData() {
+        gameState.watchDataModel.isFail = true
+        gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
+        print("데이터 전송")
+    }
+
 }
 
 

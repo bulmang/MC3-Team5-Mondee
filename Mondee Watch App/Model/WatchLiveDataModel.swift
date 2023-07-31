@@ -14,7 +14,6 @@ class WatchLiveDataModel : NSObject, WCSessionDelegate, ObservableObject {
     
     @Published var gameStart : Bool = false
     @Published var gamePause : Bool = false
-    @Published var gameEnd : Bool = false
     @Published var remainHeartCount : Int = 3
     
     override init() {
