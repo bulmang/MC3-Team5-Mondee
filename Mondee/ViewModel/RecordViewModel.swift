@@ -159,6 +159,7 @@ extension UserData {
                 consecutiveCount += 1
                 maxConsecutiveCount = max(maxConsecutiveCount, consecutiveCount)
             } else {
+                /// 배열을 돌려 연속되지 않으면 0으로 초기화 합니다
                 consecutiveCount = 0
             }
         }
