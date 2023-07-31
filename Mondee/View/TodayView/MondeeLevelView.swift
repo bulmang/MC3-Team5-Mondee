@@ -101,8 +101,6 @@ struct MondeeLevelView: View {
                     experiencePointsNumber = 0
                 }
             }
-            
-            experiencePointAnimation = false
         }
     }
 }

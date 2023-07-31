@@ -22,7 +22,7 @@ struct RecordTitleArea: View {
             Text("연속 성공 \(recentConsecutiveSuccessCount)일차🎉")
                 .font(.title)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
             Text("성공 버블을 모아보세요")
         }
         .frame(maxWidth: .infinity, alignment: .leading)

@@ -48,7 +48,7 @@ struct AfterSuccessPopupView: View {
                     viewModel.saveTodayMondee(mondee: todayMondee)
                     viewModel.newMondee = false
                     
-                    experiencePointAnimation = true
+                    experiencePointAnimation.toggle()
                 }
                 .padding(.horizontal,30)
                 .padding(.top,30)
