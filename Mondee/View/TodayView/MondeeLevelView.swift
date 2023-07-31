@@ -18,6 +18,7 @@ struct MondeeLevelView: View {
     }
     
     @State var experiencePoints: CGFloat = 0
+    @State var experiencePointsNumber: Int = 0
     
     var body: some View {
         VStack(alignment:.leading, spacing: 0) {
@@ -44,8 +45,22 @@ struct MondeeLevelView: View {
                         }
                         .onChange(of: experiencePointAnimation) { _ in
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                withAnimation() {
-                                    experiencePoints = CGFloat(currentProgress)
+                                if currentProgress != 0 {
+                                    withAnimation() {
+                                        experiencePoints = CGFloat(currentProgress)
+                                    }
+                                    experiencePointsNumber = currentProgress
+                                } else {
+                                    withAnimation() {
+                                        experiencePoints = 4
+                                    }
+                                    experiencePointsNumber = 4
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                        withAnimation() {
+                                            experiencePoints = 0
+                                        }
+                                    }
+                                    experiencePointsNumber = 0
                                 }
                                 
                                 experiencePointAnimation = false
@@ -53,10 +68,11 @@ struct MondeeLevelView: View {
                         }
                         .onAppear {
                             experiencePoints = CGFloat(currentProgress)
+                            experiencePointsNumber = currentProgress
                         }
                 }
                 HStack(alignment: .lastTextBaseline, spacing: 0) {
-                    Text("\(currentProgress)")
+                    Text("\(experiencePointsNumber)")
                         .font(.title)
                         .fontWeight(.bold)
                     Text(" / 4")
