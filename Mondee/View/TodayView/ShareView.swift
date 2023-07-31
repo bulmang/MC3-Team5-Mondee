@@ -17,8 +17,9 @@ struct ShareView: View {
     @Namespace private var namespace
     
     /// 입혀야 할 데이터
-    @State var imageName = "ImgMondeeLevel1-IOS"
     @State var cleaningTime = 240
+    
+    @ObservedObject var viewModel: TodayViewModel
     
     var body: some View {
         ZStack {
@@ -29,7 +30,7 @@ struct ShareView: View {
                     Text("오늘 획득한 먼디를 자랑해보세요!")
                         .font(.title3)
                         .fontWeight(.medium)
-                    SharingCardView(selection: selection, imageName: imageName, cleaningTime: cleaningTime)
+                    SharingCardView(selection: selection, cleaningTime: cleaningTime, viewModel: viewModel)
                         .onAppear {
                             renderedImage = renderImage(for: selection)
                         }
@@ -94,7 +95,7 @@ struct ShareView: View {
                 Spacer()
                 HStack(spacing: 12) {
                     MondeeGreyButton(label: "사진 저장하기") {
-                        let ren = ImageRenderer(content: SharingCardView(selection: selection, imageName: imageName, cleaningTime: cleaningTime))
+                        let ren = ImageRenderer(content: SharingCardView(selection: selection, cleaningTime: cleaningTime, viewModel: viewModel))
                         ren.scale = 3
                         if let image = ren.uiImage {
                             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -147,7 +148,7 @@ struct ShareView: View {
     
     @MainActor
     private func renderImage(for selection: Int) -> Image {
-        let renderer = ImageRenderer(content: SharingCardView(selection: selection, imageName: imageName, cleaningTime: cleaningTime))
+        let renderer = ImageRenderer(content: SharingCardView(selection: selection, cleaningTime: cleaningTime, viewModel: viewModel))
         renderer.scale = 3
         
         if let image = renderer.cgImage {
@@ -156,11 +157,5 @@ struct ShareView: View {
             // 기본 이미지를 반환하거나 필요에 따라 오류 상황을 처리합니다.
             return Image(systemName: "photo")
         }
-    }
-}
-
-struct ShareView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShareView()
     }
 }
