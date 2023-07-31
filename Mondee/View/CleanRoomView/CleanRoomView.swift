@@ -23,17 +23,17 @@ struct CleanRoomView: View {
                 .frame(height: scrollViewOffset > 0 ? scrollViewOffset : 0)
             ScrollView {
                 VStack {
-                    LargeNavigationTitle(scrollViewOffset: $scrollViewOffset)
+                    LargeNavigationTitle(scrollViewOffset: $scrollViewOffset,title: "멸균실",subTitle: "획득한 먼지들을 확인해보세요")
                     
                     LatestCollectedMondeeView(collectedModel: collectedModel)
                     
                     CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee, collectedModel: collectedModel)
                 }
             }
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 43) }
-            .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
+            .safeAreaInset(edge: .top) { Color.clear.frame(height: 0) }
             .overlay(alignment: .top) {
-                InlineNavigationTitle(scrollViewOffset: scrollViewOffset)
+                InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "멸균실")
             }
             .blur(radius: isDetailCardPopUp ? 2 : 0)
             
@@ -46,16 +46,18 @@ struct CleanRoomView: View {
 }
 
 struct LargeNavigationTitle: View {
-    
     @Binding var scrollViewOffset: CGFloat
+    
+    let title: String
+    let subTitle: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text("멸균실")
+            Text(title)
                 .font(.title)
                 .fontWeight(.bold)
                 .foregroundColor(.mondeeBlue)
-            Text("획득한 먼지들을 확인해보세요")
+            Text(subTitle)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .opacity(Double(scrollViewOffset / 40 - 0.65))
@@ -73,12 +75,13 @@ struct LargeNavigationTitle: View {
 }
 
 struct InlineNavigationTitle: View {
-    
     var scrollViewOffset: CGFloat
+    
+    let title: String
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("멸균실")
+            Text(title)
                 .font(.title3)
                 .fontWeight(.bold)
                 .foregroundColor(.mondeeBlue)
