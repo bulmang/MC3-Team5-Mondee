@@ -9,7 +9,6 @@ import Foundation
 
 struct CollectedMondee: Identifiable {
     var id = UUID()
-    var index : Int
     var collectedMondeeName: String
     var collectedMondeeDate: Date?
     var collectedMondeeDescription: String
