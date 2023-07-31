@@ -69,15 +69,15 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
             self.gameSuccess = newSuccess
             self.gameFail = newFail
             self.gamePlayTime = newPlayTime
-            self.gamePlayDate = newDate + 32400
+            self.gamePlayDate = newDate
             self.remainingHeartCount = newRemainHeart
             self.gameRetry = newRetry
             
-//            let dateString = self.dateFormatter.string(from: newDate) // 날짜를 문자열로 변환
+            // let dateString = self.dateFormatter.string(from: newDate) // 날짜를 문자열로 변환
             
             
             userData.save(gameSuccess, gameFail, gamePlayTime, gamePlayDate, remainingHeartCount, gameRetry)
-
+            
         }
     }
 }

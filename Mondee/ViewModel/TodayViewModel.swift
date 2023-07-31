@@ -12,13 +12,7 @@ class TodayViewModel: ObservableObject {
     @Published var successCount: Int = 0
     @Published var todayMondee: Mondee?
     @Published var newMondee: Bool = false
-    @Published var gameStatus: GameStatus = .noStatus {
-        didSet {
-            if oldValue == .notStarted && gameStatus == .finishedSuccess {
-                newMondee = true
-            }
-        }
-    }
+    @Published var gameStatus: GameStatus = .noStatus
     
     private var cancellables: Set<AnyCancellable> = []
     
@@ -50,6 +44,16 @@ class TodayViewModel: ObservableObject {
         
         let hasSuccessToday = users.contains { user in
             isDateToday(user.gamePlayDate) && user.gameSuccess
+        }
+        
+        let hasMondeeForToday = PhoneDataModel.shared.mondeeLogData.mondeeLog.contains { mondeeLog in
+            isDateToday(mondeeLog.date)
+        }
+        
+        if hasSuccessToday && !hasMondeeForToday {
+            newMondee = true
+        } else {
+            newMondee = false
         }
         
         if hasSuccessToday {
