@@ -18,6 +18,8 @@ class WatchDataModel : NSObject, WCSessionDelegate, ObservableObject {
     @Published var gameDate : Date = Date()
     @Published var remainHeart : Int = 3
     @Published var isRetry : Bool = false
+    @Published var isStart : Bool = false
+    @Published var isPaused : Bool = false
     
     override init() {
         super.init()

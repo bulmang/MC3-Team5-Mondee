@@ -10,8 +10,6 @@ import SwiftUI
 struct GameOptionView: View {
     @EnvironmentObject var gameState: GameStateManager
     
-    @ObservedObject var watchLiveDataModel = WatchLiveDataModel.shared
-    
     @State var isPauseButton = true
     @State var gameTerminationAlert = false
     @State var gameEarlySuccessAlert = false
@@ -33,13 +31,13 @@ struct GameOptionView: View {
                             isPauseButton.toggle()
                             if isPauseButton {
                                 gameState.resumeGame()
-                                watchLiveDataModel.gamePause = false
-                                liveSendData()
+                                gameState.watchDataModel.isPaused = false
+                                sendData()
                             }
                             else {
                                 gameState.pauseGame()
-                                watchLiveDataModel.gamePause = true
-                                liveSendData()
+                                gameState.watchDataModel.isPaused = true
+                                sendData()
                             }
                         }
                         .tint(.yellow)
@@ -92,10 +90,9 @@ struct GameOptionView: View {
             }
         }
     }
-    private func liveSendData() {
-        watchLiveDataModel.session.transferUserInfo(
-            ["GameStart":watchLiveDataModel.gameStart,"GamePause":watchLiveDataModel.gamePause,"RemainHeartCount":gameState.watchLiveDataModel.remainHeartCount]
-        )
+    private func sendData() {
+        gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry,"GameStart":gameState.watchDataModel.isStart,"GamePaused":gameState.watchDataModel.isPaused])
+        print("데이터 전송")
     }
 }
 
