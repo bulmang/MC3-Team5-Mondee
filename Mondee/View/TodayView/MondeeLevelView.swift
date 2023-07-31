@@ -30,41 +30,10 @@ struct MondeeLevelView: View {
                     Text("\(viewModel.currentLevel.nextLevelMessage)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                    Rectangle()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 6)
-                        .foregroundColor(Color(.systemGray5))
-                        .cornerRadius(3)
-                        .overlay {
-                            GeometryReader { geo in
-                                Rectangle()
-                                    .frame(width: experiencePoints * geo.size.width * 0.25, height: 6)
-                                    .foregroundColor(.mondeeBlue)
-                                    .cornerRadius(3)
-                            }
-                        }
+                    
+                    MondeeLevelProgressBar()
                         .onChange(of: experiencePointAnimation) { _ in
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                if currentProgress != 0 {
-                                    withAnimation() {
-                                        experiencePoints = CGFloat(currentProgress)
-                                    }
-                                    experiencePointsNumber = currentProgress
-                                } else {
-                                    withAnimation() {
-                                        experiencePoints = 4
-                                    }
-                                    experiencePointsNumber = 4
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                        withAnimation() {
-                                            experiencePoints = 0
-                                        }
-                                    }
-                                    experiencePointsNumber = 0
-                                }
-                                
-                                experiencePointAnimation = false
-                            }
+                            levelProgressBarAnimation()
                         }
                         .onAppear {
                             experiencePoints = CGFloat(currentProgress)
@@ -75,7 +44,11 @@ struct MondeeLevelView: View {
                     Text("\(experiencePointsNumber)")
                         .font(.title)
                         .fontWeight(.bold)
-                    Text(" / 4")
+                        .monospacedDigit()
+                    Text(" / ")
+                        .font(.system(size: 18))
+                        .foregroundColor(.gray)
+                    Text("4")
                         .font(.title3)
                         .foregroundColor(.gray)
                 }
@@ -89,6 +62,47 @@ struct MondeeLevelView: View {
             withAnimation() {
                 isLevelInfoPopup = true
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func MondeeLevelProgressBar() -> some View {
+        Rectangle()
+            .frame(maxWidth: .infinity)
+            .frame(height: 6)
+            .foregroundColor(.mondeeBackgroundGrey)
+            .cornerRadius(3)
+            .overlay {
+                GeometryReader { geo in
+                    Rectangle()
+                        .frame(width: experiencePoints * geo.size.width * 0.25, height: 6)
+                        .foregroundColor(.mondeeBlue)
+                        .cornerRadius(3)
+                }
+            }
+    }
+    
+    private func levelProgressBarAnimation() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if currentProgress != 0 {
+                withAnimation() {
+                    experiencePoints = CGFloat(currentProgress)
+                }
+                experiencePointsNumber = currentProgress
+            } else {
+                withAnimation() {
+                    experiencePoints = 4
+                }
+                experiencePointsNumber = 4
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    withAnimation() {
+                        experiencePoints = 0
+                    }
+                }
+                experiencePointsNumber = 0
+            }
+            
+            experiencePointAnimation = false
         }
     }
 }
