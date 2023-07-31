@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TotalStatistics: View {
     
-    @StateObject var userData = UserData()
+    @ObservedObject var userData: UserData
+    
     private var challengeCount: Int { userData.countGameSuccess() + userData.countGameFail() }
     private var successCount: Int { userData.countGameSuccess() }
     private var totalPlayTime: Int { userData.totalGamePlayTime() }
@@ -86,7 +87,7 @@ struct TotalStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            TotalStatistics()
+            TotalStatistics(userData: UserData())
         }
     }
 }

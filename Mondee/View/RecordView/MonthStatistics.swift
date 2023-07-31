@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MonthStatistics: View {
     
-    @StateObject var userData = UserData()
+    @ObservedObject var userData: UserData
     
     @Binding var currentMonth : Int
     
@@ -101,7 +101,7 @@ struct MonthStatistics_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            MonthStatistics(currentMonth: .constant(0))
+            MonthStatistics(userData: UserData(), currentMonth: .constant(0))
         }
     }
 }

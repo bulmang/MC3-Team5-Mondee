@@ -13,6 +13,8 @@ struct RecordView: View {
     
     @State var currentMonth : Int = 0 // 화살표 클릭으로 인한 월 세는 변수
         
+    @StateObject var userData = UserData()
+    
     var body: some View {
         
         ZStack(alignment: .top){
@@ -24,11 +26,11 @@ struct RecordView: View {
                 ZStack {
                     Color.mondeeBackgroundGrey.padding(.top, 25)
                     VStack(spacing: 15){
-                        RecordTitleArea()
+                        RecordTitleArea(userData: userData)
                         VStack(spacing: 15){
                             RecordCalendarArea(currentDate: $currentDate, currentMonth: $currentMonth)
-                            MonthStatistics(currentMonth: $currentMonth)
-                            TotalStatistics()
+                            MonthStatistics(userData: userData, currentMonth: $currentMonth)
+                            TotalStatistics(userData: userData)
                         }
                         .padding(.horizontal, 13)
                     }

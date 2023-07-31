@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RecordTitleArea: View {
     
-    @StateObject var userData = UserData()
-    
+    @ObservedObject var userData: UserData
+
     var body: some View {
         
         let (recentConsecutiveSuccessCount, maxConsecutiveSuccessCount) = userData.consecutiveSuccessCounts()
@@ -41,7 +41,7 @@ struct RecordTitleArea_Previews: PreviewProvider {
     static var previews: some View {
         ZStack{
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            RecordTitleArea()
+            RecordTitleArea(userData: UserData())
         }
     }
 }
