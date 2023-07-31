@@ -20,8 +20,6 @@ struct PlayView: View {
     
     @Binding var gameStatus: GameStatus
     
-    @ObservedObject var watchLiveDataModel = WatchLiveDataModel.shared
-    
     var body: some View {
         NavigationStack {
             TabView(selection: $selection) {
@@ -65,8 +63,8 @@ struct PlayView: View {
                     .ignoresSafeArea()
                     .onAppear {
                         gameState.playGame()
-                        watchLiveDataModel.gameStart = true
-                        liveSendData()
+                        gameState.watchDataModel.isStart = true
+                        sendData()
                     }
                     if gameState.isPreWarning {
                         Rectangle()
@@ -123,7 +121,7 @@ struct PlayView: View {
         }
     }
     private func sendData() {
-        gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry])
+        gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry,"GameStart":gameState.watchDataModel.isStart,"GamePaused":gameState.watchDataModel.isPaused])
         print("데이터 전송")
     }
     
@@ -144,12 +142,6 @@ struct PlayView: View {
         let minutes = seconds / 60
         let formattedSeconds = String(format: "%02d", seconds % 60)
         return "\(minutes):\(formattedSeconds)"
-    }
-    
-    private func liveSendData() {
-        watchLiveDataModel.session.transferUserInfo(
-            ["GameStart":watchLiveDataModel.gameStart,"GamePause":watchLiveDataModel.gamePause,"RemainHeartCount":gameState.watchLiveDataModel.remainHeartCount]
-        )
     }
 }
 

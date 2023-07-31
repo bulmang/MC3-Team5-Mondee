@@ -9,7 +9,6 @@ import WatchKit
 
 class GameStateManager: ObservableObject {
     var watchDataModel = WatchDataModel.shared
-    var watchLiveDataModel = WatchLiveDataModel.shared
     
     private var movingDetector = MovingDetector()
     private var motionlessSeconds = 0
@@ -130,8 +129,6 @@ class GameStateManager: ObservableObject {
             isCharacterClean = false
             watchDataModel.remainHeart -= 1
             motionlessSeconds = 0
-            watchLiveDataModel.remainHeartCount -= 1
-            liveSendData()
             if watchDataModel.remainHeart == 0{
                 failGame()
             }
@@ -193,12 +190,6 @@ class GameStateManager: ObservableObject {
         movingDetector.stopMotionUpdates()
 
         watchDataModel.gamePlayTime = Constants.initialSeconds - remainingSeconds
-    }
-    
-    private func liveSendData() {
-        watchLiveDataModel.session.transferUserInfo(
-            ["GameStart":watchLiveDataModel.gameStart,"GamePause":watchLiveDataModel.gamePause,"RemainHeartCount":watchLiveDataModel.remainHeartCount]
-        )
     }
     
     func checkIfNewDay() {

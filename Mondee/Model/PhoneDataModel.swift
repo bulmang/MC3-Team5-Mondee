@@ -22,6 +22,8 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
     @Published var gamePlayDate : Date = Date()
     @Published var remainingHeartCount : Int = 3
     @Published var gameRetry : Bool = false
+    @Published var gameStart : Bool = false
+    @Published var gamePause : Bool = false
     
     
     
@@ -59,8 +61,9 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
               let newDate = userInfo["GameDate"] as? Date,
               let newRemainHeart = userInfo["RemainHeart"] as? Int,
               let newFail = userInfo["GameFail"] as? Bool,
-              let newRetry = userInfo["GameRetry"] as? Bool
-                
+              let newRetry = userInfo["GameRetry"] as? Bool,
+              let newStart = userInfo["GameStart"] as? Bool,
+              let newPause = userInfo["GamePaused"] as? Bool
         else{
             print("ERROR: unknown data received from Watch")
             return
@@ -72,11 +75,13 @@ class PhoneDataModel : NSObject, WCSessionDelegate, ObservableObject {
             self.gamePlayDate = newDate
             self.remainingHeartCount = newRemainHeart
             self.gameRetry = newRetry
+            self.gameStart = newStart
+            self.gamePause = newPause
             
             // let dateString = self.dateFormatter.string(from: newDate) // 날짜를 문자열로 변환
             
             
-            userData.save(gameSuccess, gameFail, gamePlayTime, gamePlayDate, remainingHeartCount, gameRetry)
+            userData.save(gameSuccess, gameFail, gamePlayTime, gamePlayDate, remainingHeartCount, gameRetry,gameStart,gamePause)
             
         }
     }
