@@ -98,8 +98,8 @@ struct MondeeLevelView: View {
                     withAnimation() {
                         experiencePoints = 0
                     }
+                    experiencePointsNumber = 0
                 }
-                experiencePointsNumber = 0
             }
             
             experiencePointAnimation = false
