@@ -87,7 +87,7 @@ struct RecordCalendarView: View {
     @ViewBuilder
     func CardView(value: DateValue)->some View{
         ZStack {
-            if !UserData().isSuccessfulDate(date: value.date) && value.day != -1 {
+            if UserData().isSuccessfulDate(date: value.date) && value.day != -1 {
                 Circle()
                     .frame(width: 40)
                     .foregroundStyle(
