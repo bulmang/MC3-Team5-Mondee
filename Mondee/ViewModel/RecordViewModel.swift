@@ -166,16 +166,11 @@ extension UserData {
     func consecutiveSuccessCounts() -> (recent: Int, max: Int) {
         var consecutiveCount = 0
         var maxConsecutiveCount = maxConsecutiveSuccessCount
-        var prevDate: Date?
         
-        for user in userdata.reversed() {
+        for user in userdata {
             if user.gameSuccess {
-                let currentDate = user.gamePlayDate
-                if prevDate == nil || !Calendar.current.isDate(prevDate!, inSameDayAs: currentDate) {
-                    consecutiveCount += 1
-                    maxConsecutiveCount = max(maxConsecutiveCount, consecutiveCount)
-                }
-                prevDate = currentDate
+                consecutiveCount += 1
+                maxConsecutiveCount = max(maxConsecutiveCount, consecutiveCount)
             } else {
                 /// 배열을 돌려 연속되지 않으면 0으로 초기화 합니다
                 consecutiveCount = 0
