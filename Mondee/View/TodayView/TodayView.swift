@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct TodayView: View {
-    @StateObject private var viewModel = TodayViewModel()
+    @ObservedObject var viewModel: TodayViewModel
     @Binding var isRulePopup: Bool
     @Binding var isLevelInfoPopup: Bool
+    @Binding var experiencePointAnimation: Bool
     
     var body: some View {
         ZStack {
@@ -20,17 +21,13 @@ struct TodayView: View {
                     VStack(spacing: 16) {
                         InfoIconSection(isRulePopup: $isRulePopup)
                         TitleSection()
-                        MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup)
+                        MondeeLevelView(viewModel: viewModel, isLevelInfoPopup: $isLevelInfoPopup, experiencePointAnimation: $experiencePointAnimation)
                         MondeeBoxView(viewModel: viewModel)
                         ShareButtonSection(viewModel: viewModel)
                         Spacer()
                     }
                 }.padding(.all, 16)
             }
-        }
-        .fullScreenCover(isPresented: $viewModel.newMondee) {
-            AfterSuccessPopupView(viewModel: viewModel)
-                .transition(.opacity)
         }
     }
 }
@@ -68,7 +65,7 @@ struct TitleSection: View {
 
 struct ShareButtonSection: View {
     @ObservedObject var viewModel: TodayViewModel
-    
+
     var body: some View {
         NavigationLink {
             ShareView(viewModel: viewModel)
@@ -95,6 +92,6 @@ struct ShareButtonSection: View {
 
 struct TodayView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayView(isRulePopup: .constant(false), isLevelInfoPopup: .constant(false)).background(Color.mondeeBackgroundGrey)
+        TodayView(viewModel: TodayViewModel(), isRulePopup: .constant(false), isLevelInfoPopup: .constant(false), experiencePointAnimation: .constant(false)).background(Color.mondeeBackgroundGrey)
     }
 }

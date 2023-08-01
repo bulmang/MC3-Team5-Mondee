@@ -10,6 +10,8 @@ import SwiftUI
 struct AfterSuccessPopupView: View {
     @ObservedObject var viewModel: TodayViewModel
     
+    @Binding var experiencePointAnimation: Bool
+    
     var body: some View {
         ZStack{
             Color("mondeeBackgroundGrey")
@@ -45,8 +47,10 @@ struct AfterSuccessPopupView: View {
                     viewModel.todayMondee = todayMondee
                     viewModel.saveTodayMondee(mondee: todayMondee)
                     viewModel.newMondee = false
+                    
+                    experiencePointAnimation.toggle()
                 }
-                .padding(.horizontal,50)
+                .padding(.horizontal,30)
                 .padding(.top,30)
                 
             }
@@ -58,6 +62,6 @@ struct AfterSuccessPopupView: View {
 
 struct AfterSuccessPopupView_Previews: PreviewProvider {
     static var previews: some View {
-        AfterSuccessPopupView(viewModel: TodayViewModel())
+        AfterSuccessPopupView(viewModel: TodayViewModel(), experiencePointAnimation: .constant(false))
     }
 }

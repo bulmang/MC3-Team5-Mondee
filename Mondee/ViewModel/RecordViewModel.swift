@@ -12,16 +12,14 @@ import SwiftUI
 extension UserData {
     /// - Returns: gameSuccess가 true인 원소 수
     func countGameSuccess() -> Int {
-        return userdata.reduce(0) { count, user in
-            return count + (user.gameSuccess ? 1 : 0)
-        }
+        let uniqueDates = Set(userdata.filter { $0.gameSuccess }.map { $0.gamePlayDate })
+        return uniqueDates.count
     }
 
     /// - Returns: gameFail이 true인 원소 수
     func countGameFail() -> Int {
-        return userdata.reduce(0) { count, user in
-            return count + (user.gameFail ? 1 : 0)
-        }
+        let uniqueDates = Set(userdata.filter { $0.gameFail }.map { $0.gamePlayDate })
+        return uniqueDates.count
     }
     
     /// monthOffset을 받아 해당 월의 성공횟수를 구해주는 함수
@@ -33,10 +31,10 @@ extension UserData {
         let currentDate = Date()
         let targetDate = Calendar.current.date(byAdding: .month, value: monthOffset, to: currentDate) ?? currentDate
         
-        let successCount = userdata.reduce(0) { count, user in
-            let calendar = Calendar.current
-            let isTargetMonth = calendar.isDate(user.gamePlayDate, equalTo: targetDate, toGranularity: .month)
-            return count + (user.gameSuccess && isTargetMonth ? 1 : 0)
+        let uniqueDates = Set(userdata.filter { $0.gameSuccess }.map { $0.gamePlayDate })
+        let successCount = uniqueDates.reduce(0) { count, date in
+            let isTargetMonth = Calendar.current.isDate(date, equalTo: targetDate, toGranularity: .month)
+            return count + (isTargetMonth ? 1 : 0)
         }
         
         return successCount
@@ -51,10 +49,10 @@ extension UserData {
         let currentDate = Date()
         let targetDate = Calendar.current.date(byAdding: .month, value: monthOffset, to: currentDate) ?? currentDate
         
-        let failCount = userdata.reduce(0) { count, user in
-            let calendar = Calendar.current
-            let isTargetMonth = calendar.isDate(user.gamePlayDate, equalTo: targetDate, toGranularity: .month)
-            return count + (user.gameFail && isTargetMonth ? 1 : 0)
+        let uniqueDates = Set(userdata.filter { $0.gameFail }.map { $0.gamePlayDate })
+        let failCount = uniqueDates.reduce(0) { count, date in
+            let isTargetMonth = Calendar.current.isDate(date, equalTo: targetDate, toGranularity: .month)
+            return count + (isTargetMonth ? 1 : 0)
         }
         
         return failCount
@@ -69,10 +67,17 @@ extension UserData {
         let currentDate = Date()
         let targetDate = Calendar.current.date(byAdding: .month, value: monthOffset, to: currentDate) ?? currentDate
         
-        let totalPlayTime = userdata.reduce(0) { totalPlayTime, user in
+        var totalPlayTime = 0
+        var processedDates = Set<Date>()
+        
+        for user in userdata.reversed() {
             let calendar = Calendar.current
             let isTargetMonth = calendar.isDate(user.gamePlayDate, equalTo: targetDate, toGranularity: .month)
-            return totalPlayTime + (isTargetMonth ? user.gamePlayTime : 0)
+            
+            if isTargetMonth && !processedDates.contains(user.gamePlayDate) {
+                totalPlayTime += user.gamePlayTime
+                processedDates.insert(user.gamePlayDate)
+            }
         }
         
         return totalPlayTime
@@ -81,9 +86,17 @@ extension UserData {
     /// 총 플레이 타임을 가져오는 함수입니다.
     /// - Returns: 총 플레이 타임
     func totalGamePlayTime() -> Int {
-        return userdata.reduce(0) { totalPlayTime, user in
-            return totalPlayTime + user.gamePlayTime
+        var totalPlayTime = 0
+        var processedDates = Set<Date>()
+        
+        for user in userdata.reversed() {
+            if !processedDates.contains(user.gamePlayDate) {
+                totalPlayTime += user.gamePlayTime
+                processedDates.insert(user.gamePlayDate)
+            }
         }
+        
+        return totalPlayTime
     }
 
     /// 게임 성공 날짜가 있는지 판별하는 함수
@@ -170,4 +183,5 @@ extension UserData {
         return (recent: consecutiveCount, max: maxConsecutiveCount)
     }
 }
+
 

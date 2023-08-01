@@ -18,6 +18,7 @@ struct ContentView: View {
         Group{
             if splashActive {
                 SplashScreen()
+                    .offset(x: 5)
             } else {
                 if isOnboarding {
                     OnboardingView()
@@ -37,7 +38,6 @@ struct ContentView: View {
         .animation(.spring(response: 0.5,dampingFraction: 0.75), value: isOnboarding)
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

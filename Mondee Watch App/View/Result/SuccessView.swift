@@ -48,7 +48,7 @@ struct SuccessView: View {
         }
         .onAppear{
             WKInterfaceDevice.current().play(.success)
-            gameState.isSuccessActive = true
+//            gameState.isSuccessActive = true
             gameState.checkIfNewDay()
             counter += 1
         }

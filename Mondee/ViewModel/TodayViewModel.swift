@@ -40,10 +40,29 @@ class TodayViewModel: ObservableObject {
     }
     
     private func handleUserArrayUpdate(_ users: [User]) {
-        successCount = users.filter { $0.gameSuccess == true }.count
-        
+        let successfulUserDates = Set(users.filter { $0.gameSuccess }.map { $0.gamePlayDate })
+        successCount = successfulUserDates.count
+        updateGameStatus(from: users)
+    }
+    
+    private func updateGameStatus(from users: [User]) {
         let hasSuccessToday = users.contains { user in
             isDateToday(user.gamePlayDate) && user.gameSuccess
+        }
+        let hasFailToday = users.contains { user in
+            isDateToday(user.gamePlayDate) && user.gameFail
+        }
+        
+        if hasSuccessToday {
+            gameStatus = .finishedSuccess
+        } else if hasFailToday {
+            gameStatus = .finishedFail
+        } else {
+            let hasInProgressGame = users.contains { user in
+                isDateToday(user.gamePlayDate) && user.gameStart && !user.gameSuccess && !user.gameFail
+            }
+            
+            gameStatus = hasInProgressGame ? .inProgress : .notStarted
         }
         
         let hasMondeeForToday = PhoneDataModel.shared.mondeeLogData.mondeeLog.contains { mondeeLog in
@@ -55,20 +74,10 @@ class TodayViewModel: ObservableObject {
         } else {
             newMondee = false
         }
-        
-        if hasSuccessToday {
-            gameStatus = .finishedSuccess
-        } else {
-            gameStatus = .notStarted
-        }
     }
     
     private func handleMondeeLogUpdate(_ mondeeLogList: [MondeeLog]) {
-        if let todayMondeeLog = mondeeLogList.first(where: { isDateToday($0.date) }) {
-            todayMondee = todayMondeeLog.mondee
-        } else {
-            todayMondee = nil
-        }
+        todayMondee = mondeeLogList.first(where: { isDateToday($0.date) })?.mondee
     }
     
     var currentLevel: Level {
@@ -79,14 +88,6 @@ class TodayViewModel: ObservableObject {
         }
         return levelList.last!
     }
-    
-    private let levelList = [
-        Level(name: "청응애", startNumber: 0, endNumber: 3, mondeeImg: "ImgMondeeLevel1-IOS", nextLevelMessage: "청린이가 되기까기"),
-        Level(name: "청린이", startNumber: 4, endNumber: 7, mondeeImg: "ImgMondeeLevel2-IOS", nextLevelMessage: "청년이 되기까기"),
-        Level(name: "청년", startNumber: 8, endNumber: 11, mondeeImg: "ImgMondeeLevel3-IOS", nextLevelMessage: "청른이가 되기까기"),
-        Level(name: "청른이", startNumber: 12, endNumber: 15, mondeeImg: "ImgMondeeLevel4-IOS", nextLevelMessage: "청고수가 되기까기"),
-        Level(name: "청고수", startNumber: 16, endNumber: 16, mondeeImg: "ImgMondeeLevel5-IOS", nextLevelMessage: "이게 바로 고수의 삶")
-    ]
 }
 
 // Utility function

@@ -58,6 +58,7 @@ struct LevelPopupView: View {
                     Rectangle()
                         .frame(height: 1.0)
                         .opacity(0.2)
+                        .padding(.horizontal, 17.5)
                     
                     ForEach(LevelMondee) { level in
                         HStack{
@@ -85,4 +86,8 @@ struct LevelPopupView: View {
     }
 }
 
-
+struct LevelPopupView_Previews: PreviewProvider {
+    static var previews: some View {
+        LevelPopupView(isLevelInfoPopup: .constant(false))
+    }
+}
