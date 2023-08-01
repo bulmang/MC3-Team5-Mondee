@@ -9,6 +9,7 @@ import WatchKit
 
 class GameStateManager: ObservableObject {
     var watchDataModel = WatchDataModel.shared
+    var dataSent: Bool = false
     
     private var movingDetector = MovingDetector()
     private var motionlessSeconds = 0

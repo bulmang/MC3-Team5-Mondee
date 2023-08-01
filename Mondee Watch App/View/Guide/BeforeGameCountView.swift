@@ -17,6 +17,8 @@ struct BeforeGameCountView: View {
     @Binding var isGuideActive: Bool
     @Binding var gameStatus: GameStatus
     
+    @ObservedObject private var gameState = GameStateManager()
+    
     var body: some View {
         if countdown > 0 {
             VStack {
@@ -70,6 +72,8 @@ struct BeforeGameCountView: View {
                 .modifier(BubbleFontModifier())
                 .onAppear{
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        gameState.watchDataModel.isStart = true
+                        sendData()
                         gameStatus = .play
                     }
                 }
@@ -83,6 +87,11 @@ struct BeforeGameCountView: View {
                 timer.invalidate()
             }
         }
+    }
+    
+    private func sendData() {
+        gameState.watchDataModel.session.transferUserInfo(["GameSuccess":gameState.watchDataModel.isSuccess,"GameFail":gameState.watchDataModel.isFail, "GamePlayTime":gameState.watchDataModel.gamePlayTime, "GameDate":gameState.watchDataModel.gameDate, "RemainHeart":gameState.watchDataModel.remainHeart, "GameRetry":gameState.watchDataModel.isRetry,"GameStart":gameState.watchDataModel.isStart,"GamePaused":gameState.watchDataModel.isPaused])
+        print("데이터 전송")
     }
 }
 

@@ -15,6 +15,7 @@ enum PlayViewSelection {
 struct PlayView: View {
     @StateObject private var gameState = GameStateManager()
     
+    
     @State var selection: PlayViewSelection = .game
     @State private var warningRemainSeconds = Double(Constants.dirtThreshold - Constants.warningThreshold)
     
@@ -63,8 +64,6 @@ struct PlayView: View {
                     .ignoresSafeArea()
                     .onAppear {
                         gameState.playGame()
-                        gameState.watchDataModel.isStart = true
-                        sendData()
                     }
                     if gameState.isPreWarning {
                         Rectangle()
@@ -75,12 +74,16 @@ struct PlayView: View {
                 }
                 .tag(PlayViewSelection.game)
                 .onChange(of: gameState.isGameFinished) { isGameFinished in
-                    // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
-                    if isGameFinished {
-                        gameState.watchDataModel.isRetry || gameState.watchDataModel.isSuccess || gameState.watchDataModel.isFail ? sendData() : nil
-                        gameStatus = gameState.watchDataModel.isSuccess ? .success : .fail
+                    if isGameFinished && !gameState.dataSent {
+                        // gameState.isGameFinished에 기반하여 gameStatus 바인딩 업데이트
+                        if isGameFinished {
+                            gameState.watchDataModel.isRetry || gameState.watchDataModel.isSuccess || gameState.watchDataModel.isFail ? sendData() : nil
+                            gameStatus = gameState.watchDataModel.isSuccess ? .success : .fail
+                        }
+                        gameState.dataSent = true
                     }
                 }
+
             }
             .overlay {
                 if gameState.isWarning {
