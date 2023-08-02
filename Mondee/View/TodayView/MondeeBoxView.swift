@@ -16,15 +16,6 @@ struct MondeeBoxView: View {
         return viewModel.gameStatus == .finishedSuccess ? cleanMondeeLines.randomElement() ?? "" : dirtyMondeeLines.randomElement() ?? ""
     }
     
-    var mondeeImage: Image {
-        switch viewModel.gameStatus {
-        case .inProgress:
-            return Image("ImgMondeeCaution-IOS")
-        default:
-            return Image(viewModel.todayMondee?.mondeeImg ?? viewModel.currentLevel.mondeeImg)
-        }
-    }
-    
     var body: some View {
         VStack {
             HStack {
@@ -44,21 +35,29 @@ struct MondeeBoxView: View {
                         .frame(width: 200)
                 }
                 
-                mondeeImage
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 250, height: 250)
-                    .padding()
-                    .onTapGesture {
-                        if !(viewModel.gameStatus == .inProgress) {
-                            isMondeeTalking.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                withAnimation(.easeOut) {
-                                    isMondeeTalking = false
+                if viewModel.gameStatus == .inProgress {
+                    Image("ImgMondeeCaution-IOS")
+                        .resizable()
+                        .scaledToFit()
+                        .transition(.move(edge: .top))
+                        .animation(.interactiveSpring(response: 0.55 ,dampingFraction:0.68,blendDuration: 0.65))
+                } else if viewModel.gameStatus == .finishedSuccess || viewModel.gameStatus == .notStarted {
+                    Image(viewModel.todayMondee?.mondeeImg ?? viewModel.currentLevel.mondeeImg)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 250, height: 250)
+                        .padding()
+                        .onTapGesture {
+                            if !(viewModel.gameStatus == .inProgress) {
+                                isMondeeTalking.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    withAnimation(.easeOut) {
+                                        isMondeeTalking = false
+                                    }
                                 }
                             }
                         }
-                    }
+                }
             }
         }
         .overlay(alignment: .top) {
