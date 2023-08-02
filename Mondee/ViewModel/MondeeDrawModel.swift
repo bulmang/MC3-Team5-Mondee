@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// [먼디 인덱스 : 먼디 뽑히는 비율]
 let probabilities = [
     0 : 5,
     1 : 5,
@@ -25,9 +26,13 @@ let probabilities = [
     14 : 5
 ]
 
+/// 먼디 뽑히는 비율 갯수로 배열을 재 생성 뒤 Random 으로 먼디 인덱스를 뽑는 함수
+/// - Parameter distribution: [먼디 인덱스 : 먼디 뽑히는 비율]
+/// - Returns: 랜덤으로 뽑힌 먼디 인덱스
 func randomWithProbability(distribution: [Int : Int]) -> Int {
     
     var distributionArray: [Int] = []
+    /// forEach를 사용하여 먼디 뽑히는 비율 만큼 반복해서 인덱스를 넣은 배열을 생성합니다.
     distribution.forEach { (key: Int, value: Int) in
         let new = Array(repeating: key, count: value)
         distributionArray.append(contentsOf: new)

@@ -92,11 +92,11 @@ struct InlineNavigationTitle: View {
     }
 }
 
-//struct CleanRoomView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ZStack {
-//            Color.mondeeBackgroundGrey.ignoresSafeArea()
-//            CleanRoomView(isDetailCardPopUp: .constant(false), collectedModel: CollectedMondeeModel(), collectedMondee: .constant(<#T##value: CollectedMondee##CollectedMondee#>))
-//        }
-//    }
-//}
+struct CleanRoomView_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
+            Color.mondeeBackgroundGrey.ignoresSafeArea()
+            CleanRoomView(isDetailCardPopUp: .constant(false), collectedModel: CollectedMondeeModel(), collectedMondee: .constant(CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)))
+        }
+    }
+}
