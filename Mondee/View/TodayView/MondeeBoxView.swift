@@ -77,3 +77,9 @@ struct MondeeBoxView: View {
         .cornerRadius(20)
     }
 }
+
+struct MondeeBoxView_Previews: PreviewProvider {
+    static var previews: some View {
+        MondeeBoxView(viewModel: TodayViewModel())
+    }
+}

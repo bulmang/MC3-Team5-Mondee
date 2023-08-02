@@ -14,6 +14,7 @@
 		07D962FC2A6146C400CFDFFC /* PreparationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D962FB2A6146C400CFDFFC /* PreparationView.swift */; };
 		07D962FF2A62B71600CFDFFC /* Mondee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D962FE2A62B71600CFDFFC /* Mondee.swift */; };
 		07D963012A62C5A500CFDFFC /* ArrowAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D963002A62C5A500CFDFFC /* ArrowAnimation.swift */; };
+		07DF7BAE2A7A673E0094F632 /* MondeeShowAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 07DF7BAD2A7A673E0094F632 /* MondeeShowAnimation.json */; };
 		2900B1152A6986E100B7AEFD /* ConfettiCannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */; };
 		2900B1162A6986E100B7AEFD /* ConfettiCannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */; };
 		2900B1182A6986E700B7AEFD /* ConfettiSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2900B1172A6986E700B7AEFD /* ConfettiSwiftUI.swift */; };
@@ -124,6 +125,7 @@
 		07D962FB2A6146C400CFDFFC /* PreparationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationView.swift; sourceTree = "<group>"; };
 		07D962FE2A62B71600CFDFFC /* Mondee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mondee.swift; sourceTree = "<group>"; };
 		07D963002A62C5A500CFDFFC /* ArrowAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowAnimation.swift; sourceTree = "<group>"; };
+		07DF7BAD2A7A673E0094F632 /* MondeeShowAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MondeeShowAnimation.json; sourceTree = "<group>"; };
 		2900B1142A6986E100B7AEFD /* ConfettiCannon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiCannon.swift; sourceTree = "<group>"; };
 		2900B1172A6986E700B7AEFD /* ConfettiSwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfettiSwiftUI.swift; sourceTree = "<group>"; };
 		2900B11A2A6986EE00B7AEFD /* RoundedCross.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCross.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				292CE6C12A5ECD0D00BEE4AF /* View */,
 				292CE6C22A5ECD1900BEE4AF /* ViewModel */,
 				2919A7722A5D009A000B6CF6 /* Assets.xcassets */,
+				07DF7BAD2A7A673E0094F632 /* MondeeShowAnimation.json */,
 				2919A7742A5D009A000B6CF6 /* Preview Content */,
 			);
 			path = Mondee;
@@ -578,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2919A7762A5D009A000B6CF6 /* Preview Assets.xcassets in Resources */,
+				07DF7BAE2A7A673E0094F632 /* MondeeShowAnimation.json in Resources */,
 				A28331F92A7763BA00582AD6 /* SplashScreenMondee.json in Resources */,
 				2919A7732A5D009A000B6CF6 /* Assets.xcassets in Resources */,
 			);

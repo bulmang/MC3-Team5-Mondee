@@ -95,6 +95,7 @@ struct ShareButtonSection: View {
 
 struct TodayView_Previews: PreviewProvider {
     static var previews: some View {
-        TodayView(viewModel: TodayViewModel(), isRulePopup: .constant(false), isLevelInfoPopup: .constant(false), experiencePointAnimation: .constant(false)).background(Color.mondeeBackgroundGrey)
+        TodayView(viewModel: TodayViewModel(), isRulePopup: .constant(false
+                                                                     ), isLevelInfoPopup: .constant(false), experiencePointAnimation: .constant(false)).background(Color.mondeeBackgroundGrey)
     }
 }
