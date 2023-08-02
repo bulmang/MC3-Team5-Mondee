@@ -13,6 +13,7 @@ class TodayViewModel: ObservableObject {
     @Published var todayMondee: Mondee?
     @Published var newMondee: Bool = false
     @Published var gameStatus: GameStatus = .noStatus
+    @Published var isCheckActive = false
     
     private var cancellables: Set<AnyCancellable> = []
     

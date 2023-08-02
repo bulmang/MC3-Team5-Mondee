@@ -17,6 +17,7 @@ struct CustomTabView: View {
     @State private var experiencePointAnimation = false
     @State private var isDetailCardPopUp = false
     
+    
     @State private var collectedMondee: CollectedMondee = CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
         
     var body: some View {

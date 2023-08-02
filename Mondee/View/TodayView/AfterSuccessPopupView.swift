@@ -41,6 +41,8 @@ struct AfterSuccessPopupView: View {
                 
                 
                 MondeeBlueButton(label: "확인하러가기") {
+                    viewModel.isCheckActive = true
+                    
                     let todayMondee = mondeeList[
                         randomWithProbability(distribution: probabilities)
                     ]
@@ -49,6 +51,7 @@ struct AfterSuccessPopupView: View {
                     viewModel.newMondee = false
                     
                     experiencePointAnimation.toggle()
+                    
                 }
                 .padding(.horizontal,30)
                 .padding(.top,30)
@@ -60,8 +63,3 @@ struct AfterSuccessPopupView: View {
     }
 }
 
-struct AfterSuccessPopupView_Previews: PreviewProvider {
-    static var previews: some View {
-        AfterSuccessPopupView(viewModel: TodayViewModel(), experiencePointAnimation: .constant(false))
-    }
-}
