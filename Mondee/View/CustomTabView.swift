@@ -14,8 +14,12 @@ struct CustomTabView: View {
     @State var selectedTab: Tab = .today
     @State private var isRulePopup = false
     @State private var isLevelInfoPopup = false
-    @State var experiencePointAnimation = false
+    @State private var experiencePointAnimation = false
+    @State private var isDetailCardPopUp = false
     
+    @State private var collectedMondee: CollectedMondee = CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
+    @StateObject private var collectedModel = CollectedMondeeModel()
+        
     var body: some View {
         NavigationStack {
             ZStack {
@@ -28,7 +32,7 @@ struct CustomTabView: View {
                         case .record:
                             RecordView()
                         case .cleanRoom:
-                            CleanRoomView()
+                            CleanRoomView(isDetailCardPopUp: $isDetailCardPopUp, collectedModel: collectedModel, collectedMondee: $collectedMondee)
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -38,7 +42,7 @@ struct CustomTabView: View {
                         .frame(maxHeight: .infinity, alignment: .bottom)
                         .edgesIgnoringSafeArea(.bottom)
                 }
-                .blur(radius: (isLevelInfoPopup || isRulePopup) ? 2 : 0)
+                .blur(radius: (isLevelInfoPopup || isRulePopup || isDetailCardPopUp) ? 2 : 0)
 
                 if isRulePopup {
                     GameRulePopupView(isRulePopup: $isRulePopup)
@@ -47,6 +51,11 @@ struct CustomTabView: View {
                 
                 if isLevelInfoPopup {
                     LevelPopupView(isLevelInfoPopup: $isLevelInfoPopup)
+                        .transition(.opacity)
+                }
+                
+                if isDetailCardPopUp {
+                    CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee)
                         .transition(.opacity)
                 }
             }

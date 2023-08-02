@@ -22,12 +22,7 @@ let probabilities = [
     11 : 5,
     12 : 5,
     13 : 5,
-    14 : 5,
-    15 : 5,
-    16 : 5,
-    17 : 5,
-    18 : 5,
-    19 : 5,
+    14 : 5
 ]
 
 func randomWithProbability(distribution: [Int : Int]) -> Int {

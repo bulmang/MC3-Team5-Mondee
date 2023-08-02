@@ -34,7 +34,6 @@
 		2919A7832A5D009A000B6CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919A7822A5D009A000B6CF6 /* ContentView.swift */; };
 		2919A7852A5D009B000B6CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919A7842A5D009B000B6CF6 /* Assets.xcassets */; };
 		2919A7882A5D009B000B6CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919A7872A5D009B000B6CF6 /* Preview Assets.xcassets */; };
-		292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292CE6C32A5ECD8000BEE4AF /* SampleViewModel.swift */; };
 		293EA05D2A63BBD300C3615F /* GameResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293EA05B2A63BBD300C3615F /* GameResultModel.swift */; };
 		29623FAD2A69278300B4B380 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FAC2A69278300B4B380 /* CustomTabBar.swift */; };
 		29623FAF2A69307500B4B380 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29623FAE2A69307500B4B380 /* CustomTabView.swift */; };
@@ -82,7 +81,6 @@
 		F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */; };
 		F00DEB902A702AF800FF0FCF /* CollectedMondeeGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */; };
 		F00DEB922A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */; };
-		F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */; };
 		F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */; };
 		F040CFE12A72D11A00805728 /* SharingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F040CFE02A72D11A00805728 /* SharingCardView.swift */; };
 		F0430AC92A736FE2003104D0 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0430AC82A736FE2003104D0 /* RecordViewModel.swift */; };
@@ -142,7 +140,6 @@
 		2919A7822A5D009A000B6CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2919A7842A5D009B000B6CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2919A7872A5D009B000B6CF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		292CE6C32A5ECD8000BEE4AF /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 		293EA05B2A63BBD300C3615F /* GameResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultModel.swift; sourceTree = "<group>"; };
 		29623FAC2A69278300B4B380 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		29623FAE2A69307500B4B380 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
@@ -189,7 +186,6 @@
 		F00DEB8D2A7020B400FF0FCF /* LatestCollectedMondeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestCollectedMondeeView.swift; sourceTree = "<group>"; };
 		F00DEB8F2A702AF800FF0FCF /* CollectedMondeeGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeGridView.swift; sourceTree = "<group>"; };
 		F00DEB912A7043FA00FF0FCF /* CollectedMondeeDetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedMondeeDetailCardView.swift; sourceTree = "<group>"; };
-		F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawTestView.swift; sourceTree = "<group>"; };
 		F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondeeDrawModel.swift; sourceTree = "<group>"; };
 		F040CFE02A72D11A00805728 /* SharingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingCardView.swift; sourceTree = "<group>"; };
 		F0430AC82A736FE2003104D0 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
@@ -335,9 +331,7 @@
 		292CE6C22A5ECD1900BEE4AF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				292CE6C32A5ECD8000BEE4AF /* SampleViewModel.swift */,
 				7FB8E5882A6F5F9900522CE6 /* TodayViewModel.swift */,
-				F00DEB952A70BD4100FF0FCF /* MondeeDrawTestView.swift */,
 				F00DEB972A7146FD00FF0FCF /* MondeeDrawModel.swift */,
 				F00DEB8B2A7013C300FF0FCF /* CleanViewModel.swift */,
 				F0430AC82A736FE2003104D0 /* RecordViewModel.swift */,
@@ -610,7 +604,6 @@
 				F0527A3A2A6E41F8001923F7 /* ColorSystem.swift in Sources */,
 				7F163DF12A735D6D003F7009 /* MondeeModel.swift in Sources */,
 				F00DEB982A7146FD00FF0FCF /* MondeeDrawModel.swift in Sources */,
-				292CE6C42A5ECD8000BEE4AF /* SampleViewModel.swift in Sources */,
 				A2A44CC12A6F7DFB00ED8234 /* LevelPopupView.swift in Sources */,
 				29AAE3892A6F9895008913C2 /* TotalStatistics.swift in Sources */,
 				A28331E82A774D1D00582AD6 /* Lottie.swift in Sources */,
@@ -639,7 +632,6 @@
 				7FB8E58D2A6F621700522CE6 /* MondeeLevelView.swift in Sources */,
 				F0430AC92A736FE2003104D0 /* RecordViewModel.swift in Sources */,
 				29D1D3542A66DF0E00A1A3BE /* GameResultModel.swift in Sources */,
-				F00DEB962A70BD4100FF0FCF /* MondeeDrawTestView.swift in Sources */,
 				A2A44CC32A71665800ED8234 /* AfterSuccessPopupView.swift in Sources */,
 				F00DEB8E2A7020B400FF0FCF /* LatestCollectedMondeeView.swift in Sources */,
 				BEBF14852A68EA8B006F52CE /* OnboardingView.swift in Sources */,
