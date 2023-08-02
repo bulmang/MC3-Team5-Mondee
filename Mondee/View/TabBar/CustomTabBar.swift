@@ -45,6 +45,7 @@ struct CustomTabBar: View {
             .background(
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .foregroundColor(.mondeeBoxBackground)
+                    .shadow(radius: 0.6, y: 0.5)
             )
         }
     }

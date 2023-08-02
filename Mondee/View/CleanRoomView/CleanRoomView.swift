@@ -10,12 +10,12 @@ import SwiftUI
 struct CleanRoomView: View {
     
     @State private var scrollViewOffset: CGFloat = 0
-    @State private var isDetailCardPopUp = false
     @State private var collectedMondeeName = ""
     
-    @State private var collectedMondee: CollectedMondee = CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
     
-    @StateObject private var collectedModel = CollectedMondeeModel()
+    @Binding var isDetailCardPopUp: Bool
+    @ObservedObject var collectedModel: CollectedMondeeModel
+    @Binding var collectedMondee: CollectedMondee
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -34,12 +34,6 @@ struct CleanRoomView: View {
             .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
             .overlay(alignment: .top) {
                 InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "멸균실")
-            }
-            .blur(radius: isDetailCardPopUp ? 2 : 0)
-            
-            if isDetailCardPopUp {
-                CollectedMondeeDetailCardView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee)
-                    .transition(.opacity)
             }
         }
     }
@@ -102,7 +96,7 @@ struct CleanRoomView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            CleanRoomView()
+            CleanRoomView(isDetailCardPopUp: .constant(false), collectedModel: CollectedMondeeModel(), collectedMondee: .constant(CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)))
         }
     }
 }
