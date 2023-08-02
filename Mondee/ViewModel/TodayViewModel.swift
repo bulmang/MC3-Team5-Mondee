@@ -32,7 +32,7 @@ class TodayViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        PhoneDataModel.shared.mondeeLogData.$mondeeLog
+        PhoneDataModel.shared.mondeeLogData.$mondeeLog  
             .sink { [weak self] mondeeLogList in
                 self?.handleMondeeLogUpdate(mondeeLogList)
             }
@@ -54,7 +54,17 @@ class TodayViewModel: ObservableObject {
         }
         
         if hasSuccessToday {
-            gameStatus = .finishedSuccess
+            let hasMondeeForToday = PhoneDataModel.shared.mondeeLogData.mondeeLog.contains { mondeeLog in
+                isDateToday(mondeeLog.date)
+            }
+            if hasSuccessToday && !hasMondeeForToday {
+                newMondee = true
+            } else {
+                newMondee = false
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                self.gameStatus = .finishedSuccess
+            }
         } else if hasFailToday {
             gameStatus = .finishedFail
         } else {
@@ -65,15 +75,7 @@ class TodayViewModel: ObservableObject {
             gameStatus = hasInProgressGame ? .inProgress : .notStarted
         }
         
-        let hasMondeeForToday = PhoneDataModel.shared.mondeeLogData.mondeeLog.contains { mondeeLog in
-            isDateToday(mondeeLog.date)
-        }
         
-        if hasSuccessToday && !hasMondeeForToday {
-            newMondee = true
-        } else {
-            newMondee = false
-        }
     }
     
     private func handleMondeeLogUpdate(_ mondeeLogList: [MondeeLog]) {
