@@ -12,6 +12,7 @@ struct MondeeBoxView: View {
     
     @State private var isMondeeTalking = false
     
+    
     var randomMondeeLine: String {
         return viewModel.gameStatus == .finishedSuccess ? cleanMondeeLines.randomElement() ?? "" : dirtyMondeeLines.randomElement() ?? ""
     }
@@ -36,11 +37,11 @@ struct MondeeBoxView: View {
                 }
                 
                 if viewModel.gameStatus == .inProgress {
-                    Image("ImgMondeeCaution-IOS")
-                        .resizable()
-                        .scaledToFit()
-                        .transition(.move(edge: .top))
-                        .animation(.interactiveSpring(response: 0.55 ,dampingFraction:0.68,blendDuration: 0.65))
+                        Image("ImgMondeeCaution-IOS")
+                            .resizable()
+                            .scaledToFit()
+                            .transition(AnyTransition.move(edge: .top).combined(with: .opacity))
+                            .animation(.interactiveSpring(response: 0.55 ,dampingFraction:0.68,blendDuration: 0.65))
                 } else if viewModel.gameStatus == .finishedSuccess || viewModel.gameStatus == .notStarted {
                     Image(viewModel.todayMondee?.mondeeImg ?? viewModel.currentLevel.mondeeImg)
                         .resizable()
@@ -55,6 +56,13 @@ struct MondeeBoxView: View {
                                         isMondeeTalking = false
                                     }
                                 }
+                            }
+                        }
+                        .background(){
+                            if viewModel.isCheckActive {
+                                LottieView(fileName: "MondeeShowAnimation", loopMode: .repeatBackwards(2))
+                                    .scaledToFit()
+                                    .scaleEffect(0.8)
                             }
                         }
                 }
