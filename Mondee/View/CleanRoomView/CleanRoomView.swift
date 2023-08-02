@@ -14,8 +14,8 @@ struct CleanRoomView: View {
     
     
     @Binding var isDetailCardPopUp: Bool
-    @ObservedObject var collectedModel: CollectedMondeeModel
     @Binding var collectedMondee: CollectedMondee
+    @StateObject private var collectedModel = CollectedMondeeModel()
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -96,7 +96,7 @@ struct CleanRoomView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.mondeeBackgroundGrey.ignoresSafeArea()
-            CleanRoomView(isDetailCardPopUp: .constant(false), collectedModel: CollectedMondeeModel(), collectedMondee: .constant(CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)))
+            CleanRoomView(isDetailCardPopUp: .constant(false), collectedMondee: .constant(CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)))
         }
     }
 }
