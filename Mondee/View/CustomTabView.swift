@@ -18,7 +18,6 @@ struct CustomTabView: View {
     @State private var isDetailCardPopUp = false
     
     @State private var collectedMondee: CollectedMondee = CollectedMondee(collectedMondeeName: "", collectedMondeeDate: Date(), collectedMondeeDescription: "", collectedMondeeImg: "", isCollected: false)
-    @StateObject private var collectedModel = CollectedMondeeModel()
         
     var body: some View {
         NavigationStack {
@@ -32,7 +31,7 @@ struct CustomTabView: View {
                         case .record:
                             RecordView()
                         case .cleanRoom:
-                            CleanRoomView(isDetailCardPopUp: $isDetailCardPopUp, collectedModel: collectedModel, collectedMondee: $collectedMondee)
+                            CleanRoomView(isDetailCardPopUp: $isDetailCardPopUp, collectedMondee: $collectedMondee)
                         }
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
