@@ -118,6 +118,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0767948B2A7AD22B0052D43E /* Mondee Watch App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mondee Watch App.entitlements"; sourceTree = "<group>"; };
 		076E2FDE2A721E8400109D7B /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		076E2FE02A721ECB00109D7B /* PhoneDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDataModel.swift; sourceTree = "<group>"; };
 		076E2FE22A7220C500109D7B /* WatchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDataModel.swift; sourceTree = "<group>"; };
@@ -283,6 +284,7 @@
 		2919A77F2A5D009A000B6CF6 /* Mondee Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				0767948B2A7AD22B0052D43E /* Mondee Watch App.entitlements */,
 				2919A7802A5D009A000B6CF6 /* MondeeApp.swift */,
 				7FB07BA22A62A4090064D7FE /* Extension */,
 				292CE6C72A5ECD9500BEE4AF /* Model */,
@@ -816,22 +818,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mondee Watch App/Mondee Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = WF2V4JB29M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "It measures your movements to determine if you are cleaning.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Counts how many moves were made during the watch game.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Pos.8Head.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Pos.8Head.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -847,22 +852,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mondee Watch App/Mondee Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = WF2V4JB29M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mondee-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Mondee;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "It measures your movements to determine if you are cleaning.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Counts how many moves were made during the watch game.";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = bulmang.Mondee;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Pos.8Head.Mondee;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = Pos.8Head.Mondee.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -883,7 +891,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = WF2V4JB29M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mondee/Info.plist;
@@ -891,20 +899,23 @@
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = Pos.8Head.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -917,7 +928,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Mondee/Preview Content\"";
-				DEVELOPMENT_TEAM = 5T5ZCS2643;
+				DEVELOPMENT_TEAM = WF2V4JB29M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Mondee/Info.plist;
@@ -925,20 +936,23 @@
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = bulmang.Mondee;
+				PRODUCT_BUNDLE_IDENTIFIER = Pos.8Head.Mondee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
