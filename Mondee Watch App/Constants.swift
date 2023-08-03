@@ -10,7 +10,7 @@ enum Environment {
     case release
 }
 
-var currentEnvironment: Environment = .development // Change this to .release when you want to switch
+var currentEnvironment: Environment = .release // Change this to .release when you want to switch
 
 struct Constants {
     static var initialSeconds: Int {
