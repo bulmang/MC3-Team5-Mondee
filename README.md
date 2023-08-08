@@ -74,7 +74,7 @@
     <td><img width = "200" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/7df2550f-fd78-4195-a315-e1853b4624f4"></td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/76c4b482-4831-49e7-8396-751366345dc1"></td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/c9d07315-8a36-46b7-ba8c-790365d74046"></td>
-    <td><img width = "200" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/cfd342c1-5eee-4e0c-9d8f-0a2953daa070"></td>
+    <td><img width = "180" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/cfd342c1-5eee-4e0c-9d8f-0a2953daa070"></td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/934ee4bd-6188-4864-aace-931e98d13f46"></td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/613b7c73-4725-49d8-b455-667c3cbd5f88"></td>
   <tr align=center>
