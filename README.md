@@ -13,10 +13,12 @@
 
 <div align="center">
 <img width = "1000" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/6304901d-f78d-4ff7-920c-e27a8ae7a9b1">
-
+<br/>
 <br>
-
+<img width = "1000" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/114594496/1d7ef6e4-deef-4903-b99a-b9acf290ff86">
+<br/>
 <br>
+<img width = "1000" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/114594496/b274dadd-e431-4f91-b87d-d292860eda4d">
 
 [<img width = "200" src="https://github-production-user-asset-6210df.s3.amazonaws.com/120548537/251533420-0eb9b31b-8203-48b7-8dcd-3725a8c9da49.png">](https://testflight.apple.com/join/ZXEDYYZ9)
   
@@ -74,9 +76,11 @@
     <td><img width = "200" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/7df2550f-fd78-4195-a315-e1853b4624f4"></td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/76c4b482-4831-49e7-8396-751366345dc1"></td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/c9d07315-8a36-46b7-ba8c-790365d74046"></td>
-    <td><img width = "180" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/cfd342c1-5eee-4e0c-9d8f-0a2953daa070"></td>
+    <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/613b7c73-4725-49d8-b455-667c3cbd5f88">
+</td>
     <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/934ee4bd-6188-4864-aace-931e98d13f46"></td>
-    <td><img width = "150" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/613b7c73-4725-49d8-b455-667c3cbd5f88"></td>
+    <td><img width = "180" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/120548537/cfd342c1-5eee-4e0c-9d8f-0a2953daa070">
+</td>
   <tr align=center>
     <td><A href="https://github.com/Woozu96">Woozu96</A></td>
     <td><A href="https://github.com/seunghoria">seunghoria</A></td>
