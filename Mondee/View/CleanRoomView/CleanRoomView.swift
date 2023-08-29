@@ -30,7 +30,7 @@ struct CleanRoomView: View {
                     CollectedMondeeGridView(isDetailCardPopUp: $isDetailCardPopUp, collected: $collectedMondee, collectedModel: collectedModel)
                 }
             }
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 30) }
             .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
             .overlay(alignment: .top) {
                 InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "멸균실")
