@@ -31,11 +31,11 @@ struct RecordView: View {
                         TotalStatistics(userData: userData)
                     }
                     .padding(.horizontal, 16)
-                    .padding(.bottom, 24)
+//                    .padding(.bottom, 24)
                 }
                 
             }
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 0) }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 62) }
             .safeAreaInset(edge: .top) { Color.clear.frame(height: 30) }
             .overlay(alignment: .top) {
                 InlineNavigationTitle(scrollViewOffset: scrollViewOffset,title: "기록실")

@@ -25,7 +25,7 @@ struct TodayView: View {
                         MondeeBoxView(viewModel: viewModel)
                         ShareButtonSection(viewModel: viewModel)
                         Spacer()
-                        .padding(.bottom, 16)
+                        .padding(.bottom, 32)
                     }
                 }
                 .padding(.top, 16)

@@ -43,6 +43,7 @@ struct MonthStatistics: View {
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
+                        .frame(maxWidth: .infinity)
                         VStack(spacing: 0){
                             Image("ImgStatisticsTotal")
                                 .resizable()
@@ -56,6 +57,7 @@ struct MonthStatistics: View {
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
+                        .frame(maxWidth: .infinity)
                         VStack(spacing: 0){
                             Image("ImgStatisticsRate")
                                 .resizable()
@@ -75,6 +77,7 @@ struct MonthStatistics: View {
                                     .padding(.bottom, 3)
                             }
                         }
+                        .frame(maxWidth: .infinity)
                     }
                     .padding(.top, 9)
                     .padding(.horizontal, 53)

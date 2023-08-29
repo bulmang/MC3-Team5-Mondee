@@ -35,35 +35,39 @@ struct GameRuleView: View {
                 .onTapGesture {
                     isRulePopup = false
                 }
-            ZStack(alignment: .topTrailing) {
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(Color("mondeeBoxBackground"))
-                    .frame(height: 530)
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal,16)
+            VStack {
+                Spacer()
+                ZStack(alignment: .topTrailing) {
+
+                    Button {
+                        isRulePopup = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .offset(x: -28, y: -28)
+                    }
+                    .buttonStyle(MondeeButtonClickStyle())
                     
-                
-                Button {
-                    isRulePopup = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .offset(x: -28, y: -28)
+                    VStack(spacing: 0) {
+                        Text("플레이 방법")
+                            .font(.title2)
+                            .bold()
+                            .padding(.top,40)
+                            
+                        GameRuleImageSection(selectedImageIndex: $selectedImageIndex)
+                        GameRuleDescriptionSection(gameRuleDescription: gameRuleDescriptions[selectedImageIndex])
+                            .padding(.bottom,20)
+                    }
+                    .background{
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color("mondeeBoxBackground"))
+                            .frame(maxWidth: .infinity)
+                            .padding(.horizontal,16)
+                    }
                 }
-                .buttonStyle(MondeeButtonClickStyle())
-                
-                VStack(spacing: 0) {
-                    Text("플레이 방법")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top,40)
-                        
-                    GameRuleImageSection(selectedImageIndex: $selectedImageIndex)
-                    GameRuleDescriptionSection(gameRuleDescription: gameRuleDescriptions[selectedImageIndex])
-                }
+                Spacer()
             }
-            .padding(.top, 120)
         }
     }
 }
@@ -123,6 +127,7 @@ struct GameRuleDescriptionSection: View {
     var body: some View {
         Text(gameRuleDescription)
             .multilineTextAlignment(.center)
+            .frame(height: 80)
     }
 }
 

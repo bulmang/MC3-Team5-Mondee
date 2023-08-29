@@ -27,7 +27,7 @@ struct TotalStatistics: View {
                         .font(.system(size: 20, weight: .bold))
                         .padding(.bottom, 9)
                         .padding(.leading, 27)
-                    HStack(spacing: 30){
+                    HStack(spacing: 20){
                         VStack(spacing: 0){
                             Image("ImgStatisticsMonth")
                                 .resizable()
@@ -40,8 +40,8 @@ struct TotalStatistics: View {
                             Text("\(challengeCount)")
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
-                               
                         }
+                        .frame(maxWidth: .infinity)
                         VStack(spacing: 0){
                             Image("ImgStatisticsTotal")
                                 .resizable()
@@ -55,6 +55,7 @@ struct TotalStatistics: View {
                                 .font(.system(size: 24, weight: .semibold))
                                 .foregroundColor(Color.mondeeBlue)
                         }
+                        .frame(maxWidth: .infinity)
                         VStack(spacing: 0){
                             Image("ImgStatisticsRate")
                                 .resizable()
@@ -74,6 +75,7 @@ struct TotalStatistics: View {
                                     .padding(.bottom, 3)
                             }
                         }
+                        .frame(maxWidth: .infinity)
                     }
                     .padding(.horizontal,48)
                     .padding(.bottom, 22)
