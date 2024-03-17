@@ -7,8 +7,15 @@
 
 <div align="center">
 <img width = "100" src="https://github-production-user-asset-6210df.s3.amazonaws.com/120548537/258163699-88d62ea2-49e4-40f8-974c-544ff171e435.png">
+  
+<br>
 
-# Mondee
+<br>
+
+[<img width = "200" src="https://github-production-user-asset-6210df.s3.amazonaws.com/120548537/251533420-0eb9b31b-8203-48b7-8dcd-3725a8c9da49.png">](https://apps.apple.com/kr/app/mondees/id6456983931)
+<div align="center">
+
+  # Mondee
 </div>
 
 <div align="center">
@@ -19,30 +26,14 @@
 <br/>
 <br>
 <img width = "1000" src="https://github.com/DeveloperAcademy-POSTECH/MC3-Team5-Mondee/assets/114594496/b274dadd-e431-4f91-b87d-d292860eda4d">
-
-[<img width = "200" src="https://github-production-user-asset-6210df.s3.amazonaws.com/120548537/251533420-0eb9b31b-8203-48b7-8dcd-3725a8c9da49.png">](https://testflight.apple.com/join/ZXEDYYZ9)
   
 </div>
 
 <br>
-
-## 📑 Description
-  
-앱에 대한 설명
-  
-**watchOS**  
-- feature
-
-**iOS**
-- feature
-
 <br>
 
 <br>
-  
-## 🔍 Preview
-<img width = "1000" src="https://github.com/hyunjuntyler/readme-templates/assets/120548537/764b9b1a-6d17-4b65-afae-0d31a320e4b3">
-<br>
+
 
 <br>
 
